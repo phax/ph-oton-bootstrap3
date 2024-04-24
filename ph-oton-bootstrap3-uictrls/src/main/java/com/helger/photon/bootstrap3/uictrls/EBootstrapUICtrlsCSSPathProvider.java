@@ -33,7 +33,8 @@ import com.helger.html.resource.css.ICSSPathProvider;
 public enum EBootstrapUICtrlsCSSPathProvider implements ICSSPathProvider
 {
   DATETIMEPICKER ("external/bootstrap/datetimepicker/bootstrap-datetimepicker.css"),
-  TREE_VIEW ("external/bootstrap/treeview/1.2.0/bootstrap-treeview.css");
+  TREE_VIEW ("external/bootstrap/treeview/1.2.0/bootstrap-treeview.css"),
+  DATATABLES_PH_BOOTSTRAP3 ("ph-oton/bootstrap3-datatables-ph.css");
 
   private final ConstantCSSPathProvider m_aPP;
 

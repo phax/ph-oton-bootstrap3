@@ -28,7 +28,7 @@
   <packaging>bundle</packaging>
   <name>ph-oton-bootstrap3-pages</name>
   <description>Default web pages for the ph-oton stack</description>
-  <url>https://github.com/phax/ph-oton/ph-oton-bootstrap3-pages</url>
+  <url>https://github.com/phax/ph-oton-bootstrap3/ph-oton-bootstrap3-pages</url>
   <inceptionYear>2014</inceptionYear>
   
   <licenses>

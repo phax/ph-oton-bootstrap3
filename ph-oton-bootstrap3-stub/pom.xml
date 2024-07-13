@@ -28,7 +28,7 @@
   <packaging>bundle</packaging>
   <name>ph-oton-bootstrap3-stub</name>
   <description>Web application stub with Bootstrap for the ph-oton stack</description>
-  <url>https://github.com/phax/ph-oton/ph-oton-bootstrap3-stub</url>
+  <url>https://github.com/phax/ph-oton-bootstrap3/ph-oton-bootstrap3-stub</url>
   <inceptionYear>2014</inceptionYear>
   
   <licenses>

@@ -54,7 +54,8 @@ See the submodule `ph-oton-bootstrap3-demo` for a working example project with B
 
 ## News and noteworthy
 
-* v9.2.3 - Initial version
+* v9.2.3 - 2024-08-09
+    * Updated to DataTables 2.1
     * Extracted from ph-oton
 
 ---

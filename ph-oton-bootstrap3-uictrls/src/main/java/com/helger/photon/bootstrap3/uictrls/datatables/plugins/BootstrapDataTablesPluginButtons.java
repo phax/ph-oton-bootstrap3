@@ -25,9 +25,10 @@ import com.helger.photon.app.html.PhotonCSS;
 import com.helger.photon.app.html.PhotonJS;
 import com.helger.photon.bootstrap3.CBootstrapCSS;
 import com.helger.photon.bootstrap3.uictrls.datatables.BootstrapDataTablesDom;
+import com.helger.photon.bootstrap3.uictrls.datatables.EDataTablesB3CSSPathProvider;
+import com.helger.photon.bootstrap3.uictrls.datatables.EDataTablesB3JSPathProvider;
 import com.helger.photon.uictrls.datatables.DataTablesDom;
 import com.helger.photon.uictrls.datatables.EDataTablesCSSPathProvider;
-import com.helger.photon.uictrls.datatables.EDataTablesJSPathProvider;
 import com.helger.photon.uictrls.datatables.plugins.DataTablesPluginButtons;
 
 public class BootstrapDataTablesPluginButtons extends DataTablesPluginButtons
@@ -65,9 +66,9 @@ public class BootstrapDataTablesPluginButtons extends DataTablesPluginButtons
   public void registerExternalResources (final IHCConversionSettingsToNode aConversionSettings)
   {
     super.registerExternalResources (aConversionSettings);
-    PhotonJS.registerJSIncludeForThisRequest (EDataTablesJSPathProvider.DATATABLES_BUTTONS_BOOTSTRAP3);
+    PhotonJS.registerJSIncludeForThisRequest (EDataTablesB3JSPathProvider.DATATABLES_BUTTONS_BOOTSTRAP3);
     // Change CSS
     PhotonCSS.unregisterCSSIncludeFromThisRequest (EDataTablesCSSPathProvider.DATATABLES_BUTTONS);
-    PhotonCSS.registerCSSIncludeForThisRequest (EDataTablesCSSPathProvider.DATATABLES_BUTTONS_BOOTSTRAP3);
+    PhotonCSS.registerCSSIncludeForThisRequest (EDataTablesB3CSSPathProvider.DATATABLES_BUTTONS_BOOTSTRAP3);
   }
 }

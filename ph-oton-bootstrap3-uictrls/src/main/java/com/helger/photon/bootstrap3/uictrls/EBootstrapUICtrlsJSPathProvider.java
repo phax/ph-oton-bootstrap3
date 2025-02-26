@@ -34,12 +34,12 @@ public enum EBootstrapUICtrlsJSPathProvider implements IJSPathProvider
 
   EBootstrapUICtrlsJSPathProvider (@Nonnull @Nonempty final String sPath)
   {
-    m_aPP = ConstantJSPathProvider.create (sPath);
+    m_aPP = ConstantJSPathProvider.builder ().path (sPath).minifiedPathFromPath ().build ();
   }
 
   EBootstrapUICtrlsJSPathProvider (@Nonnull @Nonempty final String sPath, final boolean bCanBeBundled)
   {
-    m_aPP = ConstantJSPathProvider.createBundlable (sPath, bCanBeBundled);
+    m_aPP = ConstantJSPathProvider.builder ().path (sPath).minifiedPathFromPath ().bundlable (bCanBeBundled).build ();
   }
 
   @Nonnull
@@ -63,9 +63,12 @@ public enum EBootstrapUICtrlsJSPathProvider implements IJSPathProvider
   @Nonnull
   public IJSPathProvider getInstance (@Nonnull @Nonempty final String sLanguage)
   {
-    return ConstantJSPathProvider.createWithConditionalComment (StringHelper.replaceAll (m_aPP.getJSItemPathRegular (),
-                                                                                         "{0}",
-                                                                                         sLanguage),
-                                                                m_aPP.getConditionalComment ());
+    return ConstantJSPathProvider.builder ()
+                                 .path (StringHelper.replaceAll (m_aPP.getJSItemPathRegular (), "{0}", sLanguage))
+                                 .minifiedPathFromPath ()
+                                 .bundlable (m_aPP.isBundlable ())
+                                 .conditionalComment (m_aPP.getConditionalComment ())
+                                 .scriptLoadingMode (m_aPP.getScriptLoadingMode ())
+                                 .build ();
   }
 }

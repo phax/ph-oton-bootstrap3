@@ -20,7 +20,6 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import com.helger.commons.annotation.Nonempty;
-import com.helger.commons.string.StringHelper;
 import com.helger.html.resource.js.ConstantJSPathProvider;
 import com.helger.html.resource.js.IJSPathProvider;
 import com.helger.photon.uictrls.datatables.CDataTablesComponentVersion;
@@ -58,7 +57,7 @@ public enum EDataTablesB3JSPathProvider implements IJSPathProvider
 
   EDataTablesB3JSPathProvider (@Nonnull @Nonempty final String sPath)
   {
-    m_aPP = ConstantJSPathProvider.create (sPath);
+    m_aPP = ConstantJSPathProvider.builder ().path (sPath).minifiedPathFromPath ().build ();
   }
 
   @Nonnull
@@ -77,14 +76,5 @@ public enum EDataTablesB3JSPathProvider implements IJSPathProvider
   public boolean isBundlable ()
   {
     return m_aPP.isBundlable ();
-  }
-
-  @Nonnull
-  public IJSPathProvider getInstance (@Nonnull @Nonempty final String sLanguage)
-  {
-    return ConstantJSPathProvider.createWithConditionalComment (StringHelper.replaceAll (m_aPP.getJSItemPathRegular (),
-                                                                                         "{0}",
-                                                                                         sLanguage),
-                                                                m_aPP.getConditionalComment ());
   }
 }

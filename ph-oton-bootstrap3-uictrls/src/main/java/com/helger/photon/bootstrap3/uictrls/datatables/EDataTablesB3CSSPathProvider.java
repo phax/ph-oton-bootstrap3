@@ -76,7 +76,7 @@ public enum EDataTablesB3CSSPathProvider implements ICSSPathProvider
 
   EDataTablesB3CSSPathProvider (@Nonnull @Nonempty final String sPath)
   {
-    m_aPP = ConstantCSSPathProvider.create (sPath);
+    m_aPP = ConstantCSSPathProvider.builder ().path (sPath).minifiedPathFromPath ().build ();
   }
 
   @Nonnull

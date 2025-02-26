@@ -34,7 +34,7 @@ import com.helger.html.jquery.JQueryAjaxBuilder;
 import com.helger.html.jscode.JSAnonymousFunction;
 import com.helger.html.jscode.JSAssocArray;
 import com.helger.html.jscode.JSPackage;
-import com.helger.html.jscode.JSVar;
+import com.helger.html.jscode.JSParam;
 import com.helger.html.jscode.html.JSHtml;
 import com.helger.photon.bootstrap.demo.ajax.AjaxExecutorLogin;
 import com.helger.photon.bootstrap.demo.ajax.CAjax;
@@ -73,7 +73,8 @@ public final class AppCommonUI
     final String sIDErrorField = GlobalIDFactory.getNewStringID ();
 
     final BootstrapForm aForm = new BootstrapForm (aLEC).setAction (aLEC.getSelfHref ())
-                                                        .setFormType (bFullUI ? EBootstrapFormType.HORIZONTAL : EBootstrapFormType.DEFAULT);
+                                                        .setFormType (bFullUI ? EBootstrapFormType.HORIZONTAL
+                                                                              : EBootstrapFormType.DEFAULT);
     aForm.setLeft (3);
 
     // User name field
@@ -93,13 +94,14 @@ public final class AppCommonUI
     final JSPackage aOnClick = new JSPackage ();
     {
       final JSAnonymousFunction aJSSuccess = new JSAnonymousFunction ();
-      final JSVar aJSData = aJSSuccess.param ("data");
+      final JSParam aJSData = aJSSuccess.param ("data");
       aJSSuccess.body ()
                 ._if (aJSData.ref (AjaxExecutorLogin.JSON_LOGGEDIN),
                       JSHtml.windowLocationReload (),
                       JQuery.idRef (sIDErrorField).empty ().append (aJSData.ref (AjaxExecutorLogin.JSON_HTML)));
       aOnClick.add (new JQueryAjaxBuilder ().url (CAjax.LOGIN.getInvocationURI (aRequestScope))
-                                            .data (new JSAssocArray ().add (CLogin.REQUEST_ATTR_USERID, JQuery.idRef (sIDUserName).val ())
+                                            .data (new JSAssocArray ().add (CLogin.REQUEST_ATTR_USERID,
+                                                                            JQuery.idRef (sIDUserName).val ())
                                                                       .add (CLogin.REQUEST_ATTR_PASSWORD,
                                                                             JQuery.idRef (sIDPassword).val ()))
                                             .success (aJSSuccess)

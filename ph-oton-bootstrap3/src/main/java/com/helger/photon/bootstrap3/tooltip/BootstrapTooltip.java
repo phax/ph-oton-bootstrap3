@@ -19,17 +19,16 @@ package com.helger.photon.bootstrap3.tooltip;
 import java.util.Collection;
 import java.util.Set;
 
-import javax.annotation.Nonnegative;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
-import com.helger.commons.ValueEnforcer;
-import com.helger.commons.annotation.CodingStyleguideUnaware;
-import com.helger.commons.annotation.ReturnsMutableCopy;
-import com.helger.commons.collection.CollectionHelper;
-import com.helger.commons.collection.impl.CommonsLinkedHashSet;
-import com.helger.commons.collection.impl.ICommonsList;
-import com.helger.commons.string.StringHelper;
+import com.helger.annotation.Nonnegative;
+import com.helger.annotation.style.CodingStyleguideUnaware;
+import com.helger.annotation.style.ReturnsMutableCopy;
+import com.helger.base.enforce.ValueEnforcer;
+import com.helger.base.string.StringHelper;
+import com.helger.collection.CollectionHelper;
+import com.helger.collection.commons.CommonsArrayList;
+import com.helger.collection.commons.CommonsLinkedHashSet;
+import com.helger.collection.commons.CommonsTreeSet;
+import com.helger.collection.commons.ICommonsList;
 import com.helger.html.EHTMLElement;
 import com.helger.html.annotation.OutOfBandNode;
 import com.helger.html.hc.IHCConversionSettingsToNode;
@@ -46,6 +45,9 @@ import com.helger.html.jscode.JSAssocArray;
 import com.helger.html.jscode.JSInvocation;
 import com.helger.photon.bootstrap3.EBootstrapIcon;
 
+import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
+
 /**
  * Bootstrap Tooltip
  *
@@ -59,23 +61,22 @@ public class BootstrapTooltip extends HCScriptInlineOnDocumentReady
    */
   public static final String JS_EVENT_SHOW = "show.bs.tooltip";
   /**
-   * This event is fired when the tooltip has been made visible to the user
-   * (will wait for CSS transitions to complete).
+   * This event is fired when the tooltip has been made visible to the user (will wait for CSS
+   * transitions to complete).
    */
   public static final String JS_EVENT_SHOWN = "shown.bs.tooltip";
   /**
-   * This event is fired immediately when the hide instance method has been
-   * called.
+   * This event is fired immediately when the hide instance method has been called.
    */
   public static final String JS_EVENT_HIDE = "hide.bs.tooltip";
   /**
-   * This event is fired when the tooltip has finished being hidden from the
-   * user (will wait for CSS transitions to complete).
+   * This event is fired when the tooltip has finished being hidden from the user (will wait for CSS
+   * transitions to complete).
    */
   public static final String JS_EVENT_HIDDEN = "hidden.bs.tooltip";
   /**
-   * This event is fired after the show.bs.tooltip event when the tooltip
-   * template has been added to the DOM.
+   * This event is fired after the show.bs.tooltip event when the tooltip template has been added to
+   * the DOM.
    */
   public static final String JS_EVENT_INSERTED = "inserted.bs.tooltip";
 
@@ -166,8 +167,7 @@ public class BootstrapTooltip extends HCScriptInlineOnDocumentReady
 
   /**
    * @param aFunction
-   *        Callback function with 3 parameters:
-   *        <code>(this, $tip[0], this.$element[0])</code>
+   *        Callback function with 3 parameters: <code>(this, $tip[0], this.$element[0])</code>
    * @return this
    */
   @Nonnull
@@ -239,14 +239,14 @@ public class BootstrapTooltip extends HCScriptInlineOnDocumentReady
   @ReturnsMutableCopy
   public ICommonsList <EBootstrapTooltipTrigger> getTrigger ()
   {
-    return CollectionHelper.newList (m_aTrigger);
+    return new CommonsArrayList <> (m_aTrigger);
   }
 
   @Nonnull
   public BootstrapTooltip setTrigger (@Nullable final EBootstrapTooltipTrigger... aTrigger)
   {
     // Avoid duplicates!
-    m_aTrigger = CollectionHelper.newSortedSet (aTrigger);
+    m_aTrigger = new CommonsTreeSet <> (aTrigger);
     return this;
   }
 
@@ -254,7 +254,7 @@ public class BootstrapTooltip extends HCScriptInlineOnDocumentReady
   public BootstrapTooltip setTrigger (@Nullable final Collection <EBootstrapTooltipTrigger> aTrigger)
   {
     // Avoid duplicates!
-    m_aTrigger = CollectionHelper.newSortedSet (aTrigger);
+    m_aTrigger = new CommonsTreeSet <> (aTrigger);
     return this;
   }
 
@@ -323,9 +323,9 @@ public class BootstrapTooltip extends HCScriptInlineOnDocumentReady
     }
     else
       aOptions.add ("placement", m_aPlacementFunc);
-    if (StringHelper.hasText (m_sSelector))
+    if (StringHelper.isNotEmpty (m_sSelector))
       aOptions.add ("selector", m_sSelector);
-    if (StringHelper.hasText (m_sTooltipTitle))
+    if (StringHelper.isNotEmpty (m_sTooltipTitle))
       aOptions.add ("title", m_sTooltipTitle);
     else
       if (m_aTooltipTitleFunc != null)

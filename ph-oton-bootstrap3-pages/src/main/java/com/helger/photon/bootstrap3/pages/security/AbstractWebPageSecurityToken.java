@@ -19,18 +19,11 @@ package com.helger.photon.bootstrap3.pages.security;
 import java.util.List;
 import java.util.Locale;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
-import com.helger.commons.annotation.Nonempty;
-import com.helger.commons.annotation.Translatable;
-import com.helger.commons.collection.CollectionHelper;
-import com.helger.commons.datetime.PDTToString;
-import com.helger.commons.id.IHasID;
-import com.helger.commons.text.IMultilingualText;
-import com.helger.commons.text.display.IHasDisplayTextWithArgs;
-import com.helger.commons.text.resolve.DefaultTextResolver;
-import com.helger.commons.text.util.TextHelper;
+import com.helger.annotation.Nonempty;
+import com.helger.annotation.misc.Translatable;
+import com.helger.base.id.IHasID;
+import com.helger.collection.helper.CollectionSort;
+import com.helger.datetime.format.PDTToString;
 import com.helger.html.hc.IHCNode;
 import com.helger.html.hc.html.grouping.HCDiv;
 import com.helger.html.hc.html.grouping.HCUL;
@@ -41,8 +34,16 @@ import com.helger.photon.security.token.accesstoken.IAccessToken;
 import com.helger.photon.security.token.revocation.IRevocationStatus;
 import com.helger.photon.security.util.SecurityHelper;
 import com.helger.photon.uicore.page.IWebPageExecutionContext;
+import com.helger.text.IMultilingualText;
+import com.helger.text.display.IHasDisplayTextWithArgs;
+import com.helger.text.resolve.DefaultTextResolver;
+import com.helger.text.util.TextHelper;
 
-public abstract class AbstractWebPageSecurityToken <DATATYPE extends IHasID <String>, WPECTYPE extends IWebPageExecutionContext> extends
+import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
+
+public abstract class AbstractWebPageSecurityToken <DATATYPE extends IHasID <String>, WPECTYPE extends IWebPageExecutionContext>
+                                                   extends
                                                    AbstractWebPageSecurityObjectWithAttributes <DATATYPE, WPECTYPE>
 {
   public static final int TOKEN_STRING_MIN_LENGTH = 16;
@@ -64,8 +65,12 @@ public abstract class AbstractWebPageSecurityToken <DATATYPE extends IHasID <Str
     SHOW_ACCESS_TOKEN ("Zugriffs-Token: ", "Access token: "),
     SHOW_NOT_BEFORE ("Gültig ab: {0}", "Not before: {0}"),
     SHOW_NOT_AFTER ("Gültig bis: {0}", "Not after: {0}"),
-    ERR_TOKEN_STRING_TOO_SHORT ("Das Zugriffs-Token ist zu kurz. Es muss mindestens " + TOKEN_STRING_MIN_LENGTH + " Zeichen haben.",
-                                "The access token is too short. It must have at least " + TOKEN_STRING_MIN_LENGTH + " characters."),
+    ERR_TOKEN_STRING_TOO_SHORT ("Das Zugriffs-Token ist zu kurz. Es muss mindestens " +
+                                TOKEN_STRING_MIN_LENGTH +
+                                " Zeichen haben.",
+                                "The access token is too short. It must have at least " +
+                                                   TOKEN_STRING_MIN_LENGTH +
+                                                   " characters."),
     ERR_TOKEN_STRING_IN_USE ("Das Zugriffs-Token ist bereits vergeben und kann nicht nochmal vergeben werden.",
                              "The access token is already in use and cannot be assigned again."),
     LABEL_REASON ("Begründung", "Reason"),
@@ -76,11 +81,14 @@ public abstract class AbstractWebPageSecurityToken <DATATYPE extends IHasID <Str
                                                "Revoke the old access token of ''{0}'' and create a new access token"),
     CREATE_NEW_ACCESS_TOKEN_SUCCESS ("Das neue Zugriffs-Token für ''{0}'' wurde erfolgreich erstellt.",
                                      "A new access token for ''{0}'' was successfully created."),
-    CREATE_NEW_ACCESS_TOKEN_HEADER ("Ein neues Zugriffs-Token für ''{0}'' erstellen", "Create a new access token for ''{0}''"),
+    CREATE_NEW_ACCESS_TOKEN_HEADER ("Ein neues Zugriffs-Token für ''{0}'' erstellen",
+                                    "Create a new access token for ''{0}''"),
     REVOKE_ACCESS_TOKEN_SUCCESS ("Das alte Zugriffs-Token von ''{0}'' wurde erfolgreich widerrufen.",
                                  "The old access token of ''{0}'' was successfully revoked."),
-    REVOKE_ACCESS_TOKEN_HEADER ("Das alte Zugriffs-Token von ''{0}'' widerrufen", "Revoke the old access token of ''{0}''"),
-    TITLE_ACTION_CREATE_NEW_ACCESS_TOKEN ("Neuen Zugriffs-Token für ''{0}'' erzeugen", "Create new access token for ''{0}''"),
+    REVOKE_ACCESS_TOKEN_HEADER ("Das alte Zugriffs-Token von ''{0}'' widerrufen",
+                                "Revoke the old access token of ''{0}''"),
+    TITLE_ACTION_CREATE_NEW_ACCESS_TOKEN ("Neuen Zugriffs-Token für ''{0}'' erzeugen",
+                                          "Create new access token for ''{0}''"),
     TITLE_ACTION_REVOKE_ACCESS_TOKEN ("Zugriffs-Token für ''{0}'' zurückziehen", "Revoke access token for ''{0}''");
 
     private final IMultilingualText m_aTP;
@@ -127,7 +135,7 @@ public abstract class AbstractWebPageSecurityToken <DATATYPE extends IHasID <Str
   {
     final HCUL aAT = new HCUL ();
     // Reverse so that the newest token is on top
-    for (final IAccessToken aToken : CollectionHelper.getReverseList (aAccessTokens))
+    for (final IAccessToken aToken : CollectionSort.getReverseList (aAccessTokens))
     {
       final IRevocationStatus aRevocationStatus = aToken.getRevocationStatus ();
 
@@ -135,7 +143,8 @@ public abstract class AbstractWebPageSecurityToken <DATATYPE extends IHasID <Str
       if (aRevocationStatus.isRevoked ())
       {
         // Revoked
-        final String sUserName = SecurityHelper.getUserDisplayName (aRevocationStatus.getRevocationUserID (), aDisplayLocale);
+        final String sUserName = SecurityHelper.getUserDisplayName (aRevocationStatus.getRevocationUserID (),
+                                                                    aDisplayLocale);
         aItem.addChild (new BootstrapLabel (EBootstrapLabelType.DANGER).addChild (EBaseText.SHOW_REVOKED.getDisplayTextWithArgs (aDisplayLocale,
                                                                                                                                  sUserName,
                                                                                                                                  PDTToString.getAsString (aRevocationStatus.getRevocationDateTime (),

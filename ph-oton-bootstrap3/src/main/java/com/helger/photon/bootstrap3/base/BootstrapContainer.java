@@ -16,13 +16,13 @@
  */
 package com.helger.photon.bootstrap3.base;
 
-import javax.annotation.Nonnull;
-
 import com.helger.html.hc.IHCConversionSettingsToNode;
 import com.helger.html.hc.IHCHasChildrenMutable;
 import com.helger.html.hc.IHCNode;
 import com.helger.html.hc.html.grouping.AbstractHCDiv;
 import com.helger.photon.bootstrap3.CBootstrapCSS;
+
+import jakarta.annotation.Nonnull;
 
 /**
  * A responsive fixed width container.

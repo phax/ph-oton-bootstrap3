@@ -18,10 +18,7 @@ package com.helger.photon.bootstrap3.pages;
 
 import java.util.Locale;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
-import com.helger.commons.string.StringHelper;
+import com.helger.base.string.StringHelper;
 import com.helger.html.hc.html.sections.HCH1;
 import com.helger.photon.bootstrap3.alert.BootstrapErrorBox;
 import com.helger.photon.bootstrap3.button.BootstrapButtonToolbar;
@@ -31,6 +28,9 @@ import com.helger.photon.bootstrap3.pageheader.BootstrapPageHeader;
 import com.helger.photon.core.EPhotonCoreText;
 import com.helger.photon.core.execcontext.ILayoutExecutionContext;
 import com.helger.photon.uicore.page.IWebPageFormUIHandler;
+
+import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 public class BootstrapWebPageUIHandler implements IWebPageFormUIHandler <BootstrapForm, BootstrapButtonToolbar>
 {
@@ -42,7 +42,7 @@ public class BootstrapWebPageUIHandler implements IWebPageFormUIHandler <Bootstr
   @Nullable
   public BootstrapPageHeader createPageHeader (@Nullable final String sHeaderText)
   {
-    if (StringHelper.hasNoText (sHeaderText))
+    if (StringHelper.isEmpty (sHeaderText))
       return null;
     return new BootstrapPageHeader ().addChild (new HCH1 ().addChild (sHeaderText));
   }

@@ -16,10 +16,10 @@
  */
 package com.helger.photon.bootstrap3.uictrls.datetimepicker;
 
-import javax.annotation.Nonnull;
-
 import com.helger.html.jscode.IJSExpression;
 import com.helger.html.jscode.JSExpr;
+
+import jakarta.annotation.Nonnull;
 
 /**
  * Defines the different today types of DTP.

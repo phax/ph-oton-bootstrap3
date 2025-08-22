@@ -16,12 +16,9 @@
  */
 package com.helger.photon.bootstrap3;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import javax.annotation.concurrent.NotThreadSafe;
-
-import com.helger.commons.annotation.ReturnsMutableObject;
-import com.helger.commons.string.StringHelper;
+import com.helger.annotation.concurrent.NotThreadSafe;
+import com.helger.annotation.style.ReturnsMutableObject;
+import com.helger.base.string.StringHelper;
 import com.helger.css.property.CCSSProperties;
 import com.helger.css.property.ECSSProperty;
 import com.helger.html.hc.IHCHasID;
@@ -29,6 +26,9 @@ import com.helger.html.hc.config.HCConsistencyChecker;
 import com.helger.html.hc.ext.HCHasCSSClasses;
 import com.helger.html.hc.ext.HCHasCSSStyles;
 import com.helger.html.hc.html.IHCElement;
+
+import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 /**
  * Base class for common bootstrap objects.
@@ -64,7 +64,7 @@ public abstract class AbstractBootstrapObject <IMPLTYPE extends AbstractBootstra
   public final IMPLTYPE setID (@Nullable final String sID, final boolean bImSureToOverwriteAnExistingID)
   {
     if (!bImSureToOverwriteAnExistingID && m_sID != null)
-      if (StringHelper.hasText (sID))
+      if (StringHelper.isNotEmpty (sID))
       {
         if (!m_sID.equals (sID))
           HCConsistencyChecker.consistencyError ("Overwriting HC object ID '" +

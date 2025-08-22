@@ -16,10 +16,10 @@
  */
 package com.helger.photon.bootstrap3.dropdown;
 
-import javax.annotation.Nonnull;
-
 import com.helger.html.css.ICSSClassProvider;
 import com.helger.photon.bootstrap3.CBootstrapCSS;
+
+import jakarta.annotation.Nonnull;
 
 /**
  * Bootstrap dropdown type

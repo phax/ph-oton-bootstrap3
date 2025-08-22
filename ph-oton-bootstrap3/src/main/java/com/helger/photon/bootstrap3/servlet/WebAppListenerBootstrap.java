@@ -16,8 +16,7 @@
  */
 package com.helger.photon.bootstrap3.servlet;
 
-import javax.annotation.OverridingMethodsMustInvokeSuper;
-
+import com.helger.annotation.OverridingMethodsMustInvokeSuper;
 import com.helger.photon.bootstrap3.EBootstrapIcon;
 import com.helger.photon.core.servlet.WebAppListener;
 

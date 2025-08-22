@@ -18,12 +18,12 @@ package com.helger.photon.bootstrap3.uictrls.datetimepicker;
 
 import java.util.Locale;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
+import com.helger.annotation.Nonempty;
+import com.helger.base.string.StringHelper;
+import com.helger.text.locale.LocaleCache;
 
-import com.helger.commons.annotation.Nonempty;
-import com.helger.commons.locale.LocaleCache;
-import com.helger.commons.string.StringHelper;
+import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 /**
  * All locales available in the Bootstrap DateTimePicker
@@ -138,7 +138,7 @@ public enum EDateTimePickerLanguage
         if (aLocale.equals (e.m_aLocale))
           return e;
 
-      if (StringHelper.hasText (aLocale.getCountry ()))
+      if (StringHelper.isNotEmpty (aLocale.getCountry ()))
       {
         // Check locale with language and country only
         final Locale aRealLocale = LocaleCache.getInstance ().getLocale (aLocale.getLanguage (), aLocale.getCountry ());
@@ -147,7 +147,7 @@ public enum EDateTimePickerLanguage
             return e;
       }
 
-      if (StringHelper.hasText (aLocale.getLanguage ()))
+      if (StringHelper.isNotEmpty (aLocale.getLanguage ()))
       {
         // Check locale with language only
         final Locale aRealLocale = LocaleCache.getInstance ().getLocale (aLocale.getLanguage ());

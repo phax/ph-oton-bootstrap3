@@ -16,7 +16,7 @@
  */
 package com.helger.photon.bootstrap3.popover;
 
-import javax.annotation.concurrent.Immutable;
+import com.helger.annotation.concurrent.Immutable;
 
 /**
  * Bootstrap Popover

@@ -16,14 +16,14 @@
  */
 package com.helger.photon.bootstrap3.pagination;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
-import com.helger.commons.string.StringHelper;
+import com.helger.base.string.StringHelper;
 import com.helger.html.hc.IHCNode;
 import com.helger.html.hc.html.grouping.AbstractHCUL;
 import com.helger.html.hc.html.textlevel.HCSpan;
 import com.helger.photon.bootstrap3.CBootstrapCSS;
+
+import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 public class BootstrapPagination extends AbstractHCUL <BootstrapPagination>
 {
@@ -40,7 +40,7 @@ public class BootstrapPagination extends AbstractHCUL <BootstrapPagination>
   @Nonnull
   public BootstrapPagination addItemActive (@Nullable final String sContent)
   {
-    if (StringHelper.hasText (sContent))
+    if (StringHelper.isNotEmpty (sContent))
       addItemActive (new HCSpan ().addChild (sContent));
     return this;
   }
@@ -55,7 +55,7 @@ public class BootstrapPagination extends AbstractHCUL <BootstrapPagination>
   @Nonnull
   public BootstrapPagination addItemDisabled (@Nullable final String sContent)
   {
-    if (StringHelper.hasText (sContent))
+    if (StringHelper.isNotEmpty (sContent))
       addItemDisabled (new HCSpan ().addChild (sContent));
     return this;
   }

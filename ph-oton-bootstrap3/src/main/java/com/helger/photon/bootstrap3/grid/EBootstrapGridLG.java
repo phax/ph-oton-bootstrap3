@@ -16,11 +16,11 @@
  */
 package com.helger.photon.bootstrap3.grid;
 
-import javax.annotation.Nonnegative;
-import javax.annotation.Nullable;
-
+import com.helger.annotation.Nonnegative;
 import com.helger.html.css.ICSSClassProvider;
 import com.helger.photon.bootstrap3.CBootstrapCSS;
+
+import jakarta.annotation.Nullable;
 
 /**
  * Bootstrap3 grid columns. Large - Desktops (&ge;1200px)

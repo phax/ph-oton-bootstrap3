@@ -16,13 +16,13 @@
  */
 package com.helger.photon.bootstrap3.uictrls;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
-import com.helger.commons.annotation.Nonempty;
-import com.helger.commons.string.StringHelper;
+import com.helger.annotation.Nonempty;
+import com.helger.base.string.StringReplace;
 import com.helger.html.resource.js.ConstantJSPathProvider;
 import com.helger.html.resource.js.IJSPathProvider;
+
+import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 public enum EBootstrapUICtrlsJSPathProvider implements IJSPathProvider
 {
@@ -64,7 +64,7 @@ public enum EBootstrapUICtrlsJSPathProvider implements IJSPathProvider
   public IJSPathProvider getInstance (@Nonnull @Nonempty final String sLanguage)
   {
     return ConstantJSPathProvider.builder ()
-                                 .path (StringHelper.replaceAll (m_aPP.getJSItemPathRegular (), "{0}", sLanguage))
+                                 .path (StringReplace.replaceAll (m_aPP.getJSItemPathRegular (), "{0}", sLanguage))
                                  .minifiedPathFromPath ()
                                  .bundlable (m_aPP.isBundlable ())
                                  .conditionalComment (m_aPP.getConditionalComment ())

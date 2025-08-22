@@ -19,29 +19,22 @@ package com.helger.photon.bootstrap3.pages.security;
 import java.util.Locale;
 import java.util.Map;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
-import com.helger.commons.annotation.Nonempty;
-import com.helger.commons.annotation.OverrideOnDemand;
-import com.helger.commons.annotation.Translatable;
-import com.helger.commons.collection.CollectionHelper;
-import com.helger.commons.collection.attr.IStringMap;
-import com.helger.commons.collection.impl.ICommonsCollection;
-import com.helger.commons.collection.impl.ICommonsList;
-import com.helger.commons.collection.impl.ICommonsMap;
-import com.helger.commons.collection.impl.ICommonsSet;
-import com.helger.commons.compare.ESortOrder;
-import com.helger.commons.datetime.PDTToString;
-import com.helger.commons.email.EmailAddressHelper;
-import com.helger.commons.equals.EqualsHelper;
-import com.helger.commons.name.IHasName;
-import com.helger.commons.string.StringHelper;
-import com.helger.commons.text.IMultilingualText;
-import com.helger.commons.text.display.IHasDisplayTextWithArgs;
-import com.helger.commons.text.resolve.DefaultTextResolver;
-import com.helger.commons.text.util.TextHelper;
-import com.helger.commons.url.ISimpleURL;
+import com.helger.annotation.Nonempty;
+import com.helger.annotation.misc.Translatable;
+import com.helger.annotation.style.OverrideOnDemand;
+import com.helger.base.compare.ESortOrder;
+import com.helger.base.email.EmailAddressHelper;
+import com.helger.base.equals.EqualsHelper;
+import com.helger.base.name.IHasName;
+import com.helger.base.string.StringHelper;
+import com.helger.collection.CollectionHelper;
+import com.helger.collection.commons.ICommonsCollection;
+import com.helger.collection.commons.ICommonsList;
+import com.helger.collection.commons.ICommonsMap;
+import com.helger.collection.commons.ICommonsSet;
+import com.helger.collection.helper.CollectionHelperExt;
+import com.helger.collection.helper.CollectionSort;
+import com.helger.datetime.format.PDTToString;
 import com.helger.html.hc.IHCNode;
 import com.helger.html.hc.ext.HCA_MailTo;
 import com.helger.html.hc.ext.HCExtHelper;
@@ -57,6 +50,7 @@ import com.helger.html.hc.html.textlevel.HCA;
 import com.helger.html.hc.html.textlevel.HCEM;
 import com.helger.html.hc.impl.HCNodeList;
 import com.helger.html.hc.impl.HCTextNode;
+import com.helger.http.url.ISimpleURL;
 import com.helger.photon.bootstrap3.alert.BootstrapErrorBox;
 import com.helger.photon.bootstrap3.alert.BootstrapQuestionBox;
 import com.helger.photon.bootstrap3.alert.BootstrapSuccessBox;
@@ -97,8 +91,15 @@ import com.helger.photon.uictrls.autosize.HCTextAreaAutosize;
 import com.helger.photon.uictrls.datatables.DataTables;
 import com.helger.photon.uictrls.datatables.column.DTCol;
 import com.helger.photon.uictrls.datatables.column.EDTColType;
+import com.helger.text.IMultilingualText;
+import com.helger.text.compare.ComparatorHelper;
+import com.helger.text.display.IHasDisplayTextWithArgs;
+import com.helger.text.resolve.DefaultTextResolver;
+import com.helger.text.util.TextHelper;
+import com.helger.typeconvert.collection.IStringMap;
 
-import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
+import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 public class BasePageSecurityUserManagement <WPECTYPE extends IWebPageExecutionContext> extends
                                             AbstractWebPageSecurityObjectWithAttributes <IUser, WPECTYPE>
@@ -452,7 +453,6 @@ public class BasePageSecurityUserManagement <WPECTYPE extends IWebPageExecutionC
   }
 
   @Override
-  @SuppressFBWarnings ("RCN_REDUNDANT_NULLCHECK_OF_NONNULL_VALUE")
   protected void showSelectedObject (@Nonnull final WPECTYPE aWPEC, @Nonnull final IUser aSelectedObject)
   {
     final HCNodeList aNodeList = aWPEC.getNodeList ();
@@ -482,7 +482,7 @@ public class BasePageSecurityUserManagement <WPECTYPE extends IWebPageExecutionC
     aViewForm.addFormGroup (new BootstrapFormGroup ().setLabel (EText.LABEL_ENABLED.getDisplayText (aDisplayLocale))
                                                      .setCtrl (EPhotonCoreText.getYesOrNo (aSelectedObject.isEnabled (),
                                                                                            aDisplayLocale)));
-    if (StringHelper.hasText (aSelectedObject.getDescription ()))
+    if (StringHelper.isNotEmpty (aSelectedObject.getDescription ()))
       aViewForm.addFormGroup (new BootstrapFormGroup ().setLabel (EText.LABEL_DESCRIPTION.getDisplayText (aDisplayLocale))
                                                        .setCtrl (HCExtHelper.nl2divList (aSelectedObject.getDescription ())));
     aViewForm.addFormGroup (new BootstrapFormGroup ().setLabel (EText.LABEL_DELETED.getDisplayText (aDisplayLocale))
@@ -511,11 +511,12 @@ public class BasePageSecurityUserManagement <WPECTYPE extends IWebPageExecutionC
     else
     {
       final HCNodeList aUserGroupUI = new HCNodeList ();
-      CollectionHelper.getSorted (aUserGroups, IHasName.getComparatorCollating (aDisplayLocale))
-                      .forEach (aUG -> aUserGroupUI.addChild (new HCDiv ().addChild (new HCA (createViewURL (aWPEC,
-                                                                                                             BootstrapPagesMenuConfigurator.MENU_ADMIN_SECURITY_USER_GROUP,
-                                                                                                             aUG.getID (),
-                                                                                                             null)).addChild (aUG.getName ()))));
+      CollectionSort.getSorted (aUserGroups,
+                                ComparatorHelper.getComparatorCollating (IHasName::getName, aDisplayLocale))
+                    .forEach (aUG -> aUserGroupUI.addChild (new HCDiv ().addChild (new HCA (createViewURL (aWPEC,
+                                                                                                           BootstrapPagesMenuConfigurator.MENU_ADMIN_SECURITY_USER_GROUP,
+                                                                                                           aUG.getID (),
+                                                                                                           null)).addChild (aUG.getName ()))));
       aViewForm.addFormGroup (new BootstrapFormGroup ().setLabel (EText.LABEL_USERGROUPS_N.getDisplayTextWithArgs (aDisplayLocale,
                                                                                                                    Integer.toString (aUserGroups.size ())))
                                                        .setCtrl (aUserGroupUI));
@@ -531,11 +532,11 @@ public class BasePageSecurityUserManagement <WPECTYPE extends IWebPageExecutionC
     else
     {
       final HCNodeList aRoleUI = new HCNodeList ();
-      CollectionHelper.getSorted (aUserRoles, IHasName.getComparatorCollating (aDisplayLocale))
-                      .forEach (aRole -> aRoleUI.addChild (new HCDiv ().addChild (new HCA (createViewURL (aWPEC,
-                                                                                                          BootstrapPagesMenuConfigurator.MENU_ADMIN_SECURITY_ROLE,
-                                                                                                          aRole.getID (),
-                                                                                                          null)).addChild (aRole.getName ()))));
+      CollectionSort.getSorted (aUserRoles, ComparatorHelper.getComparatorCollating (IHasName::getName, aDisplayLocale))
+                    .forEach (aRole -> aRoleUI.addChild (new HCDiv ().addChild (new HCA (createViewURL (aWPEC,
+                                                                                                        BootstrapPagesMenuConfigurator.MENU_ADMIN_SECURITY_ROLE,
+                                                                                                        aRole.getID (),
+                                                                                                        null)).addChild (aRole.getName ()))));
       aViewForm.addFormGroup (new BootstrapFormGroup ().setLabel (EText.LABEL_ROLES_N.getDisplayTextWithArgs (aDisplayLocale,
                                                                                                               Integer.toString (aUserRoles.size ())))
                                                        .setCtrl (aRoleUI));
@@ -608,17 +609,17 @@ public class BasePageSecurityUserManagement <WPECTYPE extends IWebPageExecutionC
     }
     else
     {
-      if (StringHelper.hasNoText (sLoginName))
+      if (StringHelper.isEmpty (sLoginName))
         aFormErrors.addFieldError (FIELD_LOGINNAME, EText.ERROR_LOGINNAME_REQUIRED.getDisplayText (aDisplayLocale));
     }
 
-    if (StringHelper.hasNoText (sLastName))
+    if (StringHelper.isEmpty (sLastName))
     {
       if (isLastNameMandatory ())
         aFormErrors.addFieldError (FIELD_LASTNAME, EText.ERROR_LASTNAME_REQUIRED.getDisplayText (aDisplayLocale));
     }
 
-    if (StringHelper.hasNoText (sEmailAddress))
+    if (StringHelper.isEmpty (sEmailAddress))
     {
       if (isEmailMandatory ())
         aFormErrors.addFieldError (FIELD_EMAILADDRESS, EText.ERROR_EMAIL_REQUIRED.getDisplayText (aDisplayLocale));
@@ -684,14 +685,14 @@ public class BasePageSecurityUserManagement <WPECTYPE extends IWebPageExecutionC
         // assign to the matching user groups
         final ICommonsList <String> aPrevUserGroupIDs = aUserGroupMgr.getAllUserGroupIDsWithAssignedUser (sUserID);
         // Create all missing assignments
-        final ICommonsSet <String> aUserGroupsToBeAssigned = CollectionHelper.getDifference (aUserGroupIDs,
-                                                                                             aPrevUserGroupIDs);
+        final ICommonsSet <String> aUserGroupsToBeAssigned = CollectionHelperExt.getDifference (aUserGroupIDs,
+                                                                                                aPrevUserGroupIDs);
         for (final String sUserGroupID : aUserGroupsToBeAssigned)
           aUserGroupMgr.assignUserToUserGroup (sUserGroupID, sUserID);
 
         // Delete all old assignments
-        final ICommonsSet <String> aUserGroupsToBeUnassigned = CollectionHelper.getDifference (aPrevUserGroupIDs,
-                                                                                               aUserGroupIDs);
+        final ICommonsSet <String> aUserGroupsToBeUnassigned = CollectionHelperExt.getDifference (aPrevUserGroupIDs,
+                                                                                                  aUserGroupIDs);
         for (final String sUserGroupID : aUserGroupsToBeUnassigned)
           aUserGroupMgr.unassignUserFromUserGroup (sUserGroupID, sUserID);
 
@@ -919,7 +920,7 @@ public class BasePageSecurityUserManagement <WPECTYPE extends IWebPageExecutionC
       {
         final IHCCell <?> aUserGroupCell = aRow.addCell ();
         aUserGroupMgr.getAllUserGroupsWithAssignedUser (aCurUser.getID ())
-                     .getSorted (IHasName.getComparatorCollating (aDisplayLocale))
+                     .getSorted (ComparatorHelper.getComparatorCollating (IHasName::getName, aDisplayLocale))
                      .forEach (aUG -> aUserGroupCell.addChild (new HCDiv ().addChild (new HCA (createViewURL (aWPEC,
                                                                                                               BootstrapPagesMenuConfigurator.MENU_ADMIN_SECURITY_USER_GROUP,
                                                                                                               aUG.getID (),

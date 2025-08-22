@@ -18,11 +18,7 @@ package com.helger.photon.bootstrap3.navbar;
 
 import java.util.Locale;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
-import com.helger.commons.id.factory.GlobalIDFactory;
-import com.helger.commons.url.ISimpleURL;
+import com.helger.base.id.factory.GlobalIDFactory;
 import com.helger.html.EHTMLRole;
 import com.helger.html.hc.IHCNode;
 import com.helger.html.hc.html.IHCElement;
@@ -35,10 +31,14 @@ import com.helger.html.hc.html.sections.AbstractHCNav;
 import com.helger.html.hc.html.textlevel.HCA;
 import com.helger.html.hc.html.textlevel.HCSpan;
 import com.helger.html.hc.impl.HCTextNode;
+import com.helger.http.url.ISimpleURL;
 import com.helger.photon.bootstrap3.CBootstrapCSS;
 import com.helger.photon.bootstrap3.EBootstrapText;
 import com.helger.photon.bootstrap3.base.BootstrapContainer;
 import com.helger.photon.bootstrap3.nav.BootstrapNav;
+
+import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 /**
  * Bootstrap Navbar

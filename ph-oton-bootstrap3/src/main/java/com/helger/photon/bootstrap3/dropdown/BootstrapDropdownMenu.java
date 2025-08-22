@@ -16,15 +16,15 @@
  */
 package com.helger.photon.bootstrap3.dropdown;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
-import com.helger.commons.ValueEnforcer;
-import com.helger.commons.string.StringHelper;
+import com.helger.base.enforce.ValueEnforcer;
+import com.helger.base.string.StringHelper;
 import com.helger.html.EHTMLRole;
 import com.helger.html.hc.html.grouping.AbstractHCUL;
 import com.helger.html.hc.html.grouping.HCLI;
 import com.helger.photon.bootstrap3.CBootstrapCSS;
+
+import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 public class BootstrapDropdownMenu extends AbstractHCUL <BootstrapDropdownMenu>
 {
@@ -69,7 +69,7 @@ public class BootstrapDropdownMenu extends AbstractHCUL <BootstrapDropdownMenu>
   @Nonnull
   public BootstrapDropdownMenu addHeader (@Nullable final String sHeaderText)
   {
-    if (StringHelper.hasText (sHeaderText))
+    if (StringHelper.isNotEmpty (sHeaderText))
       addAndReturnItem (sHeaderText).addClass (CBootstrapCSS.DROPDOWN_HEADER);
     return this;
   }

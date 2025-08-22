@@ -16,10 +16,10 @@
  */
 package com.helger.photon.bootstrap3.supplementary.tools;
 
-import javax.annotation.Nonnull;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import jakarta.annotation.Nonnull;
 
 public final class MainCreateAlertInDifferentColor
 {

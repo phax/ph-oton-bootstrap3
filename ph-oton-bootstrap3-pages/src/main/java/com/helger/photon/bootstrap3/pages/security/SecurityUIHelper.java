@@ -16,14 +16,14 @@
  */
 package com.helger.photon.bootstrap3.pages.security;
 
-import javax.annotation.Nullable;
-
-import com.helger.commons.annotation.PresentForCodeCoverage;
-import com.helger.commons.string.StringHelper;
+import com.helger.annotation.style.PresentForCodeCoverage;
+import com.helger.base.string.StringHelper;
 import com.helger.html.hc.IHCNode;
 import com.helger.html.hc.html.textlevel.HCCode;
 import com.helger.photon.security.user.IUser;
 import com.helger.photon.uicore.css.CUICoreCSS;
+
+import jakarta.annotation.Nullable;
 
 public final class SecurityUIHelper
 {
@@ -92,7 +92,7 @@ public final class SecurityUIHelper
   @Nullable
   public static IHCNode createAccessTokenNode (@Nullable final String sTokenString)
   {
-    if (StringHelper.hasNoText (sTokenString))
+    if (StringHelper.isEmpty (sTokenString))
       return null;
     return new HCCode ().addClass (CUICoreCSS.CSS_CLASS_NOWRAP).addChild (sTokenString);
   }

@@ -18,25 +18,9 @@ package com.helger.photon.bootstrap3.pages.monitoring;
 
 import java.util.Locale;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
-import com.helger.commons.annotation.Nonempty;
-import com.helger.commons.annotation.Translatable;
-import com.helger.commons.compare.ESortOrder;
-import com.helger.commons.statistics.IStatisticsHandlerCache;
-import com.helger.commons.statistics.IStatisticsHandlerCounter;
-import com.helger.commons.statistics.IStatisticsHandlerKeyedCounter;
-import com.helger.commons.statistics.IStatisticsHandlerKeyedSize;
-import com.helger.commons.statistics.IStatisticsHandlerKeyedTimer;
-import com.helger.commons.statistics.IStatisticsHandlerSize;
-import com.helger.commons.statistics.IStatisticsHandlerTimer;
-import com.helger.commons.statistics.util.IStatisticsVisitorCallback;
-import com.helger.commons.statistics.util.StatisticsVisitor;
-import com.helger.commons.text.IMultilingualText;
-import com.helger.commons.text.display.IHasDisplayText;
-import com.helger.commons.text.resolve.DefaultTextResolver;
-import com.helger.commons.text.util.TextHelper;
+import com.helger.annotation.Nonempty;
+import com.helger.annotation.misc.Translatable;
+import com.helger.base.compare.ESortOrder;
 import com.helger.html.hc.html.tabular.HCTable;
 import com.helger.html.hc.impl.HCNodeList;
 import com.helger.photon.bootstrap3.button.BootstrapButtonToolbar;
@@ -50,6 +34,22 @@ import com.helger.photon.uicore.page.IWebPageExecutionContext;
 import com.helger.photon.uictrls.datatables.DataTables;
 import com.helger.photon.uictrls.datatables.column.DTCol;
 import com.helger.photon.uictrls.datatables.column.EDTColType;
+import com.helger.statistics.api.IStatisticsHandlerCache;
+import com.helger.statistics.api.IStatisticsHandlerCounter;
+import com.helger.statistics.api.IStatisticsHandlerKeyedCounter;
+import com.helger.statistics.api.IStatisticsHandlerKeyedSize;
+import com.helger.statistics.api.IStatisticsHandlerKeyedTimer;
+import com.helger.statistics.api.IStatisticsHandlerSize;
+import com.helger.statistics.api.IStatisticsHandlerTimer;
+import com.helger.statistics.visit.IStatisticsVisitorCallback;
+import com.helger.statistics.visit.StatisticsVisitor;
+import com.helger.text.IMultilingualText;
+import com.helger.text.display.IHasDisplayText;
+import com.helger.text.resolve.DefaultTextResolver;
+import com.helger.text.util.TextHelper;
+
+import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 /**
  * Page with all currently available in memory statistics.

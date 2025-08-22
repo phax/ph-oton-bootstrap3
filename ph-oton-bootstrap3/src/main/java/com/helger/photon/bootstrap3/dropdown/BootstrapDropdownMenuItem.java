@@ -16,11 +16,7 @@
  */
 package com.helger.photon.bootstrap3.dropdown;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
-import com.helger.commons.ValueEnforcer;
-import com.helger.commons.url.ISimpleURL;
+import com.helger.base.enforce.ValueEnforcer;
 import com.helger.html.hc.IHCNode;
 import com.helger.html.hc.ext.HCA_JS;
 import com.helger.html.hc.html.HC_Target;
@@ -29,7 +25,11 @@ import com.helger.html.hc.html.textlevel.IHCA;
 import com.helger.html.hc.impl.HCNodeList;
 import com.helger.html.hc.impl.HCTextNode;
 import com.helger.html.js.IHasJSCodeWithSettings;
+import com.helger.http.url.ISimpleURL;
 import com.helger.photon.bootstrap3.AbstractBootstrapObject;
+
+import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 /**
  * This class represents a single dropdown menu item.

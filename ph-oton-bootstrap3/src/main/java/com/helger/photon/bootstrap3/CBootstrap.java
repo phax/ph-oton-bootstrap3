@@ -16,9 +16,8 @@
  */
 package com.helger.photon.bootstrap3;
 
-import javax.annotation.concurrent.Immutable;
-
-import com.helger.commons.version.Version;
+import com.helger.annotation.concurrent.Immutable;
+import com.helger.base.version.Version;
 
 /**
  * Constants for usage with Bootstrap3

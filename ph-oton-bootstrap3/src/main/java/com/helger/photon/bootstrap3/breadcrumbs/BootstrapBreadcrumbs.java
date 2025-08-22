@@ -16,15 +16,15 @@
  */
 package com.helger.photon.bootstrap3.breadcrumbs;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
-import com.helger.commons.url.ISimpleURL;
 import com.helger.html.hc.ext.HCA_JS;
 import com.helger.html.hc.html.grouping.AbstractHCOL;
 import com.helger.html.hc.html.textlevel.HCA;
 import com.helger.html.js.IHasJSCode;
+import com.helger.http.url.ISimpleURL;
 import com.helger.photon.bootstrap3.CBootstrapCSS;
+
+import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 /**
  * Breadcrumbs

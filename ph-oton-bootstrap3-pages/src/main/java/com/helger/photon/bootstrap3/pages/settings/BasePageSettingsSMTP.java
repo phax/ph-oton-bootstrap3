@@ -19,25 +19,17 @@ package com.helger.photon.bootstrap3.pages.settings;
 import java.nio.charset.Charset;
 import java.util.Locale;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
-import com.helger.commons.CGlobal;
-import com.helger.commons.ValueEnforcer;
-import com.helger.commons.annotation.Nonempty;
-import com.helger.commons.annotation.OverrideOnDemand;
-import com.helger.commons.annotation.Translatable;
-import com.helger.commons.charset.CharsetHelper;
-import com.helger.commons.compare.ESortOrder;
-import com.helger.commons.email.EmailAddress;
-import com.helger.commons.email.EmailAddressHelper;
-import com.helger.commons.string.StringHelper;
-import com.helger.commons.string.StringParser;
-import com.helger.commons.text.IMultilingualText;
-import com.helger.commons.text.display.IHasDisplayTextWithArgs;
-import com.helger.commons.text.resolve.DefaultTextResolver;
-import com.helger.commons.text.util.TextHelper;
-import com.helger.commons.url.ISimpleURL;
+import com.helger.annotation.Nonempty;
+import com.helger.annotation.misc.Translatable;
+import com.helger.annotation.style.OverrideOnDemand;
+import com.helger.base.CGlobal;
+import com.helger.base.charset.CharsetHelper;
+import com.helger.base.compare.ESortOrder;
+import com.helger.base.email.EmailAddress;
+import com.helger.base.email.EmailAddressHelper;
+import com.helger.base.enforce.ValueEnforcer;
+import com.helger.base.string.StringHelper;
+import com.helger.base.string.StringParser;
 import com.helger.commons.vendor.VendorInfo;
 import com.helger.html.hc.IHCNode;
 import com.helger.html.hc.html.forms.HCCheckBox;
@@ -48,6 +40,7 @@ import com.helger.html.hc.html.tabular.HCTable;
 import com.helger.html.hc.html.tabular.IHCCell;
 import com.helger.html.hc.html.textlevel.HCA;
 import com.helger.html.hc.impl.HCNodeList;
+import com.helger.http.url.ISimpleURL;
 import com.helger.network.port.CNetworkPort;
 import com.helger.photon.bootstrap3.EBootstrapIcon;
 import com.helger.photon.bootstrap3.alert.BootstrapErrorBox;
@@ -90,6 +83,13 @@ import com.helger.smtp.data.EmailData;
 import com.helger.smtp.scope.ScopedMailAPI;
 import com.helger.smtp.settings.ISMTPSettings;
 import com.helger.smtp.settings.SMTPSettings;
+import com.helger.text.IMultilingualText;
+import com.helger.text.display.IHasDisplayTextWithArgs;
+import com.helger.text.resolve.DefaultTextResolver;
+import com.helger.text.util.TextHelper;
+
+import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 public class BasePageSettingsSMTP <WPECTYPE extends IWebPageExecutionContext> extends
                                   AbstractBootstrapWebPageForm <NamedSMTPSettings, WPECTYPE>
@@ -242,9 +242,9 @@ public class BasePageSettingsSMTP <WPECTYPE extends IWebPageExecutionContext> ex
             aFormErrors.addFieldError (FIELD_TEST_SENDER, EText.ERR_SENDER_INVALID.getDisplayText (aDisplayLocale));
           if (!EmailAddressHelper.isValid (sReceiver))
             aFormErrors.addFieldError (FIELD_TEST_RECEIVER, EText.ERR_RECEIVER_INVALID.getDisplayText (aDisplayLocale));
-          if (StringHelper.hasNoText (sSubject))
+          if (StringHelper.isEmpty (sSubject))
             aFormErrors.addFieldError (FIELD_TEST_SUBJECT, EText.ERR_SUBJECT_INVALID.getDisplayText (aDisplayLocale));
-          if (StringHelper.hasNoText (sBody))
+          if (StringHelper.isEmpty (sBody))
             aFormErrors.addFieldError (FIELD_TEST_BODY, EText.ERR_BODY_INVALID.getDisplayText (aDisplayLocale));
 
           if (aFormErrors.isEmpty ())
@@ -440,10 +440,10 @@ public class BasePageSettingsSMTP <WPECTYPE extends IWebPageExecutionContext> ex
     final long nSocketTimeoutMS = aWPEC.params ().getAsLong (FIELD_SOCKET_TIMEOUT, CGlobal.ILLEGAL_ULONG);
     final boolean bDebugSMTP = aWPEC.params ().isCheckBoxChecked (FIELD_DEBUG_SMTP, EmailGlobalSettings.isDebugSMTP ());
 
-    if (StringHelper.hasNoText (sName))
+    if (StringHelper.isEmpty (sName))
       aFormErrors.addFieldError (FIELD_NAME, EText.ERROR_NAME_EMPTY.getDisplayText (aDisplayLocale));
 
-    if (StringHelper.hasNoText (sHostName))
+    if (StringHelper.isEmpty (sHostName))
       aFormErrors.addFieldError (FIELD_HOSTNAME, EText.ERROR_HOSTNAME_EMPTY.getDisplayText (aDisplayLocale));
 
     if (nPort < CNetworkPort.MINIMUM_PORT_NUMBER || nPort > CNetworkPort.MAXIMUM_PORT_NUMBER)

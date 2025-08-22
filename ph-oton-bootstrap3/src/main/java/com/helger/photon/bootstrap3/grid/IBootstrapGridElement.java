@@ -16,8 +16,7 @@
  */
 package com.helger.photon.bootstrap3.grid;
 
-import javax.annotation.Nonnegative;
-
+import com.helger.annotation.Nonnegative;
 import com.helger.html.css.ICSSClassProvider;
 
 /**

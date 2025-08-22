@@ -16,13 +16,10 @@
  */
 package com.helger.photon.bootstrap3.ext;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import javax.annotation.concurrent.GuardedBy;
-
-import com.helger.commons.ValueEnforcer;
-import com.helger.commons.concurrent.SimpleReadWriteLock;
-import com.helger.commons.string.StringHelper;
+import com.helger.annotation.concurrent.GuardedBy;
+import com.helger.base.concurrent.SimpleReadWriteLock;
+import com.helger.base.enforce.ValueEnforcer;
+import com.helger.base.string.StringHelper;
 import com.helger.photon.bootstrap3.alert.AbstractBootstrapAlert;
 import com.helger.photon.bootstrap3.alert.EBootstrapAlertType;
 import com.helger.photon.core.mgr.PhotonBasicManager;
@@ -31,6 +28,9 @@ import com.helger.photon.core.systemmsg.ISystemMessageRenderer;
 import com.helger.photon.core.systemmsg.SystemMessageManager;
 import com.helger.photon.uicore.systemmsg.SystemMessageRendererMarkdown;
 import com.helger.photon.uicore.systemmsg.SystemMessageRendererPlainText;
+
+import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 /**
  * Render the system message using a Bootstrap alert window.
@@ -109,7 +109,7 @@ public class BootstrapSystemMessage extends AbstractBootstrapAlert <BootstrapSys
   public BootstrapSystemMessage setSystemMessage (@Nullable final String sContent)
   {
     removeAllChildren ();
-    if (StringHelper.hasText (sContent))
+    if (StringHelper.isNotEmpty (sContent))
       getDefaultFormatter ().renderSystemMessage (sContent, this);
     return this;
   }
@@ -124,7 +124,7 @@ public class BootstrapSystemMessage extends AbstractBootstrapAlert <BootstrapSys
   @Nullable
   public static BootstrapSystemMessage create (@Nonnull final ESystemMessageType eSystemMessageType, @Nullable final String sSystemMessage)
   {
-    if (StringHelper.hasNoText (sSystemMessage))
+    if (StringHelper.isEmpty (sSystemMessage))
       return null;
 
     return new BootstrapSystemMessage (eSystemMessageType).setSystemMessage (sSystemMessage);

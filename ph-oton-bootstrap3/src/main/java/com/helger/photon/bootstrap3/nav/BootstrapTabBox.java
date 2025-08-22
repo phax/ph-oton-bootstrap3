@@ -16,9 +16,7 @@
  */
 package com.helger.photon.bootstrap3.nav;
 
-import javax.annotation.Nonnull;
-
-import com.helger.commons.string.StringHelper;
+import com.helger.base.string.StringHelper;
 import com.helger.html.hc.IHCConversionSettingsToNode;
 import com.helger.html.hc.IHCHasChildrenMutable;
 import com.helger.html.hc.IHCNode;
@@ -28,6 +26,8 @@ import com.helger.html.hc.html.textlevel.HCA;
 import com.helger.photon.bootstrap3.CBootstrapCSS;
 import com.helger.photon.uicore.html.tabbox.AbstractTabBox;
 import com.helger.photon.uicore.html.tabbox.Tab;
+
+import jakarta.annotation.Nonnull;
 
 /**
  * Represent a single tab box
@@ -78,7 +78,7 @@ public class BootstrapTabBox extends AbstractTabBox <BootstrapTabBox>
     super.onFinalizeNodeState (aConversionSettings, aTargetNode);
 
     String sActiveTabID = getActiveTabID ();
-    if (StringHelper.hasNoText (sActiveTabID))
+    if (StringHelper.isEmpty (sActiveTabID))
     {
       // Activate first tab by default
       sActiveTabID = m_aTabs.getFirstKey ();

@@ -16,13 +16,11 @@
  */
 package com.helger.photon.bootstrap3.stub.init;
 
-import javax.annotation.concurrent.Immutable;
-
 import org.slf4j.bridge.SLF4JBridgeHandler;
 
-import com.helger.commons.debug.GlobalDebug;
-import com.helger.commons.io.resource.ClassPathResource;
-import com.helger.commons.system.SystemProperties;
+import com.helger.annotation.concurrent.Immutable;
+import com.helger.base.debug.GlobalDebug;
+import com.helger.base.system.SystemProperties;
 import com.helger.html.hc.config.HCConversionSettings;
 import com.helger.html.hc.config.HCSettings;
 import com.helger.html.hc.ext.HCCustomizerAutoFocusFirstCtrl;
@@ -30,6 +28,7 @@ import com.helger.html.hc.impl.HCCustomizerList;
 import com.helger.html.meta.EStandardMetaElement;
 import com.helger.html.resource.css.ICSSPathProvider;
 import com.helger.html.resource.js.IJSPathProvider;
+import com.helger.io.resource.ClassPathResource;
 import com.helger.photon.app.html.PhotonCSS;
 import com.helger.photon.app.html.PhotonJS;
 import com.helger.photon.app.html.PhotonMetaElements;

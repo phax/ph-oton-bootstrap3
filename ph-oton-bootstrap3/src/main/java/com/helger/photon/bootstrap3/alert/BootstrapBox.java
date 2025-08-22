@@ -16,7 +16,7 @@
  */
 package com.helger.photon.bootstrap3.alert;
 
-import javax.annotation.Nonnull;
+import jakarta.annotation.Nonnull;
 
 /**
  * Generic Bootstrap3 box with a custom alert type.

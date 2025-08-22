@@ -16,9 +16,6 @@
  */
 package com.helger.photon.bootstrap3.uictrls.datatables;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
 import com.helger.html.annotation.OutOfBandNode;
 import com.helger.html.hc.IHCConversionSettingsToNode;
 import com.helger.html.hc.html.tabular.IHCTable;
@@ -28,6 +25,9 @@ import com.helger.photon.bootstrap3.CBootstrapCSS;
 import com.helger.photon.core.execcontext.ILayoutExecutionContext;
 import com.helger.photon.uictrls.datatables.DataTables;
 import com.helger.photon.uictrls.datatables.EDataTablesCSSPathProvider;
+
+import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 @OutOfBandNode
 public class BootstrapDataTables extends DataTables

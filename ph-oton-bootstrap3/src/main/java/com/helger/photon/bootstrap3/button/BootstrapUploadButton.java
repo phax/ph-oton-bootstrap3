@@ -16,9 +16,6 @@
  */
 package com.helger.photon.bootstrap3.button;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
 import com.helger.css.property.CCSSProperties;
 import com.helger.css.propertyvalue.CCSSValue;
 import com.helger.html.EHTMLRole;
@@ -31,6 +28,9 @@ import com.helger.html.jquery.JQuery;
 import com.helger.html.jscode.JSAnonymousFunction;
 import com.helger.html.jscode.JSExpr;
 import com.helger.photon.bootstrap3.CBootstrapCSS;
+
+import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 /**
  * A special upload button, that hides the browser differences in a nice way.

@@ -16,9 +16,9 @@
  */
 package com.helger.photon.bootstrap3.grid;
 
-import javax.annotation.Nullable;
-
 import com.helger.html.css.ICSSClassProvider;
+
+import jakarta.annotation.Nullable;
 
 /**
  * Bootstrap3 extended grid element

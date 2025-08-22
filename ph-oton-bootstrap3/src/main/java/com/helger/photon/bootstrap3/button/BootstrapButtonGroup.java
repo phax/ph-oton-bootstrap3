@@ -18,12 +18,12 @@ package com.helger.photon.bootstrap3.button;
 
 import java.util.function.Consumer;
 
-import javax.annotation.Nonnull;
-
 import com.helger.html.EHTMLRole;
 import com.helger.html.hc.html.grouping.AbstractHCDiv;
 import com.helger.photon.bootstrap3.dropdown.BootstrapDropdown;
 import com.helger.photon.bootstrap3.dropdown.BootstrapDropdownMenu;
+
+import jakarta.annotation.Nonnull;
 
 public class BootstrapButtonGroup extends AbstractHCDiv <BootstrapButtonGroup>
 {

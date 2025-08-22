@@ -16,13 +16,13 @@
  */
 package com.helger.photon.bootstrap3.embed;
 
-import javax.annotation.Nonnull;
-
 import com.helger.html.hc.html.embedded.HCEmbed;
 import com.helger.html.hc.html.embedded.HCIFrame;
 import com.helger.html.hc.html.embedded.HCObject;
 import com.helger.html.hc.html.grouping.AbstractHCDiv;
 import com.helger.photon.bootstrap3.CBootstrapCSS;
+
+import jakarta.annotation.Nonnull;
 
 /**
  * Bootstrap responsive embed. Available from Bootstrap 3.2.0 on. It works with

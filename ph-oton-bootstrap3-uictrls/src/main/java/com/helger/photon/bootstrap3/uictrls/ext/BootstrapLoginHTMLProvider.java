@@ -18,12 +18,8 @@ package com.helger.photon.bootstrap3.uictrls.ext;
 
 import java.util.Locale;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import javax.annotation.OverridingMethodsMustInvokeSuper;
-
-import com.helger.commons.annotation.OverrideOnDemand;
-import com.helger.commons.url.SimpleURL;
+import com.helger.annotation.OverridingMethodsMustInvokeSuper;
+import com.helger.annotation.style.OverrideOnDemand;
 import com.helger.html.hc.IHCNode;
 import com.helger.html.hc.html.forms.HCEdit;
 import com.helger.html.hc.html.forms.HCEditPassword;
@@ -33,6 +29,7 @@ import com.helger.html.hc.html.root.HCHtml;
 import com.helger.html.hc.html.sections.HCBody;
 import com.helger.html.hc.html.sections.HCH2;
 import com.helger.html.hc.html.textlevel.HCSpan;
+import com.helger.http.url.SimpleURL;
 import com.helger.photon.bootstrap3.alert.BootstrapErrorBox;
 import com.helger.photon.bootstrap3.base.BootstrapContainer;
 import com.helger.photon.bootstrap3.button.BootstrapSubmitButton;
@@ -47,6 +44,9 @@ import com.helger.photon.uicore.login.AbstractLoginHTMLProvider;
 import com.helger.photon.uicore.login.SimpleLoginHTMLProvider;
 import com.helger.security.authentication.credentials.ICredentialValidationResult;
 import com.helger.web.scope.IRequestWebScopeWithoutResponse;
+
+import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 /**
  * A special {@link SimpleLoginHTMLProvider} with Bootstrap UI.

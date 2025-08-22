@@ -20,22 +20,14 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.function.Predicate;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
-import com.helger.commons.annotation.Nonempty;
-import com.helger.commons.annotation.OverrideOnDemand;
-import com.helger.commons.annotation.Translatable;
-import com.helger.commons.collection.impl.ICommonsMap;
-import com.helger.commons.collection.impl.ICommonsSet;
-import com.helger.commons.compare.ESortOrder;
-import com.helger.commons.datetime.PDTFactory;
-import com.helger.commons.string.StringHelper;
-import com.helger.commons.text.IMultilingualText;
-import com.helger.commons.text.display.IHasDisplayTextWithArgs;
-import com.helger.commons.text.resolve.DefaultTextResolver;
-import com.helger.commons.text.util.TextHelper;
-import com.helger.commons.url.ISimpleURL;
+import com.helger.annotation.Nonempty;
+import com.helger.annotation.misc.Translatable;
+import com.helger.annotation.style.OverrideOnDemand;
+import com.helger.base.compare.ESortOrder;
+import com.helger.base.string.StringHelper;
+import com.helger.collection.commons.ICommonsMap;
+import com.helger.collection.commons.ICommonsSet;
+import com.helger.datetime.helper.PDTFactory;
 import com.helger.html.hc.IHCNode;
 import com.helger.html.hc.html.forms.HCEdit;
 import com.helger.html.hc.html.forms.HCTextArea;
@@ -46,6 +38,7 @@ import com.helger.html.hc.html.tabular.IHCCell;
 import com.helger.html.hc.html.textlevel.HCA;
 import com.helger.html.hc.impl.HCNodeList;
 import com.helger.html.hc.impl.HCTextNode;
+import com.helger.http.url.ISimpleURL;
 import com.helger.photon.bootstrap3.alert.BootstrapErrorBox;
 import com.helger.photon.bootstrap3.alert.BootstrapQuestionBox;
 import com.helger.photon.bootstrap3.alert.BootstrapSuccessBox;
@@ -77,6 +70,13 @@ import com.helger.photon.uicore.page.EWebPageFormAction;
 import com.helger.photon.uicore.page.EWebPageText;
 import com.helger.photon.uicore.page.IWebPageExecutionContext;
 import com.helger.photon.uictrls.datatables.column.DTCol;
+import com.helger.text.IMultilingualText;
+import com.helger.text.display.IHasDisplayTextWithArgs;
+import com.helger.text.resolve.DefaultTextResolver;
+import com.helger.text.util.TextHelper;
+
+import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 public class BasePageSecurityUserTokenManagement <WPECTYPE extends IWebPageExecutionContext> extends
                                                  AbstractWebPageSecurityToken <IUserToken, WPECTYPE>
@@ -202,12 +202,12 @@ public class BasePageSecurityUserTokenManagement <WPECTYPE extends IWebPageExecu
                             if (bRevokedOld)
                             {
                               // Check only if something can be revoked...
-                              if (StringHelper.hasNoText (sRevocationReason))
+                              if (StringHelper.isEmpty (sRevocationReason))
                                 aFormErrors.addFieldError (FIELD_REVOCATION_REASON,
                                                            EBaseText.ERR_REASON_EMPTY.getDisplayText (aDisplayLocale));
                             }
 
-                            if (StringHelper.hasText (sTokenString))
+                            if (StringHelper.isNotEmpty (sTokenString))
                             {
                               // Check uniqueness
                               if (sTokenString.length () < TOKEN_STRING_MIN_LENGTH)
@@ -298,7 +298,7 @@ public class BasePageSecurityUserTokenManagement <WPECTYPE extends IWebPageExecu
                           if (aWPEC.hasSubAction (CPageParam.ACTION_PERFORM))
                           {
                             final String sRevocationReason = aWPEC.params ().getAsString (FIELD_REVOCATION_REASON);
-                            if (StringHelper.hasNoText (sRevocationReason))
+                            if (StringHelper.isEmpty (sRevocationReason))
                               aFormErrors.addFieldError (FIELD_REVOCATION_REASON,
                                                          EBaseText.ERR_REASON_EMPTY.getDisplayText (aDisplayLocale));
 
@@ -510,7 +510,7 @@ public class BasePageSecurityUserTokenManagement <WPECTYPE extends IWebPageExecu
     if (aUser == null)
       aFormErrors.addFieldError (FIELD_USER, EText.ERR_USER_EMPTY.getDisplayText (aDisplayLocale));
 
-    if (StringHelper.hasText (sTokenString))
+    if (StringHelper.isNotEmpty (sTokenString))
     {
       // Check uniqueness
       if (sTokenString.length () < TOKEN_STRING_MIN_LENGTH)

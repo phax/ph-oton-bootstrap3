@@ -18,10 +18,8 @@ package com.helger.photon.bootstrap3.uictrls.datetimepicker;
 
 import java.util.Iterator;
 
-import javax.annotation.Nonnull;
-
-import com.helger.commons.collection.impl.CommonsArrayList;
-import com.helger.commons.collection.impl.ICommonsList;
+import com.helger.collection.commons.CommonsArrayList;
+import com.helger.collection.commons.ICommonsList;
 import com.helger.html.hc.IHCNode;
 import com.helger.html.hc.html.script.HCScriptInline;
 import com.helger.html.hc.special.IHCSpecialNodeListModifier;
@@ -29,6 +27,8 @@ import com.helger.html.jquery.IJQuerySelector;
 import com.helger.html.jquery.JQuerySelector;
 import com.helger.html.js.CollectingJSCodeProvider;
 import com.helger.html.jscode.JSAssocArray;
+
+import jakarta.annotation.Nonnull;
 
 public final class BootstrapDateTimePickerSpecialNodeListModifier implements IHCSpecialNodeListModifier
 {

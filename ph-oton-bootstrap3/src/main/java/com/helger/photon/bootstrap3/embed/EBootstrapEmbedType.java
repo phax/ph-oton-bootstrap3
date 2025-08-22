@@ -16,10 +16,10 @@
  */
 package com.helger.photon.bootstrap3.embed;
 
-import javax.annotation.Nonnull;
-
 import com.helger.html.css.ICSSClassProvider;
 import com.helger.photon.bootstrap3.CBootstrapCSS;
+
+import jakarta.annotation.Nonnull;
 
 /**
  * Bootstrap3 responsive embed aspect ratio

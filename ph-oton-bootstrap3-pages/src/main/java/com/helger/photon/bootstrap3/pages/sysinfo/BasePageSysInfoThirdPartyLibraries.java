@@ -19,28 +19,29 @@ package com.helger.photon.bootstrap3.pages.sysinfo;
 import java.util.Locale;
 import java.util.Set;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
-import com.helger.commons.annotation.Nonempty;
-import com.helger.commons.annotation.Translatable;
-import com.helger.commons.collection.CollectionHelper;
-import com.helger.commons.name.IHasDisplayName;
-import com.helger.commons.text.IMultilingualText;
-import com.helger.commons.text.display.IHasDisplayText;
-import com.helger.commons.text.resolve.DefaultTextResolver;
-import com.helger.commons.text.util.TextHelper;
-import com.helger.commons.thirdparty.IThirdPartyModule;
-import com.helger.commons.thirdparty.ThirdPartyModuleRegistry;
-import com.helger.commons.url.SimpleURL;
+import com.helger.annotation.Nonempty;
+import com.helger.annotation.misc.Translatable;
+import com.helger.base.name.IHasDisplayName;
+import com.helger.base.thirdparty.IThirdPartyModule;
+import com.helger.base.thirdparty.ThirdPartyModuleRegistry;
+import com.helger.collection.helper.CollectionSort;
 import com.helger.html.hc.IHCNode;
 import com.helger.html.hc.html.grouping.HCUL;
 import com.helger.html.hc.html.sections.HCH4;
 import com.helger.html.hc.html.textlevel.HCA;
 import com.helger.html.hc.impl.HCNodeList;
+import com.helger.http.url.SimpleURL;
 import com.helger.photon.bootstrap3.pages.AbstractBootstrapWebPage;
 import com.helger.photon.uicore.page.EWebPageText;
 import com.helger.photon.uicore.page.IWebPageExecutionContext;
+import com.helger.text.IMultilingualText;
+import com.helger.text.compare.ComparatorHelper;
+import com.helger.text.display.IHasDisplayText;
+import com.helger.text.resolve.DefaultTextResolver;
+import com.helger.text.util.TextHelper;
+
+import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 /**
  * Page with all linked third party libraries
@@ -49,7 +50,8 @@ import com.helger.photon.uicore.page.IWebPageExecutionContext;
  * @param <WPECTYPE>
  *        Web Page Execution Context type
  */
-public class BasePageSysInfoThirdPartyLibraries <WPECTYPE extends IWebPageExecutionContext> extends AbstractBootstrapWebPage <WPECTYPE>
+public class BasePageSysInfoThirdPartyLibraries <WPECTYPE extends IWebPageExecutionContext> extends
+                                                AbstractBootstrapWebPage <WPECTYPE>
 {
   @Translatable
   protected enum EText implements IHasDisplayText
@@ -96,7 +98,8 @@ public class BasePageSysInfoThirdPartyLibraries <WPECTYPE extends IWebPageExecut
   }
 
   @Nonnull
-  private static IHCNode _getModuleHCNode (@Nonnull final IThirdPartyModule aModule, @Nonnull final Locale aDisplayLocale)
+  private static IHCNode _getModuleHCNode (@Nonnull final IThirdPartyModule aModule,
+                                           @Nonnull final Locale aDisplayLocale)
   {
     final HCNodeList aNL = new HCNodeList ();
 
@@ -121,7 +124,8 @@ public class BasePageSysInfoThirdPartyLibraries <WPECTYPE extends IWebPageExecut
     if (aModule.getLicense ().getURL () == null)
       aNL.addChild (sLicenseText);
     else
-      aNL.addChild (new HCA (new SimpleURL (aModule.getLicense ().getURL ())).setTargetBlank ().addChild (sLicenseText));
+      aNL.addChild (new HCA (new SimpleURL (aModule.getLicense ().getURL ())).setTargetBlank ()
+                                                                             .addChild (sLicenseText));
     return aNL;
   }
 
@@ -134,11 +138,14 @@ public class BasePageSysInfoThirdPartyLibraries <WPECTYPE extends IWebPageExecut
     aNodeList.addChild (new HCH4 ().addChild (EText.MSG_TPM_HEADER.getDisplayText (aDisplayLocale)));
 
     // Third party modules
-    final Set <IThirdPartyModule> aModules = ThirdPartyModuleRegistry.getInstance ().getAllRegisteredThirdPartyModules ();
+    final Set <IThirdPartyModule> aModules = ThirdPartyModuleRegistry.getInstance ()
+                                                                     .getAllRegisteredThirdPartyModules ();
     final HCUL aUL = aNodeList.addAndReturnChild (new HCUL ());
 
     // Show all required modules, sorted by name
-    for (final IThirdPartyModule aModule : CollectionHelper.getSorted (aModules, IHasDisplayName.getComparatorCollating (aDisplayLocale)))
+    for (final IThirdPartyModule aModule : CollectionSort.getSorted (aModules,
+                                                                     ComparatorHelper.getComparatorCollating (IHasDisplayName::getDisplayName,
+                                                                                                              aDisplayLocale)))
       if (!aModule.isOptional ())
         aUL.addItem (_getModuleHCNode (aModule, aDisplayLocale));
   }

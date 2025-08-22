@@ -16,11 +16,11 @@
  */
 package com.helger.photon.bootstrap3.modal;
 
-import javax.annotation.Nonnull;
-
 import com.helger.photon.bootstrap3.button.BootstrapButton;
 import com.helger.photon.bootstrap3.button.EBootstrapButtonSize;
 import com.helger.photon.bootstrap3.button.EBootstrapButtonType;
+
+import jakarta.annotation.Nonnull;
 
 /**
  * A special button that closes the current modal. This button may only be used

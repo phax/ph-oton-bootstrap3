@@ -18,9 +18,9 @@ package com.helger.photon.bootstrap3.uictrls.datetimepicker;
 
 import java.text.SimpleDateFormat;
 
-import javax.annotation.Nonnull;
+import com.helger.annotation.Nonempty;
 
-import com.helger.commons.annotation.Nonempty;
+import jakarta.annotation.Nonnull;
 
 /**
  * Defines the possible tokens for the dtp format.

@@ -14,10 +14,10 @@ Contained subprojects are:
 
 # Requirements
 
-* Java 11+ is required for building 
+* Java 17+ is required for building 
 * Application server requirements:
-    * At least Tomcat 10.x
-    * Jetty 11.x with AnnotationConfiguration enabled
+    * At least Tomcat 10.1
+    * Jetty 12.x with AnnotationConfiguration enabled
       
 ## Maven usage
 
@@ -54,9 +54,14 @@ See the submodule `ph-oton-bootstrap3-demo` for a working example project with B
 
 ## News and noteworthy
 
-* v9.2.3 - 2024-08-09
-    * Updated to DataTables 2.1
-    * Extracted from ph-oton
+v10.0.0 - work in progress
+* Requires Java 17 as the minimum version
+* Updated to ph-commons 12.0.0
+* Updated to Jetty 12.1.0
+
+v9.2.3 - 2024-08-09
+* Updated to DataTables 2.1
+* Extracted from ph-oton
 
 ---
 

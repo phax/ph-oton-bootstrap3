@@ -22,7 +22,7 @@
   <parent>
     <groupId>com.helger.photon</groupId>
     <artifactId>ph-oton-bootstrap3-parent-pom</artifactId>
-    <version>9.2.4-SNAPSHOT</version>
+    <version>10.0.0-SNAPSHOT</version>
   </parent>
   <artifactId>ph-oton-bootstrap3-stub</artifactId>
   <packaging>bundle</packaging>
@@ -86,7 +86,7 @@
           <instructions>
             <Automatic-Module-Name>com.helger.photon.bootstrap3.stub</Automatic-Module-Name>
             <Export-Package>com.helger.photon.bootstrap3.stub.*</Export-Package>
-            <Import-Package>!javax.annotation.*,*</Import-Package>
+            <Import-Package>!jakarta.annotation.*,*</Import-Package>
             <Require-Capability>osgi.extender; filter:="(osgi.extender=osgi.serviceloader.registrar)"</Require-Capability>
             <Provide-Capability>osgi.serviceloader; osgi.serviceloader=com.helger.commons.thirdparty.IThirdPartyModuleProviderSPI,
 osgi.serviceloader; osgi.serviceloader=jakarta.servlet.ServletContainerInitializer</Provide-Capability>

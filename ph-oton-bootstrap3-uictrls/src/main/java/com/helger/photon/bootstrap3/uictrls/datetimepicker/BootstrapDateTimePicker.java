@@ -22,19 +22,16 @@ import java.util.EnumSet;
 import java.util.Locale;
 import java.util.Set;
 
-import javax.annotation.Nonnegative;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.helger.commons.ValueEnforcer;
-import com.helger.commons.annotation.ReturnsMutableCopy;
-import com.helger.commons.collection.CollectionHelper;
-import com.helger.commons.datetime.PDTFactory;
-import com.helger.commons.datetime.PDTFormatPatterns;
-import com.helger.commons.string.StringHelper;
+import com.helger.annotation.Nonnegative;
+import com.helger.annotation.style.ReturnsMutableCopy;
+import com.helger.base.enforce.ValueEnforcer;
+import com.helger.base.string.StringHelper;
+import com.helger.collection.helper.CollectionHelperExt;
+import com.helger.datetime.format.PDTFormatPatterns;
+import com.helger.datetime.helper.PDTFactory;
 import com.helger.html.css.DefaultCSSClassProvider;
 import com.helger.html.css.ICSSClassProvider;
 import com.helger.html.hc.IHCConversionSettingsToNode;
@@ -56,12 +53,14 @@ import com.helger.photon.bootstrap3.uictrls.EBootstrapUICtrlsJSPathProvider;
 import com.helger.photon.core.form.RequestField;
 import com.helger.photon.core.form.RequestFieldDate;
 
+import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
+
 /**
  * This class represents a wrapper around the DateTime Picker for Bootstrap from
  * https://github.com/smalot/bootstrap-datetimepicker<br>
- * By default it is a date selector only. If you want to have times as well, you
- * call {@link #setMinView(EDateTimePickerViewType)} with the type
- * {@link EDateTimePickerViewType#HOUR}.
+ * By default it is a date selector only. If you want to have times as well, you call
+ * {@link #setMinView(EDateTimePickerViewType)} with the type {@link EDateTimePickerViewType#HOUR}.
  *
  * @author Philip Helger
  */
@@ -117,7 +116,9 @@ public class BootstrapDateTimePicker extends BootstrapInputGroup
     this (aRF.getFieldName (), aRF.getRequestValue (), aDisplayLocale);
   }
 
-  public BootstrapDateTimePicker (@Nonnull final String sName, @Nullable final String sValue, @Nonnull final Locale aDisplayLocale)
+  public BootstrapDateTimePicker (@Nonnull final String sName,
+                                  @Nullable final String sValue,
+                                  @Nonnull final Locale aDisplayLocale)
   {
     super (new HCEdit (new RequestField (sName, sValue)).setPlaceholder (""));
     ValueEnforcer.notNull (aDisplayLocale, "DisplayLocale");
@@ -128,7 +129,8 @@ public class BootstrapDateTimePicker extends BootstrapInputGroup
     m_eLanguage = EDateTimePickerLanguage.getFromLocaleOrNull (aDisplayLocale);
     if (m_eLanguage == null && !EDateTimePickerLanguage.PREDEFINED_LANGUAGE.equals (aDisplayLocale.getLanguage ()))
       LOGGER.warn ("Unsupported EDateTimePickerLanguage provided: " + aDisplayLocale);
-    m_eWeekStart = EDateTimePickerDayOfWeek.getFromJavaValueOrNull (Calendar.getInstance (aDisplayLocale).getFirstDayOfWeek ());
+    m_eWeekStart = EDateTimePickerDayOfWeek.getFromJavaValueOrNull (Calendar.getInstance (aDisplayLocale)
+                                                                            .getFirstDayOfWeek ());
     // Use the calendar icon as default prefix
     prefixes ().addChild (EBootstrapIcon.CALENDAR.getAsNode ());
 
@@ -223,7 +225,7 @@ public class BootstrapDateTimePicker extends BootstrapInputGroup
   @ReturnsMutableCopy
   public Set <EDateTimePickerDayOfWeek> getDaysOfWeekDisabled ()
   {
-    return CollectionHelper.newEnumSet (EDateTimePickerDayOfWeek.class, m_aDaysOfWeekDisabled);
+    return CollectionHelperExt.createEnumSet (EDateTimePickerDayOfWeek.class, m_aDaysOfWeekDisabled);
   }
 
   @Nonnull
@@ -232,7 +234,7 @@ public class BootstrapDateTimePicker extends BootstrapInputGroup
     if (aDaysOfWeekDisabled == null)
       m_aDaysOfWeekDisabled = null;
     else
-      m_aDaysOfWeekDisabled = CollectionHelper.newEnumSet (EDateTimePickerDayOfWeek.class, m_aDaysOfWeekDisabled);
+      m_aDaysOfWeekDisabled = CollectionHelperExt.createEnumSet (EDateTimePickerDayOfWeek.class, m_aDaysOfWeekDisabled);
     return this;
   }
 
@@ -430,7 +432,8 @@ public class BootstrapDateTimePicker extends BootstrapInputGroup
   }
 
   @Nonnull
-  public static JSInvocation invoke (@Nonnull final JQueryInvocation aJQueryInvocation, @Nonnull final JSAssocArray aOptions)
+  public static JSInvocation invoke (@Nonnull final JQueryInvocation aJQueryInvocation,
+                                     @Nonnull final JSAssocArray aOptions)
   {
     return invoke (aJQueryInvocation).arg (aOptions);
   }
@@ -442,14 +445,14 @@ public class BootstrapDateTimePicker extends BootstrapInputGroup
   }
 
   /**
-   * @return A {@link JSAssocArray} with all options for this date and time
-   *         Picker. Never <code>null</code>.
+   * @return A {@link JSAssocArray} with all options for this date and time Picker. Never
+   *         <code>null</code>.
    */
   @Nonnull
   public JSAssocArray getJSOptions ()
   {
     final JSAssocArray aOptions = new JSAssocArray ();
-    if (StringHelper.hasText (m_sFormat))
+    if (StringHelper.isNotEmpty (m_sFormat))
       aOptions.add ("format", m_sFormat);
     else
     {

@@ -16,10 +16,8 @@
  */
 package com.helger.photon.bootstrap.demo.pub;
 
-import javax.annotation.Nonnull;
-import javax.annotation.concurrent.Immutable;
-
-import com.helger.commons.io.resource.ClassPathResource;
+import com.helger.annotation.concurrent.Immutable;
+import com.helger.io.resource.ClassPathResource;
 import com.helger.photon.bootstrap.demo.pub.page.PagePublicLogin;
 import com.helger.photon.bootstrap.demo.pub.page.icon.PagePublicIconFontAwesome;
 import com.helger.photon.bootstrap.demo.pub.page.icon.PagePublicIconMaterialDesign;
@@ -28,6 +26,8 @@ import com.helger.photon.core.menu.IMenuTree;
 import com.helger.photon.core.menu.filter.MenuObjectFilterNoUserLoggedIn;
 import com.helger.photon.uicore.page.external.BasePageViewExternal;
 import com.helger.photon.uicore.page.system.BasePageShowChildren;
+
+import jakarta.annotation.Nonnull;
 
 @Immutable
 public final class MenuPublic

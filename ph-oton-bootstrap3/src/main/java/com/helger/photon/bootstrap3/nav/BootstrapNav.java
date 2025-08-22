@@ -16,14 +16,9 @@
  */
 package com.helger.photon.bootstrap3.nav;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
-import com.helger.commons.ValueEnforcer;
-import com.helger.commons.annotation.Since;
-import com.helger.commons.string.StringHelper;
-import com.helger.commons.url.ISimpleURL;
-import com.helger.commons.url.SimpleURL;
+import com.helger.annotation.misc.Since;
+import com.helger.base.enforce.ValueEnforcer;
+import com.helger.base.string.StringHelper;
 import com.helger.html.hc.IHCNode;
 import com.helger.html.hc.html.IHCElementWithChildren;
 import com.helger.html.hc.html.forms.IHCButton;
@@ -32,11 +27,16 @@ import com.helger.html.hc.html.grouping.IHCLI;
 import com.helger.html.hc.html.textlevel.HCA;
 import com.helger.html.hc.html.textlevel.HCSpan;
 import com.helger.html.hc.impl.HCTextNode;
+import com.helger.http.url.ISimpleURL;
+import com.helger.http.url.SimpleURL;
 import com.helger.photon.bootstrap3.CBootstrapCSS;
 import com.helger.photon.bootstrap3.dropdown.BootstrapDropdown;
 import com.helger.photon.bootstrap3.dropdown.BootstrapDropdownMenu;
 import com.helger.photon.bootstrap3.dropdown.EBootstrapDropdownMenuAlignment;
 import com.helger.photon.uicore.icon.IIcon;
+
+import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 /**
  * Navigation items
@@ -164,7 +164,7 @@ public class BootstrapNav extends AbstractHCUL <BootstrapNav>
   @Nonnull
   public BootstrapNav addHeader (@Nullable final String sHeaderText)
   {
-    if (StringHelper.hasText (sHeaderText))
+    if (StringHelper.isNotEmpty (sHeaderText))
       addItem (sHeaderText).addClass (CBootstrapCSS.DROPDOWN_HEADER);
     return this;
   }

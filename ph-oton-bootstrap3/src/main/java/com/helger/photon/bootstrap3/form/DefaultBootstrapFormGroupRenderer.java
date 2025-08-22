@@ -18,19 +18,16 @@ package com.helger.photon.bootstrap3.form;
 
 import java.util.Locale;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import javax.annotation.concurrent.NotThreadSafe;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.helger.commons.annotation.OverrideOnDemand;
-import com.helger.commons.collection.CollectionHelper;
-import com.helger.commons.collection.impl.ICommonsList;
-import com.helger.commons.error.IError;
-import com.helger.commons.error.list.IErrorList;
-import com.helger.commons.string.StringHelper;
+import com.helger.annotation.concurrent.NotThreadSafe;
+import com.helger.annotation.style.OverrideOnDemand;
+import com.helger.base.string.StringHelper;
+import com.helger.collection.CollectionFind;
+import com.helger.collection.commons.ICommonsList;
+import com.helger.diagnostics.error.IError;
+import com.helger.diagnostics.error.list.IErrorList;
 import com.helger.html.css.DefaultCSSClassProvider;
 import com.helger.html.css.ICSSClassProvider;
 import com.helger.html.hc.IHCNode;
@@ -51,10 +48,13 @@ import com.helger.photon.bootstrap3.grid.BootstrapGridSpec;
 import com.helger.photon.uicore.html.formlabel.HCFormLabel;
 import com.helger.photon.uicore.html.formlabel.HCFormLabelHelper;
 
+import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
+
 /**
- * This is the default implementation of {@link IBootstrapFormGroupRenderer}
- * which performs standard rendering. It offers the possibility to modify
- * certain styling by overriding the provided protected methods.
+ * This is the default implementation of {@link IBootstrapFormGroupRenderer} which performs standard
+ * rendering. It offers the possibility to modify certain styling by overriding the provided
+ * protected methods.
  *
  * @author Philip Helger
  */
@@ -112,8 +112,7 @@ public class DefaultBootstrapFormGroupRenderer implements IBootstrapFormGroupRen
   }
 
   /**
-   * Modify the first control that is inserted. This method is only called when
-   * a label is present.
+   * Modify the first control that is inserted. This method is only called when a label is present.
    *
    * @param aLabel
    *        The label that was provided. Never <code>null</code>.
@@ -158,9 +157,8 @@ public class DefaultBootstrapFormGroupRenderer implements IBootstrapFormGroupRen
   }
 
   /**
-   * Retrieve an optional CSS class that is provided to the final node. This
-   * method is only called if a non-<code>null</code> and non-empty error list
-   * is present.
+   * Retrieve an optional CSS class that is provided to the final node. This method is only called
+   * if a non-<code>null</code> and non-empty error list is present.
    *
    * @param aErrorList
    *        The error list. May be <code>null</code>.
@@ -181,14 +179,15 @@ public class DefaultBootstrapFormGroupRenderer implements IBootstrapFormGroupRen
   }
 
   @Nonnull
-  public static BootstrapHelpBlock createDefaultErrorNode (@Nonnull final IError aError, @Nonnull final Locale aContentLocale)
+  public static BootstrapHelpBlock createDefaultErrorNode (@Nonnull final IError aError,
+                                                           @Nonnull final Locale aContentLocale)
   {
     String sErrorText = StringHelper.getNotNull (aError.getErrorText (aContentLocale));
-    if (StringHelper.hasNoText (sErrorText))
+    if (StringHelper.isEmpty (sErrorText))
       LOGGER.warn ("Error " + aError + " has no text in locale " + aContentLocale);
 
     final String sErrorID = aError.getErrorID ();
-    if (StringHelper.hasText (sErrorID))
+    if (StringHelper.isNotEmpty (sErrorID))
       sErrorText = "[" + sErrorID + "] " + sErrorText;
 
     final BootstrapHelpBlock aErrorBlock = new BootstrapHelpBlock ().addClass (CSS_CLASS_FORM_GROUP_ERROR_TEXT);
@@ -214,8 +213,8 @@ public class DefaultBootstrapFormGroupRenderer implements IBootstrapFormGroupRen
   }
 
   /**
-   * Callback possibility to change the finally created node before it is
-   * returned. By default nothing happens in here.
+   * Callback possibility to change the finally created node before it is returned. By default
+   * nothing happens in here.
    *
    * @param aForm
    *        The source form. Never <code>null</code>.
@@ -261,7 +260,7 @@ public class DefaultBootstrapFormGroupRenderer implements IBootstrapFormGroupRen
           aCurCtrl.customAttrs ().setAriaLabeledBy (aLabel);
     }
 
-    final IHCControl <?> aFirstControl = CollectionHelper.getFirstElement (aAllCtrls);
+    final IHCControl <?> aFirstControl = CollectionFind.getFirstElement (aAllCtrls);
     HCDiv aFinalNode;
     boolean bFirstControlIsCheckBox;
     boolean bFirstControlIsRadioButton;
@@ -322,7 +321,8 @@ public class DefaultBootstrapFormGroupRenderer implements IBootstrapFormGroupRen
       bUseIcons = isUseIcons () && eState.isNotNone () && aFirstControl instanceof IHCInput <?>;
 
       // Set static class for all direct children which are not controls
-      final boolean bContainsFormControlStatic = aAllCtrls.isEmpty () && BootstrapHelper.containsFormControlStatic (aCtrls);
+      final boolean bContainsFormControlStatic = aAllCtrls.isEmpty () &&
+                                                 BootstrapHelper.containsFormControlStatic (aCtrls);
 
       // Other control - add in form group
       aFinalNode = new HCDiv ().addClass (CBootstrapCSS.FORM_GROUP);

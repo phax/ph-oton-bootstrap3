@@ -16,9 +16,9 @@
  */
 package com.helger.photon.bootstrap3.table;
 
-import javax.annotation.Nullable;
-
 import com.helger.html.hc.html.tabular.IHCCol;
+
+import jakarta.annotation.Nullable;
 
 public class BootstrapTable extends AbstractBootstrapTable <BootstrapTable>
 {

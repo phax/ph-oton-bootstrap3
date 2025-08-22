@@ -16,10 +16,8 @@
  */
 package com.helger.photon.bootstrap3;
 
-import javax.annotation.Nullable;
-import javax.annotation.concurrent.Immutable;
-
-import com.helger.commons.annotation.PresentForCodeCoverage;
+import com.helger.annotation.concurrent.Immutable;
+import com.helger.annotation.style.PresentForCodeCoverage;
 import com.helger.html.hc.IHCNode;
 import com.helger.html.hc.IHCTextNode;
 import com.helger.html.hc.html.IHCElement;
@@ -28,6 +26,8 @@ import com.helger.html.hc.html.forms.HCCtrlHelper;
 import com.helger.html.hc.html.forms.IHCControl;
 import com.helger.html.hc.html.forms.IHCInput;
 import com.helger.html.hc.html.script.IHCScript;
+
+import jakarta.annotation.Nullable;
 
 @Immutable
 public final class BootstrapHelper

@@ -16,14 +16,14 @@
  */
 package com.helger.photon.bootstrap3.servlet;
 
-import javax.annotation.Nonnull;
-
 import com.helger.html.EHTMLVersion;
 import com.helger.html.hc.IHCHasChildrenMutable;
 import com.helger.html.hc.IHCNode;
 import com.helger.html.hc.html.forms.IHCControl;
 import com.helger.html.hc.impl.AbstractHCCustomizer;
 import com.helger.photon.bootstrap3.BootstrapHelper;
+
+import jakarta.annotation.Nonnull;
 
 public class BootstrapCustomizer extends AbstractHCCustomizer
 {

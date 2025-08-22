@@ -16,13 +16,11 @@
  */
 package com.helger.photon.bootstrap.demo.servlet;
 
-import javax.annotation.Nonnull;
-
 import org.slf4j.bridge.SLF4JBridgeHandler;
 
-import com.helger.commons.io.resource.ClassPathResource;
 import com.helger.html.jquery.JQueryAjaxBuilder;
 import com.helger.html.jscode.JSAssocArray;
+import com.helger.io.resource.ClassPathResource;
 import com.helger.photon.ajax.IAjaxRegistry;
 import com.helger.photon.bootstrap.demo.ajax.CAjax;
 import com.helger.photon.bootstrap.demo.app.AppSettings;
@@ -49,6 +47,7 @@ import com.helger.photon.uictrls.datatables.ajax.AjaxExecutorDataTablesI18N;
 import com.helger.photon.uictrls.datatables.plugins.DataTablesPluginSearchHighlight;
 import com.helger.web.scope.IRequestWebScopeWithoutResponse;
 
+import jakarta.annotation.Nonnull;
 import jakarta.servlet.ServletContext;
 
 /**

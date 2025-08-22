@@ -18,7 +18,7 @@ package com.helger.photon.bootstrap3.stub;
 
 import org.junit.Test;
 
-import com.helger.commons.mock.SPITestHelper;
+import com.helger.unittestext.SPITestHelper;
 
 /**
  * Test SPI definitions

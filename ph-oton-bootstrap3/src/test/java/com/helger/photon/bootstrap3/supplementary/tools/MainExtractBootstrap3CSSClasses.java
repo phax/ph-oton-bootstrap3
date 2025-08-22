@@ -16,19 +16,14 @@
  */
 package com.helger.photon.bootstrap3.supplementary.tools;
 
-import java.nio.charset.StandardCharsets;
 import java.util.Locale;
-
-import javax.annotation.Nonnull;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.helger.commons.collection.impl.CommonsTreeSet;
-import com.helger.commons.collection.impl.ICommonsSet;
-import com.helger.commons.io.resource.ClassPathResource;
-import com.helger.commons.string.StringHelper;
-import com.helger.css.ECSSVersion;
+import com.helger.base.string.StringReplace;
+import com.helger.collection.commons.CommonsTreeSet;
+import com.helger.collection.commons.ICommonsSet;
 import com.helger.css.decl.CSSSelector;
 import com.helger.css.decl.CSSSelectorSimpleMember;
 import com.helger.css.decl.CascadingStyleSheet;
@@ -36,7 +31,10 @@ import com.helger.css.decl.ICSSSelectorMember;
 import com.helger.css.decl.visit.CSSVisitor;
 import com.helger.css.decl.visit.DefaultCSSVisitor;
 import com.helger.css.reader.CSSReader;
+import com.helger.io.resource.ClassPathResource;
 import com.helger.photon.bootstrap3.EBootstrapCSSPathProvider;
+
+import jakarta.annotation.Nonnull;
 
 public final class MainExtractBootstrap3CSSClasses
 {
@@ -45,9 +43,7 @@ public final class MainExtractBootstrap3CSSClasses
   public static void main (final String [] args)
   {
     final StringBuilder aSB = new StringBuilder ();
-    final CascadingStyleSheet aCSS = CSSReader.readFromStream (new ClassPathResource (EBootstrapCSSPathProvider.BOOTSTRAP.getCSSItemPath (true)),
-                                                               StandardCharsets.UTF_8,
-                                                               ECSSVersion.CSS30);
+    final CascadingStyleSheet aCSS = CSSReader.readFromStream (new ClassPathResource (EBootstrapCSSPathProvider.BOOTSTRAP.getCSSItemPath (true)));
     final ICommonsSet <String> aClasses = new CommonsTreeSet <> ();
     CSSVisitor.visitCSS (aCSS, new DefaultCSSVisitor ()
     {
@@ -70,7 +66,7 @@ public final class MainExtractBootstrap3CSSClasses
     {
       final String sClassName = sClass.substring (1);
       String sFieldName = sClassName.toUpperCase (Locale.US);
-      sFieldName = StringHelper.replaceAll (sFieldName, '-', '_');
+      sFieldName = StringReplace.replaceAll (sFieldName, '-', '_');
       aSB.append ("public static final ICSSClassProvider ")
          .append (sFieldName)
          .append (" = DefaultCSSClassProvider.create (\"")
@@ -86,8 +82,11 @@ public final class MainExtractBootstrap3CSSClasses
       {
         final String sClassName = sClass.substring (1);
         String sFieldName = sClassName.toUpperCase (Locale.US);
-        sFieldName = StringHelper.replaceAll (sFieldName, '-', '_');
-        aSB.append (sFieldName.substring ("glyphicon-".length ())).append (" (CBootstrapCSS.").append (sFieldName).append ("),\n");
+        sFieldName = StringReplace.replaceAll (sFieldName, '-', '_');
+        aSB.append (sFieldName.substring ("glyphicon-".length ()))
+           .append (" (CBootstrapCSS.")
+           .append (sFieldName)
+           .append ("),\n");
       }
     LOGGER.info (aSB.toString ());
   }

@@ -21,22 +21,15 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
-import com.helger.commons.annotation.Nonempty;
-import com.helger.commons.annotation.Translatable;
-import com.helger.commons.collection.CollectionHelper;
-import com.helger.commons.collection.impl.CommonsArrayList;
-import com.helger.commons.collection.impl.CommonsHashMap;
-import com.helger.commons.collection.impl.ICommonsList;
-import com.helger.commons.collection.impl.ICommonsMap;
-import com.helger.commons.compare.ESortOrder;
-import com.helger.commons.locale.LocaleCache;
-import com.helger.commons.text.IMultilingualText;
-import com.helger.commons.text.display.IHasDisplayText;
-import com.helger.commons.text.resolve.DefaultTextResolver;
-import com.helger.commons.text.util.TextHelper;
+import com.helger.annotation.Nonempty;
+import com.helger.annotation.misc.Translatable;
+import com.helger.base.compare.ESortOrder;
+import com.helger.collection.CollectionFind;
+import com.helger.collection.commons.CommonsArrayList;
+import com.helger.collection.commons.CommonsHashMap;
+import com.helger.collection.commons.ICommonsList;
+import com.helger.collection.commons.ICommonsMap;
+import com.helger.collection.helper.CollectionSort;
 import com.helger.html.hc.html.grouping.HCDiv;
 import com.helger.html.hc.html.tabular.HCRow;
 import com.helger.html.hc.html.tabular.HCTable;
@@ -51,6 +44,14 @@ import com.helger.photon.uictrls.EUICtrlsCSSPathProvider;
 import com.helger.photon.uictrls.datatables.DataTables;
 import com.helger.photon.uictrls.datatables.column.DTCol;
 import com.helger.photon.uictrls.famfam.EFamFamFlagIcon;
+import com.helger.text.IMultilingualText;
+import com.helger.text.display.IHasDisplayText;
+import com.helger.text.locale.LocaleCache;
+import com.helger.text.resolve.DefaultTextResolver;
+import com.helger.text.util.TextHelper;
+
+import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 /**
  * Page with all available locales
@@ -130,11 +131,11 @@ public class BasePageDataLanguages <WPECTYPE extends IWebPageExecutionContext> e
     {
       final HCRow aRow = aTable.addBodyRow ();
       aRow.addCell (aEntry.getKey ());
-      aRow.addCell (CollectionHelper.getFirstElement (aEntry.getValue ()).getDisplayLanguage (aDisplayLocale));
+      aRow.addCell (CollectionFind.getFirstElement (aEntry.getValue ()).getDisplayLanguage (aDisplayLocale));
 
       final IHCCell <?> aCell = aRow.addCell ();
-      for (final Locale aLocale : CollectionHelper.getSorted (aEntry.getValue (),
-                                                              Comparator.comparing (Locale::toString)))
+      for (final Locale aLocale : CollectionSort.getSorted (aEntry.getValue (),
+                                                            Comparator.comparing (Locale::toString)))
       {
         final HCDiv aDiv = new HCDiv ();
         final EFamFamFlagIcon eIcon = EFamFamFlagIcon.getFromIDOrNull (aLocale.getCountry ());

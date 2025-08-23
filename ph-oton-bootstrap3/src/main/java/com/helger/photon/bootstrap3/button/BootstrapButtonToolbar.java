@@ -20,12 +20,12 @@ import com.helger.base.enforce.ValueEnforcer;
 import com.helger.html.EHTMLRole;
 import com.helger.html.hc.html.grouping.AbstractHCDiv;
 import com.helger.html.js.IHasJSCode;
-import com.helger.http.url.ISimpleURL;
-import com.helger.http.url.SimpleURL;
 import com.helger.photon.bootstrap3.CBootstrapCSS;
 import com.helger.photon.core.execcontext.ILayoutExecutionContext;
 import com.helger.photon.uicore.html.toolbar.IButtonToolbar;
 import com.helger.photon.uicore.icon.IIcon;
+import com.helger.url.ISimpleURL;
+import com.helger.url.SimpleURL;
 
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;

@@ -20,8 +20,8 @@ import com.helger.html.hc.ext.HCA_JS;
 import com.helger.html.hc.html.grouping.AbstractHCOL;
 import com.helger.html.hc.html.textlevel.HCA;
 import com.helger.html.js.IHasJSCode;
-import com.helger.http.url.ISimpleURL;
 import com.helger.photon.bootstrap3.CBootstrapCSS;
+import com.helger.url.ISimpleURL;
 
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;

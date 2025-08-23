@@ -22,7 +22,7 @@ import java.util.Locale;
 import com.helger.annotation.Nonempty;
 import com.helger.annotation.misc.Translatable;
 import com.helger.base.id.IHasID;
-import com.helger.collection.helper.CollectionSort;
+import com.helger.collection.CollectionHelper;
 import com.helger.datetime.format.PDTToString;
 import com.helger.html.hc.IHCNode;
 import com.helger.html.hc.html.grouping.HCDiv;
@@ -135,7 +135,7 @@ public abstract class AbstractWebPageSecurityToken <DATATYPE extends IHasID <Str
   {
     final HCUL aAT = new HCUL ();
     // Reverse so that the newest token is on top
-    for (final IAccessToken aToken : CollectionSort.getReverseList (aAccessTokens))
+    for (final IAccessToken aToken : CollectionHelper.getReverseList (aAccessTokens))
     {
       final IRevocationStatus aRevocationStatus = aToken.getRevocationStatus ();
 

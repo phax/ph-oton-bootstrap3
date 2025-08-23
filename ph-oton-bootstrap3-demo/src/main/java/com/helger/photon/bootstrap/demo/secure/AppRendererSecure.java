@@ -25,7 +25,6 @@ import com.helger.html.hc.html.textlevel.HCA;
 import com.helger.html.hc.html.textlevel.HCSpan;
 import com.helger.html.hc.html.textlevel.HCStrong;
 import com.helger.html.hc.impl.HCNodeList;
-import com.helger.http.url.ISimpleURL;
 import com.helger.photon.app.url.LinkHelper;
 import com.helger.photon.bootstrap.demo.app.CApp;
 import com.helger.photon.bootstrap.demo.app.ui.AppCommonUI;
@@ -47,6 +46,7 @@ import com.helger.photon.core.html.CLayout;
 import com.helger.photon.core.servlet.LogoutServlet;
 import com.helger.photon.security.user.IUser;
 import com.helger.photon.security.util.SecurityHelper;
+import com.helger.url.ISimpleURL;
 import com.helger.web.scope.IRequestWebScopeWithoutResponse;
 
 import jakarta.annotation.Nonnull;

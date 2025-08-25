@@ -6,16 +6,16 @@
 This set of Java libraries forms a package to build Java web applications.
 
 Contained subprojects are:
-  * ph-oton-bootstrap3 - Java Wrapper for the Bootstrap 3.x controls
-  * ph-oton-bootstrap3-uictrls - special UI controls for Bootstrap 3
-  * ph-oton-bootstrap3-pages - predefined UI pages with Bootstrap 3 styling
-  * ph-oton-bootstrap3-stub - Servlet stub for Bootstrap 3 web applications
-  * ph-oton-bootstrap3-demo - a standalone demo web application to be run in Tomcat or in provided Jetty
+* ph-oton-bootstrap3 - Java Wrapper for the Bootstrap 3.x controls
+* ph-oton-bootstrap3-uictrls - special UI controls for Bootstrap 3
+* ph-oton-bootstrap3-pages - predefined UI pages with Bootstrap 3 styling
+* ph-oton-bootstrap3-stub - Servlet stub for Bootstrap 3 web applications
+* ph-oton-bootstrap3-demo - a standalone demo web application to be run in Tomcat or in provided Jetty
 
 # Requirements
 
 * Java 17+ is required for building 
-* Application server requirements:
+* Application server requirement JakartaEE 10:
     * At least Tomcat 10.1
     * Jetty 12.x with AnnotationConfiguration enabled
       
@@ -54,7 +54,7 @@ See the submodule `ph-oton-bootstrap3-demo` for a working example project with B
 
 ## News and noteworthy
 
-v10.0.0 - work in progress
+v10.0.0 - 2025-08-25
 * Requires Java 17 as the minimum version
 * Updated to ph-commons 12.0.0
 * Updated to Jetty 12.1.0

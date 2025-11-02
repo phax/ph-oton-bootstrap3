@@ -19,9 +19,9 @@ package com.helger.photon.bootstrap3.form;
 import java.io.Serializable;
 import java.util.Locale;
 
-import com.helger.html.hc.html.IHCElementWithChildren;
+import org.jspecify.annotations.NonNull;
 
-import jakarta.annotation.Nonnull;
+import com.helger.html.hc.html.IHCElementWithChildren;
 
 /**
  * Interface for rendering a form group based on the form style.
@@ -32,7 +32,7 @@ public interface IBootstrapFormGroupRenderer extends Serializable
 {
   boolean isUseIcons ();
 
-  @Nonnull
+  @NonNull
   IBootstrapFormGroupRenderer setUseIcons (boolean bUseIcons);
 
   /**
@@ -44,8 +44,8 @@ public interface IBootstrapFormGroupRenderer extends Serializable
    *        Display locale to be used. May not be <code>null</code>.
    * @return Never <code>null</code>.
    */
-  @Nonnull
-  IHCElementWithChildren <?> renderFormGroup (@Nonnull IBootstrapFormGroupContainer aForm,
-                                              @Nonnull BootstrapFormGroup aFormGroup,
-                                              @Nonnull Locale aDisplayLocale);
+  @NonNull
+  IHCElementWithChildren <?> renderFormGroup (@NonNull IBootstrapFormGroupContainer aForm,
+                                              @NonNull BootstrapFormGroup aFormGroup,
+                                              @NonNull Locale aDisplayLocale);
 }

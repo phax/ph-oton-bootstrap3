@@ -16,12 +16,12 @@
  */
 package com.helger.photon.bootstrap3.uictrls.datetimepicker;
 
+import org.jspecify.annotations.NonNull;
+
 import com.helger.base.tostring.ToStringGenerator;
 import com.helger.html.annotation.OutOfBandNode;
 import com.helger.html.hc.html.script.AbstractHCScriptInline;
 import com.helger.html.hc.special.SpecialNodeListModifier;
-
-import jakarta.annotation.Nonnull;
 
 /**
  * A special script that initializes the {@link BootstrapDateTimePicker}. It is
@@ -36,13 +36,13 @@ public class BootstrapDateTimePickerJS extends AbstractHCScriptInline <Bootstrap
 {
   private final BootstrapDateTimePicker m_aDTP;
 
-  public BootstrapDateTimePickerJS (@Nonnull final BootstrapDateTimePicker aDTP)
+  public BootstrapDateTimePickerJS (@NonNull final BootstrapDateTimePicker aDTP)
   {
     super (aDTP.invoke (aDTP.getJSOptions ()));
     m_aDTP = aDTP;
   }
 
-  @Nonnull
+  @NonNull
   public BootstrapDateTimePicker getDateTimePicker ()
   {
     return m_aDTP;

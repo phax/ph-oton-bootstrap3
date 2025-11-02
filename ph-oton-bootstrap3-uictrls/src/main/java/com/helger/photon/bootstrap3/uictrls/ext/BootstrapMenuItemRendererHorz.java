@@ -18,12 +18,12 @@ package com.helger.photon.bootstrap3.uictrls.ext;
 
 import java.util.Locale;
 
+import org.jspecify.annotations.NonNull;
+
 import com.helger.html.hc.IHCNode;
 import com.helger.html.hc.html.grouping.HCLI;
 import com.helger.photon.core.execcontext.ISimpleWebExecutionContext;
 import com.helger.photon.core.menu.IMenuSeparator;
-
-import jakarta.annotation.Nonnull;
 
 /**
  * A special menu item renderer for the footer area, where the items are
@@ -33,14 +33,14 @@ import jakarta.annotation.Nonnull;
  */
 public class BootstrapMenuItemRendererHorz extends BootstrapMenuItemRenderer
 {
-  public BootstrapMenuItemRendererHorz (@Nonnull final Locale aContentLocale)
+  public BootstrapMenuItemRendererHorz (@NonNull final Locale aContentLocale)
   {
     super (aContentLocale);
   }
 
   @Override
-  @Nonnull
-  public IHCNode renderSeparator (@Nonnull final ISimpleWebExecutionContext aSWEC, @Nonnull final IMenuSeparator aSeparator)
+  @NonNull
+  public IHCNode renderSeparator (@NonNull final ISimpleWebExecutionContext aSWEC, @NonNull final IMenuSeparator aSeparator)
   {
     return new HCLI ().addChild ("·");
   }

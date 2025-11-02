@@ -16,6 +16,9 @@
  */
 package com.helger.photon.bootstrap3.button;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.css.property.CCSSProperties;
 import com.helger.css.propertyvalue.CCSSValue;
 import com.helger.html.EHTMLRole;
@@ -28,9 +31,6 @@ import com.helger.html.jquery.JQuery;
 import com.helger.html.jscode.JSAnonymousFunction;
 import com.helger.html.jscode.JSExpr;
 import com.helger.photon.bootstrap3.CBootstrapCSS;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 /**
  * A special upload button, that hides the browser differences in a nice way.
@@ -68,7 +68,7 @@ public class BootstrapUploadButton extends AbstractHCDiv <BootstrapUploadButton>
     m_aEdit.addStyle (CCSSProperties.OPACITY.newValue ("0"));
   }
 
-  @Nonnull
+  @NonNull
   public HCEditFile getFileEdit ()
   {
     return m_aEdit;
@@ -82,7 +82,7 @@ public class BootstrapUploadButton extends AbstractHCDiv <BootstrapUploadButton>
    *        The placeholder text to be used if no file is selected.
    * @return A node list with the edit and a JavaScript
    */
-  @Nonnull
+  @NonNull
   public HCNodeList createSelectedFileEdit (@Nullable final String sPlaceholder)
   {
     final HCEdit aEdit = new HCEdit ().setPlaceholder (sPlaceholder).setReadOnly (true);

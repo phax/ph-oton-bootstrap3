@@ -18,14 +18,14 @@ package com.helger.photon.bootstrap3.uictrls.datatables;
 
 import java.util.Locale;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.html.hc.IHCNode;
 import com.helger.photon.bootstrap3.CBootstrapCSS;
 import com.helger.photon.core.EPhotonCoreText;
 import com.helger.photon.uicore.css.CUICoreCSS;
 import com.helger.photon.uictrls.datatables.column.DTCol;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 /**
  * Special action column. Has a special CSS class and is never sortable nor
@@ -69,7 +69,7 @@ public class BootstrapDTColAction extends DTCol
    * @param aDisplayLocale
    *        Display locale to use. May not be <code>null</code>.
    */
-  public BootstrapDTColAction (@Nonnull final Locale aDisplayLocale)
+  public BootstrapDTColAction (@NonNull final Locale aDisplayLocale)
   {
     this (EPhotonCoreText.ACTIONS.getDisplayText (aDisplayLocale));
   }

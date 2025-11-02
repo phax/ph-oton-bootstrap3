@@ -18,6 +18,8 @@ package com.helger.photon.bootstrap3.pages.handler;
 
 import java.util.function.BiFunction;
 
+import org.jspecify.annotations.NonNull;
+
 import com.helger.annotation.Nonempty;
 import com.helger.base.id.IHasID;
 import com.helger.photon.bootstrap3.button.BootstrapButtonToolbar;
@@ -26,14 +28,12 @@ import com.helger.photon.bootstrap3.pages.BootstrapWebPageUIHandler;
 import com.helger.photon.uicore.page.IWebPageExecutionContext;
 import com.helger.photon.uicore.page.handler.AbstractWebPageActionHandlerMulti;
 
-import jakarta.annotation.Nonnull;
-
 public abstract class AbstractBootstrapWebPageActionHandlerMulti <DATATYPE extends IHasID <String>, WPECTYPE extends IWebPageExecutionContext>
                                                                  extends
                                                                  AbstractWebPageActionHandlerMulti <DATATYPE, WPECTYPE, BootstrapForm, BootstrapButtonToolbar>
 {
-  public AbstractBootstrapWebPageActionHandlerMulti (@Nonnull @Nonempty final String sFieldName,
-                                                     @Nonnull final BiFunction <WPECTYPE, String, DATATYPE> aResolver)
+  public AbstractBootstrapWebPageActionHandlerMulti (@NonNull @Nonempty final String sFieldName,
+                                                     @NonNull final BiFunction <WPECTYPE, String, DATATYPE> aResolver)
   {
     super (BootstrapWebPageUIHandler.INSTANCE, sFieldName, aResolver);
   }

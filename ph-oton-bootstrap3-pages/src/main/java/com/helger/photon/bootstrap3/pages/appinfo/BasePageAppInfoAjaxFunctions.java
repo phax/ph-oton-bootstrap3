@@ -19,6 +19,9 @@ package com.helger.photon.bootstrap3.pages.appinfo;
 import java.util.Locale;
 import java.util.Map;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.annotation.Nonempty;
 import com.helger.annotation.misc.Translatable;
 import com.helger.base.compare.ESortOrder;
@@ -44,9 +47,6 @@ import com.helger.text.resolve.DefaultTextResolver;
 import com.helger.text.util.TextHelper;
 import com.helger.web.scope.IRequestWebScopeWithoutResponse;
 
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
-
 /**
  * Show all registered AJAX functions.
  *
@@ -68,44 +68,44 @@ public class BasePageAppInfoAjaxFunctions <WPECTYPE extends IWebPageExecutionCon
 
     private final IMultilingualText m_aTP;
 
-    EText (@Nonnull final String sDE, @Nonnull final String sEN)
+    EText (@NonNull final String sDE, @NonNull final String sEN)
     {
       m_aTP = TextHelper.create_DE_EN (sDE, sEN);
     }
 
     @Nullable
-    public String getDisplayText (@Nonnull final Locale aContentLocale)
+    public String getDisplayText (@NonNull final Locale aContentLocale)
     {
       return DefaultTextResolver.getTextStatic (this, m_aTP, aContentLocale);
     }
   }
 
-  public BasePageAppInfoAjaxFunctions (@Nonnull @Nonempty final String sID)
+  public BasePageAppInfoAjaxFunctions (@NonNull @Nonempty final String sID)
   {
     super (sID, EWebPageText.PAGE_NAME_APPINFO_AJAX_FUNCTIONS.getAsMLT ());
   }
 
-  public BasePageAppInfoAjaxFunctions (@Nonnull @Nonempty final String sID, @Nonnull final String sName)
+  public BasePageAppInfoAjaxFunctions (@NonNull @Nonempty final String sID, @NonNull final String sName)
   {
     super (sID, sName);
   }
 
-  public BasePageAppInfoAjaxFunctions (@Nonnull @Nonempty final String sID,
-                                       @Nonnull final String sName,
+  public BasePageAppInfoAjaxFunctions (@NonNull @Nonempty final String sID,
+                                       @NonNull final String sName,
                                        @Nullable final String sDescription)
   {
     super (sID, sName, sDescription);
   }
 
-  public BasePageAppInfoAjaxFunctions (@Nonnull @Nonempty final String sID,
-                                       @Nonnull final IMultilingualText aName,
+  public BasePageAppInfoAjaxFunctions (@NonNull @Nonempty final String sID,
+                                       @NonNull final IMultilingualText aName,
                                        @Nullable final IMultilingualText aDescription)
   {
     super (sID, aName, aDescription);
   }
 
   @Override
-  protected void fillContent (@Nonnull final WPECTYPE aWPEC)
+  protected void fillContent (@NonNull final WPECTYPE aWPEC)
   {
     final HCNodeList aNodeList = aWPEC.getNodeList ();
     final Locale aDisplayLocale = aWPEC.getDisplayLocale ();

@@ -18,6 +18,8 @@ package com.helger.photon.bootstrap3.form;
 
 import java.util.Locale;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -48,9 +50,6 @@ import com.helger.photon.bootstrap3.grid.BootstrapGridSpec;
 import com.helger.photon.uicore.html.formlabel.HCFormLabel;
 import com.helger.photon.uicore.html.formlabel.HCFormLabelHelper;
 
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
-
 /**
  * This is the default implementation of {@link IBootstrapFormGroupRenderer} which performs standard
  * rendering. It offers the possibility to modify certain styling by overriding the provided
@@ -78,7 +77,7 @@ public class DefaultBootstrapFormGroupRenderer implements IBootstrapFormGroupRen
   }
 
   @Override
-  @Nonnull
+  @NonNull
   public DefaultBootstrapFormGroupRenderer setUseIcons (final boolean bUseIcons)
   {
     m_bUseIcons = bUseIcons;
@@ -90,15 +89,15 @@ public class DefaultBootstrapFormGroupRenderer implements IBootstrapFormGroupRen
     return m_bForceNoCheckBoxHandling;
   }
 
-  @Nonnull
+  @NonNull
   public DefaultBootstrapFormGroupRenderer setForceNoCheckBoxHandling (final boolean bForceNoCheckBoxHandling)
   {
     m_bForceNoCheckBoxHandling = bForceNoCheckBoxHandling;
     return this;
   }
 
-  @Nonnull
-  private static String _getPlaceholderText (@Nonnull final IHCElementWithChildren <?> aLabel)
+  @NonNull
+  private static String _getPlaceholderText (@NonNull final IHCElementWithChildren <?> aLabel)
   {
     if (aLabel instanceof HCFormLabel)
     {
@@ -120,8 +119,8 @@ public class DefaultBootstrapFormGroupRenderer implements IBootstrapFormGroupRen
    *        The first control that was provided. Never <code>null</code>.
    */
   @OverrideOnDemand
-  protected void modifyFirstControlIfLabelIsPresent (@Nonnull final IHCElementWithChildren <?> aLabel,
-                                                     @Nonnull final IHCControl <?> aFirstControl)
+  protected void modifyFirstControlIfLabelIsPresent (@NonNull final IHCElementWithChildren <?> aLabel,
+                                                     @NonNull final IHCControl <?> aFirstControl)
   {
     // Set the default placeholder (if none is present)
     if (aFirstControl instanceof IHCInput <?>)
@@ -147,9 +146,9 @@ public class DefaultBootstrapFormGroupRenderer implements IBootstrapFormGroupRen
    *        The source help text. Never <code>null</code>.
    * @return Never <code>null</code>.
    */
-  @Nonnull
+  @NonNull
   @OverrideOnDemand
-  protected IHCElement <?> createHelpTextNode (@Nonnull final IHCNode aHelpText)
+  protected IHCElement <?> createHelpTextNode (@NonNull final IHCNode aHelpText)
   {
     final BootstrapHelpBlock aHelpBlock = new BootstrapHelpBlock ().addClass (CSS_CLASS_FORM_GROUP_HELP_TEXT);
     aHelpBlock.addChild (aHelpText);
@@ -178,9 +177,9 @@ public class DefaultBootstrapFormGroupRenderer implements IBootstrapFormGroupRen
     return null;
   }
 
-  @Nonnull
-  public static BootstrapHelpBlock createDefaultErrorNode (@Nonnull final IError aError,
-                                                           @Nonnull final Locale aContentLocale)
+  @NonNull
+  public static BootstrapHelpBlock createDefaultErrorNode (@NonNull final IError aError,
+                                                           @NonNull final Locale aContentLocale)
   {
     String sErrorText = StringHelper.getNotNull (aError.getErrorText (aContentLocale));
     if (StringHelper.isEmpty (sErrorText))
@@ -207,7 +206,7 @@ public class DefaultBootstrapFormGroupRenderer implements IBootstrapFormGroupRen
    */
   @Nullable
   @OverrideOnDemand
-  protected IHCElement <?> createSingleErrorNode (@Nonnull final IError aError, @Nonnull final Locale aContentLocale)
+  protected IHCElement <?> createSingleErrorNode (@NonNull final IError aError, @NonNull final Locale aContentLocale)
   {
     return createDefaultErrorNode (aError, aContentLocale);
   }
@@ -224,16 +223,16 @@ public class DefaultBootstrapFormGroupRenderer implements IBootstrapFormGroupRen
    *        The created node so far. Never <code>null</code>.
    */
   @OverrideOnDemand
-  protected void modifyFinalNode (@Nonnull final IBootstrapFormGroupContainer aForm,
-                                  @Nonnull final BootstrapFormGroup aFormGroup,
-                                  @Nonnull final HCDiv aFinalNode)
+  protected void modifyFinalNode (@NonNull final IBootstrapFormGroupContainer aForm,
+                                  @NonNull final BootstrapFormGroup aFormGroup,
+                                  @NonNull final HCDiv aFinalNode)
   {}
 
   @Override
-  @Nonnull
-  public HCDiv renderFormGroup (@Nonnull final IBootstrapFormGroupContainer aForm,
-                                @Nonnull final BootstrapFormGroup aFormGroup,
-                                @Nonnull final Locale aDisplayLocale)
+  @NonNull
+  public HCDiv renderFormGroup (@NonNull final IBootstrapFormGroupContainer aForm,
+                                @NonNull final BootstrapFormGroup aFormGroup,
+                                @NonNull final Locale aDisplayLocale)
   {
     final EBootstrapFormType eFormType = aForm.getFormType ();
     final BootstrapGridSpec aLeftGrid = aForm.getLeft ();

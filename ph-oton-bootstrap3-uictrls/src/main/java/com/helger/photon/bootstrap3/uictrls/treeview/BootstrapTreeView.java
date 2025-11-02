@@ -19,6 +19,9 @@ package com.helger.photon.bootstrap3.uictrls.treeview;
 import java.util.List;
 import java.util.function.Function;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.annotation.style.ReturnsMutableCopy;
 import com.helger.base.enforce.ValueEnforcer;
 import com.helger.base.state.ETriState;
@@ -46,9 +49,6 @@ import com.helger.tree.DefaultTreeItem;
 import com.helger.tree.ITreeItem;
 import com.helger.tree.util.TreeVisitor;
 
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
-
 /**
  * Bootstrap Tree View from https://github.com/jonmiles/bootstrap-treeview
  *
@@ -73,125 +73,125 @@ public class BootstrapTreeView extends AbstractHCDiv <BootstrapTreeView>
   // Default is false
   private ETriState m_eShowTags = ETriState.UNDEFINED;
 
-  public BootstrapTreeView (@Nonnull final DefaultTree <BootstrapTreeViewItem> aTree)
+  public BootstrapTreeView (@NonNull final DefaultTree <BootstrapTreeViewItem> aTree)
   {
     m_aTree = ValueEnforcer.notNull (aTree, "Tree");
     ensureID ();
   }
 
-  @Nonnull
+  @NonNull
   public BootstrapTreeView setCollapseIcon (@Nullable final HCHasCSSClasses aCollapseIcon)
   {
     m_aCollapseIcon = aCollapseIcon;
     return this;
   }
 
-  @Nonnull
+  @NonNull
   public BootstrapTreeView setEmptyIcon (@Nullable final HCHasCSSClasses aEmptyIcon)
   {
     m_aEmptyIcon = aEmptyIcon;
     return this;
   }
 
-  @Nonnull
+  @NonNull
   public BootstrapTreeView setExpandIcon (@Nullable final HCHasCSSClasses aExpandIcon)
   {
     m_aExpandIcon = aExpandIcon;
     return this;
   }
 
-  @Nonnull
+  @NonNull
   public BootstrapTreeView setNodeIcon (@Nullable final HCHasCSSClasses aNodeIcon)
   {
     m_aNodeIcon = aNodeIcon;
     return this;
   }
 
-  @Nonnull
+  @NonNull
   public BootstrapTreeView setEnableLinks (final boolean bEnableLinks)
   {
     m_eEnableLinks = ETriState.valueOf (bEnableLinks);
     return this;
   }
 
-  @Nonnull
+  @NonNull
   public BootstrapTreeView setHighlightSelected (final boolean bHighlightSelected)
   {
     m_eHighlightSelected = ETriState.valueOf (bHighlightSelected);
     return this;
   }
 
-  @Nonnull
+  @NonNull
   public BootstrapTreeView setInitialLevels (final int nInitialLevels)
   {
     m_aInitialLevels = Integer.valueOf (nInitialLevels);
     return this;
   }
 
-  @Nonnull
+  @NonNull
   public BootstrapTreeView setShowBorder (final boolean bShowBorder)
   {
     m_eShowBorder = ETriState.valueOf (bShowBorder);
     return this;
   }
 
-  @Nonnull
+  @NonNull
   public BootstrapTreeView setShowTags (final boolean bShowTags)
   {
     m_eShowTags = ETriState.valueOf (bShowTags);
     return this;
   }
 
-  @Nonnull
+  @NonNull
   public JSInvocation invoke ()
   {
     return JQuery.idRef (this).invoke ("treeview");
   }
 
-  @Nonnull
+  @NonNull
   public JSInvocation getJSRemoveInvocation ()
   {
     return invoke ().arg ("remove");
   }
 
-  @Nonnull
+  @NonNull
   public JSInvocation getJSExpandAllInvocation ()
   {
     return invoke ().arg ("expandAll");
   }
 
-  @Nonnull
+  @NonNull
   public JSInvocation getJSExpandAllInvocation (final int nLevels)
   {
     return getJSExpandAllInvocation ().arg (new JSAssocArray ().add ("levels", nLevels));
   }
 
-  @Nonnull
+  @NonNull
   public JSInvocation getJSExpandAllInvocation (final int nLevels, final boolean bSilent)
   {
     return getJSExpandAllInvocation ().arg (new JSAssocArray ().add ("levels", nLevels).add ("silent", bSilent));
   }
 
-  @Nonnull
+  @NonNull
   public JSInvocation getJSCollapseAllInvocation ()
   {
     return invoke ().arg ("collapseAll");
   }
 
-  @Nonnull
+  @NonNull
   public JSInvocation getJSCollapseAllInvocation (final int nLevels)
   {
     return getJSCollapseAllInvocation ().arg (new JSAssocArray ().add ("levels", nLevels));
   }
 
-  @Nonnull
+  @NonNull
   public JSInvocation getJSCollapseAllInvocation (final int nLevels, final boolean bSilent)
   {
     return getJSCollapseAllInvocation ().arg (new JSAssocArray ().add ("levels", nLevels).add ("silent", bSilent));
   }
 
   private static void _recursiveFillJSTree (@Nullable final List <DefaultTreeItem <BootstrapTreeViewItem>> aTreeItems,
-                                            @Nonnull final JSArray aTargetArray)
+                                            @NonNull final JSArray aTargetArray)
   {
     if (CollectionHelper.isNotEmpty (aTreeItems))
       for (final DefaultTreeItem <BootstrapTreeViewItem> aTreeItem : aTreeItems)
@@ -210,7 +210,7 @@ public class BootstrapTreeView extends AbstractHCDiv <BootstrapTreeView>
       }
   }
 
-  @Nonnull
+  @NonNull
   @ReturnsMutableCopy
   public JSArray getJSDataArray ()
   {
@@ -219,7 +219,7 @@ public class BootstrapTreeView extends AbstractHCDiv <BootstrapTreeView>
     return aTreeArray;
   }
 
-  @Nonnull
+  @NonNull
   @ReturnsMutableCopy
   public JSAssocArray getJSOptions ()
   {
@@ -251,8 +251,8 @@ public class BootstrapTreeView extends AbstractHCDiv <BootstrapTreeView>
   }
 
   @Override
-  protected void onFinalizeNodeState (@Nonnull final IHCConversionSettingsToNode aConversionSettings,
-                                      @Nonnull final IHCHasChildrenMutable <?, ? super IHCNode> aTargetNode)
+  protected void onFinalizeNodeState (@NonNull final IHCConversionSettingsToNode aConversionSettings,
+                                      @NonNull final IHCHasChildrenMutable <?, ? super IHCNode> aTargetNode)
   {
     super.onFinalizeNodeState (aConversionSettings, aTargetNode);
 
@@ -262,16 +262,16 @@ public class BootstrapTreeView extends AbstractHCDiv <BootstrapTreeView>
   }
 
   @Override
-  protected void onRegisterExternalResources (@Nonnull final IHCConversionSettingsToNode aConversionSettings,
+  protected void onRegisterExternalResources (@NonNull final IHCConversionSettingsToNode aConversionSettings,
                                               final boolean bForceRegistration)
   {
     PhotonJS.registerJSIncludeForThisRequest (EBootstrapUICtrlsJSPathProvider.TREE_VIEW);
     PhotonCSS.registerCSSIncludeForThisRequest (EBootstrapUICtrlsCSSPathProvider.TREE_VIEW);
   }
 
-  @Nonnull
-  public static <DATATYPE, ITEMTYPE extends ITreeItem <DATATYPE, ITEMTYPE>> BootstrapTreeView create (@Nonnull final BasicTree <DATATYPE, ITEMTYPE> aTree,
-                                                                                                      @Nonnull final Function <DATATYPE, BootstrapTreeViewItem> aConverter)
+  @NonNull
+  public static <DATATYPE, ITEMTYPE extends ITreeItem <DATATYPE, ITEMTYPE>> BootstrapTreeView create (@NonNull final BasicTree <DATATYPE, ITEMTYPE> aTree,
+                                                                                                      @NonNull final Function <DATATYPE, BootstrapTreeViewItem> aConverter)
   {
     final DefaultTree <BootstrapTreeViewItem> aNewTree = new DefaultTree <> ();
     final NonBlockingStack <DefaultTreeItem <BootstrapTreeViewItem>> aParents = new NonBlockingStack <> ();
@@ -279,7 +279,7 @@ public class BootstrapTreeView extends AbstractHCDiv <BootstrapTreeView>
     TreeVisitor.visitTree (aTree, new DefaultHierarchyVisitorCallback <ITEMTYPE> ()
     {
       @Override
-      public EHierarchyVisitorReturn onItemBeforeChildren (@Nonnull final ITEMTYPE aItem)
+      public EHierarchyVisitorReturn onItemBeforeChildren (@NonNull final ITEMTYPE aItem)
       {
         final DefaultTreeItem <BootstrapTreeViewItem> aChildItem = aParents.peek ().createChildItem (aConverter.apply (aItem.getData ()));
         aParents.push (aChildItem);
@@ -287,7 +287,7 @@ public class BootstrapTreeView extends AbstractHCDiv <BootstrapTreeView>
       }
 
       @Override
-      public EHierarchyVisitorReturn onItemAfterChildren (@Nonnull final ITEMTYPE aItem)
+      public EHierarchyVisitorReturn onItemAfterChildren (@NonNull final ITEMTYPE aItem)
       {
         aParents.pop ();
         return EHierarchyVisitorReturn.CONTINUE;

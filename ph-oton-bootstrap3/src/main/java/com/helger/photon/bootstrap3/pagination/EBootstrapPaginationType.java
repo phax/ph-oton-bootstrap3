@@ -16,10 +16,10 @@
  */
 package com.helger.photon.bootstrap3.pagination;
 
+import org.jspecify.annotations.Nullable;
+
 import com.helger.html.css.ICSSClassProvider;
 import com.helger.photon.bootstrap3.CBootstrapCSS;
-
-import jakarta.annotation.Nullable;
 
 /**
  * Pagination type

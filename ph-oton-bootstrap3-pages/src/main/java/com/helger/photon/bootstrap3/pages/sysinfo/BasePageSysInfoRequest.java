@@ -19,6 +19,9 @@ package com.helger.photon.bootstrap3.pages.sysinfo;
 import java.util.Locale;
 import java.util.Map;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.annotation.Nonempty;
 import com.helger.annotation.misc.Translatable;
 import com.helger.base.lang.clazz.ClassHelper;
@@ -42,8 +45,6 @@ import com.helger.text.resolve.DefaultTextResolver;
 import com.helger.text.util.TextHelper;
 import com.helger.web.scope.IRequestWebScopeWithoutResponse;
 
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 
@@ -78,38 +79,38 @@ public class BasePageSysInfoRequest <WPECTYPE extends IWebPageExecutionContext> 
     }
 
     @Nullable
-    public String getDisplayText (@Nonnull final Locale aContentLocale)
+    public String getDisplayText (@NonNull final Locale aContentLocale)
     {
       return DefaultTextResolver.getTextStatic (this, m_aTP, aContentLocale);
     }
   }
 
-  public BasePageSysInfoRequest (@Nonnull @Nonempty final String sID)
+  public BasePageSysInfoRequest (@NonNull @Nonempty final String sID)
   {
     super (sID, EWebPageText.PAGE_NAME_SYSINFO_REQUEST.getAsMLT ());
   }
 
-  public BasePageSysInfoRequest (@Nonnull @Nonempty final String sID, @Nonnull final String sName)
+  public BasePageSysInfoRequest (@NonNull @Nonempty final String sID, @NonNull final String sName)
   {
     super (sID, sName);
   }
 
-  public BasePageSysInfoRequest (@Nonnull @Nonempty final String sID,
-                                 @Nonnull final String sName,
+  public BasePageSysInfoRequest (@NonNull @Nonempty final String sID,
+                                 @NonNull final String sName,
                                  @Nullable final String sDescription)
   {
     super (sID, sName, sDescription);
   }
 
-  public BasePageSysInfoRequest (@Nonnull @Nonempty final String sID,
-                                 @Nonnull final IMultilingualText aName,
+  public BasePageSysInfoRequest (@NonNull @Nonempty final String sID,
+                                 @NonNull final IMultilingualText aName,
                                  @Nullable final IMultilingualText aDescription)
   {
     super (sID, aName, aDescription);
   }
 
   @Override
-  protected void fillContent (@Nonnull final WPECTYPE aWPEC)
+  protected void fillContent (@NonNull final WPECTYPE aWPEC)
   {
     final HCNodeList aNodeList = aWPEC.getNodeList ();
     final Locale aDisplayLocale = aWPEC.getDisplayLocale ();

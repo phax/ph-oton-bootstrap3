@@ -16,6 +16,8 @@
  */
 package com.helger.photon.bootstrap3.servlet;
 
+import org.jspecify.annotations.NonNull;
+
 import com.helger.html.EHTMLVersion;
 import com.helger.html.hc.IHCHasChildrenMutable;
 import com.helger.html.hc.IHCNode;
@@ -23,17 +25,15 @@ import com.helger.html.hc.html.forms.IHCControl;
 import com.helger.html.hc.impl.AbstractHCCustomizer;
 import com.helger.photon.bootstrap3.BootstrapHelper;
 
-import jakarta.annotation.Nonnull;
-
 public class BootstrapCustomizer extends AbstractHCCustomizer
 {
   public BootstrapCustomizer ()
   {}
 
   @Override
-  public void customizeNode (@Nonnull final IHCNode aNode,
-                             @Nonnull final EHTMLVersion eHTMLVersion,
-                             @Nonnull final IHCHasChildrenMutable <?, ? super IHCNode> aTargetNode)
+  public void customizeNode (@NonNull final IHCNode aNode,
+                             @NonNull final EHTMLVersion eHTMLVersion,
+                             @NonNull final IHCHasChildrenMutable <?, ? super IHCNode> aTargetNode)
   {
     if (aNode instanceof IHCControl <?>)
     {

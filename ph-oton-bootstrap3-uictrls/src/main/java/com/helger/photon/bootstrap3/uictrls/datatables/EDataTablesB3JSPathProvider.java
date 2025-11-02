@@ -16,13 +16,13 @@
  */
 package com.helger.photon.bootstrap3.uictrls.datatables;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.annotation.Nonempty;
 import com.helger.html.resource.js.ConstantJSPathProvider;
 import com.helger.html.resource.js.IJSPathProvider;
 import com.helger.photon.uictrls.datatables.CDataTablesComponentVersion;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 /**
  * Contains default JS paths for this project.
@@ -55,12 +55,12 @@ public enum EDataTablesB3JSPathProvider implements IJSPathProvider
 
   private final ConstantJSPathProvider m_aPP;
 
-  EDataTablesB3JSPathProvider (@Nonnull @Nonempty final String sPath)
+  EDataTablesB3JSPathProvider (@NonNull @Nonempty final String sPath)
   {
     m_aPP = ConstantJSPathProvider.builder ().path (sPath).minifiedPathFromPath ().build ();
   }
 
-  @Nonnull
+  @NonNull
   @Nonempty
   public String getJSItemPath (final boolean bRegular)
   {

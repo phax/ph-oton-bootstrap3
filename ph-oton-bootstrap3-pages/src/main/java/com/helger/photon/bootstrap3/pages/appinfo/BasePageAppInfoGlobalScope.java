@@ -19,6 +19,9 @@ package com.helger.photon.bootstrap3.pages.appinfo;
 import java.util.Locale;
 import java.util.Map;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.annotation.Nonempty;
 import com.helger.annotation.misc.Translatable;
 import com.helger.base.compare.ESortOrder;
@@ -45,9 +48,6 @@ import com.helger.text.resolve.DefaultTextResolver;
 import com.helger.text.util.TextHelper;
 import com.helger.web.scope.IGlobalWebScope;
 import com.helger.web.scope.mgr.WebScopeManager;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 /**
  * Show information on global and application scopes
@@ -79,36 +79,36 @@ public class BasePageAppInfoGlobalScope <WPECTYPE extends IWebPageExecutionConte
     }
 
     @Nullable
-    public String getDisplayText (@Nonnull final Locale aContentLocale)
+    public String getDisplayText (@NonNull final Locale aContentLocale)
     {
       return DefaultTextResolver.getTextStatic (this, m_aTP, aContentLocale);
     }
   }
 
-  public BasePageAppInfoGlobalScope (@Nonnull @Nonempty final String sID)
+  public BasePageAppInfoGlobalScope (@NonNull @Nonempty final String sID)
   {
     super (sID, EWebPageText.PAGE_NAME_APPINFO_GLOBAL_SCOPE.getAsMLT ());
   }
 
-  public BasePageAppInfoGlobalScope (@Nonnull @Nonempty final String sID, @Nonnull @Nonempty final String sName)
+  public BasePageAppInfoGlobalScope (@NonNull @Nonempty final String sID, @NonNull @Nonempty final String sName)
   {
     super (sID, sName);
   }
 
-  public BasePageAppInfoGlobalScope (@Nonnull @Nonempty final String sID, @Nonnull final String sName, @Nullable final String sDescription)
+  public BasePageAppInfoGlobalScope (@NonNull @Nonempty final String sID, @NonNull final String sName, @Nullable final String sDescription)
   {
     super (sID, sName, sDescription);
   }
 
-  public BasePageAppInfoGlobalScope (@Nonnull @Nonempty final String sID,
-                                     @Nonnull final IMultilingualText aName,
+  public BasePageAppInfoGlobalScope (@NonNull @Nonempty final String sID,
+                                     @NonNull final IMultilingualText aName,
                                      @Nullable final IMultilingualText aDescription)
   {
     super (sID, aName, aDescription);
   }
 
-  @Nonnull
-  private IHCNode _getGlobalScopeInfo (@Nonnull final WPECTYPE aWPEC, @Nonnull final IGlobalWebScope aScope)
+  @NonNull
+  private IHCNode _getGlobalScopeInfo (@NonNull final WPECTYPE aWPEC, @NonNull final IGlobalWebScope aScope)
   {
     final Locale aDisplayLocale = aWPEC.getDisplayLocale ();
     final HCNodeList aNodeList = new HCNodeList ();
@@ -147,7 +147,7 @@ public class BasePageAppInfoGlobalScope <WPECTYPE extends IWebPageExecutionConte
   }
 
   @Override
-  protected void fillContent (@Nonnull final WPECTYPE aWPEC)
+  protected void fillContent (@NonNull final WPECTYPE aWPEC)
   {
     final HCNodeList aNodeList = aWPEC.getNodeList ();
     final Locale aDisplayLocale = aWPEC.getDisplayLocale ();

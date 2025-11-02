@@ -16,13 +16,13 @@
  */
 package com.helger.photon.bootstrap3.well;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.base.enforce.ValueEnforcer;
 import com.helger.html.hc.IHCNode;
 import com.helger.html.hc.html.grouping.AbstractHCDiv;
 import com.helger.photon.bootstrap3.CBootstrapCSS;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 /**
  * Wrapper for a Bootstrap3 well.
@@ -44,7 +44,7 @@ public class BootstrapWell extends AbstractHCDiv <BootstrapWell>
    * @param eType
    *        well type to use. May not be <code>null</code>.
    */
-  public BootstrapWell (@Nonnull final EBootstrapWellType eType)
+  public BootstrapWell (@NonNull final EBootstrapWellType eType)
   {
     ValueEnforcer.notNull (eType, "Type");
 
@@ -52,7 +52,7 @@ public class BootstrapWell extends AbstractHCDiv <BootstrapWell>
     m_eType = eType;
   }
 
-  @Nonnull
+  @NonNull
   public EBootstrapWellType getType ()
   {
     return m_eType;
@@ -65,7 +65,7 @@ public class BootstrapWell extends AbstractHCDiv <BootstrapWell>
    *        The child to be appended. May be <code>null</code>
    * @return The created BootstrapWell element and never <code>null</code>
    */
-  @Nonnull
+  @NonNull
   public static BootstrapWell create (@Nullable final String sChild)
   {
     return new BootstrapWell ().addChild (sChild);
@@ -78,7 +78,7 @@ public class BootstrapWell extends AbstractHCDiv <BootstrapWell>
    *        The child texts to be appended. May be <code>null</code>
    * @return The created BootstrapWell element and never <code>null</code>
    */
-  @Nonnull
+  @NonNull
   public static BootstrapWell create (@Nullable final String... aChildren)
   {
     return new BootstrapWell ().addChildren (aChildren);
@@ -91,7 +91,7 @@ public class BootstrapWell extends AbstractHCDiv <BootstrapWell>
    *        The child node to be appended. May be <code>null</code>
    * @return The created BootstrapWell element and never <code>null</code>
    */
-  @Nonnull
+  @NonNull
   public static BootstrapWell create (@Nullable final IHCNode aChild)
   {
     return new BootstrapWell ().addChild (aChild);
@@ -104,7 +104,7 @@ public class BootstrapWell extends AbstractHCDiv <BootstrapWell>
    *        The child nodes to be appended. May be <code>null</code>
    * @return The created BootstrapWell element and never <code>null</code>
    */
-  @Nonnull
+  @NonNull
   public static BootstrapWell create (@Nullable final IHCNode... aChildren)
   {
     return new BootstrapWell ().addChildren (aChildren);
@@ -117,7 +117,7 @@ public class BootstrapWell extends AbstractHCDiv <BootstrapWell>
    *        The child nodes to be appended. May be <code>null</code>
    * @return The created BootstrapWell element and never <code>null</code>
    */
-  @Nonnull
+  @NonNull
   public static BootstrapWell create (@Nullable final Iterable <? extends IHCNode> aChildren)
   {
     return new BootstrapWell ().addChildren (aChildren);

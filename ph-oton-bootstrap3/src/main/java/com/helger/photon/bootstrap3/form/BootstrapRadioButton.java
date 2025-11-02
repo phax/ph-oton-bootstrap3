@@ -16,6 +16,8 @@
  */
 package com.helger.photon.bootstrap3.form;
 
+import org.jspecify.annotations.NonNull;
+
 import com.helger.annotation.OverridingMethodsMustInvokeSuper;
 import com.helger.html.hc.IHCConversionSettingsToNode;
 import com.helger.html.hc.html.forms.AbstractHCRadioButton;
@@ -24,8 +26,6 @@ import com.helger.html.request.IHCRequestFieldBooleanMultiValue;
 import com.helger.photon.bootstrap3.CBootstrapCSS;
 import com.helger.xml.microdom.IMicroElement;
 
-import jakarta.annotation.Nonnull;
-
 public class BootstrapRadioButton extends AbstractHCRadioButton <BootstrapRadioButton>
 {
   private void _init ()
@@ -33,19 +33,19 @@ public class BootstrapRadioButton extends AbstractHCRadioButton <BootstrapRadioB
     addClass (CBootstrapCSS.RADIO);
   }
 
-  public BootstrapRadioButton (@Nonnull final IHCRequestFieldBoolean aRF)
+  public BootstrapRadioButton (@NonNull final IHCRequestFieldBoolean aRF)
   {
     super (aRF);
     _init ();
   }
 
-  public BootstrapRadioButton (@Nonnull final IHCRequestFieldBooleanMultiValue aRF)
+  public BootstrapRadioButton (@NonNull final IHCRequestFieldBooleanMultiValue aRF)
   {
     super (aRF);
     _init ();
   }
 
-  @Nonnull
+  @NonNull
   public BootstrapRadioButton setInline (final boolean bInline)
   {
     if (bInline)

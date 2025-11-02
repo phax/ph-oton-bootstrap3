@@ -16,10 +16,10 @@
  */
 package com.helger.photon.bootstrap3.dropdown;
 
+import org.jspecify.annotations.NonNull;
+
 import com.helger.html.css.ICSSClassProvider;
 import com.helger.photon.bootstrap3.CBootstrapCSS;
-
-import jakarta.annotation.Nonnull;
 
 /**
  * Bootstrap dropdown type
@@ -33,12 +33,12 @@ public enum EBootstrapDropdownType implements ICSSClassProvider
 
   private final ICSSClassProvider m_aCSSClass;
 
-  EBootstrapDropdownType (@Nonnull final ICSSClassProvider aCSSClass)
+  EBootstrapDropdownType (@NonNull final ICSSClassProvider aCSSClass)
   {
     m_aCSSClass = aCSSClass;
   }
 
-  @Nonnull
+  @NonNull
   public String getCSSClass ()
   {
     return m_aCSSClass.getCSSClass ();

@@ -22,6 +22,8 @@ import java.util.EnumSet;
 import java.util.Locale;
 import java.util.Set;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -52,9 +54,6 @@ import com.helger.photon.bootstrap3.uictrls.EBootstrapUICtrlsCSSPathProvider;
 import com.helger.photon.bootstrap3.uictrls.EBootstrapUICtrlsJSPathProvider;
 import com.helger.photon.core.form.RequestField;
 import com.helger.photon.core.form.RequestFieldDate;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 /**
  * This class represents a wrapper around the DateTime Picker for Bootstrap from
@@ -106,19 +105,19 @@ public class BootstrapDateTimePicker extends BootstrapInputGroup
   // UI options
   private boolean m_bShowResetButton = DEFAULT_SHOW_RESET_BUTTON;
 
-  public BootstrapDateTimePicker (@Nonnull final RequestFieldDate aRFD)
+  public BootstrapDateTimePicker (@NonNull final RequestFieldDate aRFD)
   {
     this (aRFD.getFieldName (), aRFD.getRequestValue (), aRFD.getDisplayLocale ());
   }
 
-  public BootstrapDateTimePicker (@Nonnull final IHCRequestField aRF, @Nonnull final Locale aDisplayLocale)
+  public BootstrapDateTimePicker (@NonNull final IHCRequestField aRF, @NonNull final Locale aDisplayLocale)
   {
     this (aRF.getFieldName (), aRF.getRequestValue (), aDisplayLocale);
   }
 
-  public BootstrapDateTimePicker (@Nonnull final String sName,
+  public BootstrapDateTimePicker (@NonNull final String sName,
                                   @Nullable final String sValue,
-                                  @Nonnull final Locale aDisplayLocale)
+                                  @NonNull final Locale aDisplayLocale)
   {
     super (new HCEdit (new RequestField (sName, sValue)).setPlaceholder (""));
     ValueEnforcer.notNull (aDisplayLocale, "DisplayLocale");
@@ -144,13 +143,13 @@ public class BootstrapDateTimePicker extends BootstrapInputGroup
   /**
    * @return The contained edit. You may modify the styles.
    */
-  @Nonnull
+  @NonNull
   public HCEdit getEdit ()
   {
     return m_aEdit;
   }
 
-  @Nonnull
+  @NonNull
   public BootstrapDateTimePicker setReadOnly (final boolean bReadOnly)
   {
     m_aEdit.setReadOnly (bReadOnly);
@@ -175,7 +174,7 @@ public class BootstrapDateTimePicker extends BootstrapInputGroup
     return m_sFormat;
   }
 
-  @Nonnull
+  @NonNull
   public BootstrapDateTimePicker setFormat (@Nullable final String sFormat)
   {
     m_sFormat = sFormat;
@@ -188,7 +187,7 @@ public class BootstrapDateTimePicker extends BootstrapInputGroup
     return m_eWeekStart;
   }
 
-  @Nonnull
+  @NonNull
   public BootstrapDateTimePicker setWeekStart (@Nullable final EDateTimePickerDayOfWeek eWeekStart)
   {
     m_eWeekStart = eWeekStart;
@@ -201,7 +200,7 @@ public class BootstrapDateTimePicker extends BootstrapInputGroup
     return m_aStartDate;
   }
 
-  @Nonnull
+  @NonNull
   public BootstrapDateTimePicker setStartDate (@Nullable final LocalDate aStartDate)
   {
     m_aStartDate = aStartDate;
@@ -214,21 +213,21 @@ public class BootstrapDateTimePicker extends BootstrapInputGroup
     return m_aEndDate;
   }
 
-  @Nonnull
+  @NonNull
   public BootstrapDateTimePicker setEndDate (@Nullable final LocalDate aEndDate)
   {
     m_aEndDate = aEndDate;
     return this;
   }
 
-  @Nonnull
+  @NonNull
   @ReturnsMutableCopy
   public Set <EDateTimePickerDayOfWeek> getDaysOfWeekDisabled ()
   {
     return CollectionHelperExt.createEnumSet (EDateTimePickerDayOfWeek.class, m_aDaysOfWeekDisabled);
   }
 
-  @Nonnull
+  @NonNull
   public BootstrapDateTimePicker setDaysOfWeekDisabled (@Nullable final Set <EDateTimePickerDayOfWeek> aDaysOfWeekDisabled)
   {
     if (aDaysOfWeekDisabled == null)
@@ -243,7 +242,7 @@ public class BootstrapDateTimePicker extends BootstrapInputGroup
     return m_bAutoclose;
   }
 
-  @Nonnull
+  @NonNull
   public BootstrapDateTimePicker setAutoclose (final boolean bAutoclose)
   {
     m_bAutoclose = bAutoclose;
@@ -256,7 +255,7 @@ public class BootstrapDateTimePicker extends BootstrapInputGroup
     return m_eStartView;
   }
 
-  @Nonnull
+  @NonNull
   public BootstrapDateTimePicker setStartView (@Nullable final EDateTimePickerViewType eStartView)
   {
     if (eStartView != null && m_eMinView != null && eStartView.isLessThan (m_eMinView))
@@ -273,7 +272,7 @@ public class BootstrapDateTimePicker extends BootstrapInputGroup
     return m_eMinView;
   }
 
-  @Nonnull
+  @NonNull
   public BootstrapDateTimePicker setMinView (@Nullable final EDateTimePickerViewType eMinView)
   {
     if (eMinView != null && m_eStartView != null && m_eStartView.isLessThan (eMinView))
@@ -290,7 +289,7 @@ public class BootstrapDateTimePicker extends BootstrapInputGroup
     return m_eMaxView;
   }
 
-  @Nonnull
+  @NonNull
   public BootstrapDateTimePicker setMaxView (@Nullable final EDateTimePickerViewType eMaxView)
   {
     if (eMaxView != null && m_eStartView != null && m_eStartView.isGreaterThan (eMaxView))
@@ -307,7 +306,7 @@ public class BootstrapDateTimePicker extends BootstrapInputGroup
     return m_eTodayBtn;
   }
 
-  @Nonnull
+  @NonNull
   public BootstrapDateTimePicker setTodayBtn (@Nullable final EDateTimePickerTodayType eTodayBtn)
   {
     m_eTodayBtn = eTodayBtn;
@@ -319,7 +318,7 @@ public class BootstrapDateTimePicker extends BootstrapInputGroup
     return m_bTodayHighlight;
   }
 
-  @Nonnull
+  @NonNull
   public BootstrapDateTimePicker setTodayHighlight (final boolean bTodayHighlight)
   {
     m_bTodayHighlight = bTodayHighlight;
@@ -331,7 +330,7 @@ public class BootstrapDateTimePicker extends BootstrapInputGroup
     return m_bKeyboardNavigation;
   }
 
-  @Nonnull
+  @NonNull
   public BootstrapDateTimePicker setKeyboardNavigation (final boolean bKeyboardNavigation)
   {
     m_bKeyboardNavigation = bKeyboardNavigation;
@@ -343,7 +342,7 @@ public class BootstrapDateTimePicker extends BootstrapInputGroup
     return m_bForceParse;
   }
 
-  @Nonnull
+  @NonNull
   public BootstrapDateTimePicker setForceParse (final boolean bForceParse)
   {
     m_bForceParse = bForceParse;
@@ -355,7 +354,7 @@ public class BootstrapDateTimePicker extends BootstrapInputGroup
     return m_nMinuteStep;
   }
 
-  @Nonnull
+  @NonNull
   public BootstrapDateTimePicker setMinuteStep (@Nonnegative final int nMinuteStep)
   {
     if (nMinuteStep < 1 || nMinuteStep > 59)
@@ -370,7 +369,7 @@ public class BootstrapDateTimePicker extends BootstrapInputGroup
     return m_ePickerPosition;
   }
 
-  @Nonnull
+  @NonNull
   public BootstrapDateTimePicker setPickerPosition (@Nullable final EDateTimePickerPositionType ePickerPosition)
   {
     m_ePickerPosition = ePickerPosition;
@@ -383,7 +382,7 @@ public class BootstrapDateTimePicker extends BootstrapInputGroup
     return m_aInitialDate;
   }
 
-  @Nonnull
+  @NonNull
   public BootstrapDateTimePicker setInitialDate (@Nullable final LocalDate aInitialDate)
   {
     m_aInitialDate = aInitialDate;
@@ -395,7 +394,7 @@ public class BootstrapDateTimePicker extends BootstrapInputGroup
     return m_bShowMeridian;
   }
 
-  @Nonnull
+  @NonNull
   public BootstrapDateTimePicker setShowMeridian (final boolean bShowMeridian)
   {
     m_bShowMeridian = bShowMeridian;
@@ -407,7 +406,7 @@ public class BootstrapDateTimePicker extends BootstrapInputGroup
     return m_bShowResetButton;
   }
 
-  @Nonnull
+  @NonNull
   public BootstrapDateTimePicker setShowResetButton (final boolean bShowResetButton)
   {
     m_bShowResetButton = bShowResetButton;
@@ -419,27 +418,27 @@ public class BootstrapDateTimePicker extends BootstrapInputGroup
     return m_eMinView == null || m_eMinView.isLessThan (EDateTimePickerViewType.MONTH);
   }
 
-  @Nonnull
-  public static JSInvocation invoke (@Nonnull final JQueryInvocation aJQueryInvocation)
+  @NonNull
+  public static JSInvocation invoke (@NonNull final JQueryInvocation aJQueryInvocation)
   {
     return aJQueryInvocation.invoke ("datetimepicker");
   }
 
-  @Nonnull
+  @NonNull
   public JSInvocation invoke ()
   {
     return invoke (JQuery.idRef (this));
   }
 
-  @Nonnull
-  public static JSInvocation invoke (@Nonnull final JQueryInvocation aJQueryInvocation,
-                                     @Nonnull final JSAssocArray aOptions)
+  @NonNull
+  public static JSInvocation invoke (@NonNull final JQueryInvocation aJQueryInvocation,
+                                     @NonNull final JSAssocArray aOptions)
   {
     return invoke (aJQueryInvocation).arg (aOptions);
   }
 
-  @Nonnull
-  public JSInvocation invoke (@Nonnull final JSAssocArray aOptions)
+  @NonNull
+  public JSInvocation invoke (@NonNull final JSAssocArray aOptions)
   {
     return invoke ().arg (aOptions);
   }
@@ -448,7 +447,7 @@ public class BootstrapDateTimePicker extends BootstrapInputGroup
    * @return A {@link JSAssocArray} with all options for this date and time Picker. Never
    *         <code>null</code>.
    */
-  @Nonnull
+  @NonNull
   public JSAssocArray getJSOptions ()
   {
     final JSAssocArray aOptions = new JSAssocArray ();
@@ -508,8 +507,8 @@ public class BootstrapDateTimePicker extends BootstrapInputGroup
   }
 
   @Override
-  protected void onFinalizeNodeState (@Nonnull final IHCConversionSettingsToNode aConversionSettings,
-                                      @Nonnull final IHCHasChildrenMutable <?, ? super IHCNode> aTargetNode)
+  protected void onFinalizeNodeState (@NonNull final IHCConversionSettingsToNode aConversionSettings,
+                                      @NonNull final IHCHasChildrenMutable <?, ? super IHCNode> aTargetNode)
   {
     super.onFinalizeNodeState (aConversionSettings, aTargetNode);
 
@@ -524,7 +523,7 @@ public class BootstrapDateTimePicker extends BootstrapInputGroup
   }
 
   @Override
-  protected void onRegisterExternalResources (@Nonnull final IHCConversionSettingsToNode aConversionSettings,
+  protected void onRegisterExternalResources (@NonNull final IHCConversionSettingsToNode aConversionSettings,
                                               final boolean bForceRegistration)
   {
     super.onRegisterExternalResources (aConversionSettings, bForceRegistration);

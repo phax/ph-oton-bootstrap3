@@ -16,14 +16,14 @@
  */
 package com.helger.photon.bootstrap3.panel;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.base.enforce.ValueEnforcer;
 import com.helger.base.state.EChange;
 import com.helger.html.hc.html.grouping.AbstractHCDiv;
 import com.helger.html.hc.html.grouping.HCDiv;
 import com.helger.photon.bootstrap3.CBootstrapCSS;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 /**
  * Wrapper for a Bootstrap3 panel.
@@ -48,14 +48,14 @@ public class BootstrapPanel extends AbstractHCDiv <BootstrapPanel>
    * @param eType
    *        Panel type. May not be <code>null</code>.
    */
-  public BootstrapPanel (@Nonnull final EBootstrapPanelType eType)
+  public BootstrapPanel (@NonNull final EBootstrapPanelType eType)
   {
     addClass (CBootstrapCSS.PANEL);
     setType (eType);
     m_aBody = addAndReturnChild (new HCDiv ().addClass (CBootstrapCSS.PANEL_BODY));
   }
 
-  @Nonnull
+  @NonNull
   public EBootstrapPanelType getType ()
   {
     return m_eType;
@@ -68,8 +68,8 @@ public class BootstrapPanel extends AbstractHCDiv <BootstrapPanel>
    *        Panel type. May not be <code>null</code>.
    * @return {@link EChange}
    */
-  @Nonnull
-  public final EChange setType (@Nonnull final EBootstrapPanelType eType)
+  @NonNull
+  public final EChange setType (@NonNull final EBootstrapPanelType eType)
   {
     ValueEnforcer.notNull (eType, "Type");
     if (eType.equals (m_eType))
@@ -86,7 +86,7 @@ public class BootstrapPanel extends AbstractHCDiv <BootstrapPanel>
     return m_aHeader != null;
   }
 
-  @Nonnull
+  @NonNull
   public HCDiv getOrCreateHeader ()
   {
     if (m_aHeader == null)
@@ -103,7 +103,7 @@ public class BootstrapPanel extends AbstractHCDiv <BootstrapPanel>
     return m_aHeader;
   }
 
-  @Nonnull
+  @NonNull
   public HCDiv getBody ()
   {
     return m_aBody;
@@ -114,7 +114,7 @@ public class BootstrapPanel extends AbstractHCDiv <BootstrapPanel>
     return m_aFooter != null;
   }
 
-  @Nonnull
+  @NonNull
   public HCDiv getOrCreateFooter ()
   {
     if (m_aFooter == null)

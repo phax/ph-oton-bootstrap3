@@ -18,14 +18,14 @@ package com.helger.photon.bootstrap3.uictrls.ext;
 
 import java.util.Locale;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.annotation.concurrent.Immutable;
 import com.helger.collection.commons.ICommonsList;
 import com.helger.html.hc.IHCNode;
 import com.helger.html.hc.ext.HCExtHelper;
 import com.helger.photon.security.password.GlobalPasswordSettings;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 /**
  * Common methods to render security UI with Bootstrap
@@ -46,7 +46,7 @@ public final class BootstrapSecurityUI
    * @return <code>null</code> if not special constraints are defined.
    */
   @Nullable
-  public static ICommonsList <IHCNode> createPasswordConstraintTip (@Nonnull final Locale aDisplayLocale)
+  public static ICommonsList <IHCNode> createPasswordConstraintTip (@NonNull final Locale aDisplayLocale)
   {
     final ICommonsList <String> aTexts = GlobalPasswordSettings.getPasswordConstraintList ()
                                                                .getAllPasswordConstraintDescriptions (aDisplayLocale);

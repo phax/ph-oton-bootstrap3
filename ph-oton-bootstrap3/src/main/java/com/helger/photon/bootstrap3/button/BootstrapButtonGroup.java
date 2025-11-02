@@ -18,12 +18,12 @@ package com.helger.photon.bootstrap3.button;
 
 import java.util.function.Consumer;
 
+import org.jspecify.annotations.NonNull;
+
 import com.helger.html.EHTMLRole;
 import com.helger.html.hc.html.grouping.AbstractHCDiv;
 import com.helger.photon.bootstrap3.dropdown.BootstrapDropdown;
 import com.helger.photon.bootstrap3.dropdown.BootstrapDropdownMenu;
-
-import jakarta.annotation.Nonnull;
 
 public class BootstrapButtonGroup extends AbstractHCDiv <BootstrapButtonGroup>
 {
@@ -35,17 +35,17 @@ public class BootstrapButtonGroup extends AbstractHCDiv <BootstrapButtonGroup>
     this (EBootstrapButtonGroupType.DEFAULT, EBootstrapButtonGroupSize.DEFAULT);
   }
 
-  public BootstrapButtonGroup (@Nonnull final EBootstrapButtonGroupType eType)
+  public BootstrapButtonGroup (@NonNull final EBootstrapButtonGroupType eType)
   {
     this (eType, EBootstrapButtonGroupSize.DEFAULT);
   }
 
-  public BootstrapButtonGroup (@Nonnull final EBootstrapButtonGroupSize eSize)
+  public BootstrapButtonGroup (@NonNull final EBootstrapButtonGroupSize eSize)
   {
     this (EBootstrapButtonGroupType.DEFAULT, eSize);
   }
 
-  public BootstrapButtonGroup (@Nonnull final EBootstrapButtonGroupType eType, @Nonnull final EBootstrapButtonGroupSize eSize)
+  public BootstrapButtonGroup (@NonNull final EBootstrapButtonGroupType eType, @NonNull final EBootstrapButtonGroupSize eSize)
   {
     addClasses (eType.getAllCSSClasses ());
     addClass (eSize);
@@ -54,19 +54,19 @@ public class BootstrapButtonGroup extends AbstractHCDiv <BootstrapButtonGroup>
     m_eSize = eSize;
   }
 
-  @Nonnull
+  @NonNull
   public EBootstrapButtonGroupType getType ()
   {
     return m_eType;
   }
 
-  @Nonnull
+  @NonNull
   public EBootstrapButtonGroupSize getSize ()
   {
     return m_eSize;
   }
 
-  @Nonnull
+  @NonNull
   public BootstrapDropdownMenu addDropDownMenu ()
   {
     final BootstrapDropdownMenu aDDM = addAndReturnChild (new BootstrapDropdownMenu ());
@@ -85,9 +85,9 @@ public class BootstrapButtonGroup extends AbstractHCDiv <BootstrapButtonGroup>
    *        The drop down menu item provider.
    * @return The created button group. Never <code>null</code>.
    */
-  @Nonnull
-  public static BootstrapButtonGroup createButtonAsDropDownMenu (@Nonnull final BootstrapButton aButton,
-                                                                 @Nonnull final Consumer <? super BootstrapDropdownMenu> aMenuItemProvider)
+  @NonNull
+  public static BootstrapButtonGroup createButtonAsDropDownMenu (@NonNull final BootstrapButton aButton,
+                                                                 @NonNull final Consumer <? super BootstrapDropdownMenu> aMenuItemProvider)
   {
     final BootstrapButtonGroup aBG = new BootstrapButtonGroup ();
     BootstrapDropdown.makeDropdownToggle (aButton);
@@ -108,9 +108,9 @@ public class BootstrapButtonGroup extends AbstractHCDiv <BootstrapButtonGroup>
    *        The drop down menu item provider.
    * @return The created button group. Never <code>null</code>.
    */
-  @Nonnull
-  public static BootstrapButtonGroup createButtonAsDropDownMenuWithSeparateCaret (@Nonnull final BootstrapButton aButton,
-                                                                                  @Nonnull final Consumer <? super BootstrapDropdownMenu> aMenuItemProvider)
+  @NonNull
+  public static BootstrapButtonGroup createButtonAsDropDownMenuWithSeparateCaret (@NonNull final BootstrapButton aButton,
+                                                                                  @NonNull final Consumer <? super BootstrapDropdownMenu> aMenuItemProvider)
   {
     final BootstrapButtonGroup aBG = new BootstrapButtonGroup ();
     aBG.addChild (aButton);

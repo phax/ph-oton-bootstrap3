@@ -16,14 +16,14 @@
  */
 package com.helger.photon.bootstrap3.grid;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.annotation.Nonnegative;
 import com.helger.base.enforce.ValueEnforcer;
 import com.helger.html.hc.html.grouping.AbstractHCDiv;
 import com.helger.html.hc.html.grouping.HCDiv;
 import com.helger.photon.bootstrap3.CBootstrapCSS;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 /**
  * Defines a Bootstrap row that contains columns.
@@ -37,19 +37,19 @@ public class BootstrapRow extends AbstractHCDiv <BootstrapRow>
     addClass (CBootstrapCSS.ROW);
   }
 
-  @Nonnull
+  @NonNull
   public HCDiv createColumn (final int nParts)
   {
     return createColumn (BootstrapGridSpec.create (nParts));
   }
 
-  @Nonnull
+  @NonNull
   public HCDiv createColumn (final int nPartsXS, final int nPartsSM, final int nPartsMD, final int nPartsLG)
   {
     return createColumn (BootstrapGridSpec.create (nPartsXS, nPartsSM, nPartsMD, nPartsLG));
   }
 
-  @Nonnull
+  @NonNull
   public HCDiv createColumn (@Nullable final EBootstrapGridXS eXS,
                              @Nullable final EBootstrapGridSM eSM,
                              @Nullable final EBootstrapGridMD eMD,
@@ -58,8 +58,8 @@ public class BootstrapRow extends AbstractHCDiv <BootstrapRow>
     return createColumn (new BootstrapGridSpec (eXS, eSM, eMD, eLG));
   }
 
-  @Nonnull
-  public HCDiv createColumn (@Nonnull final BootstrapGridSpec aGridSpec)
+  @NonNull
+  public HCDiv createColumn (@NonNull final BootstrapGridSpec aGridSpec)
   {
     ValueEnforcer.notNull (aGridSpec, "GridSpec");
 

@@ -16,6 +16,8 @@
  */
 package com.helger.photon.bootstrap3.dropdown;
 
+import org.jspecify.annotations.NonNull;
+
 import com.helger.annotation.OverridingMethodsMustInvokeSuper;
 import com.helger.annotation.style.OverrideOnDemand;
 import com.helger.base.enforce.ValueEnforcer;
@@ -29,8 +31,6 @@ import com.helger.html.hc.special.HCSpecialNodeHandler;
 import com.helger.photon.bootstrap3.CBootstrapCSS;
 import com.helger.photon.bootstrap3.base.BootstrapCaret;
 import com.helger.xml.microdom.IMicroElement;
-
-import jakarta.annotation.Nonnull;
 
 public class BootstrapDropdown extends AbstractHCDiv <BootstrapDropdown>
 {
@@ -54,16 +54,16 @@ public class BootstrapDropdown extends AbstractHCDiv <BootstrapDropdown>
    */
   public static final String JS_EVENT_HIDDEN = "hidden.bs.dropdown";
 
-  public BootstrapDropdown (@Nonnull final EBootstrapDropdownType eDropdownType,
-                            @Nonnull final IHCElementWithChildren <?> aSelector,
-                            @Nonnull final BootstrapDropdownMenu aMenu)
+  public BootstrapDropdown (@NonNull final EBootstrapDropdownType eDropdownType,
+                            @NonNull final IHCElementWithChildren <?> aSelector,
+                            @NonNull final BootstrapDropdownMenu aMenu)
   {
     this (eDropdownType, aSelector, aMenu, true);
   }
 
-  public BootstrapDropdown (@Nonnull final EBootstrapDropdownType eDropdownType,
-                            @Nonnull final IHCElementWithChildren <?> aSelector,
-                            @Nonnull final BootstrapDropdownMenu aMenu,
+  public BootstrapDropdown (@NonNull final EBootstrapDropdownType eDropdownType,
+                            @NonNull final IHCElementWithChildren <?> aSelector,
+                            @NonNull final BootstrapDropdownMenu aMenu,
                             final boolean bAddDropDownToggle)
   {
     ValueEnforcer.notNull (aSelector, "Selector");
@@ -99,7 +99,7 @@ public class BootstrapDropdown extends AbstractHCDiv <BootstrapDropdown>
   @Override
   @OverrideOnDemand
   @OverridingMethodsMustInvokeSuper
-  protected void fillMicroElement (@Nonnull final IMicroElement aElement, @Nonnull final IHCConversionSettingsToNode aConversionSettings)
+  protected void fillMicroElement (@NonNull final IMicroElement aElement, @NonNull final IHCConversionSettingsToNode aConversionSettings)
   {
     super.fillMicroElement (aElement, aConversionSettings);
     if (aConversionSettings.areConsistencyChecksEnabled ())
@@ -127,8 +127,8 @@ public class BootstrapDropdown extends AbstractHCDiv <BootstrapDropdown>
    *        Implementation type
    * @return The passed element. Never <code>null</code>.
    */
-  @Nonnull
-  public static <IMPLTYPE extends IHCElementWithChildren <?>> IMPLTYPE makeDropdownToggle (@Nonnull final IMPLTYPE aElement)
+  @NonNull
+  public static <IMPLTYPE extends IHCElementWithChildren <?>> IMPLTYPE makeDropdownToggle (@NonNull final IMPLTYPE aElement)
   {
     aElement.addClass (CBootstrapCSS.DROPDOWN_TOGGLE).addChild (new BootstrapCaret ());
     aElement.customAttrs ().setDataAttr ("toggle", "dropdown");

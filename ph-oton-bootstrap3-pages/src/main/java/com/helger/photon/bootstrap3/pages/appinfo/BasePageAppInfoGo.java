@@ -18,6 +18,9 @@ package com.helger.photon.bootstrap3.pages.appinfo;
 
 import java.util.Locale;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.annotation.Nonempty;
 import com.helger.annotation.misc.Translatable;
 import com.helger.base.compare.ESortOrder;
@@ -45,9 +48,6 @@ import com.helger.text.resolve.DefaultTextResolver;
 import com.helger.text.util.TextHelper;
 import com.helger.xservlet.servletstatus.ServletStatusManager;
 
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
-
 /**
  * Show web site go-mappings.
  *
@@ -66,16 +66,16 @@ public class BasePageAppInfoGo <WPECTYPE extends IWebPageExecutionContext> exten
     MSG_URL ("Ziel-URL", "Target URL"),
     MSG_EDITABLE ("Editierbar?", "Editable?");
 
-    @Nonnull
+    @NonNull
     private final IMultilingualText m_aTP;
 
-    EText (@Nonnull final String sDE, @Nonnull final String sEN)
+    EText (@NonNull final String sDE, @NonNull final String sEN)
     {
       m_aTP = TextHelper.create_DE_EN (sDE, sEN);
     }
 
     @Nullable
-    public String getDisplayText (@Nonnull final Locale aContentLocale)
+    public String getDisplayText (@NonNull final Locale aContentLocale)
     {
       return DefaultTextResolver.getTextStatic (this, m_aTP, aContentLocale);
     }
@@ -83,44 +83,44 @@ public class BasePageAppInfoGo <WPECTYPE extends IWebPageExecutionContext> exten
 
   private final GoMappingManager m_aGoMappingMgr;
 
-  public BasePageAppInfoGo (@Nonnull @Nonempty final String sID, @Nonnull final GoMappingManager aGoMappingMgr)
+  public BasePageAppInfoGo (@NonNull @Nonempty final String sID, @NonNull final GoMappingManager aGoMappingMgr)
   {
     super (sID, EWebPageText.PAGE_NAME_APPINFO_GO.getAsMLT ());
     m_aGoMappingMgr = ValueEnforcer.notNull (aGoMappingMgr, "GoMappingMgr");
   }
 
-  public BasePageAppInfoGo (@Nonnull @Nonempty final String sID, @Nonnull final String sName, @Nonnull final GoMappingManager aGoMappingMgr)
+  public BasePageAppInfoGo (@NonNull @Nonempty final String sID, @NonNull final String sName, @NonNull final GoMappingManager aGoMappingMgr)
   {
     super (sID, sName);
     m_aGoMappingMgr = ValueEnforcer.notNull (aGoMappingMgr, "GoMappingMgr");
   }
 
-  public BasePageAppInfoGo (@Nonnull @Nonempty final String sID,
-                            @Nonnull final String sName,
+  public BasePageAppInfoGo (@NonNull @Nonempty final String sID,
+                            @NonNull final String sName,
                             @Nullable final String sDescription,
-                            @Nonnull final GoMappingManager aGoMappingMgr)
+                            @NonNull final GoMappingManager aGoMappingMgr)
   {
     super (sID, sName, sDescription);
     m_aGoMappingMgr = ValueEnforcer.notNull (aGoMappingMgr, "GoMappingMgr");
   }
 
-  public BasePageAppInfoGo (@Nonnull @Nonempty final String sID,
-                            @Nonnull final IMultilingualText aName,
+  public BasePageAppInfoGo (@NonNull @Nonempty final String sID,
+                            @NonNull final IMultilingualText aName,
                             @Nullable final IMultilingualText aDescription,
-                            @Nonnull final GoMappingManager aGoMappingMgr)
+                            @NonNull final GoMappingManager aGoMappingMgr)
   {
     super (sID, aName, aDescription);
     m_aGoMappingMgr = ValueEnforcer.notNull (aGoMappingMgr, "GoMappingMgr");
   }
 
-  @Nonnull
+  @NonNull
   protected final GoMappingManager getGoMappingMgr ()
   {
     return m_aGoMappingMgr;
   }
 
   @Override
-  protected void fillContent (@Nonnull final WPECTYPE aWPEC)
+  protected void fillContent (@NonNull final WPECTYPE aWPEC)
   {
     final HCNodeList aNodeList = aWPEC.getNodeList ();
     final Locale aDisplayLocale = aWPEC.getDisplayLocale ();

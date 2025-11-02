@@ -18,6 +18,9 @@ package com.helger.photon.bootstrap3.pages.monitoring;
 
 import java.util.Locale;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.annotation.Nonempty;
 import com.helger.annotation.misc.Translatable;
 import com.helger.annotation.style.OverrideOnDemand;
@@ -46,9 +49,6 @@ import com.helger.text.display.IHasDisplayText;
 import com.helger.text.resolve.DefaultTextResolver;
 import com.helger.text.util.TextHelper;
 
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
-
 /**
  * Show audit items.
  *
@@ -68,16 +68,16 @@ public class BasePageMonitoringAudit <WPECTYPE extends IWebPageExecutionContext>
     MSG_SUCCESS ("Erfolg?", "Success?"),
     MSG_ACTION ("Aktion", "Action");
 
-    @Nonnull
+    @NonNull
     private final IMultilingualText m_aTP;
 
-    EText (@Nonnull final String sDE, @Nonnull final String sEN)
+    EText (@NonNull final String sDE, @NonNull final String sEN)
     {
       m_aTP = TextHelper.create_DE_EN (sDE, sEN);
     }
 
     @Nullable
-    public String getDisplayText (@Nonnull final Locale aContentLocale)
+    public String getDisplayText (@NonNull final Locale aContentLocale)
     {
       return DefaultTextResolver.getTextStatic (this, m_aTP, aContentLocale);
     }
@@ -88,51 +88,51 @@ public class BasePageMonitoringAudit <WPECTYPE extends IWebPageExecutionContext>
 
   private final IAuditManager m_aAuditMgr;
 
-  public BasePageMonitoringAudit (@Nonnull @Nonempty final String sID, @Nonnull final IAuditManager aAuditMgr)
+  public BasePageMonitoringAudit (@NonNull @Nonempty final String sID, @NonNull final IAuditManager aAuditMgr)
   {
     super (sID, EWebPageText.PAGE_NAME_MONITORING_AUDIT.getAsMLT ());
     m_aAuditMgr = ValueEnforcer.notNull (aAuditMgr, "AuditManager");
   }
 
-  public BasePageMonitoringAudit (@Nonnull @Nonempty final String sID, @Nonnull final String sName, @Nonnull final IAuditManager aAuditMgr)
+  public BasePageMonitoringAudit (@NonNull @Nonempty final String sID, @NonNull final String sName, @NonNull final IAuditManager aAuditMgr)
   {
     super (sID, sName);
     m_aAuditMgr = ValueEnforcer.notNull (aAuditMgr, "AuditManager");
   }
 
-  public BasePageMonitoringAudit (@Nonnull @Nonempty final String sID,
-                                  @Nonnull final String sName,
+  public BasePageMonitoringAudit (@NonNull @Nonempty final String sID,
+                                  @NonNull final String sName,
                                   @Nullable final String sDescription,
-                                  @Nonnull final IAuditManager aAuditMgr)
+                                  @NonNull final IAuditManager aAuditMgr)
   {
     super (sID, sName, sDescription);
     m_aAuditMgr = ValueEnforcer.notNull (aAuditMgr, "AuditManager");
   }
 
-  public BasePageMonitoringAudit (@Nonnull @Nonempty final String sID,
-                                  @Nonnull final IMultilingualText aName,
+  public BasePageMonitoringAudit (@NonNull @Nonempty final String sID,
+                                  @NonNull final IMultilingualText aName,
                                   @Nullable final IMultilingualText aDescription,
-                                  @Nonnull final IAuditManager aAuditMgr)
+                                  @NonNull final IAuditManager aAuditMgr)
   {
     super (sID, aName, aDescription);
     m_aAuditMgr = ValueEnforcer.notNull (aAuditMgr, "AuditManager");
   }
 
-  @Nonnull
+  @NonNull
   protected final IAuditManager getAuditMgr ()
   {
     return m_aAuditMgr;
   }
 
-  @Nonnull
+  @NonNull
   @OverrideOnDemand
-  protected String getActionString (@Nonnull final IAuditItem aItem)
+  protected String getActionString (@NonNull final IAuditItem aItem)
   {
     return aItem.getAction ();
   }
 
   @Override
-  protected void fillContent (@Nonnull final WPECTYPE aWPEC)
+  protected void fillContent (@NonNull final WPECTYPE aWPEC)
   {
     final HCNodeList aNodeList = aWPEC.getNodeList ();
     final Locale aDisplayLocale = aWPEC.getDisplayLocale ();

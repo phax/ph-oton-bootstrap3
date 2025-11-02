@@ -16,11 +16,11 @@
  */
 package com.helger.photon.bootstrap3.modal;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.html.jscode.IJSExpression;
 import com.helger.html.jscode.JSExpr;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 /**
  * Modal dialog backdrop option
@@ -40,7 +40,7 @@ public enum EBootstrapModalOptionBackdrop
     m_aJSExpr = aJSExpr;
   }
 
-  @Nonnull
+  @NonNull
   public IJSExpression getJSExpression ()
   {
     return m_aJSExpr;

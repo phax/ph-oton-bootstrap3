@@ -18,13 +18,13 @@ package com.helger.photon.bootstrap3.grid;
 
 import java.io.Serializable;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.annotation.concurrent.Immutable;
 import com.helger.base.enforce.ValueEnforcer;
 import com.helger.base.tostring.ToStringGenerator;
 import com.helger.html.hc.html.IHCElement;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 @Immutable
 public final class BootstrapGridSpec implements Serializable
@@ -71,7 +71,7 @@ public final class BootstrapGridSpec implements Serializable
     return m_eLG;
   }
 
-  public void applyTo (@Nonnull final IHCElement <?> aElement)
+  public void applyTo (@NonNull final IHCElement <?> aElement)
   {
     ValueEnforcer.notNull (aElement, "Element");
 
@@ -99,7 +99,7 @@ public final class BootstrapGridSpec implements Serializable
     }
   }
 
-  public void applyOffsetTo (@Nonnull final IHCElement <?> aElement)
+  public void applyOffsetTo (@NonNull final IHCElement <?> aElement)
   {
     ValueEnforcer.notNull (aElement, "Element");
     aElement.addClasses (m_eXS == null || m_eXS.isMax () ? null : m_eXS.getCSSClassOffset (),
@@ -108,7 +108,7 @@ public final class BootstrapGridSpec implements Serializable
                          m_eLG == null || m_eLG.isMax () ? null : m_eLG.getCSSClassOffset ());
   }
 
-  public void applyPullTo (@Nonnull final IHCElement <?> aElement)
+  public void applyPullTo (@NonNull final IHCElement <?> aElement)
   {
     ValueEnforcer.notNull (aElement, "Element");
     aElement.addClasses (m_eXS == null ? null : m_eXS.getCSSClassPull (),
@@ -117,7 +117,7 @@ public final class BootstrapGridSpec implements Serializable
                          m_eLG == null ? null : m_eLG.getCSSClassPull ());
   }
 
-  public void applyPushTo (@Nonnull final IHCElement <?> aElement)
+  public void applyPushTo (@NonNull final IHCElement <?> aElement)
   {
     ValueEnforcer.notNull (aElement, "Element");
     aElement.addClasses (m_eXS == null ? null : m_eXS.getCSSClassPush (),
@@ -132,14 +132,14 @@ public final class BootstrapGridSpec implements Serializable
     return new ToStringGenerator (this).append ("xs", m_eXS).append ("sm", m_eSM).append ("md", m_eMD).append ("lg", m_eLG).getToString ();
   }
 
-  @Nonnull
+  @NonNull
   public static BootstrapGridSpec create (final int nParts)
   {
     // The larger sizes inherit from the smaller sizes
     return create (nParts, -1, -1, -1);
   }
 
-  @Nonnull
+  @NonNull
   public static BootstrapGridSpec create (final int nPartsXS, final int nPartsSM, final int nPartsMD, final int nPartsLG)
   {
     return new BootstrapGridSpec (nPartsXS <= 0 ? null : EBootstrapGridXS.getFromParts (nPartsXS),

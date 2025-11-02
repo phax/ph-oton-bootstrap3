@@ -16,9 +16,9 @@
  */
 package com.helger.photon.bootstrap3.uictrls.datetimepicker;
 
-import com.helger.annotation.Nonempty;
+import org.jspecify.annotations.NonNull;
 
-import jakarta.annotation.Nonnull;
+import com.helger.annotation.Nonempty;
 
 /**
  * Defines the different position types of DTP.
@@ -32,12 +32,12 @@ public enum EDateTimePickerPositionType
 
   private final String m_sJSValue;
 
-  EDateTimePickerPositionType (@Nonnull @Nonempty final String sJSValue)
+  EDateTimePickerPositionType (@NonNull @Nonempty final String sJSValue)
   {
     m_sJSValue = sJSValue;
   }
 
-  @Nonnull
+  @NonNull
   @Nonempty
   public String getJSValue ()
   {

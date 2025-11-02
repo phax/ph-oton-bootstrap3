@@ -18,6 +18,9 @@ package com.helger.photon.bootstrap3.pages;
 
 import java.util.Locale;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.base.string.StringHelper;
 import com.helger.html.hc.html.sections.HCH1;
 import com.helger.photon.bootstrap3.alert.BootstrapErrorBox;
@@ -28,9 +31,6 @@ import com.helger.photon.bootstrap3.pageheader.BootstrapPageHeader;
 import com.helger.photon.core.EPhotonCoreText;
 import com.helger.photon.core.execcontext.ILayoutExecutionContext;
 import com.helger.photon.uicore.page.IWebPageFormUIHandler;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 public class BootstrapWebPageUIHandler implements IWebPageFormUIHandler <BootstrapForm, BootstrapButtonToolbar>
 {
@@ -48,36 +48,36 @@ public class BootstrapWebPageUIHandler implements IWebPageFormUIHandler <Bootstr
   }
 
   @Override
-  @Nonnull
-  public BootstrapForm createFormSelf (@Nonnull final ILayoutExecutionContext aLEC, final boolean bIsFormSubmitted)
+  @NonNull
+  public BootstrapForm createFormSelf (@NonNull final ILayoutExecutionContext aLEC, final boolean bIsFormSubmitted)
   {
     return new BootstrapForm (aLEC).setFormType (EBootstrapFormType.HORIZONTAL).setAction (aLEC.getSelfHref ());
   }
 
   @Override
-  @Nonnull
-  public BootstrapForm createFormFileUploadSelf (@Nonnull final ILayoutExecutionContext aLEC, final boolean bIsFormSubmitted)
+  @NonNull
+  public BootstrapForm createFormFileUploadSelf (@NonNull final ILayoutExecutionContext aLEC, final boolean bIsFormSubmitted)
   {
     return createFormSelf (aLEC, bIsFormSubmitted).setEncTypeFileUpload ();
   }
 
   @Override
-  @Nonnull
-  public final BootstrapButtonToolbar createToolbar (@Nonnull final ILayoutExecutionContext aWPEC)
+  @NonNull
+  public final BootstrapButtonToolbar createToolbar (@NonNull final ILayoutExecutionContext aWPEC)
   {
     return new BootstrapButtonToolbar (aWPEC);
   }
 
   @Override
-  @Nonnull
-  public final BootstrapErrorBox createErrorBox (@Nonnull final ILayoutExecutionContext aWPEC, @Nullable final String sErrorMsg)
+  @NonNull
+  public final BootstrapErrorBox createErrorBox (@NonNull final ILayoutExecutionContext aWPEC, @Nullable final String sErrorMsg)
   {
     return new BootstrapErrorBox ().addChild (sErrorMsg);
   }
 
   @Override
-  @Nonnull
-  public final BootstrapErrorBox createIncorrectInputBox (@Nonnull final ILayoutExecutionContext aWPEC)
+  @NonNull
+  public final BootstrapErrorBox createIncorrectInputBox (@NonNull final ILayoutExecutionContext aWPEC)
   {
     final Locale aDisplayLocale = aWPEC.getDisplayLocale ();
     return new BootstrapErrorBox ().addChild (EPhotonCoreText.ERR_INCORRECT_INPUT.getDisplayText (aDisplayLocale));

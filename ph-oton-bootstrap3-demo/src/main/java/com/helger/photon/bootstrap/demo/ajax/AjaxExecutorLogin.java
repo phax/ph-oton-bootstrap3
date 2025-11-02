@@ -18,6 +18,7 @@ package com.helger.photon.bootstrap.demo.ajax;
 
 import java.util.Locale;
 
+import org.jspecify.annotations.NonNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -36,8 +37,6 @@ import com.helger.photon.security.login.ELoginResult;
 import com.helger.photon.security.login.LoggedInUserManager;
 import com.helger.web.scope.IRequestWebScopeWithoutResponse;
 
-import jakarta.annotation.Nonnull;
-
 /**
  * Ajax executor to login a user from view application.
  *
@@ -50,8 +49,8 @@ public final class AjaxExecutorLogin implements IAjaxExecutor
 
   private static final Logger LOGGER = LoggerFactory.getLogger (AjaxExecutorLogin.class);
 
-  public void handleRequest (@Nonnull final IRequestWebScopeWithoutResponse aRequestScope,
-                             @Nonnull final PhotonUnifiedResponse aAjaxResponse) throws Exception
+  public void handleRequest (@NonNull final IRequestWebScopeWithoutResponse aRequestScope,
+                             @NonNull final PhotonUnifiedResponse aAjaxResponse) throws Exception
   {
     final LayoutExecutionContext aLEC = LayoutExecutionContext.createForAjaxOrAction (aRequestScope);
     final String sLoginName = aRequestScope.params ().getAsString (CLogin.REQUEST_ATTR_USERID);

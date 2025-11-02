@@ -16,9 +16,9 @@
  */
 package com.helger.photon.bootstrap3.button;
 
-import com.helger.html.hc.html.forms.EHCButtonType;
+import org.jspecify.annotations.NonNull;
 
-import jakarta.annotation.Nonnull;
+import com.helger.html.hc.html.forms.EHCButtonType;
 
 /**
  * Bootstrap3 submit button.
@@ -38,19 +38,19 @@ public class BootstrapSubmitButton extends BootstrapButton
     _init ();
   }
 
-  public BootstrapSubmitButton (@Nonnull final EBootstrapButtonType eButtonType)
+  public BootstrapSubmitButton (@NonNull final EBootstrapButtonType eButtonType)
   {
     super (eButtonType);
     _init ();
   }
 
-  public BootstrapSubmitButton (@Nonnull final EBootstrapButtonSize eButtonSize)
+  public BootstrapSubmitButton (@NonNull final EBootstrapButtonSize eButtonSize)
   {
     super (EBootstrapButtonType.PRIMARY, eButtonSize);
     _init ();
   }
 
-  public BootstrapSubmitButton (@Nonnull final EBootstrapButtonType eButtonType, @Nonnull final EBootstrapButtonSize eButtonSize)
+  public BootstrapSubmitButton (@NonNull final EBootstrapButtonType eButtonType, @NonNull final EBootstrapButtonSize eButtonSize)
   {
     super (eButtonType, eButtonSize);
     _init ();

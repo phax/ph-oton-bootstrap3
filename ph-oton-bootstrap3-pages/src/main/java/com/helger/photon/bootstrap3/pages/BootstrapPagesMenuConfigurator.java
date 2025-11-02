@@ -18,6 +18,9 @@ package com.helger.photon.bootstrap3.pages;
 
 import java.util.Locale;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.annotation.concurrent.Immutable;
 import com.helger.photon.app.PhotonAppManager;
 import com.helger.photon.app.resource.WebSiteResourceBundleManager;
@@ -73,9 +76,6 @@ import com.helger.photon.security.mgr.PhotonSecurityManager;
 import com.helger.photon.uicore.page.EWebPageText;
 import com.helger.photon.uicore.page.system.BasePageShowChildren;
 import com.helger.smtp.failed.FailedMailQueue;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 @Immutable
 public final class BootstrapPagesMenuConfigurator
@@ -134,11 +134,11 @@ public final class BootstrapPagesMenuConfigurator
   private BootstrapPagesMenuConfigurator ()
   {}
 
-  @Nonnull
-  public static IMenuItemPage addSecurityItems (@Nonnull final IMenuTree aMenuTree,
-                                                @Nonnull final IMenuItem aParent,
+  @NonNull
+  public static IMenuItemPage addSecurityItems (@NonNull final IMenuTree aMenuTree,
+                                                @NonNull final IMenuItem aParent,
                                                 @Nullable final IMenuObjectFilter aDisplayFilter,
-                                                @Nonnull final Locale aDefaultLocale)
+                                                @NonNull final Locale aDefaultLocale)
   {
     final IMenuItemPage aAdminSecurity = aMenuTree.createItem (aParent,
                                                                new BasePageShowChildren <> (MENU_ADMIN_SECURITY,
@@ -157,9 +157,9 @@ public final class BootstrapPagesMenuConfigurator
     return aAdminSecurity;
   }
 
-  @Nonnull
-  public static IMenuItemPage addMonitoringItems (@Nonnull final IMenuTree aMenuTree,
-                                                  @Nonnull final IMenuItem aParent,
+  @NonNull
+  public static IMenuItemPage addMonitoringItems (@NonNull final IMenuTree aMenuTree,
+                                                  @NonNull final IMenuItem aParent,
                                                   @Nullable final IMenuObjectFilter aDisplayFilter)
   {
     return BootstrapPagesMenuConfigurator.addMonitoringItems (aMenuTree,
@@ -171,9 +171,9 @@ public final class BootstrapPagesMenuConfigurator
                                                               PhotonBasicManager.getSystemMigrationMgr ());
   }
 
-  @Nonnull
-  public static IMenuItemPage addMonitoringItems (@Nonnull final IMenuTree aMenuTree,
-                                                  @Nonnull final IMenuItem aParent,
+  @NonNull
+  public static IMenuItemPage addMonitoringItems (@NonNull final IMenuTree aMenuTree,
+                                                  @NonNull final IMenuItem aParent,
                                                   @Nullable final IMenuObjectFilter aDisplayFilter,
                                                   @Nullable final IAuditManager aAuditMgr,
                                                   @Nullable final FailedMailQueue aFailedMailQueue,
@@ -218,9 +218,9 @@ public final class BootstrapPagesMenuConfigurator
     return aAdminMonitoring;
   }
 
-  @Nonnull
-  public static IMenuItemPage addSysInfoItems (@Nonnull final IMenuTree aMenuTree,
-                                               @Nonnull final IMenuItem aParent,
+  @NonNull
+  public static IMenuItemPage addSysInfoItems (@NonNull final IMenuTree aMenuTree,
+                                               @NonNull final IMenuItem aParent,
                                                @Nullable final IMenuObjectFilter aDisplayFilter)
   {
     final IMenuItemPage aAdminSysInfo = aMenuTree.createItem (aParent,
@@ -247,9 +247,9 @@ public final class BootstrapPagesMenuConfigurator
     return aAdminSysInfo;
   }
 
-  @Nonnull
-  public static IMenuItemPage addAppInfoItems (@Nonnull final IMenuTree aMenuTree,
-                                               @Nonnull final IMenuItem aParent,
+  @NonNull
+  public static IMenuItemPage addAppInfoItems (@NonNull final IMenuTree aMenuTree,
+                                               @NonNull final IMenuItem aParent,
                                                @Nullable final IMenuObjectFilter aDisplayFilter)
   {
     return BootstrapPagesMenuConfigurator.addAppInfoItems (aMenuTree,
@@ -259,9 +259,9 @@ public final class BootstrapPagesMenuConfigurator
                                                            PhotonAppManager.getWebSiteResourceBundleMgr ());
   }
 
-  @Nonnull
-  public static IMenuItemPage addAppInfoItems (@Nonnull final IMenuTree aMenuTree,
-                                               @Nonnull final IMenuItem aParent,
+  @NonNull
+  public static IMenuItemPage addAppInfoItems (@NonNull final IMenuTree aMenuTree,
+                                               @NonNull final IMenuItem aParent,
                                                @Nullable final IMenuObjectFilter aDisplayFilter,
                                                @Nullable final GoMappingManager aGoMappingMgr,
                                                @Nullable final WebSiteResourceBundleManager aResBundleMgr)
@@ -300,9 +300,9 @@ public final class BootstrapPagesMenuConfigurator
     return aAdminAppInfo;
   }
 
-  @Nonnull
-  public static IMenuItemPage addDataItems (@Nonnull final IMenuTree aMenuTree,
-                                            @Nonnull final IMenuItem aParent,
+  @NonNull
+  public static IMenuItemPage addDataItems (@NonNull final IMenuTree aMenuTree,
+                                            @NonNull final IMenuItem aParent,
                                             @Nullable final IMenuObjectFilter aDisplayFilter)
   {
     final IMenuItemPage aAdminData = aMenuTree.createItem (aParent,
@@ -321,9 +321,9 @@ public final class BootstrapPagesMenuConfigurator
     return aAdminData;
   }
 
-  @Nonnull
-  public static IMenuItemPage addUtilsItems (@Nonnull final IMenuTree aMenuTree,
-                                             @Nonnull final IMenuItem aParent,
+  @NonNull
+  public static IMenuItemPage addUtilsItems (@NonNull final IMenuTree aMenuTree,
+                                             @NonNull final IMenuItem aParent,
                                              @Nullable final IMenuObjectFilter aDisplayFilter)
   {
     final IMenuItemPage aAdminSysInfo = aMenuTree.createItem (aParent,
@@ -336,9 +336,9 @@ public final class BootstrapPagesMenuConfigurator
     return aAdminSysInfo;
   }
 
-  @Nonnull
-  public static IMenuItemPage addSettingsItems (@Nonnull final IMenuTree aMenuTree,
-                                                @Nonnull final IMenuItem aParent,
+  @NonNull
+  public static IMenuItemPage addSettingsItems (@NonNull final IMenuTree aMenuTree,
+                                                @NonNull final IMenuItem aParent,
                                                 @Nullable final IMenuObjectFilter aDisplayFilter)
   {
     return BootstrapPagesMenuConfigurator.addSettingsItems (aMenuTree,
@@ -347,9 +347,9 @@ public final class BootstrapPagesMenuConfigurator
                                                             PhotonCoreManager.getSMTPSettingsMgr ());
   }
 
-  @Nonnull
-  public static IMenuItemPage addSettingsItems (@Nonnull final IMenuTree aMenuTree,
-                                                @Nonnull final IMenuItem aParent,
+  @NonNull
+  public static IMenuItemPage addSettingsItems (@NonNull final IMenuTree aMenuTree,
+                                                @NonNull final IMenuItem aParent,
                                                 @Nullable final IMenuObjectFilter aDisplayFilter,
                                                 @Nullable final NamedSMTPSettingsManager aNamedSMTPSettingsMgr)
   {
@@ -376,10 +376,10 @@ public final class BootstrapPagesMenuConfigurator
     return aAdminSettings;
   }
 
-  public static void addAllItems (@Nonnull final IMenuTree aMenuTree,
-                                  @Nonnull final IMenuItem aParent,
+  public static void addAllItems (@NonNull final IMenuTree aMenuTree,
+                                  @NonNull final IMenuItem aParent,
                                   @Nullable final IMenuObjectFilter aDisplayFilter,
-                                  @Nonnull final Locale aDefaultLocale)
+                                  @NonNull final Locale aDefaultLocale)
   {
     BootstrapPagesMenuConfigurator.addSecurityItems (aMenuTree, aParent, aDisplayFilter, aDefaultLocale);
     BootstrapPagesMenuConfigurator.addMonitoringItems (aMenuTree, aParent, aDisplayFilter);

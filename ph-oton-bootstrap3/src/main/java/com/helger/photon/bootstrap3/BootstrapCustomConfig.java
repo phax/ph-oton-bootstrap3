@@ -16,6 +16,8 @@
  */
 package com.helger.photon.bootstrap3;
 
+import org.jspecify.annotations.NonNull;
+
 import com.helger.annotation.Nonempty;
 import com.helger.annotation.concurrent.ThreadSafe;
 import com.helger.base.concurrent.SimpleReadWriteLock;
@@ -24,8 +26,6 @@ import com.helger.collection.commons.CommonsArrayList;
 import com.helger.collection.commons.ICommonsList;
 import com.helger.html.resource.css.ICSSPathProvider;
 import com.helger.html.resource.js.IJSPathProvider;
-
-import jakarta.annotation.Nonnull;
 
 /**
  * Customize the global Bootstrap JS and CSS to be used. This is helpful when using a custom
@@ -53,28 +53,28 @@ public final class BootstrapCustomConfig
   private BootstrapCustomConfig ()
   {}
 
-  public static void setBootstrapCSS (@Nonnull @Nonempty final ICSSPathProvider... aCSSPathProvider)
+  public static void setBootstrapCSS (@NonNull @Nonempty final ICSSPathProvider... aCSSPathProvider)
   {
     ValueEnforcer.notEmptyNoNullValue (aCSSPathProvider, "CSSPathProvider");
 
     RW_LOCK.writeLocked ( () -> CSS.setAll (aCSSPathProvider));
   }
 
-  @Nonnull
+  @NonNull
   @Nonempty
   public static ICommonsList <ICSSPathProvider> getAllBootstrapCSS ()
   {
     return RW_LOCK.readLockedGet (CSS::getClone);
   }
 
-  public static void setBootstrapJS (@Nonnull @Nonempty final IJSPathProvider... aJSPathProvider)
+  public static void setBootstrapJS (@NonNull @Nonempty final IJSPathProvider... aJSPathProvider)
   {
     ValueEnforcer.notEmptyNoNullValue (aJSPathProvider, "JSPathProvider");
 
     RW_LOCK.writeLocked ( () -> JS.setAll (aJSPathProvider));
   }
 
-  @Nonnull
+  @NonNull
   @Nonempty
   public static ICommonsList <IJSPathProvider> getAllBootstrapJS ()
   {

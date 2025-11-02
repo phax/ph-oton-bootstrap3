@@ -16,14 +16,14 @@
  */
 package com.helger.photon.bootstrap3.uictrls.ext;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.html.hc.IHCNode;
 import com.helger.html.hc.impl.HCTextNode;
 import com.helger.photon.app.html.IHTMLProvider;
 import com.helger.photon.core.login.AbstractLoginManager;
 import com.helger.security.authentication.credentials.ICredentialValidationResult;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 public class BootstrapLoginManager extends AbstractLoginManager
 {
@@ -46,7 +46,7 @@ public class BootstrapLoginManager extends AbstractLoginManager
   }
 
   @Override
-  protected IHTMLProvider createLoginScreen (final boolean bLoginError, @Nonnull final ICredentialValidationResult aLoginResult)
+  protected IHTMLProvider createLoginScreen (final boolean bLoginError, @NonNull final ICredentialValidationResult aLoginResult)
   {
     return new BootstrapLoginHTMLProvider (bLoginError, aLoginResult, m_aPageTitle);
   }

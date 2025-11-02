@@ -19,6 +19,8 @@ package com.helger.photon.bootstrap3.pages.monitoring;
 import java.util.List;
 import java.util.Locale;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -81,9 +83,6 @@ import com.helger.text.resolve.DefaultTextResolver;
 import com.helger.text.util.TextHelper;
 import com.helger.url.ISimpleURL;
 
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
-
 /**
  * Show all failed mails.
  *
@@ -123,16 +122,16 @@ public class BasePageMonitoringFailedMails <WPECTYPE extends IWebPageExecutionCo
     MSG_BUTTON_RESEND_ALL_DEFAULT_SETTINGS ("Alle erneut versenden (mit aktuellen SMTP-Einstellungen)",
                                             "Resend all (with current SMTP settings)");
 
-    @Nonnull
+    @NonNull
     private final IMultilingualText m_aTP;
 
-    EText (@Nonnull final String sDE, @Nonnull final String sEN)
+    EText (@NonNull final String sDE, @NonNull final String sEN)
     {
       m_aTP = TextHelper.create_DE_EN (sDE, sEN);
     }
 
     @Nullable
-    public String getDisplayText (@Nonnull final Locale aContentLocale)
+    public String getDisplayText (@NonNull final Locale aContentLocale)
     {
       return DefaultTextResolver.getTextStatic (this, m_aTP, aContentLocale);
     }
@@ -151,8 +150,8 @@ public class BasePageMonitoringFailedMails <WPECTYPE extends IWebPageExecutionCo
     setDeleteHandler (new AbstractBootstrapWebPageActionHandlerDelete <FailedMailData, WPECTYPE> ()
     {
       @Override
-      protected void showQuery (@Nonnull final WPECTYPE aWPEC,
-                                @Nonnull final BootstrapForm aForm,
+      protected void showQuery (@NonNull final WPECTYPE aWPEC,
+                                @NonNull final BootstrapForm aForm,
                                 @Nullable final FailedMailData aSelectedObject)
       {
         final Locale aDisplayLocale = aWPEC.getDisplayLocale ();
@@ -160,7 +159,7 @@ public class BasePageMonitoringFailedMails <WPECTYPE extends IWebPageExecutionCo
       }
 
       @Override
-      protected void performAction (@Nonnull final WPECTYPE aWPEC, @Nullable final FailedMailData aSelectedObject)
+      protected void performAction (@NonNull final WPECTYPE aWPEC, @Nullable final FailedMailData aSelectedObject)
       {
         assert aSelectedObject != null;
         final Locale aDisplayLocale = aWPEC.getDisplayLocale ();
@@ -176,8 +175,8 @@ public class BasePageMonitoringFailedMails <WPECTYPE extends IWebPageExecutionCo
     addCustomHandler (CPageParam.ACTION_DELETE_ALL,
                       new AbstractBootstrapWebPageActionHandler <FailedMailData, WPECTYPE> (false)
                       {
-                        @Nonnull
-                        public EShowList handleAction (@Nonnull final WPECTYPE aWPEC,
+                        @NonNull
+                        public EShowList handleAction (@NonNull final WPECTYPE aWPEC,
                                                        @Nullable final FailedMailData aSelectedObject)
                         {
                           assert aSelectedObject == null;
@@ -199,8 +198,8 @@ public class BasePageMonitoringFailedMails <WPECTYPE extends IWebPageExecutionCo
                       });
     final AbstractBootstrapWebPageActionHandler <FailedMailData, WPECTYPE> aResendHdl = new AbstractBootstrapWebPageActionHandler <> (true)
     {
-      @Nonnull
-      public EShowList handleAction (@Nonnull final WPECTYPE aWPEC, @Nullable final FailedMailData aSelectedObject)
+      @NonNull
+      public EShowList handleAction (@NonNull final WPECTYPE aWPEC, @Nullable final FailedMailData aSelectedObject)
       {
         assert aSelectedObject != null;
         final Locale aDisplayLocale = aWPEC.getDisplayLocale ();
@@ -232,8 +231,8 @@ public class BasePageMonitoringFailedMails <WPECTYPE extends IWebPageExecutionCo
     addCustomHandler (ACTION_RESEND_DEFAULT_SETTINGS, aResendHdl);
     final AbstractBootstrapWebPageActionHandler <FailedMailData, WPECTYPE> aResendAllHdl = new AbstractBootstrapWebPageActionHandler <> (false)
     {
-      @Nonnull
-      public EShowList handleAction (@Nonnull final WPECTYPE aWPEC, @Nullable final FailedMailData aSelectedObject)
+      @NonNull
+      public EShowList handleAction (@NonNull final WPECTYPE aWPEC, @Nullable final FailedMailData aSelectedObject)
       {
         final Locale aDisplayLocale = aWPEC.getDisplayLocale ();
 
@@ -273,37 +272,37 @@ public class BasePageMonitoringFailedMails <WPECTYPE extends IWebPageExecutionCo
     setObjectLockingEnabled (true);
   }
 
-  public BasePageMonitoringFailedMails (@Nonnull @Nonempty final String sID,
-                                        @Nonnull final FailedMailQueue aFailedMailQueue)
+  public BasePageMonitoringFailedMails (@NonNull @Nonempty final String sID,
+                                        @NonNull final FailedMailQueue aFailedMailQueue)
   {
     super (sID, EWebPageText.PAGE_NAME_MONITORING_FAILED_MAILS.getAsMLT ());
     m_aFailedMailQueue = ValueEnforcer.notNull (aFailedMailQueue, "FailedMailQueue");
     _init ();
   }
 
-  public BasePageMonitoringFailedMails (@Nonnull @Nonempty final String sID,
-                                        @Nonnull final String sName,
-                                        @Nonnull final FailedMailQueue aFailedMailQueue)
+  public BasePageMonitoringFailedMails (@NonNull @Nonempty final String sID,
+                                        @NonNull final String sName,
+                                        @NonNull final FailedMailQueue aFailedMailQueue)
   {
     super (sID, sName);
     m_aFailedMailQueue = ValueEnforcer.notNull (aFailedMailQueue, "FailedMailQueue");
     _init ();
   }
 
-  public BasePageMonitoringFailedMails (@Nonnull @Nonempty final String sID,
-                                        @Nonnull final String sName,
+  public BasePageMonitoringFailedMails (@NonNull @Nonempty final String sID,
+                                        @NonNull final String sName,
                                         @Nullable final String sDescription,
-                                        @Nonnull final FailedMailQueue aFailedMailQueue)
+                                        @NonNull final FailedMailQueue aFailedMailQueue)
   {
     super (sID, sName, sDescription);
     m_aFailedMailQueue = ValueEnforcer.notNull (aFailedMailQueue, "FailedMailQueue");
     _init ();
   }
 
-  public BasePageMonitoringFailedMails (@Nonnull @Nonempty final String sID,
-                                        @Nonnull final IMultilingualText aName,
+  public BasePageMonitoringFailedMails (@NonNull @Nonempty final String sID,
+                                        @NonNull final IMultilingualText aName,
                                         @Nullable final IMultilingualText aDescription,
-                                        @Nonnull final FailedMailQueue aFailedMailQueue)
+                                        @NonNull final FailedMailQueue aFailedMailQueue)
   {
     super (sID, aName, aDescription);
     m_aFailedMailQueue = ValueEnforcer.notNull (aFailedMailQueue, "FailedMailQueue");
@@ -311,8 +310,8 @@ public class BasePageMonitoringFailedMails <WPECTYPE extends IWebPageExecutionCo
   }
 
   @Override
-  protected boolean isActionAllowed (@Nonnull final WPECTYPE aWPEC,
-                                     @Nonnull final EWebPageFormAction eFormAction,
+  protected boolean isActionAllowed (@NonNull final WPECTYPE aWPEC,
+                                     @NonNull final EWebPageFormAction eFormAction,
                                      @Nullable final FailedMailData aSelectedObject)
   {
     if (eFormAction.isEdit ())
@@ -322,15 +321,15 @@ public class BasePageMonitoringFailedMails <WPECTYPE extends IWebPageExecutionCo
 
   @Override
   @Nullable
-  protected FailedMailData getSelectedObject (@Nonnull final WPECTYPE aWPEC, @Nullable final String sID)
+  protected FailedMailData getSelectedObject (@NonNull final WPECTYPE aWPEC, @Nullable final String sID)
   {
     return m_aFailedMailQueue.getFailedMailOfID (sID);
   }
 
   @Override
-  protected void modifyViewToolbar (@Nonnull final WPECTYPE aWPEC,
-                                    @Nonnull final FailedMailData aSelectedObject,
-                                    @Nonnull final BootstrapButtonToolbar aToolbar)
+  protected void modifyViewToolbar (@NonNull final WPECTYPE aWPEC,
+                                    @NonNull final FailedMailData aSelectedObject,
+                                    @NonNull final BootstrapButtonToolbar aToolbar)
   {
     final Locale aDisplayLocale = aWPEC.getDisplayLocale ();
 
@@ -352,7 +351,7 @@ public class BasePageMonitoringFailedMails <WPECTYPE extends IWebPageExecutionCo
   }
 
   @Nullable
-  private static IHCNode _getAsString (@Nonnull final List <? extends IEmailAddress> aList)
+  private static IHCNode _getAsString (@NonNull final List <? extends IEmailAddress> aList)
   {
     if (aList.isEmpty ())
       return null;
@@ -364,7 +363,7 @@ public class BasePageMonitoringFailedMails <WPECTYPE extends IWebPageExecutionCo
   }
 
   @Override
-  protected void showSelectedObject (@Nonnull final WPECTYPE aWPEC, @Nonnull final FailedMailData aSelectedObject)
+  protected void showSelectedObject (@NonNull final WPECTYPE aWPEC, @NonNull final FailedMailData aSelectedObject)
   {
     final HCNodeList aNodeList = aWPEC.getNodeList ();
     final Locale aDisplayLocale = aWPEC.getDisplayLocale ();
@@ -470,27 +469,27 @@ public class BasePageMonitoringFailedMails <WPECTYPE extends IWebPageExecutionCo
   }
 
   @Override
-  protected void validateAndSaveInputParameters (@Nonnull final WPECTYPE aWPEC,
+  protected void validateAndSaveInputParameters (@NonNull final WPECTYPE aWPEC,
                                                  @Nullable final FailedMailData aSelectedObject,
-                                                 @Nonnull final FormErrorList aFormErrors,
-                                                 @Nonnull final EWebPageFormAction eFormAction)
+                                                 @NonNull final FormErrorList aFormErrors,
+                                                 @NonNull final EWebPageFormAction eFormAction)
   {
     throw new UnsupportedOperationException ();
   }
 
   @Override
-  protected void showInputForm (@Nonnull final WPECTYPE aWPEC,
+  protected void showInputForm (@NonNull final WPECTYPE aWPEC,
                                 @Nullable final FailedMailData aSelectedObject,
-                                @Nonnull final BootstrapForm aForm,
+                                @NonNull final BootstrapForm aForm,
                                 final boolean bIsFormSubmitted,
-                                @Nonnull final EWebPageFormAction eFormAction,
-                                @Nonnull final FormErrorList aFormErrors)
+                                @NonNull final EWebPageFormAction eFormAction,
+                                @NonNull final FormErrorList aFormErrors)
   {
     throw new UnsupportedOperationException ();
   }
 
   @Override
-  protected void showListOfExistingObjects (@Nonnull final WPECTYPE aWPEC)
+  protected void showListOfExistingObjects (@NonNull final WPECTYPE aWPEC)
   {
     final HCNodeList aNodeList = aWPEC.getNodeList ();
     final Locale aDisplayLocale = aWPEC.getDisplayLocale ();

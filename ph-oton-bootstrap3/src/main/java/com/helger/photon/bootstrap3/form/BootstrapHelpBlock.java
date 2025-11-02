@@ -16,12 +16,12 @@
  */
 package com.helger.photon.bootstrap3.form;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.html.hc.IHCNode;
 import com.helger.html.hc.html.textlevel.AbstractHCSpan;
 import com.helger.photon.bootstrap3.CBootstrapCSS;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 /**
  * Wrapper for a Bootstrap3 help block.
@@ -42,7 +42,7 @@ public class BootstrapHelpBlock extends AbstractHCSpan <BootstrapHelpBlock>
    *        The child to be appended. May be <code>null</code>
    * @return The created BootstrapWell element and never <code>null</code>
    */
-  @Nonnull
+  @NonNull
   public static BootstrapHelpBlock create (@Nullable final String sChild)
   {
     return new BootstrapHelpBlock ().addChild (sChild);
@@ -55,7 +55,7 @@ public class BootstrapHelpBlock extends AbstractHCSpan <BootstrapHelpBlock>
    *        The child texts to be appended. May be <code>null</code>
    * @return The created BootstrapWell element and never <code>null</code>
    */
-  @Nonnull
+  @NonNull
   public static BootstrapHelpBlock create (@Nullable final String... aChildren)
   {
     return new BootstrapHelpBlock ().addChildren (aChildren);
@@ -68,7 +68,7 @@ public class BootstrapHelpBlock extends AbstractHCSpan <BootstrapHelpBlock>
    *        The child node to be appended. May be <code>null</code>
    * @return The created BootstrapWell element and never <code>null</code>
    */
-  @Nonnull
+  @NonNull
   public static BootstrapHelpBlock create (@Nullable final IHCNode aChild)
   {
     return new BootstrapHelpBlock ().addChild (aChild);
@@ -81,7 +81,7 @@ public class BootstrapHelpBlock extends AbstractHCSpan <BootstrapHelpBlock>
    *        The child nodes to be appended. May be <code>null</code>
    * @return The created BootstrapWell element and never <code>null</code>
    */
-  @Nonnull
+  @NonNull
   public static BootstrapHelpBlock create (@Nullable final IHCNode... aChildren)
   {
     return new BootstrapHelpBlock ().addChildren (aChildren);
@@ -94,7 +94,7 @@ public class BootstrapHelpBlock extends AbstractHCSpan <BootstrapHelpBlock>
    *        The child nodes to be appended. May be <code>null</code>
    * @return The created BootstrapWell element and never <code>null</code>
    */
-  @Nonnull
+  @NonNull
   public static BootstrapHelpBlock create (@Nullable final Iterable <? extends IHCNode> aChildren)
   {
     return new BootstrapHelpBlock ().addChildren (aChildren);

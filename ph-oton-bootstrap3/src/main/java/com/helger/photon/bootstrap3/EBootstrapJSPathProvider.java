@@ -16,12 +16,12 @@
  */
 package com.helger.photon.bootstrap3;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.annotation.Nonempty;
 import com.helger.html.resource.js.ConstantJSPathProvider;
 import com.helger.html.resource.js.IJSPathProvider;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 public enum EBootstrapJSPathProvider implements IJSPathProvider
 {
@@ -32,12 +32,12 @@ public enum EBootstrapJSPathProvider implements IJSPathProvider
 
   private final ConstantJSPathProvider m_aPP;
 
-  EBootstrapJSPathProvider (@Nonnull @Nonempty final String sPath)
+  EBootstrapJSPathProvider (@NonNull @Nonempty final String sPath)
   {
     m_aPP = ConstantJSPathProvider.builder ().path (sPath).minifiedPathFromPath ().build ();
   }
 
-  @Nonnull
+  @NonNull
   @Nonempty
   public String getJSItemPath (final boolean bRegular)
   {

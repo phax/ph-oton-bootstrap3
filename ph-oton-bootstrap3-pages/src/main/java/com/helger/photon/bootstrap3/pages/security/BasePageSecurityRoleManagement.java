@@ -19,6 +19,9 @@ package com.helger.photon.bootstrap3.pages.security;
 import java.util.Locale;
 import java.util.Map;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.annotation.Nonempty;
 import com.helger.annotation.misc.Translatable;
 import com.helger.base.compare.ESortOrder;
@@ -72,9 +75,6 @@ import com.helger.text.resolve.DefaultTextResolver;
 import com.helger.text.util.TextHelper;
 import com.helger.url.ISimpleURL;
 
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
-
 public class BasePageSecurityRoleManagement <WPECTYPE extends IWebPageExecutionContext> extends
                                             AbstractWebPageSecurityObjectWithAttributes <IRole, WPECTYPE>
 {
@@ -105,7 +105,7 @@ public class BasePageSecurityRoleManagement <WPECTYPE extends IWebPageExecutionC
     }
 
     @Nullable
-    public String getDisplayText (@Nonnull final Locale aContentLocale)
+    public String getDisplayText (@NonNull final Locale aContentLocale)
     {
       return DefaultTextResolver.getTextStatic (this, m_aTP, aContentLocale);
     }
@@ -116,8 +116,8 @@ public class BasePageSecurityRoleManagement <WPECTYPE extends IWebPageExecutionC
     setDeleteHandler (new AbstractBootstrapWebPageActionHandlerDelete <IRole, WPECTYPE> ()
     {
       @Override
-      protected void showQuery (@Nonnull final WPECTYPE aWPEC,
-                                @Nonnull final BootstrapForm aForm,
+      protected void showQuery (@NonNull final WPECTYPE aWPEC,
+                                @NonNull final BootstrapForm aForm,
                                 @Nullable final IRole aSelectedObject)
       {
         final Locale aDisplayLocale = aWPEC.getDisplayLocale ();
@@ -126,7 +126,7 @@ public class BasePageSecurityRoleManagement <WPECTYPE extends IWebPageExecutionC
       }
 
       @Override
-      protected void performAction (@Nonnull final WPECTYPE aWPEC, @Nullable final IRole aSelectedObject)
+      protected void performAction (@NonNull final WPECTYPE aWPEC, @Nullable final IRole aSelectedObject)
       {
         final Locale aDisplayLocale = aWPEC.getDisplayLocale ();
         final IRoleManager aRoleMgr = PhotonSecurityManager.getRoleMgr ();
@@ -145,28 +145,28 @@ public class BasePageSecurityRoleManagement <WPECTYPE extends IWebPageExecutionC
     });
   }
 
-  public BasePageSecurityRoleManagement (@Nonnull @Nonempty final String sID)
+  public BasePageSecurityRoleManagement (@NonNull @Nonempty final String sID)
   {
     super (sID, EWebPageText.PAGE_NAME_SECURITY_ROLES.getAsMLT ());
     _init ();
   }
 
-  public BasePageSecurityRoleManagement (@Nonnull @Nonempty final String sID, @Nonnull @Nonempty final String sName)
+  public BasePageSecurityRoleManagement (@NonNull @Nonempty final String sID, @NonNull @Nonempty final String sName)
   {
     super (sID, sName);
     _init ();
   }
 
-  public BasePageSecurityRoleManagement (@Nonnull @Nonempty final String sID,
-                                         @Nonnull final String sName,
+  public BasePageSecurityRoleManagement (@NonNull @Nonempty final String sID,
+                                         @NonNull final String sName,
                                          @Nullable final String sDescription)
   {
     super (sID, sName, sDescription);
     _init ();
   }
 
-  public BasePageSecurityRoleManagement (@Nonnull @Nonempty final String sID,
-                                         @Nonnull final IMultilingualText aName,
+  public BasePageSecurityRoleManagement (@NonNull @Nonempty final String sID,
+                                         @NonNull final IMultilingualText aName,
                                          @Nullable final IMultilingualText aDescription)
   {
     super (sID, aName, aDescription);
@@ -175,22 +175,22 @@ public class BasePageSecurityRoleManagement <WPECTYPE extends IWebPageExecutionC
 
   @Override
   @Nullable
-  protected String getObjectDisplayName (@Nonnull final WPECTYPE aWPEC, @Nonnull final IRole aSelectedObject)
+  protected String getObjectDisplayName (@NonNull final WPECTYPE aWPEC, @NonNull final IRole aSelectedObject)
   {
     return aSelectedObject.getName ();
   }
 
   @Override
   @Nullable
-  protected IRole getSelectedObject (@Nonnull final WPECTYPE aWPEC, @Nullable final String sID)
+  protected IRole getSelectedObject (@NonNull final WPECTYPE aWPEC, @Nullable final String sID)
   {
     final IRoleManager aRoleMgr = PhotonSecurityManager.getRoleMgr ();
     return aRoleMgr.getRoleOfID (sID);
   }
 
   @Override
-  protected boolean isActionAllowed (@Nonnull final WPECTYPE aWPEC,
-                                     @Nonnull final EWebPageFormAction eFormAction,
+  protected boolean isActionAllowed (@NonNull final WPECTYPE aWPEC,
+                                     @NonNull final EWebPageFormAction eFormAction,
                                      @Nullable final IRole aSelectedObject)
   {
     if (eFormAction.isEdit ())
@@ -203,7 +203,7 @@ public class BasePageSecurityRoleManagement <WPECTYPE extends IWebPageExecutionC
   }
 
   @Override
-  protected void showSelectedObject (@Nonnull final WPECTYPE aWPEC, @Nonnull final IRole aSelectedObject)
+  protected void showSelectedObject (@NonNull final WPECTYPE aWPEC, @NonNull final IRole aSelectedObject)
   {
     final HCNodeList aNodeList = aWPEC.getNodeList ();
     final Locale aDisplayLocale = aWPEC.getDisplayLocale ();
@@ -298,21 +298,21 @@ public class BasePageSecurityRoleManagement <WPECTYPE extends IWebPageExecutionC
   }
 
   @Override
-  protected void validateAndSaveInputParameters (@Nonnull final WPECTYPE aWPEC,
+  protected void validateAndSaveInputParameters (@NonNull final WPECTYPE aWPEC,
                                                  @Nullable final IRole aSelectedObject,
-                                                 @Nonnull final FormErrorList aFormErrors,
-                                                 @Nonnull final EWebPageFormAction eFormAction)
+                                                 @NonNull final FormErrorList aFormErrors,
+                                                 @NonNull final EWebPageFormAction eFormAction)
   {
     throw new UnsupportedOperationException ();
   }
 
   @Override
-  protected void showInputForm (@Nonnull final WPECTYPE aWPEC,
+  protected void showInputForm (@NonNull final WPECTYPE aWPEC,
                                 @Nullable final IRole aSelectedObject,
-                                @Nonnull final BootstrapForm aForm,
+                                @NonNull final BootstrapForm aForm,
                                 final boolean bIsFormSubmitted,
-                                @Nonnull final EWebPageFormAction eFormAction,
-                                @Nonnull final FormErrorList aFormErrors)
+                                @NonNull final EWebPageFormAction eFormAction,
+                                @NonNull final FormErrorList aFormErrors)
   {
     throw new UnsupportedOperationException ();
   }
@@ -326,10 +326,10 @@ public class BasePageSecurityRoleManagement <WPECTYPE extends IWebPageExecutionC
            !aUserGroupMgr.containsUserGroupWithAssignedRole (aRole.getID ());
   }
 
-  @Nonnull
-  protected IHCNode getTabWithRoles (@Nonnull final WPECTYPE aWPEC,
-                                     @Nonnull final ICommonsList <IRole> aRoles,
-                                     @Nonnull @Nonempty final String sTableID)
+  @NonNull
+  protected IHCNode getTabWithRoles (@NonNull final WPECTYPE aWPEC,
+                                     @NonNull final ICommonsList <IRole> aRoles,
+                                     @NonNull @Nonempty final String sTableID)
   {
     final Locale aDisplayLocale = aWPEC.getDisplayLocale ();
 
@@ -369,7 +369,7 @@ public class BasePageSecurityRoleManagement <WPECTYPE extends IWebPageExecutionC
   }
 
   @Override
-  protected void showListOfExistingObjects (@Nonnull final WPECTYPE aWPEC)
+  protected void showListOfExistingObjects (@NonNull final WPECTYPE aWPEC)
   {
     final Locale aDisplayLocale = aWPEC.getDisplayLocale ();
     final HCNodeList aNodeList = aWPEC.getNodeList ();

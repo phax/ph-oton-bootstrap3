@@ -18,12 +18,12 @@ package com.helger.photon.bootstrap3.uictrls.datetimepicker;
 
 import java.util.Locale;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.annotation.Nonempty;
 import com.helger.base.string.StringHelper;
 import com.helger.text.locale.LocaleCache;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 /**
  * All locales available in the Bootstrap DateTimePicker
@@ -91,7 +91,7 @@ public enum EDateTimePickerLanguage
   private final Locale m_aLocale;
   private final String m_sLanguageID;
 
-  EDateTimePickerLanguage (@Nonnull final String sLocale, @Nonnull @Nonempty final String sLanguageID)
+  EDateTimePickerLanguage (@NonNull final String sLocale, @NonNull @Nonempty final String sLanguageID)
   {
     m_aLocale = LocaleCache.getInstance ().getLocale (sLocale);
     if (m_aLocale == null)
@@ -99,7 +99,7 @@ public enum EDateTimePickerLanguage
     m_sLanguageID = sLanguageID;
   }
 
-  @Nonnull
+  @NonNull
   public Locale getLocale ()
   {
     return m_aLocale;
@@ -109,7 +109,7 @@ public enum EDateTimePickerLanguage
    * @return The ID to be used by the DateTimePicker to resolve the include
    *         file.
    */
-  @Nonnull
+  @NonNull
   @Nonempty
   public String getLanguageID ()
   {

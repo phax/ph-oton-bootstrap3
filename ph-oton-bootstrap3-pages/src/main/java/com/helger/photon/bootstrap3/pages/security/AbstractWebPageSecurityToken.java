@@ -19,6 +19,9 @@ package com.helger.photon.bootstrap3.pages.security;
 import java.util.List;
 import java.util.Locale;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.annotation.Nonempty;
 import com.helger.annotation.misc.Translatable;
 import com.helger.base.id.IHasID;
@@ -38,9 +41,6 @@ import com.helger.text.IMultilingualText;
 import com.helger.text.display.IHasDisplayTextWithArgs;
 import com.helger.text.resolve.DefaultTextResolver;
 import com.helger.text.util.TextHelper;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 public abstract class AbstractWebPageSecurityToken <DATATYPE extends IHasID <String>, WPECTYPE extends IWebPageExecutionContext>
                                                    extends
@@ -99,39 +99,39 @@ public abstract class AbstractWebPageSecurityToken <DATATYPE extends IHasID <Str
     }
 
     @Nullable
-    public String getDisplayText (@Nonnull final Locale aContentLocale)
+    public String getDisplayText (@NonNull final Locale aContentLocale)
     {
       return DefaultTextResolver.getTextStatic (this, m_aTP, aContentLocale);
     }
   }
 
-  public AbstractWebPageSecurityToken (@Nonnull @Nonempty final String sID, @Nonnull @Nonempty final String sName)
+  public AbstractWebPageSecurityToken (@NonNull @Nonempty final String sID, @NonNull @Nonempty final String sName)
   {
     super (sID, sName);
   }
 
-  public AbstractWebPageSecurityToken (@Nonnull @Nonempty final String sID, @Nonnull final IMultilingualText aName)
+  public AbstractWebPageSecurityToken (@NonNull @Nonempty final String sID, @NonNull final IMultilingualText aName)
   {
     super (sID, aName);
   }
 
-  public AbstractWebPageSecurityToken (@Nonnull @Nonempty final String sID,
-                                       @Nonnull final String sName,
+  public AbstractWebPageSecurityToken (@NonNull @Nonempty final String sID,
+                                       @NonNull final String sName,
                                        @Nullable final String sDescription)
   {
     super (sID, sName, sDescription);
   }
 
-  public AbstractWebPageSecurityToken (@Nonnull @Nonempty final String sID,
-                                       @Nonnull final IMultilingualText aName,
+  public AbstractWebPageSecurityToken (@NonNull @Nonempty final String sID,
+                                       @NonNull final IMultilingualText aName,
                                        @Nullable final IMultilingualText aDescription)
   {
     super (sID, aName, aDescription);
   }
 
-  @Nonnull
-  public static IHCNode createAccessTokenListUI (@Nonnull final List <? extends IAccessToken> aAccessTokens,
-                                                 @Nonnull final Locale aDisplayLocale)
+  @NonNull
+  public static IHCNode createAccessTokenListUI (@NonNull final List <? extends IAccessToken> aAccessTokens,
+                                                 @NonNull final Locale aDisplayLocale)
   {
     final HCUL aAT = new HCUL ();
     // Reverse so that the newest token is on top

@@ -16,13 +16,13 @@
  */
 package com.helger.photon.bootstrap3.pagination;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.html.hc.IHCNode;
 import com.helger.html.hc.html.grouping.AbstractHCUL;
 import com.helger.html.hc.html.grouping.IHCLI;
 import com.helger.photon.bootstrap3.CBootstrapCSS;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 public class BootstrapPager extends AbstractHCUL <BootstrapPager>
 {
@@ -31,7 +31,7 @@ public class BootstrapPager extends AbstractHCUL <BootstrapPager>
     addClass (CBootstrapCSS.PAGER);
   }
 
-  @Nonnull
+  @NonNull
   public BootstrapPager addItemPrev (@Nullable final IHCNode aContent, final boolean bDisabled)
   {
     final IHCLI <?> aItem = addAndReturnItem (aContent).addClass (CBootstrapCSS.PREVIOUS);
@@ -40,7 +40,7 @@ public class BootstrapPager extends AbstractHCUL <BootstrapPager>
     return this;
   }
 
-  @Nonnull
+  @NonNull
   public BootstrapPager addItemNext (@Nullable final IHCNode aContent, final boolean bDisabled)
   {
     final IHCLI <?> aItem = addAndReturnItem (aContent).addClass (CBootstrapCSS.NEXT);

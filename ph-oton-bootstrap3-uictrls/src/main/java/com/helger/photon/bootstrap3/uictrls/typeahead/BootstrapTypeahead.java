@@ -18,6 +18,8 @@ package com.helger.photon.bootstrap3.uictrls.typeahead;
 
 import java.util.Locale;
 
+import org.jspecify.annotations.NonNull;
+
 import com.helger.annotation.OverridingMethodsMustInvokeSuper;
 import com.helger.html.hc.IHCConversionSettingsToNode;
 import com.helger.html.request.IHCRequestField;
@@ -26,8 +28,6 @@ import com.helger.photon.uictrls.EUICtrlsCSSPathProvider;
 import com.helger.photon.uictrls.typeahead.TypeaheadEdit;
 import com.helger.url.ISimpleURL;
 
-import jakarta.annotation.Nonnull;
-
 /**
  * Bootstrap version of {@link TypeaheadEdit}
  *
@@ -35,17 +35,17 @@ import jakarta.annotation.Nonnull;
  */
 public class BootstrapTypeahead extends TypeaheadEdit
 {
-  public BootstrapTypeahead (@Nonnull final IHCRequestField aRFEdit,
-                             @Nonnull final IHCRequestField aRFHidden,
-                             @Nonnull final ISimpleURL aAjaxInvocationURL,
-                             @Nonnull final Locale aDisplayLocale)
+  public BootstrapTypeahead (@NonNull final IHCRequestField aRFEdit,
+                             @NonNull final IHCRequestField aRFHidden,
+                             @NonNull final ISimpleURL aAjaxInvocationURL,
+                             @NonNull final Locale aDisplayLocale)
   {
     super (aRFEdit, aRFHidden, aAjaxInvocationURL, aDisplayLocale);
   }
 
   @Override
   @OverridingMethodsMustInvokeSuper
-  protected void onRegisterExternalResources (@Nonnull final IHCConversionSettingsToNode aConversionSettings,
+  protected void onRegisterExternalResources (@NonNull final IHCConversionSettingsToNode aConversionSettings,
                                               final boolean bForceRegistration)
   {
     super.onRegisterExternalResources (aConversionSettings, bForceRegistration);

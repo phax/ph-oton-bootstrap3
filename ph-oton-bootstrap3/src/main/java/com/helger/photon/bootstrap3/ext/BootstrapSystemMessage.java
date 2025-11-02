@@ -16,6 +16,9 @@
  */
 package com.helger.photon.bootstrap3.ext;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.annotation.concurrent.GuardedBy;
 import com.helger.base.concurrent.SimpleReadWriteLock;
 import com.helger.base.enforce.ValueEnforcer;
@@ -28,9 +31,6 @@ import com.helger.photon.core.systemmsg.ISystemMessageRenderer;
 import com.helger.photon.core.systemmsg.SystemMessageManager;
 import com.helger.photon.uicore.systemmsg.SystemMessageRendererMarkdown;
 import com.helger.photon.uicore.systemmsg.SystemMessageRendererPlainText;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 /**
  * Render the system message using a Bootstrap alert window.
@@ -45,7 +45,7 @@ public class BootstrapSystemMessage extends AbstractBootstrapAlert <BootstrapSys
   @GuardedBy ("RW_LOCK")
   private static ISystemMessageRenderer s_aFormatter = FORMATTER_DEFAULT;
 
-  @Nonnull
+  @NonNull
   public static ISystemMessageRenderer getDefaultFormatter ()
   {
     return RW_LOCK.readLockedGet ( () -> s_aFormatter);
@@ -63,7 +63,7 @@ public class BootstrapSystemMessage extends AbstractBootstrapAlert <BootstrapSys
    * @param aFormatter
    *        The formatter callback. May not be <code>null</code>.
    */
-  public static void setDefaultFormatter (@Nonnull final ISystemMessageRenderer aFormatter)
+  public static void setDefaultFormatter (@NonNull final ISystemMessageRenderer aFormatter)
   {
     ValueEnforcer.notNull (aFormatter, "Formatter");
     RW_LOCK.writeLocked ( () -> s_aFormatter = aFormatter);
@@ -81,8 +81,8 @@ public class BootstrapSystemMessage extends AbstractBootstrapAlert <BootstrapSys
     setDefaultFormatter (bUseMarkdown ? SystemMessageRendererMarkdown.INSTANCE : SystemMessageRendererPlainText.INSTANCE);
   }
 
-  @Nonnull
-  public static EBootstrapAlertType getAlertType (@Nonnull final ESystemMessageType eSystemMessageType)
+  @NonNull
+  public static EBootstrapAlertType getAlertType (@NonNull final ESystemMessageType eSystemMessageType)
   {
     // Create empty boxes
     switch (eSystemMessageType)
@@ -100,12 +100,12 @@ public class BootstrapSystemMessage extends AbstractBootstrapAlert <BootstrapSys
     }
   }
 
-  protected BootstrapSystemMessage (@Nonnull final ESystemMessageType eSystemMessageType)
+  protected BootstrapSystemMessage (@NonNull final ESystemMessageType eSystemMessageType)
   {
     super (getAlertType (eSystemMessageType));
   }
 
-  @Nonnull
+  @NonNull
   public BootstrapSystemMessage setSystemMessage (@Nullable final String sContent)
   {
     removeAllChildren ();
@@ -122,7 +122,7 @@ public class BootstrapSystemMessage extends AbstractBootstrapAlert <BootstrapSys
   }
 
   @Nullable
-  public static BootstrapSystemMessage create (@Nonnull final ESystemMessageType eSystemMessageType, @Nullable final String sSystemMessage)
+  public static BootstrapSystemMessage create (@NonNull final ESystemMessageType eSystemMessageType, @Nullable final String sSystemMessage)
   {
     if (StringHelper.isEmpty (sSystemMessage))
       return null;

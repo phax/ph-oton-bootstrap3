@@ -16,6 +16,8 @@
  */
 package com.helger.photon.bootstrap3.uictrls.datatables.plugins;
 
+import org.jspecify.annotations.NonNull;
+
 import com.helger.annotation.style.OverrideOnDemand;
 import com.helger.annotation.style.ReturnsMutableCopy;
 import com.helger.html.hc.IHCConversionSettingsToNode;
@@ -29,12 +31,10 @@ import com.helger.photon.uictrls.datatables.DataTablesDom;
 import com.helger.photon.uictrls.datatables.EDataTablesCSSPathProvider;
 import com.helger.photon.uictrls.datatables.plugins.DataTablesPluginButtons;
 
-import jakarta.annotation.Nonnull;
-
 public class BootstrapDataTablesPluginButtons extends DataTablesPluginButtons
 {
   @Override
-  @Nonnull
+  @NonNull
   @ReturnsMutableCopy
   @OverrideOnDemand
   protected DataTablesDom createDom ()
@@ -44,7 +44,7 @@ public class BootstrapDataTablesPluginButtons extends DataTablesPluginButtons
 
   @Override
   @OverrideOnDemand
-  protected void weaveIntoDom (@Nonnull final DataTablesDom aDom)
+  protected void weaveIntoDom (@NonNull final DataTablesDom aDom)
   {
     // Check if it is a Bootstrap datatables DOM
     final int i = aDom.indexOf (DataTablesDom.getDivString (CBootstrapCSS.ROW, CBootstrapCSS.HIDDEN_PRINT));

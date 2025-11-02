@@ -18,6 +18,8 @@ package com.helger.photon.bootstrap3.pages.handler;
 
 import java.util.function.BiFunction;
 
+import org.jspecify.annotations.NonNull;
+
 import com.helger.annotation.Nonempty;
 import com.helger.base.id.IHasID;
 import com.helger.photon.bootstrap3.button.BootstrapButtonToolbar;
@@ -26,14 +28,12 @@ import com.helger.photon.bootstrap3.pages.BootstrapWebPageUIHandler;
 import com.helger.photon.uicore.page.IWebPageExecutionContext;
 import com.helger.photon.uicore.page.handler.AbstractWebPageActionHandlerMultiDelete;
 
-import jakarta.annotation.Nonnull;
-
 public abstract class AbstractBootstrapWebPageActionHandlerMultiDelete <DATATYPE extends IHasID <String>, WPECTYPE extends IWebPageExecutionContext>
                                                                        extends
                                                                        AbstractWebPageActionHandlerMultiDelete <DATATYPE, WPECTYPE, BootstrapForm, BootstrapButtonToolbar>
 {
-  public AbstractBootstrapWebPageActionHandlerMultiDelete (@Nonnull @Nonempty final String sFieldName,
-                                                           @Nonnull final BiFunction <WPECTYPE, String, DATATYPE> aResolver)
+  public AbstractBootstrapWebPageActionHandlerMultiDelete (@NonNull @Nonempty final String sFieldName,
+                                                           @NonNull final BiFunction <WPECTYPE, String, DATATYPE> aResolver)
   {
     super (BootstrapWebPageUIHandler.INSTANCE, sFieldName, aResolver);
   }

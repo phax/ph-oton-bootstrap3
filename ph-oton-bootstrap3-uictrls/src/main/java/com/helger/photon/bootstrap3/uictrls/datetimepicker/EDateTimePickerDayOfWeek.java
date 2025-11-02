@@ -19,9 +19,9 @@ package com.helger.photon.bootstrap3.uictrls.datetimepicker;
 import java.time.DayOfWeek;
 import java.util.Calendar;
 
-import com.helger.annotation.Nonnegative;
+import org.jspecify.annotations.Nullable;
 
-import jakarta.annotation.Nullable;
+import com.helger.annotation.Nonnegative;
 
 /**
  * Defines the day of week constants used by DTP

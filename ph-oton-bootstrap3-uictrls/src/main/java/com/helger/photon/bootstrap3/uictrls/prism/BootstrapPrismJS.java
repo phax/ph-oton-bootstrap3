@@ -16,14 +16,14 @@
  */
 package com.helger.photon.bootstrap3.uictrls.prism;
 
+import org.jspecify.annotations.NonNull;
+
 import com.helger.annotation.OverridingMethodsMustInvokeSuper;
 import com.helger.html.hc.IHCConversionSettingsToNode;
 import com.helger.photon.app.html.PhotonCSS;
 import com.helger.photon.uictrls.EUICtrlsCSSPathProvider;
 import com.helger.photon.uictrls.prism.EPrismLanguage;
 import com.helger.photon.uictrls.prism.HCPrismJS;
-
-import jakarta.annotation.Nonnull;
 
 /**
  * Bootstrap version of prism.
@@ -32,14 +32,14 @@ import jakarta.annotation.Nonnull;
  */
 public class BootstrapPrismJS extends HCPrismJS
 {
-  public BootstrapPrismJS (@Nonnull final EPrismLanguage eLanguage)
+  public BootstrapPrismJS (@NonNull final EPrismLanguage eLanguage)
   {
     super (eLanguage);
   }
 
   @Override
   @OverridingMethodsMustInvokeSuper
-  protected void onRegisterExternalResources (@Nonnull final IHCConversionSettingsToNode aConversionSettings,
+  protected void onRegisterExternalResources (@NonNull final IHCConversionSettingsToNode aConversionSettings,
                                               final boolean bForcedRegistration)
   {
     super.onRegisterExternalResources (aConversionSettings, bForcedRegistration);

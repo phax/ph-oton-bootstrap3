@@ -16,14 +16,14 @@
  */
 package com.helger.photon.bootstrap.demo.pub.page.icon;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.annotation.Nonempty;
 import com.helger.html.css.DefaultCSSClassProvider;
 import com.helger.html.css.ICSSClassProvider;
 import com.helger.photon.bootstrap.demo.app.ui.AbstractAppWebPage;
 import com.helger.photon.uicore.page.WebPageExecutionContext;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 /**
  * Abstract icon page
@@ -34,22 +34,22 @@ public abstract class AbstractPagePublicIcon extends AbstractAppWebPage
 {
   protected static final ICSSClassProvider CSS_CLASS_ICON_CONTAINER = DefaultCSSClassProvider.create ("icon-container");
 
-  public AbstractPagePublicIcon (@Nonnull @Nonempty final String sID, @Nonnull @Nonempty final String sName)
+  public AbstractPagePublicIcon (@NonNull @Nonempty final String sID, @NonNull @Nonempty final String sName)
   {
     super (sID, sName);
   }
 
   @Override
   @Nullable
-  public String getHeaderText (@Nonnull final WebPageExecutionContext aWPEC)
+  public String getHeaderText (@NonNull final WebPageExecutionContext aWPEC)
   {
     return null;
   }
 
-  protected abstract void fillIcons (@Nonnull final WebPageExecutionContext aWPEC);
+  protected abstract void fillIcons (@NonNull final WebPageExecutionContext aWPEC);
 
   @Override
-  protected final void fillContent (@Nonnull final WebPageExecutionContext aWPEC)
+  protected final void fillContent (@NonNull final WebPageExecutionContext aWPEC)
   {
     fillIcons (aWPEC);
   }

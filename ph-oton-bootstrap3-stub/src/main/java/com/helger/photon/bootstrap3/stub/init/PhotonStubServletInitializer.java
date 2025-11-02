@@ -19,6 +19,7 @@ package com.helger.photon.bootstrap3.stub.init;
 import java.nio.charset.StandardCharsets;
 import java.util.concurrent.atomic.AtomicBoolean;
 
+import org.jspecify.annotations.NonNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -37,7 +38,6 @@ import com.helger.photon.core.userdata.UserStreamServlet;
 import com.helger.photon.core.userdata.UserUploadServlet;
 import com.helger.servlet.filter.CharacterEncodingFilter;
 
-import jakarta.annotation.Nonnull;
 import jakarta.servlet.FilterRegistration;
 import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletRegistration;
@@ -75,7 +75,7 @@ public final class PhotonStubServletInitializer
    * @param aSC
    *        The {@link ServletContext} to use. May not be <code>null</code>.
    */
-  public static void registerServlets (@Nonnull final ServletContext aSC)
+  public static void registerServlets (@NonNull final ServletContext aSC)
   {
     ValueEnforcer.notNull (aSC, "ServletContext");
 

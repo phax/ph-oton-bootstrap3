@@ -16,6 +16,9 @@
  */
 package com.helger.photon.bootstrap3.inputgroup;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.annotation.style.ReturnsMutableObject;
 import com.helger.base.enforce.ValueEnforcer;
 import com.helger.html.hc.IHCConversionSettingsToNode;
@@ -27,9 +30,6 @@ import com.helger.html.hc.impl.HCNodeList;
 import com.helger.photon.bootstrap3.CBootstrapCSS;
 import com.helger.photon.bootstrap3.button.BootstrapButton;
 
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
-
 public class BootstrapInputGroup extends AbstractHCDiv <BootstrapInputGroup>
 {
   private final EBootstrapInputGroupSize m_eSize;
@@ -37,65 +37,65 @@ public class BootstrapInputGroup extends AbstractHCDiv <BootstrapInputGroup>
   private final IHCNode m_aInput;
   private final HCNodeList m_aSuffixes = new HCNodeList ();
 
-  public BootstrapInputGroup (@Nonnull final IHCNode aInput)
+  public BootstrapInputGroup (@NonNull final IHCNode aInput)
   {
     this (EBootstrapInputGroupSize.DEFAULT, aInput);
   }
 
-  public BootstrapInputGroup (@Nonnull final EBootstrapInputGroupSize eSize, @Nonnull final IHCNode aInput)
+  public BootstrapInputGroup (@NonNull final EBootstrapInputGroupSize eSize, @NonNull final IHCNode aInput)
   {
     m_eSize = ValueEnforcer.notNull (eSize, "Size");
     m_aInput = ValueEnforcer.notNull (aInput, "Input");
   }
 
-  @Nonnull
+  @NonNull
   public final EBootstrapInputGroupSize getSize ()
   {
     return m_eSize;
   }
 
-  @Nonnull
+  @NonNull
   @ReturnsMutableObject
   public final HCNodeList prefixes ()
   {
     return m_aPrefixes;
   }
 
-  @Nonnull
+  @NonNull
   public BootstrapInputGroup setPrefix (@Nullable final String sText)
   {
     m_aPrefixes.setChild (sText);
     return this;
   }
 
-  @Nonnull
+  @NonNull
   public BootstrapInputGroup setPrefix (@Nullable final IHCNode aNode)
   {
     m_aPrefixes.setChild (aNode);
     return this;
   }
 
-  @Nonnull
+  @NonNull
   public final IHCNode getInput ()
   {
     return m_aInput;
   }
 
-  @Nonnull
+  @NonNull
   @ReturnsMutableObject
   public final HCNodeList suffixes ()
   {
     return m_aSuffixes;
   }
 
-  @Nonnull
+  @NonNull
   public BootstrapInputGroup setSuffix (@Nullable final String sText)
   {
     m_aSuffixes.setChild (sText);
     return this;
   }
 
-  @Nonnull
+  @NonNull
   public BootstrapInputGroup setSuffix (@Nullable final IHCNode aNode)
   {
     m_aSuffixes.setChild (aNode);
@@ -108,8 +108,8 @@ public class BootstrapInputGroup extends AbstractHCDiv <BootstrapInputGroup>
   }
 
   @Override
-  protected void onFinalizeNodeState (@Nonnull final IHCConversionSettingsToNode aConversionSettings,
-                                      @Nonnull final IHCHasChildrenMutable <?, ? super IHCNode> aTargetNode)
+  protected void onFinalizeNodeState (@NonNull final IHCConversionSettingsToNode aConversionSettings,
+                                      @NonNull final IHCHasChildrenMutable <?, ? super IHCNode> aTargetNode)
   {
     super.onFinalizeNodeState (aConversionSettings, aTargetNode);
     addClasses (CBootstrapCSS.INPUT_GROUP, m_eSize);

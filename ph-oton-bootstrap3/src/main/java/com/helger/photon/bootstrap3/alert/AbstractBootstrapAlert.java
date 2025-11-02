@@ -16,6 +16,8 @@
  */
 package com.helger.photon.bootstrap3.alert;
 
+import org.jspecify.annotations.NonNull;
+
 import com.helger.base.enforce.ValueEnforcer;
 import com.helger.html.hc.IHCConversionSettingsToNode;
 import com.helger.html.hc.IHCHasChildrenMutable;
@@ -23,8 +25,6 @@ import com.helger.html.hc.IHCNode;
 import com.helger.html.hc.html.grouping.AbstractHCDiv;
 import com.helger.photon.bootstrap3.CBootstrapCSS;
 import com.helger.photon.bootstrap3.base.BootstrapCloseIcon;
-
-import jakarta.annotation.Nonnull;
 
 /**
  * Bootstrap alert box
@@ -52,28 +52,28 @@ public abstract class AbstractBootstrapAlert <IMPLTYPE extends AbstractBootstrap
   private EBootstrapAlertType m_eType;
   private boolean m_bShowClose = DEFAULT_SHOW_CLOSE;
 
-  public AbstractBootstrapAlert (@Nonnull final EBootstrapAlertType eType)
+  public AbstractBootstrapAlert (@NonNull final EBootstrapAlertType eType)
   {
     super ();
     setType (eType);
   }
 
-  @Nonnull
+  @NonNull
   public final EBootstrapAlertType getType ()
   {
     return m_eType;
   }
 
-  @Nonnull
-  public final IMPLTYPE setType (@Nonnull final EBootstrapAlertType eType)
+  @NonNull
+  public final IMPLTYPE setType (@NonNull final EBootstrapAlertType eType)
   {
     ValueEnforcer.notNull (eType, "Type");
     m_eType = eType;
     return thisAsT ();
   }
 
-  @Nonnull
-  public final IMPLTYPE setTypeIfWorse (@Nonnull final EBootstrapAlertType eType)
+  @NonNull
+  public final IMPLTYPE setTypeIfWorse (@NonNull final EBootstrapAlertType eType)
   {
     ValueEnforcer.notNull (eType, "Type");
     if (m_eType == null || eType.ordinal () > m_eType.ordinal ())
@@ -86,7 +86,7 @@ public abstract class AbstractBootstrapAlert <IMPLTYPE extends AbstractBootstrap
     return m_bShowClose;
   }
 
-  @Nonnull
+  @NonNull
   public final IMPLTYPE setShowClose (final boolean bShowClose)
   {
     m_bShowClose = bShowClose;
@@ -94,8 +94,8 @@ public abstract class AbstractBootstrapAlert <IMPLTYPE extends AbstractBootstrap
   }
 
   @Override
-  protected void onFinalizeNodeState (@Nonnull final IHCConversionSettingsToNode aConversionSettings,
-                                      @Nonnull final IHCHasChildrenMutable <?, ? super IHCNode> aTargetNode)
+  protected void onFinalizeNodeState (@NonNull final IHCConversionSettingsToNode aConversionSettings,
+                                      @NonNull final IHCHasChildrenMutable <?, ? super IHCNode> aTargetNode)
   {
     super.onFinalizeNodeState (aConversionSettings, aTargetNode);
     addClasses (CBootstrapCSS.ALERT, m_eType);

@@ -16,13 +16,13 @@
  */
 package com.helger.photon.bootstrap3.grid;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.annotation.Nonempty;
 import com.helger.annotation.Nonnegative;
 import com.helger.html.css.ICSSClassProvider;
 import com.helger.photon.bootstrap3.CBootstrapCSS;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 /**
  * Bootstrap3 grid columns. Extra small - Phones (&lt;768px)
@@ -51,7 +51,7 @@ public enum EBootstrapGridXS implements IBootstrapGridElementExtended
   private final ICSSClassProvider m_aCSSClassPull;
 
   EBootstrapGridXS (@Nonnegative final int nParts,
-                    @Nonnull final ICSSClassProvider aCSSClass,
+                    @NonNull final ICSSClassProvider aCSSClass,
                     @Nullable final ICSSClassProvider aCSSClassOffset,
                     @Nullable final ICSSClassProvider aCSSClassPush,
                     @Nullable final ICSSClassProvider aCSSClassPull)
@@ -69,7 +69,7 @@ public enum EBootstrapGridXS implements IBootstrapGridElementExtended
     return m_nParts;
   }
 
-  @Nonnull
+  @NonNull
   @Nonempty
   public String getCSSClass ()
   {

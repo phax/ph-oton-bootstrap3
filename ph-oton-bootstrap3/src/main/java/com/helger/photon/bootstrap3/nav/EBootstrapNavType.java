@@ -16,14 +16,14 @@
  */
 package com.helger.photon.bootstrap3.nav;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.annotation.style.ReturnsMutableCopy;
 import com.helger.collection.commons.CommonsArrayList;
 import com.helger.collection.commons.ICommonsList;
 import com.helger.html.css.ICSSClassProvider;
 import com.helger.photon.bootstrap3.CBootstrapCSS;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 /**
  * Type of Nav
@@ -46,7 +46,7 @@ public enum EBootstrapNavType
     m_aCSSClasses = new CommonsArrayList <> (aCSSClasses);
   }
 
-  @Nonnull
+  @NonNull
   @ReturnsMutableCopy
   public ICommonsList <ICSSClassProvider> getAllCSSClasses ()
   {

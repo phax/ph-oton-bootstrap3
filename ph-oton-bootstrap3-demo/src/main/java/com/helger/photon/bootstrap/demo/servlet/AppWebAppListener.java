@@ -16,6 +16,7 @@
  */
 package com.helger.photon.bootstrap.demo.servlet;
 
+import org.jspecify.annotations.NonNull;
 import org.slf4j.bridge.SLF4JBridgeHandler;
 
 import com.helger.html.jquery.JQueryAjaxBuilder;
@@ -47,7 +48,6 @@ import com.helger.photon.uictrls.datatables.ajax.AjaxExecutorDataTablesI18N;
 import com.helger.photon.uictrls.datatables.plugins.DataTablesPluginSearchHighlight;
 import com.helger.web.scope.IRequestWebScopeWithoutResponse;
 
-import jakarta.annotation.Nonnull;
 import jakarta.servlet.ServletContext;
 
 /**
@@ -59,25 +59,25 @@ import jakarta.servlet.ServletContext;
 public final class AppWebAppListener extends WebAppListenerBootstrap
 {
   @Override
-  protected String getInitParameterDebug (@Nonnull final ServletContext aSC)
+  protected String getInitParameterDebug (@NonNull final ServletContext aSC)
   {
     return AppSettings.getGlobalDebug ();
   }
 
   @Override
-  protected String getInitParameterProduction (@Nonnull final ServletContext aSC)
+  protected String getInitParameterProduction (@NonNull final ServletContext aSC)
   {
     return AppSettings.getGlobalProduction ();
   }
 
   @Override
-  protected String getDataPath (@Nonnull final ServletContext aSC)
+  protected String getDataPath (@NonNull final ServletContext aSC)
   {
     return AppSettings.getDataPath ();
   }
 
   @Override
-  protected boolean shouldCheckFileAccess (@Nonnull final ServletContext aSC)
+  protected boolean shouldCheckFileAccess (@NonNull final ServletContext aSC)
   {
     return AppSettings.isCheckFileAccess ();
   }
@@ -91,14 +91,14 @@ public final class AppWebAppListener extends WebAppListenerBootstrap
   }
 
   @Override
-  protected void initLocales (@Nonnull final ILocaleManager aLocaleMgr)
+  protected void initLocales (@NonNull final ILocaleManager aLocaleMgr)
   {
     aLocaleMgr.registerLocale (CApp.DEFAULT_LOCALE);
     aLocaleMgr.setDefaultLocale (CApp.DEFAULT_LOCALE);
   }
 
   @Override
-  protected void initAjax (@Nonnull final IAjaxRegistry aAjaxRegistry)
+  protected void initAjax (@NonNull final IAjaxRegistry aAjaxRegistry)
   {
     aAjaxRegistry.registerFunction (CAjax.DATATABLES);
     aAjaxRegistry.registerFunction (CAjax.DATATABLES_I18N);

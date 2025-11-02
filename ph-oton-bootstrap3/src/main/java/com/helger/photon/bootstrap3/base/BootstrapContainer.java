@@ -16,13 +16,13 @@
  */
 package com.helger.photon.bootstrap3.base;
 
+import org.jspecify.annotations.NonNull;
+
 import com.helger.html.hc.IHCConversionSettingsToNode;
 import com.helger.html.hc.IHCHasChildrenMutable;
 import com.helger.html.hc.IHCNode;
 import com.helger.html.hc.html.grouping.AbstractHCDiv;
 import com.helger.photon.bootstrap3.CBootstrapCSS;
-
-import jakarta.annotation.Nonnull;
 
 /**
  * A responsive fixed width container.
@@ -48,7 +48,7 @@ public class BootstrapContainer extends AbstractHCDiv <BootstrapContainer>
     return m_bFluid;
   }
 
-  @Nonnull
+  @NonNull
   public BootstrapContainer setFluid (final boolean bFluid)
   {
     m_bFluid = bFluid;
@@ -56,8 +56,8 @@ public class BootstrapContainer extends AbstractHCDiv <BootstrapContainer>
   }
 
   @Override
-  protected void onFinalizeNodeState (@Nonnull final IHCConversionSettingsToNode aConversionSettings,
-                                      @Nonnull final IHCHasChildrenMutable <?, ? super IHCNode> aTargetNode)
+  protected void onFinalizeNodeState (@NonNull final IHCConversionSettingsToNode aConversionSettings,
+                                      @NonNull final IHCHasChildrenMutable <?, ? super IHCNode> aTargetNode)
   {
     super.onFinalizeNodeState (aConversionSettings, aTargetNode);
     if (m_bFluid)

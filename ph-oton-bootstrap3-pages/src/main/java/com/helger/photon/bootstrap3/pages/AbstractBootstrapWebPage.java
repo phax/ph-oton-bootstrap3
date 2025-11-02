@@ -16,6 +16,9 @@
  */
 package com.helger.photon.bootstrap3.pages;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.annotation.Nonempty;
 import com.helger.annotation.style.OverrideOnDemand;
 import com.helger.html.hc.IHCNode;
@@ -23,34 +26,31 @@ import com.helger.photon.uicore.page.AbstractWebPage;
 import com.helger.photon.uicore.page.IWebPageExecutionContext;
 import com.helger.text.IMultilingualText;
 
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
-
 public abstract class AbstractBootstrapWebPage <WPECTYPE extends IWebPageExecutionContext> extends AbstractWebPage <WPECTYPE>
 {
-  public AbstractBootstrapWebPage (@Nonnull @Nonempty final String sID, @Nonnull final String sName)
+  public AbstractBootstrapWebPage (@NonNull @Nonempty final String sID, @NonNull final String sName)
   {
     super (sID, getAsMLT (sName), null);
   }
 
-  public AbstractBootstrapWebPage (@Nonnull @Nonempty final String sID, @Nonnull final IMultilingualText aName)
+  public AbstractBootstrapWebPage (@NonNull @Nonempty final String sID, @NonNull final IMultilingualText aName)
   {
     super (sID, aName, null);
   }
 
-  public AbstractBootstrapWebPage (@Nonnull @Nonempty final String sID, @Nonnull final String sName, @Nullable final String sDescription)
+  public AbstractBootstrapWebPage (@NonNull @Nonempty final String sID, @NonNull final String sName, @Nullable final String sDescription)
   {
     super (sID, getAsMLT (sName), getAsMLT (sDescription));
   }
 
-  public AbstractBootstrapWebPage (@Nonnull @Nonempty final String sID,
-                                   @Nonnull final IMultilingualText aName,
+  public AbstractBootstrapWebPage (@NonNull @Nonempty final String sID,
+                                   @NonNull final IMultilingualText aName,
                                    @Nullable final IMultilingualText aDescription)
   {
     super (sID, aName, aDescription);
   }
 
-  @Nonnull
+  @NonNull
   protected BootstrapWebPageUIHandler getUIHandler ()
   {
     return BootstrapWebPageUIHandler.INSTANCE;
@@ -59,7 +59,7 @@ public abstract class AbstractBootstrapWebPage <WPECTYPE extends IWebPageExecuti
   @Override
   @Nullable
   @OverrideOnDemand
-  public IHCNode getHeaderNode (@Nonnull final WPECTYPE aWPEC)
+  public IHCNode getHeaderNode (@NonNull final WPECTYPE aWPEC)
   {
     final String sHeaderText = getHeaderText (aWPEC);
     return getUIHandler ().createPageHeader (sHeaderText);

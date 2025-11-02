@@ -18,6 +18,8 @@ package com.helger.photon.bootstrap3.uictrls.ext;
 
 import java.util.Locale;
 
+import org.jspecify.annotations.NonNull;
+
 import com.helger.annotation.style.OverrideOnDemand;
 import com.helger.base.lang.clazz.FactoryNewInstance;
 import com.helger.collection.commons.ICommonsMap;
@@ -43,8 +45,6 @@ import com.helger.photon.core.menu.ui.AbstractMenuItemRenderer;
 import com.helger.photon.core.menu.ui.IMenuItemRenderer;
 import com.helger.photon.core.menu.ui.MenuRendererCallback;
 
-import jakarta.annotation.Nonnull;
-
 /**
  * Default implementation of {@link IMenuItemRenderer}
  *
@@ -52,13 +52,13 @@ import jakarta.annotation.Nonnull;
  */
 public class BootstrapMenuItemRenderer extends AbstractMenuItemRenderer <HCUL>
 {
-  public BootstrapMenuItemRenderer (@Nonnull final Locale aContentLocale)
+  public BootstrapMenuItemRenderer (@NonNull final Locale aContentLocale)
   {
     super (aContentLocale);
   }
 
-  @Nonnull
-  public IHCNode renderSeparator (@Nonnull final ISimpleWebExecutionContext aSWEC, @Nonnull final IMenuSeparator aSeparator)
+  @NonNull
+  public IHCNode renderSeparator (@NonNull final ISimpleWebExecutionContext aSWEC, @NonNull final IMenuSeparator aSeparator)
   {
     return new HCLI ().addClass (CBootstrapCSS.DIVIDER);
   }
@@ -77,9 +77,9 @@ public class BootstrapMenuItemRenderer extends AbstractMenuItemRenderer <HCUL>
    * @return The label text. Should not be <code>null</code>.
    * @see #getContentLocale()
    */
-  @Nonnull
+  @NonNull
   @OverrideOnDemand
-  protected String getMenuItemPageLabel (@Nonnull final IMenuItemPage aMenuItem,
+  protected String getMenuItemPageLabel (@NonNull final IMenuItemPage aMenuItem,
                                          final boolean bHasChildren,
                                          final boolean bIsSelected,
                                          final boolean bIsExpanded)
@@ -87,9 +87,9 @@ public class BootstrapMenuItemRenderer extends AbstractMenuItemRenderer <HCUL>
     return aMenuItem.getDisplayText (getContentLocale ());
   }
 
-  @Nonnull
-  public IHCNode renderMenuItemPage (@Nonnull final ISimpleWebExecutionContext aSWEC,
-                                     @Nonnull final IMenuItemPage aMenuItem,
+  @NonNull
+  public IHCNode renderMenuItemPage (@NonNull final ISimpleWebExecutionContext aSWEC,
+                                     @NonNull final IMenuItemPage aMenuItem,
                                      final boolean bHasChildren,
                                      final boolean bIsSelected,
                                      final boolean bIsExpanded)
@@ -115,9 +115,9 @@ public class BootstrapMenuItemRenderer extends AbstractMenuItemRenderer <HCUL>
    * @return The label text. Should not be <code>null</code>.
    * @see #getContentLocale()
    */
-  @Nonnull
+  @NonNull
   @OverrideOnDemand
-  protected String getMenuItemExternalLabel (@Nonnull final IMenuItemExternal aMenuItem,
+  protected String getMenuItemExternalLabel (@NonNull final IMenuItemExternal aMenuItem,
                                              final boolean bHasChildren,
                                              final boolean bIsSelected,
                                              final boolean bIsExpanded)
@@ -125,9 +125,9 @@ public class BootstrapMenuItemRenderer extends AbstractMenuItemRenderer <HCUL>
     return aMenuItem.getDisplayText (getContentLocale ());
   }
 
-  @Nonnull
-  public IHCNode renderMenuItemExternal (@Nonnull final ISimpleWebExecutionContext aSWEC,
-                                         @Nonnull final IMenuItemExternal aMenuItem,
+  @NonNull
+  public IHCNode renderMenuItemExternal (@NonNull final ISimpleWebExecutionContext aSWEC,
+                                         @NonNull final IMenuItemExternal aMenuItem,
                                          final boolean bHasChildren,
                                          final boolean bIsSelected,
                                          final boolean bIsExpanded)
@@ -141,14 +141,14 @@ public class BootstrapMenuItemRenderer extends AbstractMenuItemRenderer <HCUL>
   }
 
   @Override
-  public void onLevelDown (@Nonnull final HCUL aNewLevel)
+  public void onLevelDown (@NonNull final HCUL aNewLevel)
   {
     aNewLevel.addClass (CBootstrapCSS.NAV);
   }
 
   @Override
-  public void onMenuItemPageItem (@Nonnull final ISimpleWebExecutionContext aSWEC,
-                                  @Nonnull final HCLI aLI,
+  public void onMenuItemPageItem (@NonNull final ISimpleWebExecutionContext aSWEC,
+                                  @NonNull final HCLI aLI,
                                   final boolean bHasChildren,
                                   final boolean bSelected,
                                   final boolean bExpanded)
@@ -158,8 +158,8 @@ public class BootstrapMenuItemRenderer extends AbstractMenuItemRenderer <HCUL>
   }
 
   @Override
-  public void onMenuItemExternalItem (@Nonnull final ISimpleWebExecutionContext aSWEC,
-                                      @Nonnull final HCLI aLI,
+  public void onMenuItemExternalItem (@NonNull final ISimpleWebExecutionContext aSWEC,
+                                      @NonNull final HCLI aLI,
                                       final boolean bHasChildren,
                                       final boolean bSelected,
                                       final boolean bExpanded)
@@ -168,33 +168,33 @@ public class BootstrapMenuItemRenderer extends AbstractMenuItemRenderer <HCUL>
       aLI.addClass (CBootstrapCSS.ACTIVE);
   }
 
-  @Nonnull
-  public static IHCElement <?> createSideBarMenu (@Nonnull final ILayoutExecutionContext aLEC)
+  @NonNull
+  public static IHCElement <?> createSideBarMenu (@NonNull final ILayoutExecutionContext aLEC)
   {
     final IMenuTree aMenuTree = aLEC.getMenuTree ();
     return createSideBarMenu (aLEC, new MenuItemDeterminatorCallback (aMenuTree, aLEC.getSelectedMenuItemID ()));
   }
 
-  @Nonnull
-  public static IHCElement <?> createSideBarMenu (@Nonnull final ILayoutExecutionContext aLEC,
-                                                  @Nonnull final MenuItemDeterminatorCallback aDeterminator)
+  @NonNull
+  public static IHCElement <?> createSideBarMenu (@NonNull final ILayoutExecutionContext aLEC,
+                                                  @NonNull final MenuItemDeterminatorCallback aDeterminator)
   {
     return createSideBarMenu (aLEC, aLEC.getMenuTree (), aDeterminator);
   }
 
-  @Nonnull
-  public static IHCElement <?> createSideBarMenu (@Nonnull final ILayoutExecutionContext aLEC,
-                                                  @Nonnull final IMenuTree aMenuTree,
-                                                  @Nonnull final MenuItemDeterminatorCallback aDeterminator)
+  @NonNull
+  public static IHCElement <?> createSideBarMenu (@NonNull final ILayoutExecutionContext aLEC,
+                                                  @NonNull final IMenuTree aMenuTree,
+                                                  @NonNull final MenuItemDeterminatorCallback aDeterminator)
   {
     return createSideBarMenu (aLEC, aMenuTree, aDeterminator, new BootstrapMenuItemRenderer (aLEC.getDisplayLocale ()));
   }
 
-  @Nonnull
-  public static IHCElement <?> createSideBarMenu (@Nonnull final ILayoutExecutionContext aLEC,
-                                                  @Nonnull final IMenuTree aMenuTree,
-                                                  @Nonnull final IMenuItemDeterminatorCallback aDeterminator,
-                                                  @Nonnull final BootstrapMenuItemRenderer aRenderer)
+  @NonNull
+  public static IHCElement <?> createSideBarMenu (@NonNull final ILayoutExecutionContext aLEC,
+                                                  @NonNull final IMenuTree aMenuTree,
+                                                  @NonNull final IMenuItemDeterminatorCallback aDeterminator,
+                                                  @NonNull final BootstrapMenuItemRenderer aRenderer)
   {
     final ICommonsMap <String, Boolean> aAllDisplayMenuItemIDs = MenuItemDeterminatorCallback.getAllDisplayMenuItemIDs (aDeterminator);
     final HCUL aUL = MenuRendererCallback.createRenderedMenu (aLEC,

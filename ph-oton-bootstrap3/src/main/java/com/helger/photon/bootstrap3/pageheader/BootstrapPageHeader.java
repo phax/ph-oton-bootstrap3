@@ -16,11 +16,11 @@
  */
 package com.helger.photon.bootstrap3.pageheader;
 
+import org.jspecify.annotations.Nullable;
+
 import com.helger.html.hc.IHCNode;
 import com.helger.html.hc.html.grouping.AbstractHCDiv;
 import com.helger.photon.bootstrap3.CBootstrapCSS;
-
-import jakarta.annotation.Nullable;
 
 /**
  * Bootstrap3 page header.

@@ -20,6 +20,9 @@ import java.util.Collection;
 import java.util.Locale;
 import java.util.Map;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.annotation.Nonempty;
 import com.helger.annotation.misc.Translatable;
 import com.helger.annotation.style.OverrideOnDemand;
@@ -65,9 +68,6 @@ import com.helger.text.util.TextHelper;
 import com.helger.typeconvert.collection.IStringMap;
 import com.helger.url.ISimpleURL;
 
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
-
 /**
  * Show information on all logged in users.
  *
@@ -105,7 +105,7 @@ public class BasePageMonitoringLoginInfo <WPECTYPE extends IWebPageExecutionCont
     }
 
     @Nullable
-    public String getDisplayText (@Nonnull final Locale aContentLocale)
+    public String getDisplayText (@NonNull final Locale aContentLocale)
     {
       return DefaultTextResolver.getTextStatic (this, m_aTP, aContentLocale);
     }
@@ -117,8 +117,8 @@ public class BasePageMonitoringLoginInfo <WPECTYPE extends IWebPageExecutionCont
   {
     addCustomHandler (ACTION_LOGOUT_USER, new AbstractBootstrapWebPageActionHandler <LoginInfo, WPECTYPE> (true)
     {
-      @Nonnull
-      public EShowList handleAction (@Nonnull final WPECTYPE aWPEC, @Nonnull final LoginInfo aSelectedObject)
+      @NonNull
+      public EShowList handleAction (@NonNull final WPECTYPE aWPEC, @NonNull final LoginInfo aSelectedObject)
       {
         if (!canLogoutUser (aWPEC, aSelectedObject.getUser ()))
           throw new IllegalStateException ("Won't work!");
@@ -162,26 +162,26 @@ public class BasePageMonitoringLoginInfo <WPECTYPE extends IWebPageExecutionCont
     setObjectLockingEnabled (true);
   }
 
-  public BasePageMonitoringLoginInfo (@Nonnull @Nonempty final String sID)
+  public BasePageMonitoringLoginInfo (@NonNull @Nonempty final String sID)
   {
     super (sID, EWebPageText.PAGE_NAME_MONITORING_LOGIN_INFO.getAsMLT ());
     _init ();
   }
 
-  public BasePageMonitoringLoginInfo (@Nonnull @Nonempty final String sID, @Nonnull @Nonempty final String sName)
+  public BasePageMonitoringLoginInfo (@NonNull @Nonempty final String sID, @NonNull @Nonempty final String sName)
   {
     super (sID, sName);
     _init ();
   }
 
-  public BasePageMonitoringLoginInfo (@Nonnull @Nonempty final String sID, @Nonnull final String sName, @Nullable final String sDescription)
+  public BasePageMonitoringLoginInfo (@NonNull @Nonempty final String sID, @NonNull final String sName, @Nullable final String sDescription)
   {
     super (sID, sName, sDescription);
     _init ();
   }
 
-  public BasePageMonitoringLoginInfo (@Nonnull @Nonempty final String sID,
-                                      @Nonnull final IMultilingualText aName,
+  public BasePageMonitoringLoginInfo (@NonNull @Nonempty final String sID,
+                                      @NonNull final IMultilingualText aName,
                                       @Nullable final IMultilingualText aDescription)
   {
     super (sID, aName, aDescription);
@@ -190,7 +190,7 @@ public class BasePageMonitoringLoginInfo <WPECTYPE extends IWebPageExecutionCont
 
   @Override
   @Nullable
-  protected String getObjectDisplayName (@Nonnull final WPECTYPE aWPEC, @Nonnull final LoginInfo aSelectedObject)
+  protected String getObjectDisplayName (@NonNull final WPECTYPE aWPEC, @NonNull final LoginInfo aSelectedObject)
   {
     final Locale aDisplayLocale = aWPEC.getDisplayLocale ();
     return SecurityHelper.getUserDisplayName (aSelectedObject.getUser (), aDisplayLocale);
@@ -198,14 +198,14 @@ public class BasePageMonitoringLoginInfo <WPECTYPE extends IWebPageExecutionCont
 
   @Override
   @Nullable
-  protected LoginInfo getSelectedObject (@Nonnull final WPECTYPE aWPEC, @Nullable final String sID)
+  protected LoginInfo getSelectedObject (@NonNull final WPECTYPE aWPEC, @Nullable final String sID)
   {
     return LoggedInUserManager.getInstance ().getLoginInfo (sID);
   }
 
   @Override
-  protected boolean isActionAllowed (@Nonnull final WPECTYPE aWPEC,
-                                     @Nonnull final EWebPageFormAction eFormAction,
+  protected boolean isActionAllowed (@NonNull final WPECTYPE aWPEC,
+                                     @NonNull final EWebPageFormAction eFormAction,
                                      @Nullable final LoginInfo aSelectedObject)
   {
     if (eFormAction.isEdit ())
@@ -214,7 +214,7 @@ public class BasePageMonitoringLoginInfo <WPECTYPE extends IWebPageExecutionCont
   }
 
   @Override
-  protected void showSelectedObject (@Nonnull final WPECTYPE aWPEC, @Nonnull final LoginInfo aSelectedObject)
+  protected void showSelectedObject (@NonNull final WPECTYPE aWPEC, @NonNull final LoginInfo aSelectedObject)
   {
     final HCNodeList aNodeList = aWPEC.getNodeList ();
     final Locale aDisplayLocale = aWPEC.getDisplayLocale ();
@@ -256,26 +256,26 @@ public class BasePageMonitoringLoginInfo <WPECTYPE extends IWebPageExecutionCont
   }
 
   @Override
-  protected void validateAndSaveInputParameters (@Nonnull final WPECTYPE aWPEC,
+  protected void validateAndSaveInputParameters (@NonNull final WPECTYPE aWPEC,
                                                  @Nullable final LoginInfo aSelectedObject,
-                                                 @Nonnull final FormErrorList aFormErrors,
-                                                 @Nonnull final EWebPageFormAction eFormAction)
+                                                 @NonNull final FormErrorList aFormErrors,
+                                                 @NonNull final EWebPageFormAction eFormAction)
   {
     throw new UnsupportedOperationException ();
   }
 
   @Override
-  protected void showInputForm (@Nonnull final WPECTYPE aWPEC,
+  protected void showInputForm (@NonNull final WPECTYPE aWPEC,
                                 @Nullable final LoginInfo aSelectedObject,
-                                @Nonnull final BootstrapForm aForm,
+                                @NonNull final BootstrapForm aForm,
                                 final boolean bIsFormSubmitted,
-                                @Nonnull final EWebPageFormAction eFormAction,
-                                @Nonnull final FormErrorList aFormErrors)
+                                @NonNull final EWebPageFormAction eFormAction,
+                                @NonNull final FormErrorList aFormErrors)
   {
     throw new UnsupportedOperationException ();
   }
 
-  protected static final boolean canLogoutUser (@Nonnull final ISimpleWebExecutionContext aSWEC, @Nullable final IUser aUser)
+  protected static final boolean canLogoutUser (@NonNull final ISimpleWebExecutionContext aSWEC, @Nullable final IUser aUser)
   {
     if (aUser == null)
       return false;
@@ -292,7 +292,7 @@ public class BasePageMonitoringLoginInfo <WPECTYPE extends IWebPageExecutionCont
   }
 
   @Override
-  protected void showListOfExistingObjects (@Nonnull final WPECTYPE aWPEC)
+  protected void showListOfExistingObjects (@NonNull final WPECTYPE aWPEC)
   {
     final Locale aDisplayLocale = aWPEC.getDisplayLocale ();
     final HCNodeList aNodeList = aWPEC.getNodeList ();

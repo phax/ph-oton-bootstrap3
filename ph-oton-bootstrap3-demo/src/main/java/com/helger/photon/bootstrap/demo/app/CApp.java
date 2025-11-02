@@ -19,14 +19,14 @@ package com.helger.photon.bootstrap.demo.app;
 import java.util.List;
 import java.util.Locale;
 
+import org.jspecify.annotations.NonNull;
+
 import com.helger.annotation.concurrent.Immutable;
 import com.helger.annotation.style.CodingStyleguideUnaware;
 import com.helger.collection.commons.CommonsArrayList;
 import com.helger.collection.commons.ICommonsMap;
 import com.helger.photon.security.CSecurity;
 import com.helger.text.locale.LocaleCache;
-
-import jakarta.annotation.Nonnull;
 
 /**
  * Contains application wide constants.
@@ -83,7 +83,7 @@ public final class CApp
   private CApp ()
   {}
 
-  @Nonnull
+  @NonNull
   public static String getApplicationTitle ()
   {
     return APPLICATION_TITLE + (AppSettings.isTestVersion () ? " [TEST]" : "");

@@ -16,10 +16,10 @@
  */
 package com.helger.photon.bootstrap3.uictrls.datetimepicker;
 
+import org.jspecify.annotations.NonNull;
+
 import com.helger.html.jscode.IJSExpression;
 import com.helger.html.jscode.JSExpr;
-
-import jakarta.annotation.Nonnull;
 
 /**
  * Defines the different today types of DTP.
@@ -34,12 +34,12 @@ public enum EDateTimePickerTodayType
 
   private final IJSExpression m_aJSValue;
 
-  EDateTimePickerTodayType (@Nonnull final IJSExpression aJSValue)
+  EDateTimePickerTodayType (@NonNull final IJSExpression aJSValue)
   {
     m_aJSValue = aJSValue;
   }
 
-  @Nonnull
+  @NonNull
   public IJSExpression getJSValue ()
   {
     return m_aJSValue;

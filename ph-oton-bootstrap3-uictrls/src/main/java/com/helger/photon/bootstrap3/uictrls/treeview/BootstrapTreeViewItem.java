@@ -16,6 +16,8 @@
  */
 package com.helger.photon.bootstrap3.uictrls.treeview;
 
+import org.jspecify.annotations.NonNull;
+
 import com.helger.annotation.concurrent.NotThreadSafe;
 import com.helger.annotation.style.ReturnsMutableCopy;
 import com.helger.base.enforce.ValueEnforcer;
@@ -25,8 +27,6 @@ import com.helger.html.jscode.IJSExpression;
 import com.helger.html.jscode.JSAssocArray;
 import com.helger.html.jscode.JSExpr;
 
-import jakarta.annotation.Nonnull;
-
 @NotThreadSafe
 public class BootstrapTreeViewItem
 {
@@ -35,22 +35,22 @@ public class BootstrapTreeViewItem
   private boolean m_bDisabled = false;
   private boolean m_bChecked = false;
 
-  public BootstrapTreeViewItem (@Nonnull final IHCNode aText)
+  public BootstrapTreeViewItem (@NonNull final IHCNode aText)
   {
     this (HCRenderer.getAsHTMLStringWithoutNamespaces (aText));
   }
 
-  public BootstrapTreeViewItem (@Nonnull final String sText)
+  public BootstrapTreeViewItem (@NonNull final String sText)
   {
     this (JSExpr.lit (sText));
   }
 
-  public BootstrapTreeViewItem (@Nonnull final IJSExpression aText)
+  public BootstrapTreeViewItem (@NonNull final IJSExpression aText)
   {
     m_aText = ValueEnforcer.notNull (aText, "Text");
   }
 
-  @Nonnull
+  @NonNull
   public IJSExpression getText ()
   {
     return m_aText;
@@ -86,7 +86,7 @@ public class BootstrapTreeViewItem
     return m_bChecked;
   }
 
-  @Nonnull
+  @NonNull
   @ReturnsMutableCopy
   public JSAssocArray getAsJSAssocArray ()
   {

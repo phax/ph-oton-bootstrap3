@@ -19,6 +19,9 @@ package com.helger.photon.bootstrap3.pages.settings;
 import java.nio.charset.Charset;
 import java.util.Locale;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.annotation.Nonempty;
 import com.helger.annotation.misc.Translatable;
 import com.helger.annotation.style.OverrideOnDemand;
@@ -87,9 +90,6 @@ import com.helger.text.display.IHasDisplayTextWithArgs;
 import com.helger.text.resolve.DefaultTextResolver;
 import com.helger.text.util.TextHelper;
 import com.helger.url.ISimpleURL;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 public class BasePageSettingsSMTP <WPECTYPE extends IWebPageExecutionContext> extends
                                   AbstractBootstrapWebPageForm <NamedSMTPSettings, WPECTYPE>
@@ -163,7 +163,7 @@ public class BasePageSettingsSMTP <WPECTYPE extends IWebPageExecutionContext> ex
     }
 
     @Nullable
-    public String getDisplayText (@Nonnull final Locale aContentLocale)
+    public String getDisplayText (@NonNull final Locale aContentLocale)
     {
       return DefaultTextResolver.getTextStatic (this, m_aTP, aContentLocale);
     }
@@ -196,8 +196,8 @@ public class BasePageSettingsSMTP <WPECTYPE extends IWebPageExecutionContext> ex
     setDeleteHandler (new AbstractBootstrapWebPageActionHandlerDelete <NamedSMTPSettings, WPECTYPE> ()
     {
       @Override
-      protected void showQuery (@Nonnull final WPECTYPE aWPEC,
-                                @Nonnull final BootstrapForm aForm,
+      protected void showQuery (@NonNull final WPECTYPE aWPEC,
+                                @NonNull final BootstrapForm aForm,
                                 @Nullable final NamedSMTPSettings aSelectedObject)
       {
         final Locale aDisplayLocale = aWPEC.getDisplayLocale ();
@@ -206,7 +206,7 @@ public class BasePageSettingsSMTP <WPECTYPE extends IWebPageExecutionContext> ex
       }
 
       @Override
-      protected void performAction (@Nonnull final WPECTYPE aWPEC, @Nullable final NamedSMTPSettings aSelectedObject)
+      protected void performAction (@NonNull final WPECTYPE aWPEC, @Nullable final NamedSMTPSettings aSelectedObject)
       {
         final Locale aDisplayLocale = aWPEC.getDisplayLocale ();
 
@@ -224,7 +224,7 @@ public class BasePageSettingsSMTP <WPECTYPE extends IWebPageExecutionContext> ex
     });
     addCustomHandler (ACTION_TEST_MAIL, new AbstractBootstrapWebPageActionHandler <NamedSMTPSettings, WPECTYPE> (true)
     {
-      @Nonnull
+      @NonNull
       public EShowList handleAction (final WPECTYPE aWPEC, final NamedSMTPSettings aSelectedObject)
       {
         final Locale aDisplayLocale = aWPEC.getDisplayLocale ();
@@ -299,25 +299,25 @@ public class BasePageSettingsSMTP <WPECTYPE extends IWebPageExecutionContext> ex
     setObjectLockingEnabled (true);
   }
 
-  public BasePageSettingsSMTP (@Nonnull final NamedSMTPSettingsManager aMgr, @Nonnull @Nonempty final String sID)
+  public BasePageSettingsSMTP (@NonNull final NamedSMTPSettingsManager aMgr, @NonNull @Nonempty final String sID)
   {
     super (sID, EWebPageText.PAGE_NAME_SETTINGS_SMTP.getAsMLT ());
     m_aMgr = ValueEnforcer.notNull (aMgr, "NamedSMTPSettingsManager");
     _init ();
   }
 
-  public BasePageSettingsSMTP (@Nonnull final NamedSMTPSettingsManager aMgr,
-                               @Nonnull @Nonempty final String sID,
-                               @Nonnull @Nonempty final String sName)
+  public BasePageSettingsSMTP (@NonNull final NamedSMTPSettingsManager aMgr,
+                               @NonNull @Nonempty final String sID,
+                               @NonNull @Nonempty final String sName)
   {
     super (sID, sName);
     m_aMgr = ValueEnforcer.notNull (aMgr, "NamedSMTPSettingsManager");
     _init ();
   }
 
-  public BasePageSettingsSMTP (@Nonnull final NamedSMTPSettingsManager aMgr,
-                               @Nonnull @Nonempty final String sID,
-                               @Nonnull final String sName,
+  public BasePageSettingsSMTP (@NonNull final NamedSMTPSettingsManager aMgr,
+                               @NonNull @Nonempty final String sID,
+                               @NonNull final String sName,
                                @Nullable final String sDescription)
   {
     super (sID, sName, sDescription);
@@ -325,9 +325,9 @@ public class BasePageSettingsSMTP <WPECTYPE extends IWebPageExecutionContext> ex
     _init ();
   }
 
-  public BasePageSettingsSMTP (@Nonnull final NamedSMTPSettingsManager aMgr,
-                               @Nonnull @Nonempty final String sID,
-                               @Nonnull final IMultilingualText aName,
+  public BasePageSettingsSMTP (@NonNull final NamedSMTPSettingsManager aMgr,
+                               @NonNull @Nonempty final String sID,
+                               @NonNull final IMultilingualText aName,
                                @Nullable final IMultilingualText aDescription)
   {
     super (sID, aName, aDescription);
@@ -337,15 +337,15 @@ public class BasePageSettingsSMTP <WPECTYPE extends IWebPageExecutionContext> ex
 
   @Override
   @Nullable
-  protected String getObjectDisplayName (@Nonnull final WPECTYPE aWPEC,
-                                         @Nonnull final NamedSMTPSettings aSelectedObject)
+  protected String getObjectDisplayName (@NonNull final WPECTYPE aWPEC,
+                                         @NonNull final NamedSMTPSettings aSelectedObject)
   {
     return aSelectedObject.getName ();
   }
 
   @Override
   @Nullable
-  protected NamedSMTPSettings getSelectedObject (@Nonnull final WPECTYPE aWPEC, @Nullable final String sID)
+  protected NamedSMTPSettings getSelectedObject (@NonNull final WPECTYPE aWPEC, @Nullable final String sID)
   {
     return m_aMgr.getSettings (sID);
   }
@@ -356,8 +356,8 @@ public class BasePageSettingsSMTP <WPECTYPE extends IWebPageExecutionContext> ex
   }
 
   @Override
-  protected boolean isActionAllowed (@Nonnull final WPECTYPE aWPEC,
-                                     @Nonnull final EWebPageFormAction eFormAction,
+  protected boolean isActionAllowed (@NonNull final WPECTYPE aWPEC,
+                                     @NonNull final EWebPageFormAction eFormAction,
                                      @Nullable final NamedSMTPSettings aSelectedObject)
   {
     if (eFormAction.isDelete ())
@@ -366,7 +366,7 @@ public class BasePageSettingsSMTP <WPECTYPE extends IWebPageExecutionContext> ex
   }
 
   @Override
-  protected void showSelectedObject (@Nonnull final WPECTYPE aWPEC, @Nonnull final NamedSMTPSettings aSelectedObject)
+  protected void showSelectedObject (@NonNull final WPECTYPE aWPEC, @NonNull final NamedSMTPSettings aSelectedObject)
   {
     final HCNodeList aNodeList = aWPEC.getNodeList ();
     final Locale aDisplayLocale = aWPEC.getDisplayLocale ();
@@ -412,10 +412,10 @@ public class BasePageSettingsSMTP <WPECTYPE extends IWebPageExecutionContext> ex
   }
 
   @Override
-  protected void validateAndSaveInputParameters (@Nonnull final WPECTYPE aWPEC,
+  protected void validateAndSaveInputParameters (@NonNull final WPECTYPE aWPEC,
                                                  @Nullable final NamedSMTPSettings aSelectedObject,
-                                                 @Nonnull final FormErrorList aFormErrors,
-                                                 @Nonnull final EWebPageFormAction eFormAction)
+                                                 @NonNull final FormErrorList aFormErrors,
+                                                 @NonNull final EWebPageFormAction eFormAction)
   {
     final Locale aDisplayLocale = aWPEC.getDisplayLocale ();
 
@@ -493,12 +493,12 @@ public class BasePageSettingsSMTP <WPECTYPE extends IWebPageExecutionContext> ex
   }
 
   @Override
-  protected void showInputForm (@Nonnull final WPECTYPE aWPEC,
+  protected void showInputForm (@NonNull final WPECTYPE aWPEC,
                                 @Nullable final NamedSMTPSettings aSelectedObject,
-                                @Nonnull final BootstrapForm aForm,
+                                @NonNull final BootstrapForm aForm,
                                 final boolean bIsFormSubmitted,
-                                @Nonnull final EWebPageFormAction eFormAction,
-                                @Nonnull final FormErrorList aFormErrors)
+                                @NonNull final EWebPageFormAction eFormAction,
+                                @NonNull final FormErrorList aFormErrors)
   {
     final Locale aDisplayLocale = aWPEC.getDisplayLocale ();
     final ISMTPSettings aSettings = aSelectedObject == null ? null : aSelectedObject.getSMTPSettings ();
@@ -632,7 +632,7 @@ public class BasePageSettingsSMTP <WPECTYPE extends IWebPageExecutionContext> ex
   }
 
   @Override
-  protected void showListOfExistingObjects (@Nonnull final WPECTYPE aWPEC)
+  protected void showListOfExistingObjects (@NonNull final WPECTYPE aWPEC)
   {
     final Locale aDisplayLocale = aWPEC.getDisplayLocale ();
     final HCNodeList aNodeList = aWPEC.getNodeList ();

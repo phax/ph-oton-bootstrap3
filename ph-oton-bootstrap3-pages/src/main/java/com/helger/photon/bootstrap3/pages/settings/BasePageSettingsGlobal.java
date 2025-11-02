@@ -18,6 +18,9 @@ package com.helger.photon.bootstrap3.pages.settings;
 
 import java.util.Locale;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.annotation.Nonempty;
 import com.helger.annotation.misc.Translatable;
 import com.helger.base.debug.GlobalDebug;
@@ -44,8 +47,6 @@ import com.helger.text.display.IHasDisplayText;
 import com.helger.text.resolve.DefaultTextResolver;
 import com.helger.text.util.TextHelper;
 
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 import jakarta.mail.event.ConnectionListener;
 
 /**
@@ -84,7 +85,7 @@ public class BasePageSettingsGlobal <WPECTYPE extends IWebPageExecutionContext> 
     }
 
     @Nullable
-    public String getDisplayText (@Nonnull final Locale aContentLocale)
+    public String getDisplayText (@NonNull final Locale aContentLocale)
     {
       return DefaultTextResolver.getTextStatic (this, m_aTP, aContentLocale);
     }
@@ -93,32 +94,32 @@ public class BasePageSettingsGlobal <WPECTYPE extends IWebPageExecutionContext> 
   private static final String FIELD_GLOBAL_DEBUG = "global-debug";
   private static final String FIELD_GLOBAL_PRODUCTION = "global-production";
 
-  public BasePageSettingsGlobal (@Nonnull @Nonempty final String sID)
+  public BasePageSettingsGlobal (@NonNull @Nonempty final String sID)
   {
     super (sID, EWebPageText.PAGE_NAME_SETTINGS_GLOBAL.getAsMLT ());
   }
 
-  public BasePageSettingsGlobal (@Nonnull @Nonempty final String sID, @Nonnull final String sName)
+  public BasePageSettingsGlobal (@NonNull @Nonempty final String sID, @NonNull final String sName)
   {
     super (sID, sName);
   }
 
-  public BasePageSettingsGlobal (@Nonnull @Nonempty final String sID,
-                                 @Nonnull final String sName,
+  public BasePageSettingsGlobal (@NonNull @Nonempty final String sID,
+                                 @NonNull final String sName,
                                  @Nullable final String sDescription)
   {
     super (sID, sName, sDescription);
   }
 
-  public BasePageSettingsGlobal (@Nonnull @Nonempty final String sID,
-                                 @Nonnull final IMultilingualText aName,
+  public BasePageSettingsGlobal (@NonNull @Nonempty final String sID,
+                                 @NonNull final IMultilingualText aName,
                                  @Nullable final IMultilingualText aDescription)
   {
     super (sID, aName, aDescription);
   }
 
   @Override
-  protected void fillContent (@Nonnull final WPECTYPE aWPEC)
+  protected void fillContent (@NonNull final WPECTYPE aWPEC)
   {
     final HCNodeList aNodeList = aWPEC.getNodeList ();
     final Locale aDisplayLocale = aWPEC.getDisplayLocale ();

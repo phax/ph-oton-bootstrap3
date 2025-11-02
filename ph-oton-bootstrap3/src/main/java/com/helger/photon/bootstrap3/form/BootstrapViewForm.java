@@ -18,6 +18,8 @@ package com.helger.photon.bootstrap3.form;
 
 import java.util.Locale;
 
+import org.jspecify.annotations.NonNull;
+
 import com.helger.annotation.Nonnegative;
 import com.helger.annotation.OverridingMethodsMustInvokeSuper;
 import com.helger.annotation.concurrent.NotThreadSafe;
@@ -30,8 +32,6 @@ import com.helger.html.hc.html.grouping.AbstractHCDiv;
 import com.helger.photon.bootstrap3.CBootstrap;
 import com.helger.photon.bootstrap3.grid.BootstrapGridSpec;
 import com.helger.xml.microdom.IMicroElement;
-
-import jakarta.annotation.Nonnull;
 
 @NotThreadSafe
 public class BootstrapViewForm extends AbstractHCDiv <BootstrapViewForm> implements IMutableBootstrapFormGroupContainer
@@ -55,7 +55,7 @@ public class BootstrapViewForm extends AbstractHCDiv <BootstrapViewForm> impleme
     setFormType (EBootstrapFormType.HORIZONTAL);
   }
 
-  @Nonnull
+  @NonNull
   public final EBootstrapFormType getFormType ()
   {
     return m_eFormType;
@@ -66,8 +66,8 @@ public class BootstrapViewForm extends AbstractHCDiv <BootstrapViewForm> impleme
    *        The form type to be used. May not be <code>null</code>.
    * @return this
    */
-  @Nonnull
-  public final BootstrapViewForm setFormType (@Nonnull final EBootstrapFormType eFormType)
+  @NonNull
+  public final BootstrapViewForm setFormType (@NonNull final EBootstrapFormType eFormType)
   {
     ValueEnforcer.notNull (eFormType, "FormType");
 
@@ -80,19 +80,19 @@ public class BootstrapViewForm extends AbstractHCDiv <BootstrapViewForm> impleme
     return this;
   }
 
-  @Nonnull
+  @NonNull
   public final BootstrapGridSpec getLeft ()
   {
     return m_aLeftGrid;
   }
 
-  @Nonnull
+  @NonNull
   public final BootstrapGridSpec getRight ()
   {
     return m_aRightGrid;
   }
 
-  @Nonnull
+  @NonNull
   @OverridingMethodsMustInvokeSuper
   public BootstrapViewForm setLeft (@Nonnegative final int nLeftParts)
   {
@@ -106,7 +106,7 @@ public class BootstrapViewForm extends AbstractHCDiv <BootstrapViewForm> impleme
     return CBootstrap.GRID_SYSTEM_MAX - nLeft;
   }
 
-  @Nonnull
+  @NonNull
   @OverridingMethodsMustInvokeSuper
   public BootstrapViewForm setLeft (@Nonnegative final int nLeftPartsXS,
                                     @Nonnegative final int nLeftPartsSM,
@@ -129,10 +129,10 @@ public class BootstrapViewForm extends AbstractHCDiv <BootstrapViewForm> impleme
     return setSplitting (aNewLeft, aNewRight);
   }
 
-  @Nonnull
+  @NonNull
   @OverridingMethodsMustInvokeSuper
-  public BootstrapViewForm setSplitting (@Nonnull final BootstrapGridSpec aLeft,
-                                         @Nonnull final BootstrapGridSpec aRight)
+  public BootstrapViewForm setSplitting (@NonNull final BootstrapGridSpec aLeft,
+                                         @NonNull final BootstrapGridSpec aRight)
   {
     ValueEnforcer.notNull (aLeft, "Left");
     ValueEnforcer.notNull (aRight, "Right");
@@ -141,29 +141,29 @@ public class BootstrapViewForm extends AbstractHCDiv <BootstrapViewForm> impleme
     return this;
   }
 
-  @Nonnull
+  @NonNull
   public IBootstrapFormGroupRenderer getFormGroupRenderer ()
   {
     return m_aFormGroupRenderer;
   }
 
-  @Nonnull
-  public BootstrapViewForm setFormGroupRenderer (@Nonnull final IBootstrapFormGroupRenderer aFormGroupRenderer)
+  @NonNull
+  public BootstrapViewForm setFormGroupRenderer (@NonNull final IBootstrapFormGroupRenderer aFormGroupRenderer)
   {
     m_aFormGroupRenderer = ValueEnforcer.notNull (aFormGroupRenderer, "FormGroupRenderer");
     return this;
   }
 
-  @Nonnull
-  public IHCElementWithChildren <?> getRenderedFormGroup (@Nonnull final BootstrapFormGroup aFormGroup)
+  @NonNull
+  public IHCElementWithChildren <?> getRenderedFormGroup (@NonNull final BootstrapFormGroup aFormGroup)
   {
     // TODO find Locale for rendering
     // Usually no error texts are used; so this is not sooo important
     return m_aFormGroupRenderer.renderFormGroup (this, aFormGroup, Locale.US);
   }
 
-  @Nonnull
-  public BootstrapViewForm addFormGroup (@Nonnull final BootstrapFormGroup aFormGroup)
+  @NonNull
+  public BootstrapViewForm addFormGroup (@NonNull final BootstrapFormGroup aFormGroup)
   {
     // Must be added directly and cannot be added via a proxy, because
     // otherwise, the adding may happen after the out of band nodes were
@@ -176,7 +176,7 @@ public class BootstrapViewForm extends AbstractHCDiv <BootstrapViewForm> impleme
     return m_bCondensed;
   }
 
-  @Nonnull
+  @NonNull
   public BootstrapViewForm setCondensed (final boolean bCondensed)
   {
     m_bCondensed = bCondensed;

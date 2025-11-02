@@ -16,11 +16,11 @@
  */
 package com.helger.photon.bootstrap3.modal;
 
+import org.jspecify.annotations.NonNull;
+
 import com.helger.photon.bootstrap3.button.BootstrapButton;
 import com.helger.photon.bootstrap3.button.EBootstrapButtonSize;
 import com.helger.photon.bootstrap3.button.EBootstrapButtonType;
-
-import jakarta.annotation.Nonnull;
 
 /**
  * A special button that closes the current modal. This button may only be used
@@ -40,19 +40,19 @@ public class BootstrapModalCloseButton extends BootstrapButton
     _init ();
   }
 
-  public BootstrapModalCloseButton (@Nonnull final EBootstrapButtonType eButtonType)
+  public BootstrapModalCloseButton (@NonNull final EBootstrapButtonType eButtonType)
   {
     super (eButtonType);
     _init ();
   }
 
-  public BootstrapModalCloseButton (@Nonnull final EBootstrapButtonSize eButtonSize)
+  public BootstrapModalCloseButton (@NonNull final EBootstrapButtonSize eButtonSize)
   {
     super (eButtonSize);
     _init ();
   }
 
-  public BootstrapModalCloseButton (@Nonnull final EBootstrapButtonType eButtonType, @Nonnull final EBootstrapButtonSize eButtonSize)
+  public BootstrapModalCloseButton (@NonNull final EBootstrapButtonType eButtonType, @NonNull final EBootstrapButtonSize eButtonSize)
   {
     super (eButtonType, eButtonSize);
     _init ();

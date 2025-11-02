@@ -16,6 +16,9 @@
  */
 package com.helger.photon.bootstrap3.button;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.annotation.OverridingMethodsMustInvokeSuper;
 import com.helger.annotation.style.OverrideOnDemand;
 import com.helger.base.enforce.ValueEnforcer;
@@ -27,9 +30,6 @@ import com.helger.html.hc.html.textlevel.AbstractHCA;
 import com.helger.html.hc.impl.HCTextNode;
 import com.helger.photon.bootstrap3.CBootstrapCSS;
 import com.helger.photon.uicore.icon.IIcon;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 /**
  * Bootstrap button based on an &lt;a&gt;
@@ -47,17 +47,17 @@ public class BootstrapLinkButton extends AbstractHCA <BootstrapLinkButton>
     this (EBootstrapButtonType.DEFAULT, EBootstrapButtonSize.DEFAULT);
   }
 
-  public BootstrapLinkButton (@Nonnull final EBootstrapButtonType eButtonType)
+  public BootstrapLinkButton (@NonNull final EBootstrapButtonType eButtonType)
   {
     this (eButtonType, EBootstrapButtonSize.DEFAULT);
   }
 
-  public BootstrapLinkButton (@Nonnull final EBootstrapButtonSize eButtonSize)
+  public BootstrapLinkButton (@NonNull final EBootstrapButtonSize eButtonSize)
   {
     this (EBootstrapButtonType.DEFAULT, eButtonSize);
   }
 
-  public BootstrapLinkButton (@Nonnull final EBootstrapButtonType eButtonType, @Nonnull final EBootstrapButtonSize eButtonSize)
+  public BootstrapLinkButton (@NonNull final EBootstrapButtonType eButtonType, @NonNull final EBootstrapButtonSize eButtonSize)
   {
     setRole (EHTMLRole.BUTTON);
     addClass (CBootstrapCSS.BTN);
@@ -65,14 +65,14 @@ public class BootstrapLinkButton extends AbstractHCA <BootstrapLinkButton>
     setButtonSize (eButtonSize);
   }
 
-  @Nonnull
+  @NonNull
   public EBootstrapButtonType getButtonType ()
   {
     return m_eButtonType;
   }
 
-  @Nonnull
-  public final BootstrapLinkButton setButtonType (@Nonnull final EBootstrapButtonType eButtonType)
+  @NonNull
+  public final BootstrapLinkButton setButtonType (@NonNull final EBootstrapButtonType eButtonType)
   {
     m_eButtonType = ValueEnforcer.notNull (eButtonType, "ButtonType");
     return this;
@@ -84,8 +84,8 @@ public class BootstrapLinkButton extends AbstractHCA <BootstrapLinkButton>
     return m_eButtonSize;
   }
 
-  @Nonnull
-  public final BootstrapLinkButton setButtonSize (@Nonnull final EBootstrapButtonSize eButtonSize)
+  @NonNull
+  public final BootstrapLinkButton setButtonSize (@NonNull final EBootstrapButtonSize eButtonSize)
   {
     m_eButtonSize = ValueEnforcer.notNull (eButtonSize, "ButtonSize");
     return this;
@@ -97,7 +97,7 @@ public class BootstrapLinkButton extends AbstractHCA <BootstrapLinkButton>
     return m_aIcon;
   }
 
-  @Nonnull
+  @NonNull
   public final BootstrapLinkButton setIcon (@Nullable final IIcon aIcon)
   {
     m_aIcon = aIcon;
@@ -107,8 +107,8 @@ public class BootstrapLinkButton extends AbstractHCA <BootstrapLinkButton>
   @Override
   @OverrideOnDemand
   @OverridingMethodsMustInvokeSuper
-  protected void onFinalizeNodeState (@Nonnull final IHCConversionSettingsToNode aConversionSettings,
-                                      @Nonnull final IHCHasChildrenMutable <?, ? super IHCNode> aTargetNode)
+  protected void onFinalizeNodeState (@NonNull final IHCConversionSettingsToNode aConversionSettings,
+                                      @NonNull final IHCHasChildrenMutable <?, ? super IHCNode> aTargetNode)
   {
     super.onFinalizeNodeState (aConversionSettings, aTargetNode);
     // apply type and size

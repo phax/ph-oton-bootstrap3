@@ -16,12 +16,12 @@
  */
 package com.helger.photon.bootstrap3.form;
 
+import org.jspecify.annotations.Nullable;
+
 import com.helger.html.css.ICSSClassProvider;
 import com.helger.html.hc.html.IHCElement;
 import com.helger.photon.bootstrap3.CBootstrapCSS;
 import com.helger.photon.bootstrap3.EBootstrapIcon;
-
-import jakarta.annotation.Nullable;
 
 /**
  * Bootstrap form group highlighting state

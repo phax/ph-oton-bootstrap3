@@ -16,6 +16,8 @@
  */
 package com.helger.photon.bootstrap.demo.secure;
 
+import org.jspecify.annotations.NonNull;
+
 import com.helger.annotation.concurrent.Immutable;
 import com.helger.photon.bootstrap.demo.app.CApp;
 import com.helger.photon.bootstrap3.pages.BootstrapPagesMenuConfigurator;
@@ -24,15 +26,13 @@ import com.helger.photon.core.menu.IMenuTree;
 import com.helger.photon.core.menu.filter.MenuObjectFilterUserAssignedToUserGroup;
 import com.helger.photon.uicore.page.system.BasePageShowChildren;
 
-import jakarta.annotation.Nonnull;
-
 @Immutable
 public final class MenuSecure
 {
   private MenuSecure ()
   {}
 
-  public static void init (@Nonnull final IMenuTree aMenuTree)
+  public static void init (@NonNull final IMenuTree aMenuTree)
   {
     final MenuObjectFilterUserAssignedToUserGroup aFilterAdministrators = new MenuObjectFilterUserAssignedToUserGroup (CApp.USERGROUP_ADMINISTRATORS_ID);
 

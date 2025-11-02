@@ -16,10 +16,10 @@
  */
 package com.helger.photon.bootstrap3.form;
 
+import org.jspecify.annotations.NonNull;
+
 import com.helger.annotation.Nonnegative;
 import com.helger.photon.bootstrap3.grid.BootstrapGridSpec;
-
-import jakarta.annotation.Nonnull;
 
 /**
  * Mutable interface for a form group container.
@@ -36,7 +36,7 @@ public interface IMutableBootstrapFormGroupContainer extends IBootstrapFormGroup
    *        The left parts. Must be &ge; 1 and &le; 12!
    * @return this
    */
-  @Nonnull
+  @NonNull
   IMutableBootstrapFormGroupContainer setLeft (@Nonnegative int nLeftParts);
 
   /**
@@ -53,7 +53,7 @@ public interface IMutableBootstrapFormGroupContainer extends IBootstrapFormGroup
    *        The left parts LG. Must be &ge; 1 and &le; 12!
    * @return this
    */
-  @Nonnull
+  @NonNull
   IMutableBootstrapFormGroupContainer setLeft (@Nonnegative int nLeftPartsXS,
                                                @Nonnegative int nLeftPartsSM,
                                                @Nonnegative int nLeftPartsMD,
@@ -68,8 +68,8 @@ public interface IMutableBootstrapFormGroupContainer extends IBootstrapFormGroup
    *        The right parts. Must not be <code>null</code>.
    * @return this
    */
-  @Nonnull
-  IMutableBootstrapFormGroupContainer setSplitting (@Nonnull BootstrapGridSpec aLeft, @Nonnull BootstrapGridSpec aRight);
+  @NonNull
+  IMutableBootstrapFormGroupContainer setSplitting (@NonNull BootstrapGridSpec aLeft, @NonNull BootstrapGridSpec aRight);
 
   /**
    * Set the form group renderer to be used.
@@ -78,8 +78,8 @@ public interface IMutableBootstrapFormGroupContainer extends IBootstrapFormGroup
    *        The from group renderer. May not be <code>null</code>.
    * @return this
    */
-  @Nonnull
-  IMutableBootstrapFormGroupContainer setFormGroupRenderer (@Nonnull IBootstrapFormGroupRenderer aFormGroupRenderer);
+  @NonNull
+  IMutableBootstrapFormGroupContainer setFormGroupRenderer (@NonNull IBootstrapFormGroupRenderer aFormGroupRenderer);
 
   /**
    * Add a new form group at the end.
@@ -88,6 +88,6 @@ public interface IMutableBootstrapFormGroupContainer extends IBootstrapFormGroup
    *        The form group to be added. May not be <code>null</code>.
    * @return this
    */
-  @Nonnull
-  IMutableBootstrapFormGroupContainer addFormGroup (@Nonnull BootstrapFormGroup aFormGroup);
+  @NonNull
+  IMutableBootstrapFormGroupContainer addFormGroup (@NonNull BootstrapFormGroup aFormGroup);
 }

@@ -18,6 +18,9 @@ package com.helger.photon.bootstrap3.navbar;
 
 import java.util.Locale;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.base.id.factory.GlobalIDFactory;
 import com.helger.html.EHTMLRole;
 import com.helger.html.hc.IHCNode;
@@ -37,9 +40,6 @@ import com.helger.photon.bootstrap3.base.BootstrapContainer;
 import com.helger.photon.bootstrap3.nav.BootstrapNav;
 import com.helger.url.ISimpleURL;
 
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
-
 /**
  * Bootstrap Navbar
  *
@@ -51,7 +51,7 @@ public class BootstrapNavbar extends AbstractHCNav <BootstrapNavbar>
   private final BootstrapNavbarHeader m_aHeader;
   private final HCDiv m_aContent;
 
-  public BootstrapNavbar (@Nonnull final EBootstrapNavbarType eType, final boolean bCollapsible, @Nonnull final Locale aDisplayLocale)
+  public BootstrapNavbar (@NonNull final EBootstrapNavbarType eType, final boolean bCollapsible, @NonNull final Locale aDisplayLocale)
   {
     addClasses (CBootstrapCSS.NAVBAR, CBootstrapCSS.NAVBAR_DEFAULT, eType);
     setRole (EHTMLRole.NAVIGATION);
@@ -82,26 +82,26 @@ public class BootstrapNavbar extends AbstractHCNav <BootstrapNavbar>
     }
   }
 
-  @Nonnull
+  @NonNull
   public final BootstrapContainer getContainer ()
   {
     return m_aContainer;
   }
 
-  @Nonnull
+  @NonNull
   public final BootstrapNavbarHeader getHeader ()
   {
     return m_aHeader;
   }
 
-  @Nonnull
+  @NonNull
   public final HCDiv getContent ()
   {
     return m_aContent;
   }
 
-  @Nonnull
-  private BootstrapNavbar _addNode (@Nonnull final EBootstrapNavbarPosition ePos, @Nullable final IHCElement <?> aNode)
+  @NonNull
+  private BootstrapNavbar _addNode (@NonNull final EBootstrapNavbarPosition ePos, @Nullable final IHCElement <?> aNode)
   {
     if (aNode != null)
       aNode.addClass (ePos);
@@ -112,64 +112,64 @@ public class BootstrapNavbar extends AbstractHCNav <BootstrapNavbar>
     return this;
   }
 
-  @Nonnull
-  public BootstrapNavbar addForm (@Nonnull final EBootstrapNavbarPosition ePos, @Nonnull final IHCForm <?> aForm)
+  @NonNull
+  public BootstrapNavbar addForm (@NonNull final EBootstrapNavbarPosition ePos, @NonNull final IHCForm <?> aForm)
   {
     aForm.addClass (CBootstrapCSS.NAVBAR_FORM);
     return _addNode (ePos, aForm);
   }
 
-  @Nonnull
-  public BootstrapNavbar addNav (@Nonnull final EBootstrapNavbarPosition ePos, @Nonnull final BootstrapNav aNav)
+  @NonNull
+  public BootstrapNavbar addNav (@NonNull final EBootstrapNavbarPosition ePos, @NonNull final BootstrapNav aNav)
   {
     aNav.addClass (CBootstrapCSS.NAVBAR_NAV);
     return _addNode (ePos, aNav);
   }
 
-  @Nonnull
-  public BootstrapNavbar addText (@Nonnull final EBootstrapNavbarPosition ePos, @Nonnull final String sText)
+  @NonNull
+  public BootstrapNavbar addText (@NonNull final EBootstrapNavbarPosition ePos, @NonNull final String sText)
   {
     return addText (ePos, new HCP ().addChild (sText));
   }
 
-  @Nonnull
-  public BootstrapNavbar addText (@Nonnull final EBootstrapNavbarPosition ePos, @Nonnull final IHCElementWithChildren <?> aText)
+  @NonNull
+  public BootstrapNavbar addText (@NonNull final EBootstrapNavbarPosition ePos, @NonNull final IHCElementWithChildren <?> aText)
   {
     aText.addClass (CBootstrapCSS.NAVBAR_TEXT);
     return _addNode (ePos, aText);
   }
 
-  @Nonnull
-  public BootstrapNavbar addButton (@Nonnull final EBootstrapNavbarPosition ePos, @Nonnull final IHCElement <?> aButton)
+  @NonNull
+  public BootstrapNavbar addButton (@NonNull final EBootstrapNavbarPosition ePos, @NonNull final IHCElement <?> aButton)
   {
     aButton.addClass (CBootstrapCSS.NAVBAR_BTN);
     return _addNode (ePos, aButton);
   }
 
-  @Nonnull
-  public BootstrapNavbar addBrand (@Nonnull final String sBrand, @Nonnull final ISimpleURL aHomeLink)
+  @NonNull
+  public BootstrapNavbar addBrand (@NonNull final String sBrand, @NonNull final ISimpleURL aHomeLink)
   {
     return addBrand (EBootstrapNavbarPosition.FIXED, new HCTextNode (sBrand), aHomeLink);
   }
 
-  @Nonnull
-  public BootstrapNavbar addBrand (@Nonnull final EBootstrapNavbarPosition ePos,
-                                   @Nonnull final String sBrand,
-                                   @Nonnull final ISimpleURL aHomeLink)
+  @NonNull
+  public BootstrapNavbar addBrand (@NonNull final EBootstrapNavbarPosition ePos,
+                                   @NonNull final String sBrand,
+                                   @NonNull final ISimpleURL aHomeLink)
   {
     return addBrand (ePos, new HCTextNode (sBrand), aHomeLink);
   }
 
-  @Nonnull
-  public BootstrapNavbar addBrand (@Nonnull final IHCNode aBrand, @Nonnull final ISimpleURL aHomeLink)
+  @NonNull
+  public BootstrapNavbar addBrand (@NonNull final IHCNode aBrand, @NonNull final ISimpleURL aHomeLink)
   {
     return addBrand (EBootstrapNavbarPosition.FIXED, aBrand, aHomeLink);
   }
 
-  @Nonnull
-  public BootstrapNavbar addBrand (@Nonnull final EBootstrapNavbarPosition ePos,
-                                   @Nonnull final IHCNode aBrand,
-                                   @Nonnull final ISimpleURL aHomeLink)
+  @NonNull
+  public BootstrapNavbar addBrand (@NonNull final EBootstrapNavbarPosition ePos,
+                                   @NonNull final IHCNode aBrand,
+                                   @NonNull final ISimpleURL aHomeLink)
   {
     return _addNode (ePos, new HCA (aHomeLink).addChild (aBrand).addClass (CBootstrapCSS.NAVBAR_BRAND));
   }
@@ -179,7 +179,7 @@ public class BootstrapNavbar extends AbstractHCNav <BootstrapNavbar>
     return containsClass (CBootstrapCSS.NAVBAR_INVERSE);
   }
 
-  @Nonnull
+  @NonNull
   public BootstrapNavbar setInverse (final boolean bInverse)
   {
     if (bInverse)

@@ -16,11 +16,11 @@
  */
 package com.helger.photon.bootstrap3.label;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.html.css.ICSSClassProvider;
 import com.helger.photon.bootstrap3.CBootstrapCSS;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 /**
  * Type of label
@@ -38,7 +38,7 @@ public enum EBootstrapLabelType implements ICSSClassProvider
 
   private final ICSSClassProvider m_aCSSClass;
 
-  EBootstrapLabelType (@Nonnull final ICSSClassProvider aCSSClass)
+  EBootstrapLabelType (@NonNull final ICSSClassProvider aCSSClass)
   {
     m_aCSSClass = aCSSClass;
   }

@@ -18,9 +18,9 @@ package com.helger.photon.bootstrap3.uictrls.datetimepicker;
 
 import java.text.SimpleDateFormat;
 
-import com.helger.annotation.Nonempty;
+import org.jspecify.annotations.NonNull;
 
-import jakarta.annotation.Nonnull;
+import com.helger.annotation.Nonempty;
 
 /**
  * Defines the possible tokens for the dtp format.
@@ -49,19 +49,19 @@ public enum EDateTimePickerFormatToken
   private final String m_sJSToken;
   private final String m_sJavaToken;
 
-  EDateTimePickerFormatToken (@Nonnull @Nonempty final String sJSToken, @Nonnull @Nonempty final String sJavaToken)
+  EDateTimePickerFormatToken (@NonNull @Nonempty final String sJSToken, @NonNull @Nonempty final String sJavaToken)
   {
     m_sJSToken = sJSToken;
     m_sJavaToken = sJavaToken;
   }
 
-  @Nonnull
+  @NonNull
   public String getJSToken ()
   {
     return m_sJSToken;
   }
 
-  @Nonnull
+  @NonNull
   public String getJavaToken ()
   {
     return m_sJavaToken;

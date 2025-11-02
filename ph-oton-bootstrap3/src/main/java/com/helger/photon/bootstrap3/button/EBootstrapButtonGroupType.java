@@ -16,15 +16,15 @@
  */
 package com.helger.photon.bootstrap3.button;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.annotation.Nonempty;
 import com.helger.annotation.style.ReturnsImmutableObject;
 import com.helger.collection.commons.CommonsArrayList;
 import com.helger.collection.commons.ICommonsList;
 import com.helger.html.css.ICSSClassProvider;
 import com.helger.photon.bootstrap3.CBootstrapCSS;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 /**
  * Button group types
@@ -44,7 +44,7 @@ public enum EBootstrapButtonGroupType
     m_aCSSClasses = new CommonsArrayList <> (aCSSClasses);
   }
 
-  @Nonnull
+  @NonNull
   @Nonempty
   @ReturnsImmutableObject
   public ICommonsList <ICSSClassProvider> getAllCSSClasses ()

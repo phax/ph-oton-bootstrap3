@@ -16,6 +16,8 @@
  */
 package com.helger.photon.bootstrap3.form;
 
+import org.jspecify.annotations.NonNull;
+
 import com.helger.annotation.OverridingMethodsMustInvokeSuper;
 import com.helger.html.hc.IHCConversionSettingsToNode;
 import com.helger.html.hc.html.forms.AbstractHCCheckBox;
@@ -23,8 +25,6 @@ import com.helger.html.request.IHCRequestFieldBoolean;
 import com.helger.html.request.IHCRequestFieldBooleanMultiValue;
 import com.helger.photon.bootstrap3.CBootstrapCSS;
 import com.helger.xml.microdom.IMicroElement;
-
-import jakarta.annotation.Nonnull;
 
 public class BootstrapCheckBox extends AbstractHCCheckBox <BootstrapCheckBox>
 {
@@ -39,19 +39,19 @@ public class BootstrapCheckBox extends AbstractHCCheckBox <BootstrapCheckBox>
     _init ();
   }
 
-  public BootstrapCheckBox (@Nonnull final IHCRequestFieldBoolean aRF)
+  public BootstrapCheckBox (@NonNull final IHCRequestFieldBoolean aRF)
   {
     super (aRF);
     _init ();
   }
 
-  public BootstrapCheckBox (@Nonnull final IHCRequestFieldBooleanMultiValue aRF)
+  public BootstrapCheckBox (@NonNull final IHCRequestFieldBooleanMultiValue aRF)
   {
     super (aRF);
     _init ();
   }
 
-  @Nonnull
+  @NonNull
   public BootstrapCheckBox setInline (final boolean bInline)
   {
     if (bInline)

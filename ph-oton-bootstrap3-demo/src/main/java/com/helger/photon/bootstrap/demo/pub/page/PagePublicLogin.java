@@ -16,6 +16,9 @@
  */
 package com.helger.photon.bootstrap.demo.pub.page;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.annotation.Nonempty;
 import com.helger.css.property.CCSSProperties;
 import com.helger.html.hc.html.textlevel.HCCode;
@@ -26,19 +29,16 @@ import com.helger.photon.bootstrap.demo.app.ui.AppCommonUI;
 import com.helger.photon.bootstrap3.alert.BootstrapInfoBox;
 import com.helger.photon.uicore.page.WebPageExecutionContext;
 
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
-
 public final class PagePublicLogin extends AbstractAppWebPage
 {
-  public PagePublicLogin (@Nonnull @Nonempty final String sID)
+  public PagePublicLogin (@NonNull @Nonempty final String sID)
   {
     super (sID, "Login");
   }
 
   @Override
   @Nullable
-  public String getHeaderText (@Nonnull final WebPageExecutionContext aWPEC)
+  public String getHeaderText (@NonNull final WebPageExecutionContext aWPEC)
   {
     return null;
   }

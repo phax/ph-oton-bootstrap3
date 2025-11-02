@@ -16,10 +16,10 @@
  */
 package com.helger.photon.bootstrap3.uictrls.datatables;
 
+import org.jspecify.annotations.NonNull;
+
 import com.helger.html.hc.html.tabular.IHCTable;
 import com.helger.photon.core.execcontext.ILayoutExecutionContext;
-
-import jakarta.annotation.Nonnull;
 
 /**
  * Interface for bootstrap datatables configurator.
@@ -39,5 +39,5 @@ public interface IBootstrapDataTablesConfigurator
    * @param aDataTables
    *        The newly created datatables object
    */
-  void configure (@Nonnull ILayoutExecutionContext aLEC, @Nonnull IHCTable <?> aTable, @Nonnull BootstrapDataTables aDataTables);
+  void configure (@NonNull ILayoutExecutionContext aLEC, @NonNull IHCTable <?> aTable, @NonNull BootstrapDataTables aDataTables);
 }

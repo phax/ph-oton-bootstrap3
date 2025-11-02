@@ -18,9 +18,10 @@ package com.helger.photon.bootstrap3.stub;
 
 import java.util.concurrent.atomic.AtomicBoolean;
 
+import org.jspecify.annotations.NonNull;
+
 import com.helger.photon.bootstrap3.stub.init.PhotonStubInitializer;
 
-import jakarta.annotation.Nonnull;
 import jakarta.servlet.ServletContextEvent;
 import jakarta.servlet.ServletContextListener;
 
@@ -39,7 +40,7 @@ public final class PhotonStubServletContextListener implements ServletContextLis
     return INITIALIZED.get ();
   }
 
-  public void contextInitialized (@Nonnull final ServletContextEvent aSCE)
+  public void contextInitialized (@NonNull final ServletContextEvent aSCE)
   {
     if (INITIALIZED.compareAndSet (false, true))
     {
@@ -48,6 +49,6 @@ public final class PhotonStubServletContextListener implements ServletContextLis
     }
   }
 
-  public void contextDestroyed (@Nonnull final ServletContextEvent aSCE)
+  public void contextDestroyed (@NonNull final ServletContextEvent aSCE)
   {}
 }

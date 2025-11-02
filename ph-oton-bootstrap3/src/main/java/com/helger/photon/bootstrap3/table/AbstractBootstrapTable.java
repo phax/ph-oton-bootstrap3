@@ -16,13 +16,13 @@
  */
 package com.helger.photon.bootstrap3.table;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.html.hc.html.grouping.HCDiv;
 import com.helger.html.hc.html.tabular.AbstractHCTable;
 import com.helger.html.hc.html.tabular.IHCCol;
 import com.helger.photon.bootstrap3.CBootstrapCSS;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 /**
  * Abstract table with basic Bootstrap styling.
@@ -63,7 +63,7 @@ public abstract class AbstractBootstrapTable <IMPLTYPE extends AbstractHCTable <
     _init ();
   }
 
-  @Nonnull
+  @NonNull
   public IMPLTYPE setStriped (final boolean bStriped)
   {
     if (bStriped)
@@ -73,7 +73,7 @@ public abstract class AbstractBootstrapTable <IMPLTYPE extends AbstractHCTable <
     return thisAsT ();
   }
 
-  @Nonnull
+  @NonNull
   public IMPLTYPE setBordered (final boolean bBordered)
   {
     if (bBordered)
@@ -83,7 +83,7 @@ public abstract class AbstractBootstrapTable <IMPLTYPE extends AbstractHCTable <
     return thisAsT ();
   }
 
-  @Nonnull
+  @NonNull
   public IMPLTYPE setHover (final boolean bHover)
   {
     if (bHover)
@@ -93,7 +93,7 @@ public abstract class AbstractBootstrapTable <IMPLTYPE extends AbstractHCTable <
     return thisAsT ();
   }
 
-  @Nonnull
+  @NonNull
   public IMPLTYPE setCondensed (final boolean bCondensed)
   {
     if (bCondensed)
@@ -103,7 +103,7 @@ public abstract class AbstractBootstrapTable <IMPLTYPE extends AbstractHCTable <
     return thisAsT ();
   }
 
-  @Nonnull
+  @NonNull
   public HCDiv getAsResponsiveTable ()
   {
     return new HCDiv ().addClass (CBootstrapCSS.TABLE_RESPONSIVE).addChild (this);

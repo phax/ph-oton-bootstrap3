@@ -18,6 +18,8 @@ package com.helger.photon.bootstrap.demo.secure;
 
 import java.util.Locale;
 
+import org.jspecify.annotations.NonNull;
+
 import com.helger.html.hc.IHCNode;
 import com.helger.html.hc.html.IHCElement;
 import com.helger.html.hc.html.grouping.HCDiv;
@@ -49,8 +51,6 @@ import com.helger.photon.security.util.SecurityHelper;
 import com.helger.url.ISimpleURL;
 import com.helger.web.scope.IRequestWebScopeWithoutResponse;
 
-import jakarta.annotation.Nonnull;
-
 /**
  * The viewport renderer (menu + content area)
  *
@@ -61,8 +61,8 @@ public final class AppRendererSecure
   private AppRendererSecure ()
   {}
 
-  @Nonnull
-  private static IHCNode _getNavbar (@Nonnull final SimpleWebExecutionContext aSWEC)
+  @NonNull
+  private static IHCNode _getNavbar (@NonNull final SimpleWebExecutionContext aSWEC)
   {
     final Locale aDisplayLocale = aSWEC.getDisplayLocale ();
     final IRequestWebScopeWithoutResponse aRequestScope = aSWEC.getRequestScope ();
@@ -87,14 +87,14 @@ public final class AppRendererSecure
     return aNavbar;
   }
 
-  @Nonnull
-  public static IHCElement <?> getMenuContent (@Nonnull final LayoutExecutionContext aLEC)
+  @NonNull
+  public static IHCElement <?> getMenuContent (@NonNull final LayoutExecutionContext aLEC)
   {
     return BootstrapMenuItemRenderer.createSideBarMenu (aLEC);
   }
 
-  @Nonnull
-  public static IHCNode getContent (@Nonnull final LayoutExecutionContext aLEC)
+  @NonNull
+  public static IHCNode getContent (@NonNull final LayoutExecutionContext aLEC)
   {
     final HCNodeList ret = new HCNodeList ();
 

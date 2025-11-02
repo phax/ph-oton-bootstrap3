@@ -22,6 +22,9 @@ import java.time.LocalTime;
 import java.util.Comparator;
 import java.util.Map;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.annotation.style.ReturnsMutableCopy;
 import com.helger.base.CGlobal;
 import com.helger.base.enforce.ValueEnforcer;
@@ -35,9 +38,6 @@ import com.helger.datetime.format.PDTFromString;
 import com.helger.photon.uicore.datetime.IDateFormatBuilder;
 import com.helger.text.compare.ComparatorHelper;
 
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
-
 public class BootstrapDateTimePickerFormatBuilder implements IDateFormatBuilder
 {
   private final ICommonsList <Object> m_aList = new CommonsArrayList <> ();
@@ -45,29 +45,29 @@ public class BootstrapDateTimePickerFormatBuilder implements IDateFormatBuilder
   public BootstrapDateTimePickerFormatBuilder ()
   {}
 
-  @Nonnull
-  public BootstrapDateTimePickerFormatBuilder append (@Nonnull final EDateTimePickerFormatToken eToken)
+  @NonNull
+  public BootstrapDateTimePickerFormatBuilder append (@NonNull final EDateTimePickerFormatToken eToken)
   {
     ValueEnforcer.notNull (eToken, "Token");
     m_aList.add (eToken);
     return this;
   }
 
-  @Nonnull
+  @NonNull
   public BootstrapDateTimePickerFormatBuilder append (final char c)
   {
     m_aList.add (Character.valueOf (c));
     return this;
   }
 
-  @Nonnull
+  @NonNull
   @ReturnsMutableCopy
   public ICommonsList <Object> getAllInternalObjects ()
   {
     return m_aList.getClone ();
   }
 
-  @Nonnull
+  @NonNull
   public String getJSCalendarFormatString ()
   {
     final StringBuilder aSB = new StringBuilder ();
@@ -79,7 +79,7 @@ public class BootstrapDateTimePickerFormatBuilder implements IDateFormatBuilder
     return aSB.toString ();
   }
 
-  @Nonnull
+  @NonNull
   public String getJavaFormatString ()
   {
     final StringBuilder aSB = new StringBuilder ();
@@ -91,19 +91,19 @@ public class BootstrapDateTimePickerFormatBuilder implements IDateFormatBuilder
     return aSB.toString ();
   }
 
-  @Nonnull
+  @NonNull
   public LocalDate getDateFormatted (@Nullable final String sDate)
   {
     return PDTFromString.getLocalDateFromString (sDate, getJavaFormatString ());
   }
 
-  @Nonnull
+  @NonNull
   public LocalTime getTimeFormatted (@Nullable final String sTime)
   {
     return PDTFromString.getLocalTimeFromString (sTime, getJavaFormatString ());
   }
 
-  @Nonnull
+  @NonNull
   public LocalDateTime getLocalDateTimeFormatted (@Nullable final String sDateTime)
   {
     return PDTFromString.getLocalDateTimeFromString (sDateTime, getJavaFormatString ());
@@ -121,7 +121,7 @@ public class BootstrapDateTimePickerFormatBuilder implements IDateFormatBuilder
     private final ICommonsMap <String, EDateTimePickerFormatToken> m_aAllMatching = new CommonsHashMap <> ();
     private final Comparator <String> m_aComp = ComparatorHelper.getComparatorStringLongestFirst ();
 
-    public Searcher (@Nonnull final String sRest)
+    public Searcher (@NonNull final String sRest)
     {
       ValueEnforcer.notNull (sRest, "Rest");
       m_sRest = sRest;
@@ -191,8 +191,8 @@ public class BootstrapDateTimePickerFormatBuilder implements IDateFormatBuilder
 
   private static final PatternCache CACHE = new PatternCache ();
 
-  @Nonnull
-  public static IDateFormatBuilder fromJavaPattern (@Nonnull final String sJavaPattern)
+  @NonNull
+  public static IDateFormatBuilder fromJavaPattern (@NonNull final String sJavaPattern)
   {
     ValueEnforcer.notEmpty (sJavaPattern, "JavaPattern");
 

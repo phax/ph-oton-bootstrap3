@@ -16,15 +16,15 @@
  */
 package com.helger.photon.bootstrap3;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.html.css.ICSSClassProvider;
 import com.helger.html.hc.html.IHCElement;
 import com.helger.html.hc.html.textlevel.HCSpan;
 import com.helger.photon.uicore.icon.DefaultIcons;
 import com.helger.photon.uicore.icon.EDefaultIcon;
 import com.helger.photon.uicore.icon.IIcon;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 /**
  * Bootstrap3 icons
@@ -299,7 +299,7 @@ public enum EBootstrapIcon implements IIcon
 
   private final ICSSClassProvider m_aCSSClass;
 
-  EBootstrapIcon (@Nonnull final ICSSClassProvider aCSSClass)
+  EBootstrapIcon (@NonNull final ICSSClassProvider aCSSClass)
   {
     m_aCSSClass = aCSSClass;
   }
@@ -310,15 +310,15 @@ public enum EBootstrapIcon implements IIcon
     return m_aCSSClass.getCSSClass ();
   }
 
-  @Nonnull
-  public <T extends IHCElement <?>> T applyToNode (@Nonnull final T aElement)
+  @NonNull
+  public <T extends IHCElement <?>> T applyToNode (@NonNull final T aElement)
   {
     aElement.addClasses (CBootstrapCSS.GLYPHICON, m_aCSSClass);
     aElement.customAttrs ().setAriaHidden (true);
     return aElement;
   }
 
-  @Nonnull
+  @NonNull
   public HCSpan getAsNode ()
   {
     return applyToNode (new HCSpan ());

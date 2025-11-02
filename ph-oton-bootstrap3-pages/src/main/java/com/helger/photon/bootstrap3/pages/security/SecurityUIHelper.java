@@ -16,14 +16,14 @@
  */
 package com.helger.photon.bootstrap3.pages.security;
 
+import org.jspecify.annotations.Nullable;
+
 import com.helger.annotation.style.PresentForCodeCoverage;
 import com.helger.base.string.StringHelper;
 import com.helger.html.hc.IHCNode;
 import com.helger.html.hc.html.textlevel.HCCode;
 import com.helger.photon.security.user.IUser;
 import com.helger.photon.uicore.css.CUICoreCSS;
-
-import jakarta.annotation.Nullable;
 
 public final class SecurityUIHelper
 {

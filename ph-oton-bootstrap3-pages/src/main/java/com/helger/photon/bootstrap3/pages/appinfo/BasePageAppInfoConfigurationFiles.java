@@ -18,6 +18,9 @@ package com.helger.photon.bootstrap3.pages.appinfo;
 
 import java.util.Locale;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.annotation.Nonempty;
 import com.helger.annotation.misc.Translatable;
 import com.helger.html.hc.HCHelper;
@@ -41,9 +44,6 @@ import com.helger.text.IMultilingualText;
 import com.helger.text.display.IHasDisplayText;
 import com.helger.text.resolve.DefaultTextResolver;
 import com.helger.text.util.TextHelper;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 /**
  * This page displays information about the certificate configured in the SMP
@@ -69,38 +69,38 @@ public class BasePageAppInfoConfigurationFiles <WPECTYPE extends IWebPageExecuti
     }
 
     @Nullable
-    public String getDisplayText (@Nonnull final Locale aContentLocale)
+    public String getDisplayText (@NonNull final Locale aContentLocale)
     {
       return DefaultTextResolver.getTextStatic (this, m_aTP, aContentLocale);
     }
   }
 
-  public BasePageAppInfoConfigurationFiles (@Nonnull @Nonempty final String sID)
+  public BasePageAppInfoConfigurationFiles (@NonNull @Nonempty final String sID)
   {
     super (sID, EWebPageText.PAGE_NAME_APPINFO_CONFIG_FILES.getAsMLT ());
   }
 
-  public BasePageAppInfoConfigurationFiles (@Nonnull @Nonempty final String sID, @Nonnull @Nonempty final String sName)
+  public BasePageAppInfoConfigurationFiles (@NonNull @Nonempty final String sID, @NonNull @Nonempty final String sName)
   {
     super (sID, sName);
   }
 
-  public BasePageAppInfoConfigurationFiles (@Nonnull @Nonempty final String sID,
-                                            @Nonnull final String sName,
+  public BasePageAppInfoConfigurationFiles (@NonNull @Nonempty final String sID,
+                                            @NonNull final String sName,
                                             @Nullable final String sDescription)
   {
     super (sID, sName, sDescription);
   }
 
-  public BasePageAppInfoConfigurationFiles (@Nonnull @Nonempty final String sID,
-                                            @Nonnull final IMultilingualText aName,
+  public BasePageAppInfoConfigurationFiles (@NonNull @Nonempty final String sID,
+                                            @NonNull final IMultilingualText aName,
                                             @Nullable final IMultilingualText aDescription)
   {
     super (sID, aName, aDescription);
   }
 
   @Override
-  protected void fillContent (@Nonnull final WPECTYPE aWPEC)
+  protected void fillContent (@NonNull final WPECTYPE aWPEC)
   {
     final Locale aDisplayLocale = aWPEC.getDisplayLocale ();
     final HCNodeList aNodeList = aWPEC.getNodeList ();

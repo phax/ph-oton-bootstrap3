@@ -16,12 +16,12 @@
  */
 package com.helger.photon.bootstrap3.badge;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.html.hc.IHCNode;
 import com.helger.html.hc.html.textlevel.AbstractHCSpan;
 import com.helger.photon.bootstrap3.CBootstrapCSS;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 /**
  * Bootstrap3 badge.
@@ -41,13 +41,13 @@ public class BootstrapBadge extends AbstractHCSpan <BootstrapBadge>
     return aNode == null ? null : new BootstrapBadge ().addChild (aNode);
   }
 
-  @Nonnull
+  @NonNull
   public static BootstrapBadge createNumeric (final int nValue)
   {
     return new BootstrapBadge ().addChild (Integer.toString (nValue));
   }
 
-  @Nonnull
+  @NonNull
   public static BootstrapBadge createNumeric (final long nValue)
   {
     return new BootstrapBadge ().addChild (Long.toString (nValue));

@@ -19,6 +19,9 @@ package com.helger.photon.bootstrap3.pages.sysinfo;
 import java.util.Locale;
 import java.util.Set;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.annotation.Nonempty;
 import com.helger.annotation.misc.Translatable;
 import com.helger.base.name.IHasDisplayName;
@@ -39,9 +42,6 @@ import com.helger.text.display.IHasDisplayText;
 import com.helger.text.resolve.DefaultTextResolver;
 import com.helger.text.util.TextHelper;
 import com.helger.url.SimpleURL;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 /**
  * Page with all linked third party libraries
@@ -67,39 +67,39 @@ public class BasePageSysInfoThirdPartyLibraries <WPECTYPE extends IWebPageExecut
     }
 
     @Nullable
-    public String getDisplayText (@Nonnull final Locale aContentLocale)
+    public String getDisplayText (@NonNull final Locale aContentLocale)
     {
       return DefaultTextResolver.getTextStatic (this, m_aTP, aContentLocale);
     }
   }
 
-  public BasePageSysInfoThirdPartyLibraries (@Nonnull @Nonempty final String sID)
+  public BasePageSysInfoThirdPartyLibraries (@NonNull @Nonempty final String sID)
   {
     super (sID, EWebPageText.PAGE_NAME_SYSINFO_THIRDPARTYLIBS.getAsMLT ());
   }
 
-  public BasePageSysInfoThirdPartyLibraries (@Nonnull @Nonempty final String sID, @Nonnull @Nonempty final String sName)
+  public BasePageSysInfoThirdPartyLibraries (@NonNull @Nonempty final String sID, @NonNull @Nonempty final String sName)
   {
     super (sID, sName);
   }
 
-  public BasePageSysInfoThirdPartyLibraries (@Nonnull @Nonempty final String sID,
-                                             @Nonnull final String sName,
+  public BasePageSysInfoThirdPartyLibraries (@NonNull @Nonempty final String sID,
+                                             @NonNull final String sName,
                                              @Nullable final String sDescription)
   {
     super (sID, sName, sDescription);
   }
 
-  public BasePageSysInfoThirdPartyLibraries (@Nonnull @Nonempty final String sID,
-                                             @Nonnull final IMultilingualText aName,
+  public BasePageSysInfoThirdPartyLibraries (@NonNull @Nonempty final String sID,
+                                             @NonNull final IMultilingualText aName,
                                              @Nullable final IMultilingualText aDescription)
   {
     super (sID, aName, aDescription);
   }
 
-  @Nonnull
-  private static IHCNode _getModuleHCNode (@Nonnull final IThirdPartyModule aModule,
-                                           @Nonnull final Locale aDisplayLocale)
+  @NonNull
+  private static IHCNode _getModuleHCNode (@NonNull final IThirdPartyModule aModule,
+                                           @NonNull final Locale aDisplayLocale)
   {
     final HCNodeList aNL = new HCNodeList ();
 
@@ -130,7 +130,7 @@ public class BasePageSysInfoThirdPartyLibraries <WPECTYPE extends IWebPageExecut
   }
 
   @Override
-  protected void fillContent (@Nonnull final WPECTYPE aWPEC)
+  protected void fillContent (@NonNull final WPECTYPE aWPEC)
   {
     final HCNodeList aNodeList = aWPEC.getNodeList ();
     final Locale aDisplayLocale = aWPEC.getDisplayLocale ();

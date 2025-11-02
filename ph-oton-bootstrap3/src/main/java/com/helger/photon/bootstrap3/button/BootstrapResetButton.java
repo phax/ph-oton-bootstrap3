@@ -16,9 +16,9 @@
  */
 package com.helger.photon.bootstrap3.button;
 
-import com.helger.html.hc.html.forms.EHCButtonType;
+import org.jspecify.annotations.NonNull;
 
-import jakarta.annotation.Nonnull;
+import com.helger.html.hc.html.forms.EHCButtonType;
 
 /**
  * Bootstrap3 reset button.
@@ -37,19 +37,19 @@ public class BootstrapResetButton extends BootstrapButton
     _init ();
   }
 
-  public BootstrapResetButton (@Nonnull final EBootstrapButtonType eButtonType)
+  public BootstrapResetButton (@NonNull final EBootstrapButtonType eButtonType)
   {
     super (eButtonType);
     _init ();
   }
 
-  public BootstrapResetButton (@Nonnull final EBootstrapButtonSize eButtonSize)
+  public BootstrapResetButton (@NonNull final EBootstrapButtonSize eButtonSize)
   {
     super (eButtonSize);
     _init ();
   }
 
-  public BootstrapResetButton (@Nonnull final EBootstrapButtonType eButtonType, @Nonnull final EBootstrapButtonSize eButtonSize)
+  public BootstrapResetButton (@NonNull final EBootstrapButtonType eButtonType, @NonNull final EBootstrapButtonSize eButtonSize)
   {
     super (eButtonType, eButtonSize);
     _init ();

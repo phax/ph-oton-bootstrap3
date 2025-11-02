@@ -21,6 +21,9 @@ import java.net.SocketException;
 import java.util.Comparator;
 import java.util.Locale;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.annotation.Nonempty;
 import com.helger.annotation.misc.Translatable;
 import com.helger.base.compare.ESortOrder;
@@ -52,9 +55,6 @@ import com.helger.tree.sort.TreeWithIDSorter;
 import com.helger.tree.util.TreeVisitor;
 import com.helger.tree.withid.DefaultTreeItemWithID;
 import com.helger.tree.withid.unique.DefaultTreeWithGlobalUniqueID;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 /**
  * Page with information on the current network settings
@@ -90,38 +90,38 @@ public class BasePageSysInfoNetwork <WPECTYPE extends IWebPageExecutionContext> 
     }
 
     @Nullable
-    public String getDisplayText (@Nonnull final Locale aContentLocale)
+    public String getDisplayText (@NonNull final Locale aContentLocale)
     {
       return DefaultTextResolver.getTextStatic (this, m_aTP, aContentLocale);
     }
   }
 
-  public BasePageSysInfoNetwork (@Nonnull @Nonempty final String sID)
+  public BasePageSysInfoNetwork (@NonNull @Nonempty final String sID)
   {
     super (sID, EWebPageText.PAGE_NAME_SYSINFO_NETWORK.getAsMLT ());
   }
 
-  public BasePageSysInfoNetwork (@Nonnull @Nonempty final String sID, @Nonnull final String sName)
+  public BasePageSysInfoNetwork (@NonNull @Nonempty final String sID, @NonNull final String sName)
   {
     super (sID, sName);
   }
 
-  public BasePageSysInfoNetwork (@Nonnull @Nonempty final String sID,
-                                 @Nonnull final String sName,
+  public BasePageSysInfoNetwork (@NonNull @Nonempty final String sID,
+                                 @NonNull final String sName,
                                  @Nullable final String sDescription)
   {
     super (sID, sName, sDescription);
   }
 
-  public BasePageSysInfoNetwork (@Nonnull @Nonempty final String sID,
-                                 @Nonnull final IMultilingualText aName,
+  public BasePageSysInfoNetwork (@NonNull @Nonempty final String sID,
+                                 @NonNull final IMultilingualText aName,
                                  @Nullable final IMultilingualText aDescription)
   {
     super (sID, aName, aDescription);
   }
 
   @Override
-  protected void fillContent (@Nonnull final WPECTYPE aWPEC)
+  protected void fillContent (@NonNull final WPECTYPE aWPEC)
   {
     final HCNodeList aNodeList = aWPEC.getNodeList ();
     final Locale aDisplayLocale = aWPEC.getDisplayLocale ();
@@ -150,7 +150,7 @@ public class BasePageSysInfoNetwork <WPECTYPE extends IWebPageExecutionContext> 
                                new DefaultHierarchyVisitorCallback <DefaultTreeItemWithID <String, NetworkInterface>> ()
                                {
                                  @Override
-                                 public EHierarchyVisitorReturn onItemBeforeChildren (@Nonnull final DefaultTreeItemWithID <String, NetworkInterface> aItem)
+                                 public EHierarchyVisitorReturn onItemBeforeChildren (@NonNull final DefaultTreeItemWithID <String, NetworkInterface> aItem)
                                  {
                                    final NetworkInterface aNI = aItem.getData ();
                                    final int nDepth = getLevel ();

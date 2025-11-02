@@ -16,6 +16,8 @@
  */
 package com.helger.photon.bootstrap3.label;
 
+import org.jspecify.annotations.NonNull;
+
 import com.helger.annotation.OverridingMethodsMustInvokeSuper;
 import com.helger.annotation.style.OverrideOnDemand;
 import com.helger.base.enforce.ValueEnforcer;
@@ -24,8 +26,6 @@ import com.helger.html.hc.IHCHasChildrenMutable;
 import com.helger.html.hc.IHCNode;
 import com.helger.html.hc.html.grouping.AbstractHCDiv;
 import com.helger.photon.bootstrap3.CBootstrapCSS;
-
-import jakarta.annotation.Nonnull;
 
 /**
  * Bootstrap label
@@ -41,20 +41,20 @@ public class BootstrapLabel extends AbstractHCDiv <BootstrapLabel>
     this (EBootstrapLabelType.DEFAULT);
   }
 
-  public BootstrapLabel (@Nonnull final EBootstrapLabelType eType)
+  public BootstrapLabel (@NonNull final EBootstrapLabelType eType)
   {
     super ();
     setType (eType);
   }
 
-  @Nonnull
+  @NonNull
   public EBootstrapLabelType getType ()
   {
     return m_eType;
   }
 
-  @Nonnull
-  public BootstrapLabel setType (@Nonnull final EBootstrapLabelType eType)
+  @NonNull
+  public BootstrapLabel setType (@NonNull final EBootstrapLabelType eType)
   {
     m_eType = ValueEnforcer.notNull (eType, "Type");
     return this;
@@ -63,8 +63,8 @@ public class BootstrapLabel extends AbstractHCDiv <BootstrapLabel>
   @Override
   @OverrideOnDemand
   @OverridingMethodsMustInvokeSuper
-  protected void onFinalizeNodeState (@Nonnull final IHCConversionSettingsToNode aConversionSettings,
-                                      @Nonnull final IHCHasChildrenMutable <?, ? super IHCNode> aTargetNode)
+  protected void onFinalizeNodeState (@NonNull final IHCConversionSettingsToNode aConversionSettings,
+                                      @NonNull final IHCHasChildrenMutable <?, ? super IHCNode> aTargetNode)
   {
     super.onFinalizeNodeState (aConversionSettings, aTargetNode);
     addClasses (CBootstrapCSS.LABEL, m_eType);

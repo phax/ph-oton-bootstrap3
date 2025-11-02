@@ -16,6 +16,9 @@
  */
 package com.helger.photon.bootstrap3.nav;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.annotation.misc.Since;
 import com.helger.base.enforce.ValueEnforcer;
 import com.helger.base.string.StringHelper;
@@ -35,9 +38,6 @@ import com.helger.photon.uicore.icon.IIcon;
 import com.helger.url.ISimpleURL;
 import com.helger.url.SimpleURL;
 
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
-
 /**
  * Navigation items
  *
@@ -55,7 +55,7 @@ public class BootstrapNav extends AbstractHCUL <BootstrapNav>
     this (EBootstrapNavType.DEFAULT);
   }
 
-  public BootstrapNav (@Nonnull final EBootstrapNavType eNavType)
+  public BootstrapNav (@NonNull final EBootstrapNavType eNavType)
   {
     ValueEnforcer.notNull (eNavType, "NavType");
 
@@ -64,53 +64,53 @@ public class BootstrapNav extends AbstractHCUL <BootstrapNav>
     m_eNavType = eNavType;
   }
 
-  @Nonnull
+  @NonNull
   public EBootstrapNavType getNavType ()
   {
     return m_eNavType;
   }
 
-  @Nonnull
-  public BootstrapNav addItem (@Nullable final String sText, @Nonnull final ISimpleURL aTarget)
+  @NonNull
+  public BootstrapNav addItem (@Nullable final String sText, @NonNull final ISimpleURL aTarget)
   {
     return addItem (sText, aTarget, DEFAULT_DISABLED, (IIcon) null);
   }
 
-  @Nonnull
-  public BootstrapNav addItem (@Nullable final String sText, @Nonnull final ISimpleURL aTarget, @Nullable final IIcon aIcon)
+  @NonNull
+  public BootstrapNav addItem (@Nullable final String sText, @NonNull final ISimpleURL aTarget, @Nullable final IIcon aIcon)
   {
     return addItem (sText, aTarget, DEFAULT_DISABLED, aIcon);
   }
 
-  @Nonnull
-  public BootstrapNav addItem (@Nullable final String sText, @Nonnull final ISimpleURL aTarget, final boolean bDisabled)
+  @NonNull
+  public BootstrapNav addItem (@Nullable final String sText, @NonNull final ISimpleURL aTarget, final boolean bDisabled)
   {
     // no icon
     return addItem (sText, aTarget, bDisabled, null);
   }
 
-  @Nonnull
+  @NonNull
   public BootstrapNav addItem (@Nullable final String sText,
-                               @Nonnull final ISimpleURL aTarget,
+                               @NonNull final ISimpleURL aTarget,
                                final boolean bDisabled,
                                @Nullable final IIcon aIcon)
   {
     return addItem (new HCA (aTarget).addChild (sText), bDisabled, aIcon);
   }
 
-  @Nonnull
+  @NonNull
   public BootstrapNav addItem (@Nullable final IHCElementWithChildren <?> aContent)
   {
     return addItem (aContent, DEFAULT_DISABLED);
   }
 
-  @Nonnull
+  @NonNull
   public BootstrapNav addItem (@Nullable final IHCElementWithChildren <?> aContent, final boolean bDisabled)
   {
     return addItem (aContent, bDisabled, null);
   }
 
-  @Nonnull
+  @NonNull
   public BootstrapNav addItem (@Nullable final IHCElementWithChildren <?> aContent, final boolean bDisabled, @Nullable final IIcon aIcon)
   {
     final IHCLI <?> aItem = addAndReturnItem (aContent);
@@ -124,44 +124,44 @@ public class BootstrapNav extends AbstractHCUL <BootstrapNav>
     return this;
   }
 
-  @Nonnull
+  @NonNull
   @Since ("7.10")
   public BootstrapNav addText (@Nullable final String sText)
   {
     return addText (new HCSpan ().addChild (sText));
   }
 
-  @Nonnull
+  @NonNull
   @Since ("7.10")
-  public BootstrapNav addText (@Nonnull final IHCElementWithChildren <?> aContent)
+  public BootstrapNav addText (@NonNull final IHCElementWithChildren <?> aContent)
   {
     return addItem (aContent.addClass (CBootstrapCSS.NAVBAR_TEXT), DEFAULT_DISABLED);
   }
 
-  @Nonnull
+  @NonNull
   @Since ("7.10")
-  public BootstrapNav addButton (@Nonnull final IHCButton <?> aButton)
+  public BootstrapNav addButton (@NonNull final IHCButton <?> aButton)
   {
     return addButton (aButton, DEFAULT_DISABLED);
   }
 
-  @Nonnull
+  @NonNull
   @Since ("7.10")
-  public BootstrapNav addButton (@Nonnull final IHCButton <?> aButton, final boolean bDisabled)
+  public BootstrapNav addButton (@NonNull final IHCButton <?> aButton, final boolean bDisabled)
   {
     aButton.addClass (CBootstrapCSS.NAVBAR_BTN);
     addItem (aButton, bDisabled, null);
     return this;
   }
 
-  @Nonnull
+  @NonNull
   public BootstrapNav addDivider ()
   {
     addItem ().addClass (CBootstrapCSS.DIVIDER);
     return this;
   }
 
-  @Nonnull
+  @NonNull
   public BootstrapNav addHeader (@Nullable final String sHeaderText)
   {
     if (StringHelper.isNotEmpty (sHeaderText))
@@ -169,25 +169,25 @@ public class BootstrapNav extends AbstractHCUL <BootstrapNav>
     return this;
   }
 
-  @Nonnull
+  @NonNull
   public BootstrapDropdownMenu addDropdownMenu (@Nullable final String sText)
   {
     return addDropdownMenu (EBootstrapDropdownMenuAlignment.DEFAULT, new HCTextNode (sText));
   }
 
-  @Nonnull
+  @NonNull
   public BootstrapDropdownMenu addDropdownMenu (@Nullable final EBootstrapDropdownMenuAlignment eAlignment, @Nullable final String sText)
   {
     return addDropdownMenu (eAlignment, new HCTextNode (sText));
   }
 
-  @Nonnull
+  @NonNull
   public BootstrapDropdownMenu addDropdownMenu (@Nullable final IHCNode aText)
   {
     return addDropdownMenu (EBootstrapDropdownMenuAlignment.DEFAULT, aText);
   }
 
-  @Nonnull
+  @NonNull
   public BootstrapDropdownMenu addDropdownMenu (@Nullable final EBootstrapDropdownMenuAlignment eAlignment, @Nullable final IHCNode aText)
   {
     final IHCLI <?> aLI = addItem ().addClass (CBootstrapCSS.DROPDOWN);

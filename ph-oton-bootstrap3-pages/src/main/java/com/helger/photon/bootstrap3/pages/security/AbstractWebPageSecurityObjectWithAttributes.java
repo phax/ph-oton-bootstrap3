@@ -18,6 +18,9 @@ package com.helger.photon.bootstrap3.pages.security;
 
 import java.util.Map;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.annotation.Nonempty;
 import com.helger.annotation.style.OverrideOnDemand;
 import com.helger.base.id.IHasID;
@@ -31,9 +34,6 @@ import com.helger.photon.uicore.page.EWebPageFormAction;
 import com.helger.photon.uicore.page.IWebPageExecutionContext;
 import com.helger.text.IMultilingualText;
 
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
-
 public abstract class AbstractWebPageSecurityObjectWithAttributes <DATATYPE extends IHasID <String>, WPECTYPE extends IWebPageExecutionContext>
                                                                   extends
                                                                   AbstractBootstrapWebPageForm <DATATYPE, WPECTYPE>
@@ -43,28 +43,28 @@ public abstract class AbstractWebPageSecurityObjectWithAttributes <DATATYPE exte
     setObjectLockingEnabled (true);
   }
 
-  public AbstractWebPageSecurityObjectWithAttributes (@Nonnull @Nonempty final String sID, @Nonnull @Nonempty final String sName)
+  public AbstractWebPageSecurityObjectWithAttributes (@NonNull @Nonempty final String sID, @NonNull @Nonempty final String sName)
   {
     super (sID, sName);
     _initSowa ();
   }
 
-  public AbstractWebPageSecurityObjectWithAttributes (@Nonnull @Nonempty final String sID, @Nonnull final IMultilingualText aName)
+  public AbstractWebPageSecurityObjectWithAttributes (@NonNull @Nonempty final String sID, @NonNull final IMultilingualText aName)
   {
     super (sID, aName);
     _initSowa ();
   }
 
-  public AbstractWebPageSecurityObjectWithAttributes (@Nonnull @Nonempty final String sID,
-                                                      @Nonnull final String sName,
+  public AbstractWebPageSecurityObjectWithAttributes (@NonNull @Nonempty final String sID,
+                                                      @NonNull final String sName,
                                                       @Nullable final String sDescription)
   {
     super (sID, sName, sDescription);
     _initSowa ();
   }
 
-  public AbstractWebPageSecurityObjectWithAttributes (@Nonnull @Nonempty final String sID,
-                                                      @Nonnull final IMultilingualText aName,
+  public AbstractWebPageSecurityObjectWithAttributes (@NonNull @Nonempty final String sID,
+                                                      @NonNull final IMultilingualText aName,
                                                       @Nullable final IMultilingualText aDescription)
   {
     super (sID, aName, aDescription);
@@ -80,9 +80,9 @@ public abstract class AbstractWebPageSecurityObjectWithAttributes <DATATYPE exte
    *        Current object. Never <code>null</code>.
    */
   @OverrideOnDemand
-  protected void onShowSelectedObjectTableStart (@Nonnull final WPECTYPE aWPEC,
-                                                 @Nonnull final BootstrapViewForm aForm,
-                                                 @Nonnull final DATATYPE aSelectedObject)
+  protected void onShowSelectedObjectTableStart (@NonNull final WPECTYPE aWPEC,
+                                                 @NonNull final BootstrapViewForm aForm,
+                                                 @NonNull final DATATYPE aSelectedObject)
   {}
 
   /**
@@ -104,10 +104,10 @@ public abstract class AbstractWebPageSecurityObjectWithAttributes <DATATYPE exte
    */
   @Nullable
   @OverrideOnDemand
-  protected ICommonsSet <String> onShowSelectedObjectCustomAttrs (@Nonnull final WPECTYPE aWPEC,
-                                                                  @Nonnull final DATATYPE aSelectedObject,
-                                                                  @Nonnull final Map <String, String> aCustomAttrs,
-                                                                  @Nonnull final BootstrapViewForm aViewForm)
+  protected ICommonsSet <String> onShowSelectedObjectCustomAttrs (@NonNull final WPECTYPE aWPEC,
+                                                                  @NonNull final DATATYPE aSelectedObject,
+                                                                  @NonNull final Map <String, String> aCustomAttrs,
+                                                                  @NonNull final BootstrapViewForm aViewForm)
   {
     return null;
   }
@@ -121,9 +121,9 @@ public abstract class AbstractWebPageSecurityObjectWithAttributes <DATATYPE exte
    *        Current object. Never <code>null</code>.
    */
   @OverrideOnDemand
-  protected void onShowSelectedObjectTableEnd (@Nonnull final WPECTYPE aWPEC,
-                                               @Nonnull final BootstrapViewForm aForm,
-                                               @Nonnull final DATATYPE aSelectedObject)
+  protected void onShowSelectedObjectTableEnd (@NonNull final WPECTYPE aWPEC,
+                                               @NonNull final BootstrapViewForm aForm,
+                                               @NonNull final DATATYPE aSelectedObject)
   {}
 
   /**
@@ -142,10 +142,10 @@ public abstract class AbstractWebPageSecurityObjectWithAttributes <DATATYPE exte
    */
   @OverrideOnDemand
   @Nullable
-  protected ICommonsMap <String, String> validateCustomInputParameters (@Nonnull final WPECTYPE aWPEC,
+  protected ICommonsMap <String, String> validateCustomInputParameters (@NonNull final WPECTYPE aWPEC,
                                                                         @Nullable final DATATYPE aSelectedObject,
-                                                                        @Nonnull final FormErrorList aFormErrors,
-                                                                        @Nonnull final EWebPageFormAction eFormAction)
+                                                                        @NonNull final FormErrorList aFormErrors,
+                                                                        @NonNull final EWebPageFormAction eFormAction)
   {
     return null;
   }
@@ -168,10 +168,10 @@ public abstract class AbstractWebPageSecurityObjectWithAttributes <DATATYPE exte
    *        empty.
    */
   @OverrideOnDemand
-  protected void onShowInputFormEnd (@Nonnull final WPECTYPE aWPEC,
+  protected void onShowInputFormEnd (@NonNull final WPECTYPE aWPEC,
                                      @Nullable final DATATYPE aSelectedObject,
-                                     @Nonnull final BootstrapForm aForm,
-                                     @Nonnull final EWebPageFormAction eFormAction,
-                                     @Nonnull final FormErrorList aFormErrors)
+                                     @NonNull final BootstrapForm aForm,
+                                     @NonNull final EWebPageFormAction eFormAction,
+                                     @NonNull final FormErrorList aFormErrors)
   {}
 }

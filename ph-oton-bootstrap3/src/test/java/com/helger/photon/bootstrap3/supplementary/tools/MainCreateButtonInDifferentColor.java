@@ -16,18 +16,17 @@
  */
 package com.helger.photon.bootstrap3.supplementary.tools;
 
+import org.jspecify.annotations.NonNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import jakarta.annotation.Nonnull;
 
 public final class MainCreateButtonInDifferentColor
 {
   private static final Logger LOGGER = LoggerFactory.getLogger (MainCreateButtonInDifferentColor.class);
 
-  public static String createButtonCSSCode (@Nonnull final String sClassName,
-                                            @Nonnull final String sLightColor,
-                                            @Nonnull final String sDarkColor)
+  public static String createButtonCSSCode (@NonNull final String sClassName,
+                                            @NonNull final String sLightColor,
+                                            @NonNull final String sDarkColor)
   {
     return "/* default */\n" +
            ".btn-" +

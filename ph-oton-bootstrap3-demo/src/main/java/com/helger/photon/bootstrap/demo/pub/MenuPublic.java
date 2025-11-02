@@ -16,6 +16,8 @@
  */
 package com.helger.photon.bootstrap.demo.pub;
 
+import org.jspecify.annotations.NonNull;
+
 import com.helger.annotation.concurrent.Immutable;
 import com.helger.io.resource.ClassPathResource;
 import com.helger.photon.bootstrap.demo.pub.page.PagePublicLogin;
@@ -27,15 +29,13 @@ import com.helger.photon.core.menu.filter.MenuObjectFilterNoUserLoggedIn;
 import com.helger.photon.uicore.page.external.BasePageViewExternal;
 import com.helger.photon.uicore.page.system.BasePageShowChildren;
 
-import jakarta.annotation.Nonnull;
-
 @Immutable
 public final class MenuPublic
 {
   private MenuPublic ()
   {}
 
-  public static void init (@Nonnull final IMenuTree aMenuTree)
+  public static void init (@NonNull final IMenuTree aMenuTree)
   {
     // Not logged in
     aMenuTree.createRootItem (new PagePublicLogin (CMenuPublic.MENU_LOGIN))

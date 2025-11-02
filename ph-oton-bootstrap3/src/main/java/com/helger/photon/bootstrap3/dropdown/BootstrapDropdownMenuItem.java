@@ -16,6 +16,9 @@
  */
 package com.helger.photon.bootstrap3.dropdown;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.base.enforce.ValueEnforcer;
 import com.helger.html.hc.IHCNode;
 import com.helger.html.hc.ext.HCA_JS;
@@ -27,9 +30,6 @@ import com.helger.html.hc.impl.HCTextNode;
 import com.helger.html.js.IHasJSCodeWithSettings;
 import com.helger.photon.bootstrap3.AbstractBootstrapObject;
 import com.helger.url.ISimpleURL;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 /**
  * This class represents a single dropdown menu item.
@@ -51,8 +51,8 @@ public class BootstrapDropdownMenuItem extends AbstractBootstrapObject <Bootstra
   public BootstrapDropdownMenuItem ()
   {}
 
-  @Nonnull
-  public BootstrapDropdownMenuItem setLinkAction (@Nonnull final ISimpleURL aURL)
+  @NonNull
+  public BootstrapDropdownMenuItem setLinkAction (@NonNull final ISimpleURL aURL)
   {
     ValueEnforcer.notNull (aURL, "URL");
     m_aURL = aURL;
@@ -60,8 +60,8 @@ public class BootstrapDropdownMenuItem extends AbstractBootstrapObject <Bootstra
     return this;
   }
 
-  @Nonnull
-  public BootstrapDropdownMenuItem setLinkAction (@Nonnull final IHasJSCodeWithSettings aJSCode)
+  @NonNull
+  public BootstrapDropdownMenuItem setLinkAction (@NonNull final IHasJSCodeWithSettings aJSCode)
   {
     ValueEnforcer.notNull (aJSCode, "JSCode");
     m_aURL = null;
@@ -69,26 +69,26 @@ public class BootstrapDropdownMenuItem extends AbstractBootstrapObject <Bootstra
     return this;
   }
 
-  @Nonnull
+  @NonNull
   public BootstrapDropdownMenuItem setLabel (@Nullable final String sText)
   {
     return setLabel (HCTextNode.createOnDemand (sText));
   }
 
-  @Nonnull
+  @NonNull
   public BootstrapDropdownMenuItem setLabel (@Nullable final IHCNode aLabel)
   {
     m_aLabel = aLabel;
     return this;
   }
 
-  @Nonnull
+  @NonNull
   public BootstrapDropdownMenuItem setLabel (@Nullable final IHCNode... aLabels)
   {
     return setLabel (new HCNodeList ().addChildren (aLabels));
   }
 
-  @Nonnull
+  @NonNull
   public BootstrapDropdownMenuItem setLabel (@Nullable final Iterable <? extends IHCNode> aLabels)
   {
     return setLabel (new HCNodeList ().addChildren (aLabels));
@@ -100,7 +100,7 @@ public class BootstrapDropdownMenuItem extends AbstractBootstrapObject <Bootstra
     return m_aLabel;
   }
 
-  @Nonnull
+  @NonNull
   public BootstrapDropdownMenuItem setTarget (@Nullable final HC_Target aTarget)
   {
     m_aTarget = aTarget;
@@ -113,7 +113,7 @@ public class BootstrapDropdownMenuItem extends AbstractBootstrapObject <Bootstra
     return m_aTarget;
   }
 
-  @Nonnull
+  @NonNull
   public BootstrapDropdownMenuItem setActive (final boolean bActive)
   {
     m_bActive = bActive;
@@ -125,7 +125,7 @@ public class BootstrapDropdownMenuItem extends AbstractBootstrapObject <Bootstra
     return m_bActive;
   }
 
-  @Nonnull
+  @NonNull
   public BootstrapDropdownMenuItem setDisabled (final boolean bDisabled)
   {
     m_bDisabled = bDisabled;
@@ -137,7 +137,7 @@ public class BootstrapDropdownMenuItem extends AbstractBootstrapObject <Bootstra
     return m_bDisabled;
   }
 
-  @Nonnull
+  @NonNull
   public IHCA <?> createLink ()
   {
     if (m_aURL == null && m_aJSCode == null)

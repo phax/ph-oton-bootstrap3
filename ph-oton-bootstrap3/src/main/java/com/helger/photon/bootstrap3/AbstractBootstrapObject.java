@@ -16,6 +16,9 @@
  */
 package com.helger.photon.bootstrap3;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.annotation.concurrent.NotThreadSafe;
 import com.helger.annotation.style.ReturnsMutableObject;
 import com.helger.base.string.StringHelper;
@@ -26,9 +29,6 @@ import com.helger.html.hc.config.HCConsistencyChecker;
 import com.helger.html.hc.ext.HCHasCSSClasses;
 import com.helger.html.hc.ext.HCHasCSSStyles;
 import com.helger.html.hc.html.IHCElement;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 /**
  * Base class for common bootstrap objects.
@@ -53,14 +53,14 @@ public abstract class AbstractBootstrapObject <IMPLTYPE extends AbstractBootstra
     return m_sID;
   }
 
-  @Nonnull
+  @NonNull
   public final IMPLTYPE setID (@Nullable final String sID)
   {
     // Check for existing ID
     return setID (sID, false);
   }
 
-  @Nonnull
+  @NonNull
   public final IMPLTYPE setID (@Nullable final String sID, final boolean bImSureToOverwriteAnExistingID)
   {
     if (!bImSureToOverwriteAnExistingID && m_sID != null)
@@ -86,7 +86,7 @@ public abstract class AbstractBootstrapObject <IMPLTYPE extends AbstractBootstra
     return m_aCSSClasses != null;
   }
 
-  @Nonnull
+  @NonNull
   @ReturnsMutableObject
   public final HCHasCSSClasses cssClasses ()
   {
@@ -100,7 +100,7 @@ public abstract class AbstractBootstrapObject <IMPLTYPE extends AbstractBootstra
     return m_aCSSStyles != null;
   }
 
-  @Nonnull
+  @NonNull
   @ReturnsMutableObject
   public final HCHasCSSStyles cssStyles ()
   {
@@ -109,7 +109,7 @@ public abstract class AbstractBootstrapObject <IMPLTYPE extends AbstractBootstra
     return m_aCSSStyles;
   }
 
-  @Nonnull
+  @NonNull
   public final IMPLTYPE setHidden (final boolean bHidden)
   {
     if (bHidden)
@@ -120,7 +120,7 @@ public abstract class AbstractBootstrapObject <IMPLTYPE extends AbstractBootstra
     return thisAsT ();
   }
 
-  public final void applyBasicHTMLTo (@Nonnull final IHCElement <?> aTarget)
+  public final void applyBasicHTMLTo (@NonNull final IHCElement <?> aTarget)
   {
     if (hasID ())
       aTarget.setID (getID ());

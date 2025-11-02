@@ -18,6 +18,8 @@ package com.helger.photon.bootstrap3.pages.sysinfo;
 
 import java.net.NetworkInterface;
 
+import org.jspecify.annotations.NonNull;
+
 import com.helger.annotation.concurrent.Immutable;
 import com.helger.annotation.style.PresentForCodeCoverage;
 import com.helger.collection.commons.CommonsArrayList;
@@ -26,8 +28,6 @@ import com.helger.collection.hierarchy.IParentProvider;
 import com.helger.collection.iterator.IteratorHelper;
 import com.helger.tree.withid.DefaultTreeItemWithID;
 import com.helger.tree.withid.unique.DefaultTreeWithGlobalUniqueID;
-
-import jakarta.annotation.Nonnull;
 
 /**
  * Some utility methods for {@link NetworkInterface}
@@ -50,7 +50,7 @@ public final class NetworkInterfaceHelper
    * @throws IllegalStateException
    *         In case an internal error occurred.
    */
-  @Nonnull
+  @NonNull
   public static DefaultTreeWithGlobalUniqueID <String, NetworkInterface> createNetworkInterfaceTree ()
   {
     final DefaultTreeWithGlobalUniqueID <String, NetworkInterface> ret = new DefaultTreeWithGlobalUniqueID <> ();
@@ -102,7 +102,7 @@ public final class NetworkInterfaceHelper
     return ret;
   }
 
-  @Nonnull
+  @NonNull
   public static IParentProvider <NetworkInterface> parentProvider ()
   {
     return NetworkInterface::getParent;

@@ -16,14 +16,14 @@
  */
 package com.helger.photon.bootstrap3.pagination;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.base.string.StringHelper;
 import com.helger.html.hc.IHCNode;
 import com.helger.html.hc.html.grouping.AbstractHCUL;
 import com.helger.html.hc.html.textlevel.HCSpan;
 import com.helger.photon.bootstrap3.CBootstrapCSS;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 public class BootstrapPagination extends AbstractHCUL <BootstrapPagination>
 {
@@ -32,12 +32,12 @@ public class BootstrapPagination extends AbstractHCUL <BootstrapPagination>
     this (EBootstrapPaginationType.DEFAULT);
   }
 
-  public BootstrapPagination (@Nonnull final EBootstrapPaginationType eType)
+  public BootstrapPagination (@NonNull final EBootstrapPaginationType eType)
   {
     addClasses (CBootstrapCSS.PAGINATION, eType);
   }
 
-  @Nonnull
+  @NonNull
   public BootstrapPagination addItemActive (@Nullable final String sContent)
   {
     if (StringHelper.isNotEmpty (sContent))
@@ -45,14 +45,14 @@ public class BootstrapPagination extends AbstractHCUL <BootstrapPagination>
     return this;
   }
 
-  @Nonnull
+  @NonNull
   public BootstrapPagination addItemActive (@Nullable final IHCNode aContent)
   {
     addAndReturnItem (aContent).addClass (CBootstrapCSS.ACTIVE);
     return this;
   }
 
-  @Nonnull
+  @NonNull
   public BootstrapPagination addItemDisabled (@Nullable final String sContent)
   {
     if (StringHelper.isNotEmpty (sContent))
@@ -60,7 +60,7 @@ public class BootstrapPagination extends AbstractHCUL <BootstrapPagination>
     return this;
   }
 
-  @Nonnull
+  @NonNull
   public BootstrapPagination addItemDisabled (@Nullable final IHCNode aContent)
   {
     addAndReturnItem (aContent).addClass (CBootstrapCSS.DISABLED);

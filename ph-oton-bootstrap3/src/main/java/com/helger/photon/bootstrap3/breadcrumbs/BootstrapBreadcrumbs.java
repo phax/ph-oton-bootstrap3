@@ -16,15 +16,15 @@
  */
 package com.helger.photon.bootstrap3.breadcrumbs;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.html.hc.ext.HCA_JS;
 import com.helger.html.hc.html.grouping.AbstractHCOL;
 import com.helger.html.hc.html.textlevel.HCA;
 import com.helger.html.js.IHasJSCode;
 import com.helger.photon.bootstrap3.CBootstrapCSS;
 import com.helger.url.ISimpleURL;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 /**
  * Breadcrumbs
@@ -38,21 +38,21 @@ public class BootstrapBreadcrumbs extends AbstractHCOL <BootstrapBreadcrumbs>
     addClass (CBootstrapCSS.BREADCRUMB);
   }
 
-  @Nonnull
-  public BootstrapBreadcrumbs addLink (@Nonnull final ISimpleURL aURL, @Nonnull final String sText)
+  @NonNull
+  public BootstrapBreadcrumbs addLink (@NonNull final ISimpleURL aURL, @NonNull final String sText)
   {
     addItem (new HCA (aURL).addChild (sText));
     return this;
   }
 
-  @Nonnull
-  public BootstrapBreadcrumbs addLink (@Nonnull final IHasJSCode aJSCodeProvider, @Nonnull final String sText)
+  @NonNull
+  public BootstrapBreadcrumbs addLink (@NonNull final IHasJSCode aJSCodeProvider, @NonNull final String sText)
   {
     addItem (new HCA_JS (aJSCodeProvider).addChild (sText));
     return this;
   }
 
-  @Nonnull
+  @NonNull
   public BootstrapBreadcrumbs addActive (@Nullable final String sText)
   {
     addAndReturnItem (sText).addClass (CBootstrapCSS.ACTIVE);

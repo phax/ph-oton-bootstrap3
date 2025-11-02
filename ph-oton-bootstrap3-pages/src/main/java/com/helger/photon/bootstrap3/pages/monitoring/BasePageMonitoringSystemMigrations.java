@@ -18,6 +18,9 @@ package com.helger.photon.bootstrap3.pages.monitoring;
 
 import java.util.Locale;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.annotation.Nonempty;
 import com.helger.annotation.misc.Translatable;
 import com.helger.base.compare.ESortOrder;
@@ -43,9 +46,6 @@ import com.helger.text.display.IHasDisplayText;
 import com.helger.text.resolve.DefaultTextResolver;
 import com.helger.text.util.TextHelper;
 
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
-
 /**
  * Show system migration status.
  *
@@ -63,16 +63,16 @@ public class BasePageMonitoringSystemMigrations <WPECTYPE extends IWebPageExecut
     MSG_SUCCESS ("Erfolg?", "Success?"),
     MSG_ERRORMESSAGE ("Fehlermeldung", "Error message");
 
-    @Nonnull
+    @NonNull
     private final IMultilingualText m_aTP;
 
-    EText (@Nonnull final String sDE, @Nonnull final String sEN)
+    EText (@NonNull final String sDE, @NonNull final String sEN)
     {
       m_aTP = TextHelper.create_DE_EN (sDE, sEN);
     }
 
     @Nullable
-    public String getDisplayText (@Nonnull final Locale aContentLocale)
+    public String getDisplayText (@NonNull final Locale aContentLocale)
     {
       return DefaultTextResolver.getTextStatic (this, m_aTP, aContentLocale);
     }
@@ -80,46 +80,46 @@ public class BasePageMonitoringSystemMigrations <WPECTYPE extends IWebPageExecut
 
   private final SystemMigrationManager m_aSystemMigrationMgr;
 
-  public BasePageMonitoringSystemMigrations (@Nonnull @Nonempty final String sID, @Nonnull final SystemMigrationManager aSystemMigrationMgr)
+  public BasePageMonitoringSystemMigrations (@NonNull @Nonempty final String sID, @NonNull final SystemMigrationManager aSystemMigrationMgr)
   {
     super (sID, EWebPageText.PAGE_NAME_MONITORING_SYSTEMMIGRATIONS.getAsMLT ());
     m_aSystemMigrationMgr = ValueEnforcer.notNull (aSystemMigrationMgr, "SystemMigrationMgr");
   }
 
-  public BasePageMonitoringSystemMigrations (@Nonnull @Nonempty final String sID,
-                                             @Nonnull final String sName,
-                                             @Nonnull final SystemMigrationManager aSystemMigrationMgr)
+  public BasePageMonitoringSystemMigrations (@NonNull @Nonempty final String sID,
+                                             @NonNull final String sName,
+                                             @NonNull final SystemMigrationManager aSystemMigrationMgr)
   {
     super (sID, sName);
     m_aSystemMigrationMgr = ValueEnforcer.notNull (aSystemMigrationMgr, "SystemMigrationMgr");
   }
 
-  public BasePageMonitoringSystemMigrations (@Nonnull @Nonempty final String sID,
-                                             @Nonnull final String sName,
+  public BasePageMonitoringSystemMigrations (@NonNull @Nonempty final String sID,
+                                             @NonNull final String sName,
                                              @Nullable final String sDescription,
-                                             @Nonnull final SystemMigrationManager aSystemMigrationMgr)
+                                             @NonNull final SystemMigrationManager aSystemMigrationMgr)
   {
     super (sID, sName, sDescription);
     m_aSystemMigrationMgr = ValueEnforcer.notNull (aSystemMigrationMgr, "SystemMigrationMgr");
   }
 
-  public BasePageMonitoringSystemMigrations (@Nonnull @Nonempty final String sID,
-                                             @Nonnull final IMultilingualText aName,
+  public BasePageMonitoringSystemMigrations (@NonNull @Nonempty final String sID,
+                                             @NonNull final IMultilingualText aName,
                                              @Nullable final IMultilingualText aDescription,
-                                             @Nonnull final SystemMigrationManager aSystemMigrationMgr)
+                                             @NonNull final SystemMigrationManager aSystemMigrationMgr)
   {
     super (sID, aName, aDescription);
     m_aSystemMigrationMgr = ValueEnforcer.notNull (aSystemMigrationMgr, "SystemMigrationMgr");
   }
 
-  @Nonnull
+  @NonNull
   protected final SystemMigrationManager getSystemMigrationMgr ()
   {
     return m_aSystemMigrationMgr;
   }
 
   @Override
-  protected void fillContent (@Nonnull final WPECTYPE aWPEC)
+  protected void fillContent (@NonNull final WPECTYPE aWPEC)
   {
     final HCNodeList aNodeList = aWPEC.getNodeList ();
     final Locale aDisplayLocale = aWPEC.getDisplayLocale ();

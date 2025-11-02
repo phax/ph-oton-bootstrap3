@@ -19,6 +19,9 @@ package com.helger.photon.bootstrap3.pages.settings;
 import java.time.LocalDateTime;
 import java.util.Locale;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.annotation.Nonempty;
 import com.helger.annotation.misc.Translatable;
 import com.helger.annotation.style.OverrideOnDemand;
@@ -50,9 +53,6 @@ import com.helger.text.display.IHasDisplayTextWithArgs;
 import com.helger.text.resolve.DefaultTextResolver;
 import com.helger.text.util.TextHelper;
 
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
-
 public class BasePageSettingsSystemMessage <WPECTYPE extends IWebPageExecutionContext> extends AbstractBootstrapWebPage <WPECTYPE>
 {
   @Translatable
@@ -71,7 +71,7 @@ public class BasePageSettingsSystemMessage <WPECTYPE extends IWebPageExecutionCo
     }
 
     @Nullable
-    public String getDisplayText (@Nonnull final Locale aContentLocale)
+    public String getDisplayText (@NonNull final Locale aContentLocale)
     {
       return DefaultTextResolver.getTextStatic (this, m_aTP, aContentLocale);
     }
@@ -80,25 +80,25 @@ public class BasePageSettingsSystemMessage <WPECTYPE extends IWebPageExecutionCo
   private static final String FIELD_MESSAGE_TYPE = "msgtype";
   private static final String FIELD_MESSAGE = "msg";
 
-  public BasePageSettingsSystemMessage (@Nonnull @Nonempty final String sID)
+  public BasePageSettingsSystemMessage (@NonNull @Nonempty final String sID)
   {
     super (sID, EWebPageText.PAGE_NAME_SETTINGS_SYSTEMMESSAGE.getAsMLT ());
   }
 
-  public BasePageSettingsSystemMessage (@Nonnull @Nonempty final String sID, @Nonnull final String sName)
+  public BasePageSettingsSystemMessage (@NonNull @Nonempty final String sID, @NonNull final String sName)
   {
     super (sID, sName);
   }
 
-  public BasePageSettingsSystemMessage (@Nonnull @Nonempty final String sID,
-                                        @Nonnull final String sName,
+  public BasePageSettingsSystemMessage (@NonNull @Nonempty final String sID,
+                                        @NonNull final String sName,
                                         @Nullable final String sDescription)
   {
     super (sID, sName, sDescription);
   }
 
-  public BasePageSettingsSystemMessage (@Nonnull @Nonempty final String sID,
-                                        @Nonnull final IMultilingualText aName,
+  public BasePageSettingsSystemMessage (@NonNull @Nonempty final String sID,
+                                        @NonNull final IMultilingualText aName,
                                         @Nullable final IMultilingualText aDescription)
   {
     super (sID, aName, aDescription);
@@ -111,13 +111,13 @@ public class BasePageSettingsSystemMessage <WPECTYPE extends IWebPageExecutionCo
    */
   @Nullable
   @OverrideOnDemand
-  protected IHCElementWithChildren <?> renderCurrentSystemMessage (@Nonnull final WPECTYPE aWPEC)
+  protected IHCElementWithChildren <?> renderCurrentSystemMessage (@NonNull final WPECTYPE aWPEC)
   {
     return BootstrapSystemMessage.createDefault ();
   }
 
   @Override
-  public void fillContent (@Nonnull final WPECTYPE aWPEC)
+  public void fillContent (@NonNull final WPECTYPE aWPEC)
   {
     final Locale aDisplayLocale = aWPEC.getDisplayLocale ();
     final HCNodeList aNodeList = aWPEC.getNodeList ();

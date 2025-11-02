@@ -22,6 +22,9 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.annotation.Nonempty;
 import com.helger.annotation.misc.Translatable;
 import com.helger.base.compare.ESortOrder;
@@ -47,9 +50,6 @@ import com.helger.text.IMultilingualText;
 import com.helger.text.display.IHasDisplayText;
 import com.helger.text.resolve.DefaultTextResolver;
 import com.helger.text.util.TextHelper;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 /**
  * Page with all currencies
@@ -79,36 +79,36 @@ public class BasePageDataCurrencies <WPECTYPE extends IWebPageExecutionContext> 
     }
 
     @Nullable
-    public String getDisplayText (@Nonnull final Locale aContentLocale)
+    public String getDisplayText (@NonNull final Locale aContentLocale)
     {
       return DefaultTextResolver.getTextStatic (this, m_aTP, aContentLocale);
     }
   }
 
-  public BasePageDataCurrencies (@Nonnull @Nonempty final String sID)
+  public BasePageDataCurrencies (@NonNull @Nonempty final String sID)
   {
     super (sID, EWebPageText.PAGE_NAME_DATA_CURRENCIES.getAsMLT ());
   }
 
-  public BasePageDataCurrencies (@Nonnull @Nonempty final String sID, @Nonnull @Nonempty final String sName)
+  public BasePageDataCurrencies (@NonNull @Nonempty final String sID, @NonNull @Nonempty final String sName)
   {
     super (sID, sName);
   }
 
-  public BasePageDataCurrencies (@Nonnull @Nonempty final String sID, @Nonnull final String sName, @Nullable final String sDescription)
+  public BasePageDataCurrencies (@NonNull @Nonempty final String sID, @NonNull final String sName, @Nullable final String sDescription)
   {
     super (sID, sName, sDescription);
   }
 
-  public BasePageDataCurrencies (@Nonnull @Nonempty final String sID,
-                                 @Nonnull final IMultilingualText aName,
+  public BasePageDataCurrencies (@NonNull @Nonempty final String sID,
+                                 @NonNull final IMultilingualText aName,
                                  @Nullable final IMultilingualText aDescription)
   {
     super (sID, aName, aDescription);
   }
 
   @Override
-  protected void fillContent (@Nonnull final WPECTYPE aWPEC)
+  protected void fillContent (@NonNull final WPECTYPE aWPEC)
   {
     final HCNodeList aNodeList = aWPEC.getNodeList ();
     final Locale aDisplayLocale = aWPEC.getDisplayLocale ();

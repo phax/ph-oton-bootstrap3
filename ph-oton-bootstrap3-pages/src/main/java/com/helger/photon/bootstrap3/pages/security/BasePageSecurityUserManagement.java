@@ -19,6 +19,9 @@ package com.helger.photon.bootstrap3.pages.security;
 import java.util.Locale;
 import java.util.Map;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.annotation.Nonempty;
 import com.helger.annotation.misc.Translatable;
 import com.helger.annotation.style.OverrideOnDemand;
@@ -97,9 +100,6 @@ import com.helger.text.resolve.DefaultTextResolver;
 import com.helger.text.util.TextHelper;
 import com.helger.typeconvert.collection.IStringMap;
 import com.helger.url.ISimpleURL;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 public class BasePageSecurityUserManagement <WPECTYPE extends IWebPageExecutionContext> extends
                                             AbstractWebPageSecurityObjectWithAttributes <IUser, WPECTYPE>
@@ -181,7 +181,7 @@ public class BasePageSecurityUserManagement <WPECTYPE extends IWebPageExecutionC
     }
 
     @Nullable
-    public String getDisplayText (@Nonnull final Locale aContentLocale)
+    public String getDisplayText (@NonNull final Locale aContentLocale)
     {
       return DefaultTextResolver.getTextStatic (this, m_aTP, aContentLocale);
     }
@@ -208,8 +208,8 @@ public class BasePageSecurityUserManagement <WPECTYPE extends IWebPageExecutionC
     {
       @Override
       @OverrideOnDemand
-      protected void showQuery (@Nonnull final WPECTYPE aWPEC,
-                                @Nonnull final BootstrapForm aForm,
+      protected void showQuery (@NonNull final WPECTYPE aWPEC,
+                                @NonNull final BootstrapForm aForm,
                                 @Nullable final IUser aSelectedObject)
       {
         final Locale aDisplayLocale = aWPEC.getDisplayLocale ();
@@ -219,7 +219,7 @@ public class BasePageSecurityUserManagement <WPECTYPE extends IWebPageExecutionC
 
       @Override
       @OverrideOnDemand
-      protected void performAction (@Nonnull final WPECTYPE aWPEC, @Nullable final IUser aSelectedObject)
+      protected void performAction (@NonNull final WPECTYPE aWPEC, @Nullable final IUser aSelectedObject)
       {
         final Locale aDisplayLocale = aWPEC.getDisplayLocale ();
         final IUserManager aUserMgr = PhotonSecurityManager.getUserMgr ();
@@ -236,8 +236,8 @@ public class BasePageSecurityUserManagement <WPECTYPE extends IWebPageExecutionC
     {
       @Override
       @OverrideOnDemand
-      protected void showQuery (@Nonnull final WPECTYPE aWPEC,
-                                @Nonnull final BootstrapForm aForm,
+      protected void showQuery (@NonNull final WPECTYPE aWPEC,
+                                @NonNull final BootstrapForm aForm,
                                 @Nullable final IUser aSelectedObject)
       {
         final Locale aDisplayLocale = aWPEC.getDisplayLocale ();
@@ -247,7 +247,7 @@ public class BasePageSecurityUserManagement <WPECTYPE extends IWebPageExecutionC
 
       @Override
       @OverrideOnDemand
-      protected void performAction (@Nonnull final WPECTYPE aWPEC, @Nullable final IUser aSelectedObject)
+      protected void performAction (@NonNull final WPECTYPE aWPEC, @Nullable final IUser aSelectedObject)
       {
         final Locale aDisplayLocale = aWPEC.getDisplayLocale ();
         final IUserManager aUserMgr = PhotonSecurityManager.getUserMgr ();
@@ -263,13 +263,13 @@ public class BasePageSecurityUserManagement <WPECTYPE extends IWebPageExecutionC
     addCustomHandler (ACTION_RESET_PASSWORD, new AbstractBootstrapWebPageActionHandler <IUser, WPECTYPE> (true)
     {
       @Override
-      public boolean canHandleAction (@Nonnull final WPECTYPE aWPEC, @Nullable final IUser aSelectedObject)
+      public boolean canHandleAction (@NonNull final WPECTYPE aWPEC, @Nullable final IUser aSelectedObject)
       {
         return SecurityUIHelper.canResetPassword (aSelectedObject);
       }
 
-      @Nonnull
-      public EShowList handleAction (@Nonnull final WPECTYPE aWPEC, @Nullable final IUser aSelectedObject)
+      @NonNull
+      public EShowList handleAction (@NonNull final WPECTYPE aWPEC, @Nullable final IUser aSelectedObject)
       {
         final HCNodeList aNodeList = aWPEC.getNodeList ();
         final Locale aDisplayLocale = aWPEC.getDisplayLocale ();
@@ -344,35 +344,35 @@ public class BasePageSecurityUserManagement <WPECTYPE extends IWebPageExecutionC
     });
   }
 
-  public BasePageSecurityUserManagement (@Nonnull @Nonempty final String sID)
+  public BasePageSecurityUserManagement (@NonNull @Nonempty final String sID)
   {
     super (sID, EWebPageText.PAGE_NAME_SECURITY_USERS.getAsMLT ());
     _init ();
   }
 
-  public BasePageSecurityUserManagement (@Nonnull @Nonempty final String sID, @Nonnull @Nonempty final String sName)
+  public BasePageSecurityUserManagement (@NonNull @Nonempty final String sID, @NonNull @Nonempty final String sName)
   {
     super (sID, sName);
     _init ();
   }
 
-  public BasePageSecurityUserManagement (@Nonnull @Nonempty final String sID,
-                                         @Nonnull final String sName,
+  public BasePageSecurityUserManagement (@NonNull @Nonempty final String sID,
+                                         @NonNull final String sName,
                                          @Nullable final String sDescription)
   {
     super (sID, sName, sDescription);
     _init ();
   }
 
-  public BasePageSecurityUserManagement (@Nonnull @Nonempty final String sID,
-                                         @Nonnull final IMultilingualText aName,
+  public BasePageSecurityUserManagement (@NonNull @Nonempty final String sID,
+                                         @NonNull final IMultilingualText aName,
                                          @Nullable final IMultilingualText aDescription)
   {
     super (sID, aName, aDescription);
     _init ();
   }
 
-  @Nonnull
+  @NonNull
   public BasePageSecurityUserManagement <WPECTYPE> setDefaultUserLocale (@Nullable final Locale aDefaultUserLocale)
   {
     m_aDefaultUserLocale = aDefaultUserLocale;
@@ -404,7 +404,7 @@ public class BasePageSecurityUserManagement <WPECTYPE extends IWebPageExecutionC
 
   @Override
   @Nullable
-  protected String getObjectDisplayName (@Nonnull final WPECTYPE aWPEC, @Nonnull final IUser aSelectedObject)
+  protected String getObjectDisplayName (@NonNull final WPECTYPE aWPEC, @NonNull final IUser aSelectedObject)
   {
     final Locale aDisplayLocale = aWPEC.getDisplayLocale ();
     return SecurityHelper.getUserDisplayName (aSelectedObject, aDisplayLocale);
@@ -412,15 +412,15 @@ public class BasePageSecurityUserManagement <WPECTYPE extends IWebPageExecutionC
 
   @Override
   @Nullable
-  protected IUser getSelectedObject (@Nonnull final WPECTYPE aWPEC, @Nullable final String sID)
+  protected IUser getSelectedObject (@NonNull final WPECTYPE aWPEC, @Nullable final String sID)
   {
     final IUserManager aUserMgr = PhotonSecurityManager.getUserMgr ();
     return aUserMgr.getUserOfID (sID);
   }
 
   @Override
-  protected boolean isActionAllowed (@Nonnull final WPECTYPE aWPEC,
-                                     @Nonnull final EWebPageFormAction eFormAction,
+  protected boolean isActionAllowed (@NonNull final WPECTYPE aWPEC,
+                                     @NonNull final EWebPageFormAction eFormAction,
                                      @Nullable final IUser aSelectedObject)
   {
     if (eFormAction.isEdit ())
@@ -434,9 +434,9 @@ public class BasePageSecurityUserManagement <WPECTYPE extends IWebPageExecutionC
 
   @Override
   @OverrideOnDemand
-  protected void onShowSelectedObjectTableStart (@Nonnull final WPECTYPE aWPEC,
-                                                 @Nonnull final BootstrapViewForm aForm,
-                                                 @Nonnull final IUser aSelectedObject)
+  protected void onShowSelectedObjectTableStart (@NonNull final WPECTYPE aWPEC,
+                                                 @NonNull final BootstrapViewForm aForm,
+                                                 @NonNull final IUser aSelectedObject)
   {
     final Locale aDisplayLocale = aWPEC.getDisplayLocale ();
     aForm.addFormGroup (new BootstrapFormGroup ().setLabel (EText.LABEL_CREATIONDATE.getDisplayText (aDisplayLocale))
@@ -453,7 +453,7 @@ public class BasePageSecurityUserManagement <WPECTYPE extends IWebPageExecutionC
   }
 
   @Override
-  protected void showSelectedObject (@Nonnull final WPECTYPE aWPEC, @Nonnull final IUser aSelectedObject)
+  protected void showSelectedObject (@NonNull final WPECTYPE aWPEC, @NonNull final IUser aSelectedObject)
   {
     final HCNodeList aNodeList = aWPEC.getNodeList ();
     final Locale aDisplayLocale = aWPEC.getDisplayLocale ();
@@ -579,10 +579,10 @@ public class BasePageSecurityUserManagement <WPECTYPE extends IWebPageExecutionC
   }
 
   @Override
-  protected void validateAndSaveInputParameters (@Nonnull final WPECTYPE aWPEC,
+  protected void validateAndSaveInputParameters (@NonNull final WPECTYPE aWPEC,
                                                  @Nullable final IUser aSelectedObject,
-                                                 @Nonnull final FormErrorList aFormErrors,
-                                                 @Nonnull final EWebPageFormAction eFormAction)
+                                                 @NonNull final FormErrorList aFormErrors,
+                                                 @NonNull final EWebPageFormAction eFormAction)
   {
     final boolean bEdit = eFormAction.isEdit ();
     final Locale aDisplayLocale = aWPEC.getDisplayLocale ();
@@ -731,16 +731,16 @@ public class BasePageSecurityUserManagement <WPECTYPE extends IWebPageExecutionC
    *        The user group selector. Never <code>null</code>.
    */
   @OverrideOnDemand
-  protected void showInputFormModifyUserGroupSelect (@Nonnull final HCUserGroupForUserSelect aSelect)
+  protected void showInputFormModifyUserGroupSelect (@NonNull final HCUserGroupForUserSelect aSelect)
   {}
 
   @Override
-  protected void showInputForm (@Nonnull final WPECTYPE aWPEC,
+  protected void showInputForm (@NonNull final WPECTYPE aWPEC,
                                 @Nullable final IUser aSelectedObject,
-                                @Nonnull final BootstrapForm aForm,
+                                @NonNull final BootstrapForm aForm,
                                 final boolean bIsFormSubmitted,
-                                @Nonnull final EWebPageFormAction eFormAction,
-                                @Nonnull final FormErrorList aFormErrors)
+                                @NonNull final EWebPageFormAction eFormAction,
+                                @NonNull final FormErrorList aFormErrors)
   {
     final boolean bEdit = eFormAction.isEdit ();
     final boolean bIsAdministrator = bEdit && aSelectedObject != null && aSelectedObject.isAdministrator ();
@@ -876,10 +876,10 @@ public class BasePageSecurityUserManagement <WPECTYPE extends IWebPageExecutionC
     return EDefaultIcon.KEY.getIcon ().getAsNode ();
   }
 
-  @Nonnull
-  protected IHCNode getTabWithUsers (@Nonnull final WPECTYPE aWPEC,
-                                     @Nonnull final ICommonsList <IUser> aUsers,
-                                     @Nonnull @Nonempty final String sTableID)
+  @NonNull
+  protected IHCNode getTabWithUsers (@NonNull final WPECTYPE aWPEC,
+                                     @NonNull final ICommonsList <IUser> aUsers,
+                                     @NonNull @Nonempty final String sTableID)
   {
     final Locale aDisplayLocale = aWPEC.getDisplayLocale ();
 
@@ -979,7 +979,7 @@ public class BasePageSecurityUserManagement <WPECTYPE extends IWebPageExecutionC
   }
 
   @Override
-  protected void showListOfExistingObjects (@Nonnull final WPECTYPE aWPEC)
+  protected void showListOfExistingObjects (@NonNull final WPECTYPE aWPEC)
   {
     final Locale aDisplayLocale = aWPEC.getDisplayLocale ();
     final HCNodeList aNodeList = aWPEC.getNodeList ();

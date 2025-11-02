@@ -16,11 +16,11 @@
  */
 package com.helger.photon.bootstrap3.dropdown;
 
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
+
 import com.helger.html.css.ICSSClassProvider;
 import com.helger.photon.bootstrap3.CBootstrapCSS;
-
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 
 /**
  * Bootstrap dropdown menu alignment
@@ -36,7 +36,7 @@ public enum EBootstrapDropdownMenuAlignment implements ICSSClassProvider
 
   private final ICSSClassProvider m_aCSSClass;
 
-  EBootstrapDropdownMenuAlignment (@Nonnull final ICSSClassProvider aCSSClass)
+  EBootstrapDropdownMenuAlignment (@NonNull final ICSSClassProvider aCSSClass)
   {
     m_aCSSClass = aCSSClass;
   }

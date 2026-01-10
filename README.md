@@ -56,6 +56,7 @@ See the submodule `ph-oton-bootstrap3-demo` for a working example project with B
 
 v10.1.1 - 2026-01-10
 * Updated to ph-oton 10.1.2
+* Made sure all package names are "bootstrap3" and not just "bootstrap"
 
 v10.1.0 - 2025-11-16
 * Updated to Jetty 12.1.4

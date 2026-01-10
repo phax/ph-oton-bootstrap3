@@ -38,12 +38,12 @@
   <!-- Application specific stuff -->  
 
   <listener>
-    <listener-class>com.helger.photon.bootstrap.demo.servlet.AppWebAppListener</listener-class>
+    <listener-class>com.helger.photon.bootstrap3.demo.servlet.AppWebAppListener</listener-class>
   </listener>
   
   <filter>
     <filter-name>SecureLoginFilter</filter-name>
-    <filter-class>com.helger.photon.bootstrap.demo.servlet.SecureLoginFilter</filter-class>
+    <filter-class>com.helger.photon.bootstrap3.demo.servlet.SecureLoginFilter</filter-class>
   </filter>
   <filter-mapping>
     <filter-name>SecureLoginFilter</filter-name>
@@ -60,7 +60,7 @@
   
   <servlet>
     <servlet-name>SecureApplicationServlet</servlet-name>
-    <servlet-class>com.helger.photon.bootstrap.demo.servlet.SecureApplicationServlet</servlet-class>
+    <servlet-class>com.helger.photon.bootstrap3.demo.servlet.SecureApplicationServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>SecureApplicationServlet</servlet-name>
@@ -69,7 +69,7 @@
   
   <servlet>
     <servlet-name>PublicApplicationServlet</servlet-name>
-    <servlet-class>com.helger.photon.bootstrap.demo.servlet.PublicApplicationServlet</servlet-class>
+    <servlet-class>com.helger.photon.bootstrap3.demo.servlet.PublicApplicationServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>PublicApplicationServlet</servlet-name>
@@ -78,7 +78,7 @@
   
   <servlet>
     <servlet-name>AppRootServlet</servlet-name>
-    <servlet-class>com.helger.photon.bootstrap.demo.servlet.AppRootServlet</servlet-class>
+    <servlet-class>com.helger.photon.bootstrap3.demo.servlet.AppRootServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>AppRootServlet</servlet-name>
@@ -87,7 +87,7 @@
   
   <servlet>
     <servlet-name>AppErrorServlet</servlet-name>
-    <servlet-class>com.helger.photon.bootstrap.demo.servlet.AppErrorServlet</servlet-class>
+    <servlet-class>com.helger.photon.bootstrap3.demo.servlet.AppErrorServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>AppErrorServlet</servlet-name>

@@ -39,9 +39,9 @@ import com.helger.photon.bootstrap3.form.BootstrapForm;
 import com.helger.photon.bootstrap3.pages.AbstractBootstrapWebPage;
 import com.helger.photon.core.EPhotonCoreText;
 import com.helger.photon.core.form.RequestField;
-import com.helger.photon.core.mgr.PhotonBasicManager;
-import com.helger.photon.core.systemmsg.ESystemMessageType;
-import com.helger.photon.core.systemmsg.SystemMessageManager;
+import com.helger.photon.mgrs.PhotonBasicManager;
+import com.helger.photon.mgrs.systemmsg.ESystemMessageType;
+import com.helger.photon.mgrs.systemmsg.ISystemMessageManager;
 import com.helger.photon.uicore.css.CPageParam;
 import com.helger.photon.uicore.html.select.HCSystemMessageTypeSelect;
 import com.helger.photon.uicore.icon.EDefaultIcon;
@@ -53,12 +53,14 @@ import com.helger.text.display.IHasDisplayTextWithArgs;
 import com.helger.text.resolve.DefaultTextResolver;
 import com.helger.text.util.TextHelper;
 
-public class BasePageSettingsSystemMessage <WPECTYPE extends IWebPageExecutionContext> extends AbstractBootstrapWebPage <WPECTYPE>
+public class BasePageSettingsSystemMessage <WPECTYPE extends IWebPageExecutionContext> extends
+                                           AbstractBootstrapWebPage <WPECTYPE>
 {
   @Translatable
   protected enum EText implements IHasDisplayTextWithArgs
   {
-    SAVE_SUCCESS ("Die neue Systemnachricht wurde erfolgreich gespeichert", "The new system message was saved successfully."),
+    SAVE_SUCCESS ("Die neue Systemnachricht wurde erfolgreich gespeichert",
+                  "The new system message was saved successfully."),
     LAST_UPDATE ("Letzte Aktualisierung: {0}", "Last update: {0}"),
     CURRENT_MESSAGE_TYPE ("Aktuelle Systemnachricht vom Typ ''{0}''", "Current system message of type ''{0}''"),
     NO_SYSTEM_MESSAGE ("Keine Systemnachricht gesetzt.", "No system message present.");
@@ -121,7 +123,7 @@ public class BasePageSettingsSystemMessage <WPECTYPE extends IWebPageExecutionCo
   {
     final Locale aDisplayLocale = aWPEC.getDisplayLocale ();
     final HCNodeList aNodeList = aWPEC.getNodeList ();
-    final SystemMessageManager aSystemMsgMgr = PhotonBasicManager.getSystemMessageMgr ();
+    final ISystemMessageManager aSystemMsgMgr = PhotonBasicManager.getSystemMessageMgr ();
 
     boolean bShowList = true;
     if (aWPEC.hasAction (CPageParam.ACTION_EDIT))
@@ -147,7 +149,8 @@ public class BasePageSettingsSystemMessage <WPECTYPE extends IWebPageExecutionCo
         final BootstrapForm aForm = aNodeList.addAndReturnChild (getUIHandler ().createFormSelf (aWPEC));
 
         final String sSystemMessage = aSystemMsgMgr.getSystemMessage ();
-        aForm.addChild (new HCSystemMessageTypeSelect (new RequestField (FIELD_MESSAGE_TYPE, aSystemMsgMgr.getMessageType ().getID ()),
+        aForm.addChild (new HCSystemMessageTypeSelect (new RequestField (FIELD_MESSAGE_TYPE,
+                                                                         aSystemMsgMgr.getMessageType ().getID ()),
                                                        aDisplayLocale));
         aForm.addChild (new HCTextAreaAutosize (new RequestField (FIELD_MESSAGE, sSystemMessage)));
         aForm.addChild (div (BootstrapSystemMessage.getDefaultFormatter ().getDisplayText (aDisplayLocale)));

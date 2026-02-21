@@ -25,10 +25,10 @@ import com.helger.base.enforce.ValueEnforcer;
 import com.helger.base.string.StringHelper;
 import com.helger.photon.bootstrap3.alert.AbstractBootstrapAlert;
 import com.helger.photon.bootstrap3.alert.EBootstrapAlertType;
-import com.helger.photon.core.mgr.PhotonBasicManager;
-import com.helger.photon.core.systemmsg.ESystemMessageType;
 import com.helger.photon.core.systemmsg.ISystemMessageRenderer;
-import com.helger.photon.core.systemmsg.SystemMessageManager;
+import com.helger.photon.mgrs.PhotonBasicManager;
+import com.helger.photon.mgrs.systemmsg.ESystemMessageType;
+import com.helger.photon.mgrs.systemmsg.ISystemMessageManager;
 import com.helger.photon.uicore.systemmsg.SystemMessageRendererMarkdown;
 import com.helger.photon.uicore.systemmsg.SystemMessageRendererPlainText;
 
@@ -57,8 +57,8 @@ public class BootstrapSystemMessage extends AbstractBootstrapAlert <BootstrapSys
   }
 
   /**
-   * Set the default text formatter to be used. This can e.g. be used to easily
-   * visualize Markdown syntax in the system message.
+   * Set the default text formatter to be used. This can e.g. be used to easily visualize Markdown
+   * syntax in the system message.
    *
    * @param aFormatter
    *        The formatter callback. May not be <code>null</code>.
@@ -73,31 +73,26 @@ public class BootstrapSystemMessage extends AbstractBootstrapAlert <BootstrapSys
    * Set a default formatter that interprets the system message as Markdown.
    *
    * @param bUseMarkdown
-   *        <code>true</code> to use MD <code>false</code> to use the default
-   *        formatter.
+   *        <code>true</code> to use MD <code>false</code> to use the default formatter.
    */
   public static void setDefaultUseMarkdown (final boolean bUseMarkdown)
   {
-    setDefaultFormatter (bUseMarkdown ? SystemMessageRendererMarkdown.INSTANCE : SystemMessageRendererPlainText.INSTANCE);
+    setDefaultFormatter (bUseMarkdown ? SystemMessageRendererMarkdown.INSTANCE
+                                      : SystemMessageRendererPlainText.INSTANCE);
   }
 
   @NonNull
   public static EBootstrapAlertType getAlertType (@NonNull final ESystemMessageType eSystemMessageType)
   {
     // Create empty boxes
-    switch (eSystemMessageType)
+    return switch (eSystemMessageType)
     {
-      case INFO:
-        return EBootstrapAlertType.INFO;
-      case WARNING:
-        return EBootstrapAlertType.WARNING;
-      case ERROR:
-        return EBootstrapAlertType.DANGER;
-      case SUCCESS:
-        return EBootstrapAlertType.SUCCESS;
-      default:
-        throw new IllegalArgumentException ("Illegal message type: " + eSystemMessageType);
-    }
+      case INFO -> EBootstrapAlertType.INFO;
+      case WARNING -> EBootstrapAlertType.WARNING;
+      case ERROR -> EBootstrapAlertType.DANGER;
+      case SUCCESS -> EBootstrapAlertType.SUCCESS;
+      default -> throw new IllegalArgumentException ("Illegal message type: " + eSystemMessageType);
+    };
   }
 
   protected BootstrapSystemMessage (@NonNull final ESystemMessageType eSystemMessageType)
@@ -117,12 +112,13 @@ public class BootstrapSystemMessage extends AbstractBootstrapAlert <BootstrapSys
   @Nullable
   public static BootstrapSystemMessage createDefault ()
   {
-    final SystemMessageManager aSystemMsgMgr = PhotonBasicManager.getSystemMessageMgr ();
+    final ISystemMessageManager aSystemMsgMgr = PhotonBasicManager.getSystemMessageMgr ();
     return create (aSystemMsgMgr.getMessageType (), aSystemMsgMgr.getSystemMessage ());
   }
 
   @Nullable
-  public static BootstrapSystemMessage create (@NonNull final ESystemMessageType eSystemMessageType, @Nullable final String sSystemMessage)
+  public static BootstrapSystemMessage create (@NonNull final ESystemMessageType eSystemMessageType,
+                                               @Nullable final String sSystemMessage)
   {
     if (StringHelper.isEmpty (sSystemMessage))
       return null;

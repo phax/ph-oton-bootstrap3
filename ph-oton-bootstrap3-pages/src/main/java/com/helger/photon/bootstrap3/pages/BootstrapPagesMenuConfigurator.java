@@ -70,7 +70,7 @@ import com.helger.photon.core.menu.IMenuTree;
 import com.helger.photon.core.mgr.PhotonBasicManager;
 import com.helger.photon.core.mgr.PhotonCoreManager;
 import com.helger.photon.core.smtp.NamedSMTPSettingsManager;
-import com.helger.photon.core.sysmigration.SystemMigrationManager;
+import com.helger.photon.mgrs.sysmigration.ISystemMigrationManager;
 import com.helger.photon.security.lock.ILockManager;
 import com.helger.photon.security.mgr.PhotonSecurityManager;
 import com.helger.photon.uicore.page.EWebPageText;
@@ -178,7 +178,7 @@ public final class BootstrapPagesMenuConfigurator
                                                   @Nullable final IAuditManager aAuditMgr,
                                                   @Nullable final FailedMailQueue aFailedMailQueue,
                                                   @Nullable final ILockManager <String> aLockManager,
-                                                  @Nullable final SystemMigrationManager aSystemMigrationMgr)
+                                                  @Nullable final ISystemMigrationManager aSystemMigrationMgr)
   {
     final IMenuItemPage aAdminMonitoring = aMenuTree.createItem (aParent,
                                                                  new BasePageShowChildren <> (MENU_ADMIN_MONITORING,

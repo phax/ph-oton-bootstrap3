@@ -1,7 +1,9 @@
 # ph-oton-bootstrap3
 
-[![Maven Central](https://img.shields.io/maven-central/v/com.helger.photon/ph-oton-bootstrap3-parent-pom)](https://img.shields.io/maven-central/v/com.helger.photon/ph-oton-bootstrap3-parent-pom)
+<!-- ph-badge-start -->
+[![Sonatype Central](https://maven-badges.sml.io/sonatype-central/com.helger.photon/ph-oton-bootstrap3-parent-pom/badge.svg)](https://maven-badges.sml.io/sonatype-central/com.helger.photon/ph-oton-bootstrap3-parent-pom/)
 [![javadoc](https://javadoc.io/badge2/com.helger.photon/ph-oton-bootstrap3/javadoc.svg)](https://javadoc.io/doc/com.helger.photon/ph-oton-bootstrap3)
+<!-- ph-badge-end -->
 
 This set of Java libraries forms a package to build Java web applications.
 

@@ -25,7 +25,7 @@
     <version>10.1.3-SNAPSHOT</version>
   </parent>
   <artifactId>ph-oton-bootstrap3-uictrls</artifactId>
-  <packaging>bundle</packaging>
+  <packaging>jar</packaging>
   <name>ph-oton-bootstrap3-uictrls</name>
   <description>Library wrapping Bootstrap 3 controls as Java web application components</description>
   <url>https://github.com/phax/ph-oton-bootstrap3/ph-oton-bootstrap3-uictrls</url>
@@ -70,20 +70,6 @@
   </dependencies>
   <build>
     <plugins>
-      <plugin>
-        <groupId>org.apache.felix</groupId>
-        <artifactId>maven-bundle-plugin</artifactId>
-        <extensions>true</extensions>
-        <configuration>
-          <instructions>
-            <Automatic-Module-Name>com.helger.photon.bootstrap3.uictrls</Automatic-Module-Name>
-            <Export-Package>com.helger.photon.bootstrap3.uictrls.*</Export-Package>
-            <Import-Package>!org.jspecify.annotations.*,*</Import-Package>
-            <Require-Capability>osgi.extender; filter:="(osgi.extender=osgi.serviceloader.registrar)"</Require-Capability>
-            <Provide-Capability>osgi.serviceloader; osgi.serviceloader=com.helger.base.thirdparty.IThirdPartyModuleProviderSPI</Provide-Capability>
-          </instructions>
-        </configuration>
-      </plugin>
       <plugin>
         <groupId>com.helger.maven</groupId>
         <artifactId>ph-jscompress-maven-plugin</artifactId>

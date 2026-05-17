@@ -49,8 +49,7 @@ import com.helger.web.scope.mgr.WebScopeManager;
 import com.helger.xservlet.requesttrack.RequestTrackerSettings;
 
 /**
- * This class triggers some default configuration to run ph-oton applications
- * more easy.
+ * This class triggers some default configuration to run ph-oton applications more easy.
  *
  * @author Philip Helger
  */
@@ -60,6 +59,7 @@ public final class PhotonStubInitializer
   private PhotonStubInitializer ()
   {}
 
+  @SuppressWarnings ("deprecation")
   public static void registerDefaultResources ()
   {
     // CSS
@@ -118,7 +118,8 @@ public final class PhotonStubInitializer
     {
       // Special Bootstrap customizer
       HCSettings.getMutableConversionSettings ()
-                .setCustomizer (new HCCustomizerList (new BootstrapCustomizer (), new HCCustomizerAutoFocusFirstCtrl ()));
+                .setCustomizer (new HCCustomizerList (new BootstrapCustomizer (),
+                                                      new HCCustomizerAutoFocusFirstCtrl ()));
     }
 
     // Set default icon set if none is defined
@@ -132,8 +133,10 @@ public final class PhotonStubInitializer
     // Add default mapping from Application ID to path
     if (!PhotonGlobalState.containsAnyApplicationServletPathMapping ())
     {
-      PhotonGlobalState.state (CApplicationID.APP_ID_PUBLIC).setServletPath (AbstractPublicApplicationServlet.SERVLET_DEFAULT_PATH);
-      PhotonGlobalState.state (CApplicationID.APP_ID_SECURE).setServletPath (AbstractSecureApplicationServlet.SERVLET_DEFAULT_PATH);
+      PhotonGlobalState.state (CApplicationID.APP_ID_PUBLIC)
+                       .setServletPath (AbstractPublicApplicationServlet.SERVLET_DEFAULT_PATH);
+      PhotonGlobalState.state (CApplicationID.APP_ID_SECURE)
+                       .setServletPath (AbstractSecureApplicationServlet.SERVLET_DEFAULT_PATH);
       PhotonGlobalState.getInstance ().setDefaultApplicationID (CApplicationID.APP_ID_PUBLIC);
     }
   }

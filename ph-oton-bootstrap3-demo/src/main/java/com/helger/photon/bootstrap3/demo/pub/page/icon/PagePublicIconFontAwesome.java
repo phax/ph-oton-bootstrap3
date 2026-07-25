@@ -22,7 +22,7 @@ import com.helger.annotation.Nonempty;
 import com.helger.html.hc.html.grouping.HCDiv;
 import com.helger.html.hc.html.textlevel.HCSmall;
 import com.helger.html.hc.impl.HCNodeList;
-import com.helger.photon.icon.fontawesome.EFontAwesome4Icon;
+import com.helger.photon.icon.fontawesome4.EFontAwesome4Icon;
 import com.helger.photon.uicore.page.WebPageExecutionContext;
 
 /**

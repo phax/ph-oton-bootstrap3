@@ -45,13 +45,7 @@ public enum EDataTablesB3JSPathProvider implements IJSPathProvider
                                     "/js/responsive.bootstrap.js"),
   DATATABLES_SEARCH_BUILDER_BOOTSTRAP3 ("external/datatables/searchbuilder-" +
                                         CDataTablesComponentVersion.SEARCH_BUILDER +
-                                        "/js/searchBuilder.bootstrap.js"),
-  DATATABLES_SEARCH_PANES_BOOTSTRAP3 ("external/datatables/searchpanes-" +
-                                      CDataTablesComponentVersion.SEARCH_PANES +
-                                      "/js/searchPanes.bootstrap.js"),
-  DATATABLES_STATE_RESTORE_BOOTSTRAP3 ("external/datatables/staterestore-" +
-                                       CDataTablesComponentVersion.STATE_RESTORE +
-                                       "/js/stateRestore.bootstrap.js");
+                                        "/js/searchBuilder.bootstrap.js");
 
   private final ConstantJSPathProvider m_aPP;
 

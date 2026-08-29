@@ -58,6 +58,11 @@ See the submodule `ph-oton-bootstrap3-demo` for a working example project with B
 
 ## News and noteworthy
 
+v10.2.1 - work in progress
+* Updated to ph-oton 10.4.0 - contains DataTables 3.0.2 and the current plugin versions
+* **Breaking API change**: removed the enum entries `EDataTablesB3JSPathProvider.DATATABLES_SEARCH_PANES_BOOTSTRAP3` and `DATATABLES_STATE_RESTORE_BOOTSTRAP3`.
+  SearchPanes and StateRestore are not yet ported to DataTables 3, so ph-oton 10.4.0 no longer contains the version constants nor the resources for them.
+
 v10.2.0 - 2026-07-27
 * Updated to ph-oton 10.3.0
 * Using ph-oton-icon 1.0.1

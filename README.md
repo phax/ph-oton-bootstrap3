@@ -58,7 +58,7 @@ See the submodule `ph-oton-bootstrap3-demo` for a working example project with B
 
 ## News and noteworthy
 
-v10.2.1 - work in progress
+v10.2.1 - 2026-08-30
 * Updated to ph-oton 10.4.0 - contains DataTables 3.0.2 and the current plugin versions
 * Updated the bundled Bootstrap 3 DataTables resources to DataTables 3.0.2 and the current plugin versions, and removed the superseded ones
 * **Breaking API change**: removed the enum entries `EDataTablesB3JSPathProvider.DATATABLES_SEARCH_PANES_BOOTSTRAP3` and `DATATABLES_STATE_RESTORE_BOOTSTRAP3`.

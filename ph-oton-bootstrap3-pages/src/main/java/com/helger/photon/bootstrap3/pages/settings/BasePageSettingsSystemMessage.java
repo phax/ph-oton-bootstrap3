@@ -148,11 +148,11 @@ public class BasePageSettingsSystemMessage <WPECTYPE extends IWebPageExecutionCo
         // Show input form
         final BootstrapForm aForm = aNodeList.addAndReturnChild (getUIHandler ().createFormSelf (aWPEC));
 
-        final String sSystemMessage = aSystemMsgMgr.getSystemMessage ();
+        final var aSystemMsgData = aSystemMsgMgr.getSystemMessageData ();
         aForm.addChild (new HCSystemMessageTypeSelect (new RequestField (FIELD_MESSAGE_TYPE,
-                                                                         aSystemMsgMgr.getMessageType ().getID ()),
+                                                                         aSystemMsgData.getMessageType ().getID ()),
                                                        aDisplayLocale));
-        aForm.addChild (new HCTextAreaAutosize (new RequestField (FIELD_MESSAGE, sSystemMessage)));
+        aForm.addChild (new HCTextAreaAutosize (new RequestField (FIELD_MESSAGE, aSystemMsgData.getMessage ())));
         aForm.addChild (div (BootstrapSystemMessage.getDefaultFormatter ().getDisplayText (aDisplayLocale)));
         aForm.addChild (new HCHiddenField (CPageParam.PARAM_ACTION, CPageParam.ACTION_EDIT));
         aForm.addChild (new HCHiddenField (CPageParam.PARAM_SUBACTION, CPageParam.ACTION_SAVE));
@@ -168,8 +168,10 @@ public class BasePageSettingsSystemMessage <WPECTYPE extends IWebPageExecutionCo
 
     if (bShowList)
     {
+      final var aSystemMsgData = aSystemMsgMgr.getSystemMessageData ();
+
       // Add last update datetime
-      final LocalDateTime aLastUpdateDT = aSystemMsgMgr.getLastUpdateDT ();
+      final LocalDateTime aLastUpdateDT = aSystemMsgData.getLastUpdateDT ();
       if (aLastUpdateDT != null)
       {
         aNodeList.addChild (getUIHandler ().createActionHeader (EText.LAST_UPDATE.getDisplayTextWithArgs (aDisplayLocale,
@@ -179,12 +181,12 @@ public class BasePageSettingsSystemMessage <WPECTYPE extends IWebPageExecutionCo
 
       final BootstrapForm aForm = aNodeList.addAndReturnChild (getUIHandler ().createFormSelf (aWPEC));
 
-      if (aSystemMsgMgr.hasSystemMessage ())
+      if (aSystemMsgData.hasMessage ())
       {
         // Show current message
         aForm.addChild (getUIHandler ().createDataGroupHeader (EText.CURRENT_MESSAGE_TYPE.getDisplayTextWithArgs (aDisplayLocale,
-                                                                                                                  aSystemMsgMgr.getMessageType ()
-                                                                                                                               .getDisplayText (aDisplayLocale))));
+                                                                                                                  aSystemMsgData.getMessageType ()
+                                                                                                                                .getDisplayText (aDisplayLocale))));
         aForm.addChild (new HCDiv ().addChild (renderCurrentSystemMessage (aWPEC)));
       }
       else

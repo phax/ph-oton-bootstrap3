@@ -106,8 +106,7 @@ public enum EDateTimePickerLanguage
   }
 
   /**
-   * @return The ID to be used by the DateTimePicker to resolve the include
-   *         file.
+   * @return The ID to be used by the DateTimePicker to resolve the include file.
    */
   @NonNull
   @Nonempty

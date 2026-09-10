@@ -39,18 +39,17 @@ public class BootstrapDropdown extends AbstractHCDiv <BootstrapDropdown>
    */
   public static final String JS_EVENT_SHOW = "show.bs.dropdown";
   /**
-   * This event is fired when the dropdown has been made visible to the user
-   * (will wait for CSS transitions, to complete).
+   * This event is fired when the dropdown has been made visible to the user (will wait for CSS
+   * transitions, to complete).
    */
   public static final String JS_EVENT_SHOWN = "shown.bs.dropdown";
   /**
-   * This event is fired immediately when the hide instance method has been
-   * called.
+   * This event is fired immediately when the hide instance method has been called.
    */
   public static final String JS_EVENT_HIDE = "hide.bs.dropdown";
   /**
-   * This event is fired when the dropdown has finished being hidden from the
-   * user (will wait for CSS transitions, to complete).
+   * This event is fired when the dropdown has finished being hidden from the user (will wait for
+   * CSS transitions, to complete).
    */
   public static final String JS_EVENT_HIDDEN = "hidden.bs.dropdown";
 
@@ -99,7 +98,8 @@ public class BootstrapDropdown extends AbstractHCDiv <BootstrapDropdown>
   @Override
   @OverrideOnDemand
   @OverridingMethodsMustInvokeSuper
-  protected void fillMicroElement (@NonNull final IMicroElement aElement, @NonNull final IHCConversionSettingsToNode aConversionSettings)
+  protected void fillMicroElement (@NonNull final IMicroElement aElement,
+                                   @NonNull final IHCConversionSettingsToNode aConversionSettings)
   {
     super.fillMicroElement (aElement, aConversionSettings);
     if (aConversionSettings.areConsistencyChecksEnabled ())
@@ -117,9 +117,8 @@ public class BootstrapDropdown extends AbstractHCDiv <BootstrapDropdown>
   }
 
   /**
-   * Call this method to convert an element to a dropdown toggle. Important:
-   * call this after all children are added, because a caret is added at the
-   * end!
+   * Call this method to convert an element to a dropdown toggle. Important: call this after all
+   * children are added, because a caret is added at the end!
    *
    * @param aElement
    *        The element to use. May not be <code>null</code>.

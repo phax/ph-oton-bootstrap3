@@ -31,8 +31,8 @@ import com.helger.photon.uicore.page.IWebPageExecutionContext;
 import com.helger.text.IMultilingualText;
 
 /**
- * Abstract base class for a Bootstrap based web page that has the common form
- * handling, with a list view, details view, create and edit + binding.
+ * Abstract base class for a Bootstrap based web page that has the common form handling, with a list
+ * view, details view, create and edit + binding.
  *
  * @author Philip Helger
  * @param <DATATYPE>
@@ -41,7 +41,8 @@ import com.helger.text.IMultilingualText;
  *        Web page execution context type
  */
 @NotThreadSafe
-public abstract class AbstractBootstrapWebPageForm <DATATYPE extends IHasID <String>, WPECTYPE extends IWebPageExecutionContext> extends
+public abstract class AbstractBootstrapWebPageForm <DATATYPE extends IHasID <String>, WPECTYPE extends IWebPageExecutionContext>
+                                                   extends
                                                    AbstractWebPageForm <DATATYPE, WPECTYPE, BootstrapForm, BootstrapButtonToolbar>
 {
   public AbstractBootstrapWebPageForm (@NonNull @Nonempty final String sID, @NonNull final String sName)

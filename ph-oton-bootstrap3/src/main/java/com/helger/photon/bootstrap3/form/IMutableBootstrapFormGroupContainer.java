@@ -29,8 +29,8 @@ import com.helger.photon.bootstrap3.grid.BootstrapGridSpec;
 public interface IMutableBootstrapFormGroupContainer extends IBootstrapFormGroupContainer
 {
   /**
-   * Set the left part of a horizontal form. This implicitly sets the correct
-   * right parts (= CBootstrap.GRID_SYSTEM_MAX - left).
+   * Set the left part of a horizontal form. This implicitly sets the correct right parts (=
+   * CBootstrap.GRID_SYSTEM_MAX - left).
    *
    * @param nLeftParts
    *        The left parts. Must be &ge; 1 and &le; 12!
@@ -40,8 +40,8 @@ public interface IMutableBootstrapFormGroupContainer extends IBootstrapFormGroup
   IMutableBootstrapFormGroupContainer setLeft (@Nonnegative int nLeftParts);
 
   /**
-   * Set the left part of a horizontal form. This implicitly sets the correct
-   * right parts (= CBootstrap.GRID_SYSTEM_MAX - left).
+   * Set the left part of a horizontal form. This implicitly sets the correct right parts (=
+   * CBootstrap.GRID_SYSTEM_MAX - left).
    *
    * @param nLeftPartsXS
    *        The left parts XS. Must be &ge; 1 and &le; 12!
@@ -69,7 +69,8 @@ public interface IMutableBootstrapFormGroupContainer extends IBootstrapFormGroup
    * @return this
    */
   @NonNull
-  IMutableBootstrapFormGroupContainer setSplitting (@NonNull BootstrapGridSpec aLeft, @NonNull BootstrapGridSpec aRight);
+  IMutableBootstrapFormGroupContainer setSplitting (@NonNull BootstrapGridSpec aLeft,
+                                                    @NonNull BootstrapGridSpec aRight);
 
   /**
    * Set the form group renderer to be used.

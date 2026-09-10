@@ -106,7 +106,8 @@ public class BootstrapLoginHTMLProvider extends AbstractLoginHTMLProvider
    *        The empty container.
    */
   @OverrideOnDemand
-  protected void onBeforeContainer (@NonNull final ISimpleWebExecutionContext aSWEC, @NonNull final BootstrapContainer aContainer)
+  protected void onBeforeContainer (@NonNull final ISimpleWebExecutionContext aSWEC,
+                                    @NonNull final BootstrapContainer aContainer)
   {}
 
   /**

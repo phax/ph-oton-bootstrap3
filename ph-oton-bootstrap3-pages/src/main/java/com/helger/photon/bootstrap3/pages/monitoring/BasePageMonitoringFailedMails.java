@@ -187,8 +187,7 @@ public class BasePageMonitoringFailedMails <WPECTYPE extends IWebPageExecutionCo
                           if (aFailedMails.isNotEmpty ())
                           {
                             LOGGER.info ("Deleted " + aFailedMails.size () + " failed mails!");
-                            final String sSuccessMsg = aFailedMails.size () == 1 ? EText.DELETE_ALL_SUCCESS_1
-                                                                                                             .getDisplayText (aDisplayLocale)
+                            final String sSuccessMsg = aFailedMails.size () == 1 ? EText.DELETE_ALL_SUCCESS_1.getDisplayText (aDisplayLocale)
                                                                                  : EText.DELETE_ALL_SUCCESS_N.getDisplayTextWithArgs (aDisplayLocale,
                                                                                                                                       Integer.toString (aFailedMails.size ()));
                             aWPEC.postRedirectGetInternal (new BootstrapSuccessBox ().addChild (sSuccessMsg));
@@ -217,8 +216,8 @@ public class BasePageMonitoringFailedMails <WPECTYPE extends IWebPageExecutionCo
                        "!");
 
           // Main resend
-          final ISMTPSettings aSMTPSettings = aDefaultSMTPSettings != null ? aDefaultSMTPSettings : aFailedMailData
-                                                                                                                   .getSMTPSettings ();
+          final ISMTPSettings aSMTPSettings = aDefaultSMTPSettings != null ? aDefaultSMTPSettings
+                                                                           : aFailedMailData.getSMTPSettings ();
           ScopedMailAPI.getInstance ().queueMail (aSMTPSettings, aFailedMailData.getEmailData ());
 
           // Success message
@@ -253,13 +252,12 @@ public class BasePageMonitoringFailedMails <WPECTYPE extends IWebPageExecutionCo
           for (final FailedMailData aFailedMailData : aFailedMails)
           {
             ScopedMailAPI.getInstance ()
-                         .queueMail (aDefaultSMTPSettings != null ? aDefaultSMTPSettings : aFailedMailData
-                                                                                                          .getSMTPSettings (),
+                         .queueMail (aDefaultSMTPSettings != null ? aDefaultSMTPSettings
+                                                                  : aFailedMailData.getSMTPSettings (),
                                      aFailedMailData.getEmailData ());
           }
           // Success message
-          final String sSuccessMsg = aFailedMails.size () == 1 ? EText.RESENT_ALL_SUCCESS_1.getDisplayText (
-                                                                                                            aDisplayLocale)
+          final String sSuccessMsg = aFailedMails.size () == 1 ? EText.RESENT_ALL_SUCCESS_1.getDisplayText (aDisplayLocale)
                                                                : EText.RESENT_ALL_SUCCESS_N.getDisplayTextWithArgs (aDisplayLocale,
                                                                                                                     Integer.toString (aFailedMails.size ()));
           aWPEC.postRedirectGetInternal (new BootstrapSuccessBox ().addChild (sSuccessMsg));
@@ -418,8 +416,8 @@ public class BasePageMonitoringFailedMails <WPECTYPE extends IWebPageExecutionCo
           aBody = HCExtHelper.nl2divList (aEmailData.getBody ());
           break;
         case HTML:
-          aBody = true ? HCExtHelper.nl2divList (aEmailData.getBody ()) : new CommonsArrayList <> (new HCTextNode (
-                                                                                                                   aEmailData.getBody ()));
+          aBody = true ? HCExtHelper.nl2divList (aEmailData.getBody ())
+                       : new CommonsArrayList <> (new HCTextNode (aEmailData.getBody ()));
           break;
       }
       aTable.addFormGroup (new BootstrapFormGroup ().setLabel (EText.MSG_BODY.getDisplayText (aDisplayLocale))
@@ -456,8 +454,8 @@ public class BasePageMonitoringFailedMails <WPECTYPE extends IWebPageExecutionCo
           final HCRow aRow = aDetailsTable.addBodyRow ();
           aRow.addCell (HCA_MailTo.createLinkedEmail (aMailSendDetail.getAddress ()));
           aRow.addCell ()
-              .addChild (aMailSendDetail.isAddressValid () ? EDefaultIcon.YES.getAsNode () : EDefaultIcon.NO
-                                                                                                            .getAsNode ());
+              .addChild (aMailSendDetail.isAddressValid () ? EDefaultIcon.YES.getAsNode ()
+                                                           : EDefaultIcon.NO.getAsNode ());
           aRow.addCell (HCExtHelper.nl2divList (aMailSendDetail.getErrorMessage ()));
         }
       }

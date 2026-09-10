@@ -41,30 +41,27 @@ import com.helger.photon.bootstrap3.base.BootstrapCloseIcon;
 public class BootstrapModal extends AbstractHCDiv <BootstrapModal>
 {
   /**
-   * This event fires immediately when the show instance method is called. If
-   * caused by a click, the clicked element is available as the relatedTarget
-   * property of the event.
+   * This event fires immediately when the show instance method is called. If caused by a click, the
+   * clicked element is available as the relatedTarget property of the event.
    */
   public static final String JS_EVENT_SHOW = "show.bs.modal";
   /**
-   * This event is fired when the modal has been made visible to the user (will
-   * wait for CSS transitions to complete). If caused by a click, the clicked
-   * element is available as the relatedTarget property of the event.
+   * This event is fired when the modal has been made visible to the user (will wait for CSS
+   * transitions to complete). If caused by a click, the clicked element is available as the
+   * relatedTarget property of the event.
    */
   public static final String JS_EVENT_SHOWN = "shown.bs.modal";
   /**
-   * This event is fired immediately when the hide instance method has been
-   * called.
+   * This event is fired immediately when the hide instance method has been called.
    */
   public static final String JS_EVENT_HIDE = "hide.bs.modal";
   /**
-   * This event is fired when the modal has finished being hidden from the user
-   * (will wait for CSS transitions to complete).
+   * This event is fired when the modal has finished being hidden from the user (will wait for CSS
+   * transitions to complete).
    */
   public static final String JS_EVENT_HIDDEN = "hidden.bs.modal";
   /**
-   * This event is fired when the modal has loaded content using the remote
-   * option.
+   * This event is fired when the modal has loaded content using the remote option.
    */
   public static final String JS_EVENT_LOADED = "loaded.bs.modal";
 
@@ -220,7 +217,8 @@ public class BootstrapModal extends AbstractHCDiv <BootstrapModal>
       addClass (CBootstrapCSS.FADE);
 
     final HCDiv aDialog = addAndReturnChild (new HCDiv ().addClasses (CBootstrapCSS.MODAL_DIALOG, m_eSize));
-    final HCDiv aContent = aDialog.addAndReturnChild (new HCDiv ().addClass (CBootstrapCSS.MODAL_CONTENT).setID (_getContentID ()));
+    final HCDiv aContent = aDialog.addAndReturnChild (new HCDiv ().addClass (CBootstrapCSS.MODAL_CONTENT)
+                                                                  .setID (_getContentID ()));
     if (m_aHeader != null)
     {
       final String sTitleID = _getTitleID ();
@@ -253,15 +251,15 @@ public class BootstrapModal extends AbstractHCDiv <BootstrapModal>
    * Activates your content as a modal. Accepts an optional options object.
    *
    * @param aBackdrop
-   *        Includes a modal-backdrop element. Alternatively, specify static for
-   *        a backdrop which doesn't close the modal on click.
+   *        Includes a modal-backdrop element. Alternatively, specify static for a backdrop which
+   *        doesn't close the modal on click.
    * @param aKeyboard
    *        Closes the modal when escape key is pressed
    * @param aShow
    *        Shows the modal when initialized.
    * @param sRemotePath
-   *        If a remote URL is provided, content will be loaded one time via
-   *        jQuery's load method and injected into the .modal-content div.
+   *        If a remote URL is provided, content will be loaded one time via jQuery's load method
+   *        and injected into the .modal-content div.
    * @return JS invocation to open this modal dialog with the specified options.
    */
   @NonNull
@@ -290,9 +288,8 @@ public class BootstrapModal extends AbstractHCDiv <BootstrapModal>
   }
 
   /**
-   * Manually toggles a modal. Returns to the caller before the modal has
-   * actually been shown or hidden (i.e. before the shown.bs.modal or
-   * hidden.bs.modal event occurs).
+   * Manually toggles a modal. Returns to the caller before the modal has actually been shown or
+   * hidden (i.e. before the shown.bs.modal or hidden.bs.modal event occurs).
    *
    * @return JS invocation
    */
@@ -303,8 +300,8 @@ public class BootstrapModal extends AbstractHCDiv <BootstrapModal>
   }
 
   /**
-   * Manually opens a modal. Returns to the caller before the modal has actually
-   * been shown (i.e. before the shown.bs.modal event occurs).
+   * Manually opens a modal. Returns to the caller before the modal has actually been shown (i.e.
+   * before the shown.bs.modal event occurs).
    *
    * @return JS invocation
    */
@@ -315,8 +312,8 @@ public class BootstrapModal extends AbstractHCDiv <BootstrapModal>
   }
 
   /**
-   * Manually hides a modal. Returns to the caller before the modal has actually
-   * been hidden (i.e. before the hidden.bs.modal event occurs).
+   * Manually hides a modal. Returns to the caller before the modal has actually been hidden (i.e.
+   * before the hidden.bs.modal event occurs).
    *
    * @return JS invocation
    */
@@ -327,9 +324,9 @@ public class BootstrapModal extends AbstractHCDiv <BootstrapModal>
   }
 
   /**
-   * Readjusts the modal's positioning to counter a scrollbar in case one should
-   * appear, which would make the modal jump to the left. Only needed when the
-   * height of the modal changes while it is open.
+   * Readjusts the modal's positioning to counter a scrollbar in case one should appear, which would
+   * make the modal jump to the left. Only needed when the height of the modal changes while it is
+   * open.
    *
    * @return JS invocation
    */

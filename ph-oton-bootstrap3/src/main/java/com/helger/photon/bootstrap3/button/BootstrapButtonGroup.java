@@ -45,7 +45,8 @@ public class BootstrapButtonGroup extends AbstractHCDiv <BootstrapButtonGroup>
     this (EBootstrapButtonGroupType.DEFAULT, eSize);
   }
 
-  public BootstrapButtonGroup (@NonNull final EBootstrapButtonGroupType eType, @NonNull final EBootstrapButtonGroupSize eSize)
+  public BootstrapButtonGroup (@NonNull final EBootstrapButtonGroupType eType,
+                               @NonNull final EBootstrapButtonGroupSize eSize)
   {
     addClasses (eType.getAllCSSClasses ());
     addClass (eSize);
@@ -76,8 +77,7 @@ public class BootstrapButtonGroup extends AbstractHCDiv <BootstrapButtonGroup>
   }
 
   /**
-   * Create a new button group with a default button and an additional drop down
-   * part.
+   * Create a new button group with a default button and an additional drop down part.
    *
    * @param aButton
    *        The button to be added. May not be <code>null</code>.
@@ -99,8 +99,7 @@ public class BootstrapButtonGroup extends AbstractHCDiv <BootstrapButtonGroup>
   }
 
   /**
-   * Create a new button group with a default button and an additional drop down
-   * part.
+   * Create a new button group with a default button and an additional drop down part.
    *
    * @param aButton
    *        The button to be added. May not be <code>null</code>.

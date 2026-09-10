@@ -58,7 +58,8 @@ public class BootstrapMenuItemRenderer extends AbstractMenuItemRenderer <HCUL>
   }
 
   @NonNull
-  public IHCNode renderSeparator (@NonNull final ISimpleWebExecutionContext aSWEC, @NonNull final IMenuSeparator aSeparator)
+  public IHCNode renderSeparator (@NonNull final ISimpleWebExecutionContext aSWEC,
+                                  @NonNull final IMenuSeparator aSeparator)
   {
     return new HCLI ().addClass (CBootstrapCSS.DIVIDER);
   }
@@ -201,8 +202,7 @@ public class BootstrapMenuItemRenderer extends AbstractMenuItemRenderer <HCUL>
                                                               FactoryNewInstance.create (HCUL.class),
                                                               aMenuTree.getRootItem (),
                                                               aRenderer,
-                                                              aAllDisplayMenuItemIDs)
-                                         .addClass (CBootstrapCSS.NAV);
+                                                              aAllDisplayMenuItemIDs).addClass (CBootstrapCSS.NAV);
     final BootstrapWell ret = new BootstrapWell (EBootstrapWellType.SMALL);
     ret.addChild (aUL);
     return ret;

@@ -26,7 +26,8 @@ import com.helger.photon.uicore.page.AbstractWebPage;
 import com.helger.photon.uicore.page.IWebPageExecutionContext;
 import com.helger.text.IMultilingualText;
 
-public abstract class AbstractBootstrapWebPage <WPECTYPE extends IWebPageExecutionContext> extends AbstractWebPage <WPECTYPE>
+public abstract class AbstractBootstrapWebPage <WPECTYPE extends IWebPageExecutionContext> extends
+                                               AbstractWebPage <WPECTYPE>
 {
   public AbstractBootstrapWebPage (@NonNull @Nonempty final String sID, @NonNull final String sName)
   {
@@ -38,7 +39,9 @@ public abstract class AbstractBootstrapWebPage <WPECTYPE extends IWebPageExecuti
     super (sID, aName, null);
   }
 
-  public AbstractBootstrapWebPage (@NonNull @Nonempty final String sID, @NonNull final String sName, @Nullable final String sDescription)
+  public AbstractBootstrapWebPage (@NonNull @Nonempty final String sID,
+                                   @NonNull final String sName,
+                                   @Nullable final String sDescription)
   {
     super (sID, getAsMLT (sName), getAsMLT (sDescription));
   }

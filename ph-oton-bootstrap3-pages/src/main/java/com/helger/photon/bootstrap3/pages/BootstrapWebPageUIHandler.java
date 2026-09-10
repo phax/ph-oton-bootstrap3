@@ -56,7 +56,8 @@ public class BootstrapWebPageUIHandler implements IWebPageFormUIHandler <Bootstr
 
   @Override
   @NonNull
-  public BootstrapForm createFormFileUploadSelf (@NonNull final ILayoutExecutionContext aLEC, final boolean bIsFormSubmitted)
+  public BootstrapForm createFormFileUploadSelf (@NonNull final ILayoutExecutionContext aLEC,
+                                                 final boolean bIsFormSubmitted)
   {
     return createFormSelf (aLEC, bIsFormSubmitted).setEncTypeFileUpload ();
   }
@@ -70,7 +71,8 @@ public class BootstrapWebPageUIHandler implements IWebPageFormUIHandler <Bootstr
 
   @Override
   @NonNull
-  public final BootstrapErrorBox createErrorBox (@NonNull final ILayoutExecutionContext aWPEC, @Nullable final String sErrorMsg)
+  public final BootstrapErrorBox createErrorBox (@NonNull final ILayoutExecutionContext aWPEC,
+                                                 @Nullable final String sErrorMsg)
   {
     return new BootstrapErrorBox ().addChild (sErrorMsg);
   }

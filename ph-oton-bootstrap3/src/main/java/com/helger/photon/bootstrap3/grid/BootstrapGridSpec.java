@@ -129,7 +129,11 @@ public final class BootstrapGridSpec implements Serializable
   @Override
   public String toString ()
   {
-    return new ToStringGenerator (this).append ("xs", m_eXS).append ("sm", m_eSM).append ("md", m_eMD).append ("lg", m_eLG).getToString ();
+    return new ToStringGenerator (this).append ("xs", m_eXS)
+                                       .append ("sm", m_eSM)
+                                       .append ("md", m_eMD)
+                                       .append ("lg", m_eLG)
+                                       .getToString ();
   }
 
   @NonNull
@@ -140,7 +144,10 @@ public final class BootstrapGridSpec implements Serializable
   }
 
   @NonNull
-  public static BootstrapGridSpec create (final int nPartsXS, final int nPartsSM, final int nPartsMD, final int nPartsLG)
+  public static BootstrapGridSpec create (final int nPartsXS,
+                                          final int nPartsSM,
+                                          final int nPartsMD,
+                                          final int nPartsLG)
   {
     return new BootstrapGridSpec (nPartsXS <= 0 ? null : EBootstrapGridXS.getFromParts (nPartsXS),
                                   nPartsSM <= 0 ? null : EBootstrapGridSM.getFromParts (nPartsSM),

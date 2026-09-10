@@ -31,12 +31,12 @@ import com.helger.url.ISimpleURL;
 import com.helger.url.SimpleURL;
 
 /**
- * Bootstrap3 button toolbar. Should only be used to group button groups and not
- * simple buttons.
+ * Bootstrap3 button toolbar. Should only be used to group button groups and not simple buttons.
  *
  * @author Philip Helger
  */
-public class BootstrapButtonToolbar extends AbstractHCDiv <BootstrapButtonToolbar> implements IButtonToolbar <BootstrapButtonToolbar>
+public class BootstrapButtonToolbar extends AbstractHCDiv <BootstrapButtonToolbar> implements
+                                    IButtonToolbar <BootstrapButtonToolbar>
 {
   private final SimpleURL m_aSelfHref;
 

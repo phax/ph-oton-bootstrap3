@@ -41,8 +41,7 @@ public abstract class AbstractBootstrapAlert <IMPLTYPE extends AbstractBootstrap
    */
   public static final String JS_EVENT_CLOSE = "close.bs.alert";
   /**
-   * This event is fired when the alert has been closed (will wait for CSS
-   * transitions to complete).
+   * This event is fired when the alert has been closed (will wait for CSS transitions to complete).
    */
   public static final String JS_EVENT_CLOSED = "closed.bs.alert";
 

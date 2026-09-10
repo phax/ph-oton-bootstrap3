@@ -58,7 +58,8 @@ import com.helger.text.util.TextHelper;
  * @param <WPECTYPE>
  *        Web Page Execution Context type
  */
-public class BasePageMonitoringStatistics <WPECTYPE extends IWebPageExecutionContext> extends AbstractBootstrapWebPage <WPECTYPE>
+public class BasePageMonitoringStatistics <WPECTYPE extends IWebPageExecutionContext> extends
+                                          AbstractBootstrapWebPage <WPECTYPE>
 {
   @Translatable
   protected enum EText implements IHasDisplayText
@@ -128,11 +129,14 @@ public class BasePageMonitoringStatistics <WPECTYPE extends IWebPageExecutionCon
 
     // Refresh button
     final BootstrapButtonToolbar aToolbar = new BootstrapButtonToolbar (aWPEC);
-    aToolbar.addButton (EPhotonCoreText.BUTTON_REFRESH.getDisplayText (aDisplayLocale), aWPEC.getSelfHref (), EDefaultIcon.REFRESH);
+    aToolbar.addButton (EPhotonCoreText.BUTTON_REFRESH.getDisplayText (aDisplayLocale),
+                        aWPEC.getSelfHref (),
+                        EDefaultIcon.REFRESH);
     aNodeList.addChild (aToolbar);
 
     // Table for timer
-    final HCTable aTableTimer = new HCTable (new DTCol (EText.MSG_NAME.getDisplayText (aDisplayLocale)).setDataSort (0, 1),
+    final HCTable aTableTimer = new HCTable (new DTCol (EText.MSG_NAME.getDisplayText (aDisplayLocale)).setDataSort (0,
+                                                                                                                     1),
                                              new DTCol (EText.MSG_KEY.getDisplayText (aDisplayLocale)),
                                              new DTCol (EText.MSG_INVOCATION.getDisplayText (aDisplayLocale)).setDisplayType (EDTColType.INT,
                                                                                                                               aDisplayLocale),
@@ -148,7 +152,8 @@ public class BasePageMonitoringStatistics <WPECTYPE extends IWebPageExecutionCon
                                                                                                                                                                "timer");
 
     // Table for size
-    final HCTable aTableSize = new HCTable (new DTCol (EText.MSG_NAME.getDisplayText (aDisplayLocale)).setDataSort (0, 1),
+    final HCTable aTableSize = new HCTable (new DTCol (EText.MSG_NAME.getDisplayText (aDisplayLocale)).setDataSort (0,
+                                                                                                                    1),
                                             new DTCol (EText.MSG_KEY.getDisplayText (aDisplayLocale)),
                                             new DTCol (EText.MSG_INVOCATION.getDisplayText (aDisplayLocale)).setDisplayType (EDTColType.INT,
                                                                                                                              aDisplayLocale)
@@ -164,7 +169,8 @@ public class BasePageMonitoringStatistics <WPECTYPE extends IWebPageExecutionCon
                                                                                                                                               "size");
 
     // Table for counter
-    final HCTable aTableCounter = new HCTable (new DTCol (EText.MSG_NAME.getDisplayText (aDisplayLocale)).setDataSort (0, 1),
+    final HCTable aTableCounter = new HCTable (new DTCol (EText.MSG_NAME.getDisplayText (aDisplayLocale)).setDataSort (0,
+                                                                                                                       1),
                                                new DTCol (EText.MSG_KEY.getDisplayText (aDisplayLocale)),
                                                new DTCol (EText.MSG_INVOCATION.getDisplayText (aDisplayLocale)).setDisplayType (EDTColType.INT,
                                                                                                                                 aDisplayLocale)
@@ -220,7 +226,10 @@ public class BasePageMonitoringStatistics <WPECTYPE extends IWebPageExecutionCon
       {
         if (aHandler.getInvocationCount () > 0)
           aTableCounter.addBodyRow ()
-                       .addCells (sName, "", Integer.toString (aHandler.getInvocationCount ()), Long.toString (aHandler.getCount ()));
+                       .addCells (sName,
+                                  "",
+                                  Integer.toString (aHandler.getInvocationCount ()),
+                                  Long.toString (aHandler.getCount ()));
       }
 
       @Override
@@ -278,7 +287,10 @@ public class BasePageMonitoringStatistics <WPECTYPE extends IWebPageExecutionCon
           final int nInvocationCount = aHandler.getInvocationCount (sKey);
           if (nInvocationCount > 0)
             aTableCounter.addBodyRow ()
-                         .addCells (sName, sKey, Integer.toString (nInvocationCount), Long.toString (aHandler.getCount (sKey)));
+                         .addCells (sName,
+                                    sKey,
+                                    Integer.toString (nInvocationCount),
+                                    Long.toString (aHandler.getCount (sKey)));
         }
       }
     });

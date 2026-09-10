@@ -25,8 +25,8 @@ import com.helger.html.hc.html.grouping.AbstractHCDiv;
 import com.helger.photon.bootstrap3.CBootstrapCSS;
 
 /**
- * Bootstrap responsive embed. Available from Bootstrap 3.2.0 on. It works with
- * {@link HCObject}, {@link HCIFrame} and {@link HCEmbed}.
+ * Bootstrap responsive embed. Available from Bootstrap 3.2.0 on. It works with {@link HCObject},
+ * {@link HCIFrame} and {@link HCEmbed}.
  *
  * @author Philip Helger
  */

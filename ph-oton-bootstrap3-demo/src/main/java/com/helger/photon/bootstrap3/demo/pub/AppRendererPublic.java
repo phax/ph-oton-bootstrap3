@@ -190,8 +190,8 @@ public final class AppRendererPublic
                                                                   sHttpStatusMessage +
                                                                   ")" +
                                                                   (StringHelper.isNotEmpty (sHttpRequestURI) ? " for request URI " +
-                                                                                                            sHttpRequestURI
-                                                                                                          : "")));
+                                                                                                               sHttpRequestURI
+                                                                                                             : "")));
     }
     else
     {

@@ -22,8 +22,8 @@ import com.helger.html.hc.impl.HCTextNode;
 import com.helger.photon.bootstrap3.CBootstrapCSS;
 
 /**
- * Represents a caret symbol (e.g. for dropdowns) as the combination of a space
- * (" ") and the span with class=caret
+ * Represents a caret symbol (e.g. for dropdowns) as the combination of a space (" ") and the span
+ * with class=caret
  *
  * @author Philip Helger
  */

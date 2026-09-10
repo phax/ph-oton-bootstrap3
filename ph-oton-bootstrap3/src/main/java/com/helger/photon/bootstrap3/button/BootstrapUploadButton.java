@@ -33,11 +33,10 @@ import com.helger.html.jscode.JSExpr;
 import com.helger.photon.bootstrap3.CBootstrapCSS;
 
 /**
- * A special upload button, that hides the browser differences in a nice way.
- * Important that this is a DIV and not a button, so that the click event is
- * propagated to the contained nested input element<br>
- * Source:
- * http://geniuscarrier.com/how-to-style-a-html-file-upload-button-in-pure-css/
+ * A special upload button, that hides the browser differences in a nice way. Important that this is
+ * a DIV and not a button, so that the click event is propagated to the contained nested input
+ * element<br>
+ * Source: http://geniuscarrier.com/how-to-style-a-html-file-upload-button-in-pure-css/
  *
  * @author Philip Helger
  */
@@ -75,8 +74,8 @@ public class BootstrapUploadButton extends AbstractHCDiv <BootstrapUploadButton>
   }
 
   /**
-   * Create a read only edit that contains the value of the selected file. It
-   * can be placed anywhere in the DOM.
+   * Create a read only edit that contains the value of the selected file. It can be placed anywhere
+   * in the DOM.
    *
    * @param sPlaceholder
    *        The placeholder text to be used if no file is selected.

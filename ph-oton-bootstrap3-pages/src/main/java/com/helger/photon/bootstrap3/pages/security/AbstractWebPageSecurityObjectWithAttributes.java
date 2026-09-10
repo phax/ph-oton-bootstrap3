@@ -43,13 +43,15 @@ public abstract class AbstractWebPageSecurityObjectWithAttributes <DATATYPE exte
     setObjectLockingEnabled (true);
   }
 
-  public AbstractWebPageSecurityObjectWithAttributes (@NonNull @Nonempty final String sID, @NonNull @Nonempty final String sName)
+  public AbstractWebPageSecurityObjectWithAttributes (@NonNull @Nonempty final String sID,
+                                                      @NonNull @Nonempty final String sName)
   {
     super (sID, sName);
     _initSowa ();
   }
 
-  public AbstractWebPageSecurityObjectWithAttributes (@NonNull @Nonempty final String sID, @NonNull final IMultilingualText aName)
+  public AbstractWebPageSecurityObjectWithAttributes (@NonNull @Nonempty final String sID,
+                                                      @NonNull final IMultilingualText aName)
   {
     super (sID, aName);
     _initSowa ();
@@ -86,21 +88,19 @@ public abstract class AbstractWebPageSecurityObjectWithAttributes <DATATYPE exte
   {}
 
   /**
-   * Callback for manually extracting custom attributes. This method is called
-   * independently if custom attributes are present or not.
+   * Callback for manually extracting custom attributes. This method is called independently if
+   * custom attributes are present or not.
    *
    * @param aWPEC
    *        The current web page execution context. Never <code>null</code>.
    * @param aSelectedObject
    *        The object currently shown. Never <code>null</code>.
    * @param aCustomAttrs
-   *        The available custom attributes. Never <code>null</code> but maybe
-   *        empty.
+   *        The available custom attributes. Never <code>null</code> but maybe empty.
    * @param aViewForm
    *        The table to be add custom information
-   * @return A set of all attribute names that were handled in this method or
-   *         <code>null</code>. All attributes handled in this method will not
-   *         be displayed generically.
+   * @return A set of all attribute names that were handled in this method or <code>null</code>. All
+   *         attributes handled in this method will not be displayed generically.
    */
   @Nullable
   @OverrideOnDemand
@@ -137,8 +137,8 @@ public abstract class AbstractWebPageSecurityObjectWithAttributes <DATATYPE exte
    *        The form errors to be filled. Never <code>null</code>.
    * @param eFormAction
    *        The form action mode. Either create, copy or edit.
-   * @return The custom parameter to be added to the used upon success. If an
-   *         error occurred, this map may be <code>null</code>.
+   * @return The custom parameter to be added to the used upon success. If an error occurred, this
+   *         map may be <code>null</code>.
    */
   @OverrideOnDemand
   @Nullable
@@ -156,16 +156,14 @@ public abstract class AbstractWebPageSecurityObjectWithAttributes <DATATYPE exte
    * @param aWPEC
    *        The web page execution context. Never <code>null</code>.
    * @param aSelectedObject
-   *        The currently selected object. May be <code>null</code> for newly
-   *        created objects.
+   *        The currently selected object. May be <code>null</code> for newly created objects.
    * @param aForm
-   *        The parent form. Use this as parent and not the node list from the
-   *        web page execution context! Never <code>null</code>.
+   *        The parent form. Use this as parent and not the node list from the web page execution
+   *        context! Never <code>null</code>.
    * @param eFormAction
    *        The form action in use. Either create, copy or edit.
    * @param aFormErrors
-   *        Previous errors from validation. Never <code>null</code> but maybe
-   *        empty.
+   *        Previous errors from validation. Never <code>null</code> but maybe empty.
    */
   @OverrideOnDemand
   protected void onShowInputFormEnd (@NonNull final WPECTYPE aWPEC,

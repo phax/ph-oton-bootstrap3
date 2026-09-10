@@ -489,8 +489,7 @@ public class BasePageSecurityUserManagement <WPECTYPE extends IWebPageExecutionC
                                                      .setCtrl (EPhotonCoreText.getYesOrNo (aSelectedObject.isDeleted (),
                                                                                            aDisplayLocale)));
     aViewForm.addFormGroup (new BootstrapFormGroup ().setLabel (EText.LABEL_LAST_LOGIN.getDisplayText (aDisplayLocale))
-                                                     .setCtrl (aSelectedObject.getLastLoginDateTime () != null
-                                                                                                               ? new HCTextNode (PDTToString.getAsString (aSelectedObject.getLastLoginDateTime (),
+                                                     .setCtrl (aSelectedObject.getLastLoginDateTime () != null ? new HCTextNode (PDTToString.getAsString (aSelectedObject.getLastLoginDateTime (),
                                                                                                                                                           aDisplayLocale))
                                                                                                                : new HCEM ().addChild (EText.LABEL_LAST_LOGIN_NEVER.getDisplayText (aDisplayLocale))));
     aViewForm.addFormGroup (new BootstrapFormGroup ().setLabel (EText.LABEL_LOGIN_COUNT.getDisplayText (aDisplayLocale))
@@ -756,8 +755,7 @@ public class BasePageSecurityUserManagement <WPECTYPE extends IWebPageExecutionC
       final String sLoginName = EText.LABEL_LOGINNAME.getDisplayText (aDisplayLocale);
       aForm.addFormGroup (new BootstrapFormGroup ().setLabelMandatory (sLoginName)
                                                    .setCtrl (new HCEdit (new RequestField (FIELD_LOGINNAME,
-                                                                                           aSelectedObject == null
-                                                                                                                   ? null
+                                                                                           aSelectedObject == null ? null
                                                                                                                    : aSelectedObject.getLoginName ())).setPlaceholder (sLoginName))
                                                    .setErrorList (aFormErrors.getListOfField (FIELD_LOGINNAME)));
     }
@@ -766,8 +764,7 @@ public class BasePageSecurityUserManagement <WPECTYPE extends IWebPageExecutionC
       final String sFirstName = EText.LABEL_FIRSTNAME.getDisplayText (aDisplayLocale);
       aForm.addFormGroup (new BootstrapFormGroup ().setLabel (sFirstName)
                                                    .setCtrl (new HCEdit (new RequestField (FIELD_FIRSTNAME,
-                                                                                           aSelectedObject == null
-                                                                                                                   ? null
+                                                                                           aSelectedObject == null ? null
                                                                                                                    : aSelectedObject.getFirstName ())).setPlaceholder (sFirstName)
                                                                                                                                                       .setAutoFocus (eFormAction.isCreate ()))
                                                    .setErrorList (aFormErrors.getListOfField (FIELD_FIRSTNAME)));
@@ -779,8 +776,7 @@ public class BasePageSecurityUserManagement <WPECTYPE extends IWebPageExecutionC
                                                               isLastNameMandatory () ? ELabelType.MANDATORY
                                                                                      : ELabelType.OPTIONAL)
                                                    .setCtrl (new HCEdit (new RequestField (FIELD_LASTNAME,
-                                                                                           aSelectedObject == null
-                                                                                                                   ? null
+                                                                                           aSelectedObject == null ? null
                                                                                                                    : aSelectedObject.getLastName ())).setPlaceholder (sLastName))
                                                    .setErrorList (aFormErrors.getListOfField (FIELD_LASTNAME)));
     }
@@ -791,8 +787,7 @@ public class BasePageSecurityUserManagement <WPECTYPE extends IWebPageExecutionC
                                                               isEmailMandatory () ? ELabelType.MANDATORY
                                                                                   : ELabelType.OPTIONAL)
                                                    .setCtrl (new HCEdit (new RequestField (FIELD_EMAILADDRESS,
-                                                                                           aSelectedObject == null
-                                                                                                                   ? null
+                                                                                           aSelectedObject == null ? null
                                                                                                                    : aSelectedObject.getEmailAddress ())).setPlaceholder (sEmail))
                                                    .setErrorList (aFormErrors.getListOfField (FIELD_EMAILADDRESS)));
     }
@@ -830,9 +825,8 @@ public class BasePageSecurityUserManagement <WPECTYPE extends IWebPageExecutionC
     {
       aForm.addFormGroup (new BootstrapFormGroup ().setLabelMandatory (EText.LABEL_ENABLED.getDisplayText (aDisplayLocale))
                                                    .setCtrl (new HCCheckBox (new RequestFieldBoolean (FIELD_ENABLED,
-                                                                                                      aSelectedObject ==
-                                                                                                                     null ? DEFAULT_USER_ENABLED
-                                                                                                                          : aSelectedObject.isEnabled ())))
+                                                                                                      aSelectedObject == null ? DEFAULT_USER_ENABLED
+                                                                                                                              : aSelectedObject.isEnabled ())))
                                                    .setErrorList (aFormErrors.getListOfField (FIELD_ENABLED)));
     }
 
@@ -841,8 +835,7 @@ public class BasePageSecurityUserManagement <WPECTYPE extends IWebPageExecutionC
       final String sDescription = EText.LABEL_DESCRIPTION.getDisplayText (aDisplayLocale);
       aForm.addFormGroup (new BootstrapFormGroup ().setLabel (sDescription)
                                                    .setCtrl (new HCTextAreaAutosize (new RequestField (FIELD_DESCRIPTION,
-                                                                                                       aSelectedObject ==
-                                                                                                                          null ? null
+                                                                                                       aSelectedObject == null ? null
                                                                                                                                : aSelectedObject.getDescription ())).setPlaceholder (sDescription))
                                                    .setErrorList (aFormErrors.getListOfField (FIELD_DESCRIPTION)));
     }

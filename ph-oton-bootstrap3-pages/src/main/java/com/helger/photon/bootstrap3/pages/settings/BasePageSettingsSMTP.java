@@ -390,8 +390,8 @@ public class BasePageSettingsSMTP <WPECTYPE extends IWebPageExecutionContext> ex
                                                  .setCtrl (aSettings.getUserName ()));
 
     aForm.addFormGroup (new BootstrapFormGroup ().setLabel (EText.LABEL_PASSWORD.getDisplayText (aDisplayLocale))
-                                                 .setCtrl (aSettings.hasPassword () ? "***" : EText.MSG_NO_PASSWORD_SET
-                                                                                                                       .getDisplayText (aDisplayLocale)));
+                                                 .setCtrl (aSettings.hasPassword () ? "***"
+                                                                                    : EText.MSG_NO_PASSWORD_SET.getDisplayText (aDisplayLocale)));
 
     aForm.addFormGroup (new BootstrapFormGroup ().setLabel (EText.LABEL_CHARSET.getDisplayText (aDisplayLocale))
                                                  .setCtrl (aSettings.getCharsetName ()));
@@ -511,8 +511,7 @@ public class BasePageSettingsSMTP <WPECTYPE extends IWebPageExecutionContext> ex
       final String sName = EText.LABEL_NAME.getDisplayText (aDisplayLocale);
       aForm.addFormGroup (new BootstrapFormGroup ().setLabelMandatory (sName)
                                                    .setCtrl (new HCEdit (new RequestField (FIELD_NAME,
-                                                                                           aSelectedObject == null
-                                                                                                                   ? null
+                                                                                           aSelectedObject == null ? null
                                                                                                                    : aSelectedObject.getName ())).setPlaceholder (sName))
                                                    .setErrorList (aFormErrors.getListOfField (FIELD_NAME)));
     }
@@ -531,8 +530,7 @@ public class BasePageSettingsSMTP <WPECTYPE extends IWebPageExecutionContext> ex
       final String sPort = EText.LABEL_PORT.getDisplayText (aDisplayLocale);
       aForm.addFormGroup (new BootstrapFormGroup ().setLabelMandatory (sPort)
                                                    .setCtrl (new HCAutoNumericInt (new RequestField (FIELD_PORT,
-                                                                                                     aSettings !=
-                                                                                                                 null &&
+                                                                                                     aSettings != null &&
                                                                                                                  aSettings.hasPort () ? Integer.toString (aSettings.getPort ())
                                                                                                                                       : ""),
                                                                                    aDisplayLocale).setMin (CNetworkPort.MINIMUM_PORT_NUMBER)
@@ -561,8 +559,7 @@ public class BasePageSettingsSMTP <WPECTYPE extends IWebPageExecutionContext> ex
       final String sCharset = EText.LABEL_CHARSET.getDisplayText (aDisplayLocale);
       aForm.addFormGroup (new BootstrapFormGroup ().setLabelMandatory (sCharset)
                                                    .setCtrl (new HCCharsetSelect (new RequestField (FIELD_CHARSET,
-                                                                                                    aSettings == null
-                                                                                                                      ? DEFAULT_CHARSET_NAME
+                                                                                                    aSettings == null ? DEFAULT_CHARSET_NAME
                                                                                                                       : aSettings.getCharsetName ()),
                                                                                   true,
                                                                                   aDisplayLocale))
@@ -573,8 +570,7 @@ public class BasePageSettingsSMTP <WPECTYPE extends IWebPageExecutionContext> ex
       final String sSSL = EText.LABEL_SSL.getDisplayText (aDisplayLocale);
       aForm.addFormGroup (new BootstrapFormGroup ().setLabel (sSSL)
                                                    .setCtrl (new HCCheckBox (new RequestFieldBoolean (FIELD_SSL,
-                                                                                                      aSettings == null
-                                                                                                                        ? EmailGlobalSettings.isUseSSL ()
+                                                                                                      aSettings == null ? EmailGlobalSettings.isUseSSL ()
                                                                                                                         : aSettings.isSSLEnabled ())))
                                                    .setErrorList (aFormErrors.getListOfField (FIELD_SSL)));
     }
@@ -583,8 +579,7 @@ public class BasePageSettingsSMTP <WPECTYPE extends IWebPageExecutionContext> ex
       final String sSTARTTLS = EText.LABEL_STARTTLS.getDisplayText (aDisplayLocale);
       aForm.addFormGroup (new BootstrapFormGroup ().setLabel (sSTARTTLS)
                                                    .setCtrl (new HCCheckBox (new RequestFieldBoolean (FIELD_STARTTLS,
-                                                                                                      aSettings == null
-                                                                                                                        ? EmailGlobalSettings.isUseSTARTTLS ()
+                                                                                                      aSettings == null ? EmailGlobalSettings.isUseSTARTTLS ()
                                                                                                                         : aSettings.isSTARTTLSEnabled ())))
                                                    .setErrorList (aFormErrors.getListOfField (FIELD_STARTTLS)));
     }
@@ -593,8 +588,7 @@ public class BasePageSettingsSMTP <WPECTYPE extends IWebPageExecutionContext> ex
       final String sConnectionTimeout = EText.LABEL_CONNECTION_TIMEOUT.getDisplayText (aDisplayLocale);
       aForm.addFormGroup (new BootstrapFormGroup ().setLabelMandatory (sConnectionTimeout)
                                                    .setCtrl (new HCAutoNumericInt (new RequestField (FIELD_CONNECTION_TIMEOUT,
-                                                                                                     aSettings == null
-                                                                                                                       ? EmailGlobalSettings.getConnectionTimeoutMilliSecs ()
+                                                                                                     aSettings == null ? EmailGlobalSettings.getConnectionTimeoutMilliSecs ()
                                                                                                                        : aSettings.getConnectionTimeoutMilliSecs ()),
                                                                                    aDisplayLocale).setMin (0)
                                                                                                   .setThousandSeparator (""))
@@ -605,8 +599,7 @@ public class BasePageSettingsSMTP <WPECTYPE extends IWebPageExecutionContext> ex
       final String sSocketTimeout = EText.LABEL_SOCKET_TIMEOUT.getDisplayText (aDisplayLocale);
       aForm.addFormGroup (new BootstrapFormGroup ().setLabelMandatory (sSocketTimeout)
                                                    .setCtrl (new HCAutoNumericInt (new RequestField (FIELD_SOCKET_TIMEOUT,
-                                                                                                     aSettings == null
-                                                                                                                       ? EmailGlobalSettings.getTimeoutMilliSecs ()
+                                                                                                     aSettings == null ? EmailGlobalSettings.getTimeoutMilliSecs ()
                                                                                                                        : aSettings.getTimeoutMilliSecs ()),
                                                                                    aDisplayLocale).setMin (0)
                                                                                                   .setThousandSeparator (""))
@@ -617,8 +610,7 @@ public class BasePageSettingsSMTP <WPECTYPE extends IWebPageExecutionContext> ex
       final String sDebugSMTP = EText.LABEL_DEBUG_SMTP.getDisplayText (aDisplayLocale);
       aForm.addFormGroup (new BootstrapFormGroup ().setLabel (sDebugSMTP)
                                                    .setCtrl (new HCCheckBox (new RequestFieldBoolean (FIELD_DEBUG_SMTP,
-                                                                                                      aSettings == null
-                                                                                                                        ? EmailGlobalSettings.isDebugSMTP ()
+                                                                                                      aSettings == null ? EmailGlobalSettings.isDebugSMTP ()
                                                                                                                         : aSettings.isDebugSMTP ())))
                                                    .setErrorList (aFormErrors.getListOfField (FIELD_DEBUG_SMTP)));
     }

@@ -49,7 +49,8 @@ import com.helger.text.util.TextHelper;
  * @param <WPECTYPE>
  *        Web Page Execution Context type
  */
-public class BasePageSettingsHTML <WPECTYPE extends IWebPageExecutionContext> extends AbstractBootstrapWebPage <WPECTYPE>
+public class BasePageSettingsHTML <WPECTYPE extends IWebPageExecutionContext> extends
+                                  AbstractBootstrapWebPage <WPECTYPE>
 {
   @Translatable
   protected enum EText implements IHasDisplayText
@@ -60,7 +61,8 @@ public class BasePageSettingsHTML <WPECTYPE extends IWebPageExecutionContext> ex
     MSG_FORMAT_JS ("JS formatieren?", "Format JS?"),
     MSG_CONSISTENCY_CHECKS_ENABLED ("Konsistenzprüfungen aktiv?", "Consistency checks enabled?"),
     MSG_EXTRACT_OUT_OF_BAND_NODES ("Out-of-band Knoten extrahieren?", "Extract out-of-band nodes?"),
-    MSG_AUTO_COMPLETE_FOR_PASSWORD_EDITS ("Auto-Vervollständigung für Passwort-Felder?", "Auto complete for password fields?"),
+    MSG_AUTO_COMPLETE_FOR_PASSWORD_EDITS ("Auto-Vervollständigung für Passwort-Felder?",
+                                          "Auto complete for password fields?"),
     MSG_ON_DOCUMENT_READY_PROVIDER ("JavaScript document.ready Ersteller", "JavaScript document.ready provider"),
     MSG_SCRIPT_INLINE_MODE ("<script> Modus", "<script> mode"),
     MSG_STYLE_INLINE_MODE ("<style> Modus", "<style> mode"),
@@ -105,7 +107,9 @@ public class BasePageSettingsHTML <WPECTYPE extends IWebPageExecutionContext> ex
     super (sID, sName);
   }
 
-  public BasePageSettingsHTML (@NonNull @Nonempty final String sID, @NonNull final String sName, @Nullable final String sDescription)
+  public BasePageSettingsHTML (@NonNull @Nonempty final String sID,
+                               @NonNull final String sName,
+                               @Nullable final String sDescription)
   {
     super (sID, sName, sDescription);
   }
@@ -129,12 +133,17 @@ public class BasePageSettingsHTML <WPECTYPE extends IWebPageExecutionContext> ex
       // Save changes
       final boolean bFormatHTML = aWPEC.params ()
                                        .isCheckBoxChecked (FIELD_FORMAT_HTML,
-                                                           aConversionSettings.getXMLWriterSettings ().getIndent ().isIndent ());
+                                                           aConversionSettings.getXMLWriterSettings ()
+                                                                              .getIndent ()
+                                                                              .isIndent ());
       final boolean bFormatCSS = aWPEC.params ()
                                       .isCheckBoxChecked (FIELD_FORMAT_CSS,
-                                                          !aConversionSettings.getCSSWriterSettings ().isOptimizedOutput ());
+                                                          !aConversionSettings.getCSSWriterSettings ()
+                                                                              .isOptimizedOutput ());
       final boolean bFormatJS = aWPEC.params ()
-                                     .isCheckBoxChecked (FIELD_FORMAT_JS, aConversionSettings.getJSWriterSettings ().isIndentAndAlign ());
+                                     .isCheckBoxChecked (FIELD_FORMAT_JS,
+                                                         aConversionSettings.getJSWriterSettings ()
+                                                                            .isIndentAndAlign ());
       final boolean bConsistencyChecksEnabled = aWPEC.params ()
                                                      .isCheckBoxChecked (FIELD_CONSISTENCY_CHECKS_ENABLED,
                                                                          aConversionSettings.areConsistencyChecksEnabled ());
@@ -144,10 +153,14 @@ public class BasePageSettingsHTML <WPECTYPE extends IWebPageExecutionContext> ex
       final boolean bAutoCompleteForPasswordEdits = aWPEC.params ()
                                                          .isCheckBoxChecked (FIELD_AUTO_COMPLETE_FOR_PASSWORD_EDITS,
                                                                              !HCSettings.isAutoCompleteOffForPasswordEdits ());
-      final boolean bOOBDebug = aWPEC.params ().isCheckBoxChecked (FIELD_OUT_OF_BAND_DEBUG, HCSettings.isOutOfBandDebuggingEnabled ());
-      final boolean bScriptsInBody = aWPEC.params ().isCheckBoxChecked (FIELD_SCRIPTS_IN_BODY, HCSettings.isScriptsInBody ());
+      final boolean bOOBDebug = aWPEC.params ()
+                                     .isCheckBoxChecked (FIELD_OUT_OF_BAND_DEBUG,
+                                                         HCSettings.isOutOfBandDebuggingEnabled ());
+      final boolean bScriptsInBody = aWPEC.params ()
+                                          .isCheckBoxChecked (FIELD_SCRIPTS_IN_BODY, HCSettings.isScriptsInBody ());
       final boolean bUseRegularResources = aWPEC.params ()
-                                                .isCheckBoxChecked (FIELD_USE_REGULAR_RESOURCES, HCSettings.isUseRegularResources ());
+                                                .isCheckBoxChecked (FIELD_USE_REGULAR_RESOURCES,
+                                                                    HCSettings.isUseRegularResources ());
 
       // Apply the settings
       HCSettings.getMutableConversionSettings ()

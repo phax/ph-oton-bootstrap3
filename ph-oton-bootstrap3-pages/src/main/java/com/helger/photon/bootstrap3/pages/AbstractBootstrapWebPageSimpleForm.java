@@ -31,9 +31,8 @@ import com.helger.photon.uicore.page.IWebPageExecutionContext;
 import com.helger.text.IMultilingualText;
 
 /**
- * Abstract base class for a web page that has the common form handling, with a
- * details view and an edit binding. Use this page when showing and editing a
- * single object like global settings.
+ * Abstract base class for a web page that has the common form handling, with a details view and an
+ * edit binding. Use this page when showing and editing a single object like global settings.
  *
  * @author Philip Helger
  * @param <DATATYPE>
@@ -51,7 +50,8 @@ public abstract class AbstractBootstrapWebPageSimpleForm <DATATYPE extends IHasI
     super (sID, getAsMLT (sName), null, BootstrapWebPageUIHandler.INSTANCE);
   }
 
-  public AbstractBootstrapWebPageSimpleForm (@NonNull @Nonempty final String sID, @NonNull final IMultilingualText aName)
+  public AbstractBootstrapWebPageSimpleForm (@NonNull @Nonempty final String sID,
+                                             @NonNull final IMultilingualText aName)
   {
     super (sID, aName, null, BootstrapWebPageUIHandler.INSTANCE);
   }

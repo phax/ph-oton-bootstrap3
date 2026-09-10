@@ -31,23 +31,22 @@ public class BootstrapPopover
    */
   public static final String JS_EVENT_SHOW = "show.bs.popover";
   /**
-   * This event is fired when the popover has been made visible to the user
-   * (will wait for CSS transitions to complete).
+   * This event is fired when the popover has been made visible to the user (will wait for CSS
+   * transitions to complete).
    */
   public static final String JS_EVENT_SHOWN = "shown.bs.popover";
   /**
-   * This event is fired immediately when the hide instance method has been
-   * called.
+   * This event is fired immediately when the hide instance method has been called.
    */
   public static final String JS_EVENT_HIDE = "hide.bs.popover";
   /**
-   * This event is fired when the popover has finished being hidden from the
-   * user (will wait for CSS transitions to complete).
+   * This event is fired when the popover has finished being hidden from the user (will wait for CSS
+   * transitions to complete).
    */
   public static final String JS_EVENT_HIDDEN = "hidden.bs.popover";
   /**
-   * This event is fired after the show.bs.popover event when the popover
-   * template has been added to the DOM.
+   * This event is fired after the show.bs.popover event when the popover template has been added to
+   * the DOM.
    */
   public static final String JS_EVENT_INSERTED = "inserted.bs.popover";
 

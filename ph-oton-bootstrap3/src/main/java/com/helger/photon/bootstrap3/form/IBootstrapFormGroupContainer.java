@@ -29,38 +29,35 @@ import com.helger.photon.bootstrap3.grid.BootstrapGridSpec;
 public interface IBootstrapFormGroupContainer
 {
   /**
-   * @return The form type for aligning the form groups. Never <code>null</code>
-   *         .
+   * @return The form type for aligning the form groups. Never <code>null</code> .
    */
   @NonNull
   EBootstrapFormType getFormType ();
 
   /**
-   * @return The left parts. Always &ge; 1 and &le; CBootstrap.GRID_SYSTEM_MAX.
-   *         Never <code>null</code>.
+   * @return The left parts. Always &ge; 1 and &le; CBootstrap.GRID_SYSTEM_MAX. Never
+   *         <code>null</code>.
    */
   @NonNull
   BootstrapGridSpec getLeft ();
 
   /**
-   * @return The right parts. Always
-   *         <code>CBootstrap.GRID_SYSTEM_MAX - getLeft ()</code> except left is
-   *         <code>CBootstrap.GRID_SYSTEM_MAX</code> than right is also
+   * @return The right parts. Always <code>CBootstrap.GRID_SYSTEM_MAX - getLeft ()</code> except
+   *         left is <code>CBootstrap.GRID_SYSTEM_MAX</code> than right is also
    *         <code>CBootstrap.GRID_SYSTEM_MAX</code>. Never <code>null</code>.
    */
   @NonNull
   BootstrapGridSpec getRight ();
 
   /**
-   * @return The renderer used to convert form groups into HC nodes. Never
-   *         <code>null</code>.
+   * @return The renderer used to convert form groups into HC nodes. Never <code>null</code>.
    */
   @NonNull
   IBootstrapFormGroupRenderer getFormGroupRenderer ();
 
   /**
-   * Get the rendered form group based on the contained form group renderer. The
-   * form group is NOT added to this container!
+   * Get the rendered form group based on the contained form group renderer. The form group is NOT
+   * added to this container!
    *
    * @param aFormGroup
    *        The form group to be rendered. May not be <code>null</code>.

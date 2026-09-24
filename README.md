@@ -60,6 +60,7 @@ See the submodule `ph-oton-bootstrap3-demo` for a working example project with B
 
 v10.2.2 - work in progress
 * Updated to ph-oton 10.5.0
+* The module `ph-oton-bootstrap3-demo` is no longer published to Maven Central
 
 v10.2.1 - 2026-08-30
 * Updated to ph-oton 10.4.0 - contains DataTables 3.0.2 and the current plugin versions

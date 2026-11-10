@@ -59,7 +59,10 @@ See the submodule `ph-oton-bootstrap3-demo` for a working example project with B
 ## News and noteworthy
 
 v10.2.2 - work in progress
-* Updated to ph-oton 10.5.0
+* Requires at least ph-oton 10.8.0
+* **Incompatible change**: `BootstrapPagesMenuConfigurator.addAppInfoItems`, the constructors of `BasePageAppInfoWebSiteResourceBundles` and its method `getResBundleMgr ()` now use `IWebSiteResourceBundleManager` instead of `WebSiteResourceBundleManager`.
+  This is source compatible but requires a recompilation.
+  See [phax/ph-oton#59](https://github.com/phax/ph-oton/issues/59)
 * The module `ph-oton-bootstrap3-demo` is no longer published to Maven Central
 
 v10.2.1 - 2026-08-30

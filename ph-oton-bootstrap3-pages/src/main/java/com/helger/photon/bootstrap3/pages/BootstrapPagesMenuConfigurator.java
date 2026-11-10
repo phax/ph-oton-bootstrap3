@@ -23,7 +23,7 @@ import org.jspecify.annotations.Nullable;
 
 import com.helger.annotation.concurrent.Immutable;
 import com.helger.photon.app.PhotonAppManager;
-import com.helger.photon.app.resource.WebSiteResourceBundleManager;
+import com.helger.photon.app.resource.IWebSiteResourceBundleManager;
 import com.helger.photon.audit.IAuditManager;
 import com.helger.photon.bootstrap3.pages.appinfo.BasePageAppInfoAPI;
 import com.helger.photon.bootstrap3.pages.appinfo.BasePageAppInfoAjaxFunctions;
@@ -264,7 +264,7 @@ public final class BootstrapPagesMenuConfigurator
                                                @NonNull final IMenuItem aParent,
                                                @Nullable final IMenuObjectFilter aDisplayFilter,
                                                @Nullable final GoMappingManager aGoMappingMgr,
-                                               @Nullable final WebSiteResourceBundleManager aResBundleMgr)
+                                               @Nullable final IWebSiteResourceBundleManager aResBundleMgr)
   {
     final IMenuItemPage aAdminAppInfo = aMenuTree.createItem (aParent,
                                                               new BasePageShowChildren <> (MENU_ADMIN_APPINFO,

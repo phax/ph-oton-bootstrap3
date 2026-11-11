@@ -33,11 +33,13 @@ import com.helger.base.version.Version;
 @IsSPIImplementation
 public final class ThirdPartyModuleProvider_ph_oton_bootstrap3_uictrls implements IThirdPartyModuleProviderSPI
 {
-  public static final IThirdPartyModule BOOTSTRAP_DATETIME_PICKER = new ThirdPartyModule ("Bootstrap Datetime Picker",
-                                                                                          "Sebastian Malot",
-                                                                                          ELicense.APACHE2,
-                                                                                          new Version (2, 4, 4),
-                                                                                          "http://www.malot.fr/bootstrap-datetimepicker/index.php");
+  public static final IThirdPartyModule BOOTSTRAP_DATETIME_PICKER = ThirdPartyModule.builder ()
+                                                                                    .displayName ("Bootstrap Datetime Picker")
+                                                                                    .copyrightOwner ("Sebastian Malot")
+                                                                                    .license (ELicense.APACHE2)
+                                                                                    .version (new Version (2, 4, 4))
+                                                                                    .copyrightOwner ("http://www.malot.fr/bootstrap-datetimepicker/index.php")
+                                                                                    .build ();
 
   @Nullable
   public IThirdPartyModule [] getAllThirdPartyModules ()

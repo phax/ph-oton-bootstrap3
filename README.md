@@ -10,6 +10,7 @@
 This set of Java libraries forms a package to build Java web applications.
 
 Contained subprojects are:
+* ph-oton-bootstrap3-bom - the BOM with all ph-oton-bootstrap3 artifacts
 * ph-oton-bootstrap3 - Java Wrapper for the Bootstrap 3.x controls
 * ph-oton-bootstrap3-uictrls - special UI controls for Bootstrap 3
 * ph-oton-bootstrap3-pages - predefined UI pages with Bootstrap 3 styling
@@ -32,7 +33,7 @@ Replace `x.y.z` with the effective version number.
     <dependencies>
       <dependency>
         <groupId>com.helger.photon</groupId>
-        <artifactId>ph-oton-bootstrap3-parent-pom</artifactId>
+        <artifactId>ph-oton-bootstrap3-bom</artifactId>
         <version>x.y.z</version>
         <type>pom</type>
         <scope>import</scope>
@@ -40,6 +41,8 @@ Replace `x.y.z` with the effective version number.
     </dependencies>
   </dependencyManagement>
 ```
+
+Note: prior to v10.2.3 there was no dedicated BOM and `ph-oton-bootstrap3-parent-pom` had to be imported instead.
 
 ### Bootstrap 3
 
@@ -58,7 +61,11 @@ See the submodule `ph-oton-bootstrap3-demo` for a working example project with B
 
 ## News and noteworthy
 
-v10.2.2 - 2026-11-1
+v10.2.3 - 2026-11-14
+* Added the new BOM artifact `ph-oton-bootstrap3-bom` that contains only the ph-oton-bootstrap3 artifacts.
+  It should be used instead of `ph-oton-bootstrap3-parent-pom` for importing.
+
+v10.2.2 - 2026-11-11
 * Requires at least ph-oton 10.8.0
 * Requires at least ph-commons 12.6.0
 * **Incompatible change**: `BootstrapPagesMenuConfigurator.addAppInfoItems`, the constructors of `BasePageAppInfoWebSiteResourceBundles` and its method `getResBundleMgr ()` now use `IWebSiteResourceBundleManager` instead of `WebSiteResourceBundleManager`.
